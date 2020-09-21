@@ -109,6 +109,7 @@ in {
         workbench.iconTheme = "vscode-icons";
         window.menuBarVisibility = "toggle";
         git.enableSmartCommit = true;
+        git.autofetch = true;
       };
     };
 
