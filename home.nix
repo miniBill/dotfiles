@@ -118,6 +118,9 @@ in {
     zsh = {
       enable = true;
       oh-my-zsh.enable = true;
+      sessionVariables = {
+        EDITOR = "vim";
+      };
     };
 
     home-manager.enable = true;
