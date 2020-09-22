@@ -23,9 +23,7 @@ in {
     vscode = {
       enable = true;
       package = unstable.vscode;
-      extensions = with unstable.vscode-extensions; [
-      ]
-      ++ unstable.vscode-utils.extensionsFromVscodeMarketplace [
+      extensions = unstable.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "bracket-pair-colorizer-2";
           publisher = "CoenraadS";
@@ -98,6 +96,18 @@ in {
           version = "0.5.2";
           sha256 = "0r1aqfc969354j8b1k9xsg682fynbk4xjp196f3yknlwj66jnpwx";
         }
+        {
+          name = "python";
+          publisher = "ms-python";
+          version = "2020.8.109390";
+          sha256 = "0pwgyczkhd5zdcckf6pl5fd6dis5z5f1f25v1ynq5gdmrz3x10si";
+        }
+        {
+          name = "jinja";
+          publisher = "wholroyd";
+          version = "0.0.8";
+          sha256 = "1ln9gly5bb7nvbziilnay4q448h9npdh7sd9xy277122h0qawkci";
+        }
       ];
       userSettings = {
         editor = {
@@ -106,10 +116,15 @@ in {
           formatOnSave = true;
           rulers = [85 120];
         };
-        workbench.iconTheme = "vscode-icons";
+        workbench = {
+          iconTheme = "vscode-icons";
+          editor.enablePreview = false;
+        };
         window.menuBarVisibility = "toggle";
-        git.enableSmartCommit = true;
-        git.autofetch = true;
+        git = {
+          enableSmartCommit = true;
+          autofetch = true;
+        };
       };
     };
 
