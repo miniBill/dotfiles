@@ -4,17 +4,21 @@ let
 in {
   home.packages = with pkgs; [
     # GUI
-    yakuake 
+    yakuake
     spectacle gimp
     fira-code fira-code-symbols
     spotify
+    ark
 
     # NET
     openssl whois zoom-us nmap
     xdg-desktop-portal-kde plasma-browser-integration
 
     # DEV
-    git ripgrep ansible cfssl
+    git gitAndTools.qgit
+    ripgrep
+    ansible cfssl
+    unstable.dhall (hiPrio unstable.dhall-json) dhall-json
   ];
 
   fonts.fontconfig.enable = true;
@@ -45,14 +49,14 @@ in {
         {
           name = "prettier-vscode";
           publisher = "esbenp";
-          version = "5.6.0";
-          sha256 = "0qpnxz7q4dp6113cq2jlgcxxhpjs6xwkvkxqsch95pbzcp8jlqpp";
+          version = "5.7.1";
+          sha256 = "0f2q17d028j2c816rns9hi2w38ln3mssdcgzm6kc948ih252jflr";
         }
         {
           name = "vscode-docker";
           publisher = "ms-azuretools";
-          version = "1.5.0";
-          sha256 = "06jn556k0frb4pfrncyr40skqhp548l2cw2q7lq20ga8i264asm7";
+          version = "1.6.0";
+          sha256 = "1snjj09qn0c6ipd3i3xyzah4gnh17j5h9vn01db294xpbl2q80n0";
         }
         {
           name = "remote-ssh";
@@ -69,8 +73,14 @@ in {
         {
           name = "vsliveshare";
           publisher = "ms-vsliveshare";
-          version = "1.0.2740";
-          sha256 = "11pfd4mxg8a2wrlnsbpk7apz69his7sgnzq6hp14wsw8p88wi61y";
+          version = "1.0.2902";
+          sha256 = "0fx2vi0wxamcwqcgcx7wpg8hi7f1c2pibrmd2qy2whilpsv3gzmb";
+        }
+        {
+          name = "nftalbs";
+          publisher = "omBratteng";
+          version = "0.0.2";
+          sha256 = "152r00m25ad1jla6s45lc7qcwkisy3iybb3incn0nhxx37d0c09a";
         }
         {
           name = "vscode-vault";
@@ -85,10 +95,28 @@ in {
           sha256 = "0ghyy5zll82yp0ddxspwcaa47dycc2g8lgy47wj7jvgiqdh1g5aw";
         }
         {
+          name = "dhall-lang";
+          publisher = "panaeon";
+          version = "0.0.4";
+          sha256 = "0qcxasjlhqvl5zyf7w9fjx696gnianx7c959g2wssnwyxh7d14ka";
+        }
+        {
+          name = "vscode-dhall-lsp-server";
+          publisher = "panaeon";
+          version = "0.0.4";
+          sha256 = "0ws2ysra5iifhqd2zf7zy2kcymacr5ylcmi1i1zqljkpqqmvnv5q";
+        }
+        {
+          name = "jenkinsfile-support";
+          publisher = "secanis";
+          version = "0.1.0";
+          sha256 = "0qijj78ndy6vw2qalcjaj80n8ba2cv2fkrc2a0dqn01bsp385nml";
+        }
+        {
           name = "vscode-icons";
           publisher = "vscode-icons-team";
-          version = "10.2.0";
-          sha256 = "13s5jrlj2czwh01bi4dds03hd9hpqk1gs9h0gja0g15d0j4kh39c";
+          version = "11.0.0";
+          sha256 = "18gf6ikkvqrihblwpmb4zpxg792la5yg8pwfaqm07dzwzfzxxvmv";
         }
         {
           name = "vscode-ansible";
@@ -99,8 +127,8 @@ in {
         {
           name = "python";
           publisher = "ms-python";
-          version = "2020.8.109390";
-          sha256 = "0pwgyczkhd5zdcckf6pl5fd6dis5z5f1f25v1ynq5gdmrz3x10si";
+          version = "2020.9.112786";
+          sha256 = "0n7sgx8k9zrdrl4iqvhyqizi7ak0z6vva3paryfd7rivp0g3caw4";
         }
         {
           name = "jinja";
@@ -124,6 +152,7 @@ in {
         git = {
           enableSmartCommit = true;
           autofetch = true;
+          confirmSync = false;
         };
       };
     };
