@@ -3,22 +3,34 @@ let
   unstable = import <unstable> {};
 in {
   home.packages = with pkgs; [
+    # BASE
+    neofetch
+
     # GUI
     yakuake
     spectacle gimp
     fira-code fira-code-symbols
-    spotify
-    ark
+    spotify vlc ffmpeg
+    ark kcalc scribusUnstable okular libreoffice-still kate
 
     # NET
-    openssl whois zoom-us nmap
+    openssl whois zoom-us nmap bmon dnsutils
     xdg-desktop-portal-kde plasma-browser-integration
+    chromium
+
+    # VIRT
+    virt-manager vagrant
 
     # DEV
+    gcc
+    go golangci-lint
+    python3
+    gnumake
     git gitAndTools.qgit
     ripgrep
-    ansible cfssl
+    cfssl
     unstable.dhall (hiPrio unstable.dhall-json) dhall-json
+    elmPackages.elm elmPackages.elm-format elmPackages.elm-live nodejs
   ];
 
   fonts.fontconfig.enable = true;
@@ -51,6 +63,12 @@ in {
           publisher = "esbenp";
           version = "5.7.1";
           sha256 = "0f2q17d028j2c816rns9hi2w38ln3mssdcgzm6kc948ih252jflr";
+        }
+        {
+          name = "go";
+          publisher = "golang";
+          version = "0.17.1";
+          sha256 = "1dr0lfnnzs6divhkgqnppda1s613isbn0k7ggzl96b3qxwrrvsni";
         }
         {
           name = "vscode-docker";
@@ -143,6 +161,7 @@ in {
           fontLigatures = true;
           formatOnSave = true;
           rulers = [85 120];
+          codeLens = false;
         };
         workbench = {
           iconTheme = "vscode-icons";
@@ -154,6 +173,7 @@ in {
           autofetch = true;
           confirmSync = false;
         };
+        go.formatTool = "goimports";
       };
     };
 
@@ -163,10 +183,68 @@ in {
 
     zsh = {
       enable = true;
-      oh-my-zsh.enable = true;
+      oh-my-zsh = {
+        enable = true;
+        plugins =  [
+          "command-not-found"
+          "git"
+          "history"
+          "sudo"
+        ];
+      };
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      autocd = true;
+
       sessionVariables = {
         EDITOR = "vim";
       };
+
+      initExtra = ''
+        autopair-init
+      '';
+
+      plugins = with pkgs; [
+        {
+          name = "zsh-syntax-highlighting";
+          src = fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-syntax-highlighting";
+            rev = "0.6.0";
+            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+          };
+          file = "zsh-syntax-highlighting.zsh";
+        }
+        {
+          name = "zsh-autopair";
+          src = fetchFromGitHub {
+            owner = "hlissner";
+            repo = "zsh-autopair";
+            rev = "34a8bca0c18fcf3ab1561caef9790abffc1d3d49";
+            sha256 = "1h0vm2dgrmb8i2pvsgis3lshc5b0ad846836m62y8h3rdb3zmpy1";
+          };
+          file = "autopair.zsh";
+        }       
+        {
+          name = "powerlevel9k";
+          file = "powerlevel9k.zsh-theme";
+          src = fetchFromGitHub {
+            owner = "bhilburn";
+            repo = "powerlevel9k";
+            rev = "571a859413866897cf962396f02f65a288f677ac";
+            sha256 = "0xwa1v3c4p3cbr9bm7cnsjqvddvmicy9p16jp0jnjdivr6y9s8ax";
+          };
+        }
+        {
+          name = "nix-shell";
+          src = fetchFromGitHub {
+            owner = "chisui";
+            repo = "zsh-nix-shell";
+            rev = "03a1487655c96a17c00e8c81efdd8555829715f8";
+            sha256 = "1avnmkjh0zh6wmm87njprna1zy4fb7cpzcp8q7y03nw3aq22q4ms";
+          };
+        }
+      ];
     };
 
     home-manager.enable = true;
