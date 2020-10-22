@@ -5,10 +5,10 @@ let
 in {
   home.packages = with pkgs; [
     # BASE
-    neofetch
+    neofetch file
 
     # GUI
-    yakuake
+    yakuake xclip
     spectacle gimp
     fira-code fira-code-symbols
     spotify vlc ffmpeg
