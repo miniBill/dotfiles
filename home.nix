@@ -40,7 +40,10 @@ in {
     vscode = {
       enable = true;
       package = unstable.vscode;
-      extensions = unstable.vscode-utils.extensionsFromVscodeMarketplace vscodePackages;
+      extensions =
+        with unstable.vscode-extensions; [
+          ms-vscode.cpptools
+        ] ++ unstable.vscode-utils.extensionsFromVscodeMarketplace vscodePackages;
       userSettings = {
         editor = {
           fontFamily = "Fira Code";

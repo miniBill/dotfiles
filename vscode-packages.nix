@@ -66,12 +66,6 @@
     sha256 = "0bqjp0xzliyzp8kq3ss4b4by402p2l4fbdms8955yk1vp88d0lfa";
   }
   {
-    name = "cpptools";
-    publisher = "ms-vscode";
-    version = "1.0.1";
-    sha256 = "08vbhwick2girk7w7whm4wifhxnasqjn4hwqqibpvqv5yz1pbsl7";
-  }
-  {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
     version = "1.0.3046";
