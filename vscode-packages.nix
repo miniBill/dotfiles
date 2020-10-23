@@ -74,8 +74,8 @@
   {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
-    version = "1.0.3014";
-    sha256 = "0gibxf5lxn9vcqrvc93v19wa2v2grlbdjn578jrs9g8fbg50546f";
+    version = "1.0.3046";
+    sha256 = "1gikfs2w9z12r2jdpf5k7hyycwnwkhb3wzny9b0napvhqshc02x1";
   }
   {
     name = "nftalbs";
