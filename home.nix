@@ -12,15 +12,15 @@ in {
     spectacle gimp
     fira-code fira-code-symbols
     spotify vlc ffmpeg
-    ark kcalc scribusUnstable okular libreoffice-still kate
+    ark kcalc scribusUnstable okular kate libreoffice-still
 
     # NET
-    openssl whois zoom-us nmap bmon dnsutils
+    openssl whois zoom-us nmap bmon dnsutils jq
     xdg-desktop-portal-kde plasma-browser-integration
     chromium
 
     # VIRT
-    virt-manager vagrant
+    # virt-manager vagrant
 
     # DEV
     gcc
@@ -30,8 +30,12 @@ in {
     git gitAndTools.qgit
     ripgrep
     cfssl
-    unstable.dhall (hiPrio unstable.dhall-json) dhall-json
+    dhall dhall-json
     elmPackages.elm elmPackages.elm-format elmPackages.elm-live nodejs
+  ];
+
+  home.sessionPath = [
+    "$HOME/.npm/bin"
   ];
 
   fonts.fontconfig.enable = true;
@@ -42,7 +46,7 @@ in {
       package = unstable.vscode;
       extensions =
         with unstable.vscode-extensions; [
-          ms-vscode.cpptools
+          # ms-vscode.cpptools
         ] ++ unstable.vscode-utils.extensionsFromVscodeMarketplace vscodePackages;
       userSettings = {
         editor = {
@@ -51,6 +55,7 @@ in {
           formatOnSave = true;
           rulers = [85 120];
           codeLens = false;
+          renderWhitespace = "boundary";
         };
         workbench = {
           iconTheme = "vscode-icons";
@@ -64,6 +69,12 @@ in {
         };
         go.formatTool = "goimports";
         extensions.autoUpdate = false;
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        elmLs = {
+          elmPath = "elm";
+        };
       };
     };
 
@@ -80,10 +91,12 @@ in {
           "git"
           "history"
           "sudo"
+          "ssh-agent"
         ];
       };
       enableAutosuggestions = true;
       enableCompletion = true;
+      enableVteIntegration = true;
       autocd = true;
 
       sessionVariables = {
