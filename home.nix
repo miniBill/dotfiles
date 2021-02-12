@@ -2,10 +2,11 @@
 let
   unstable = import <unstable> {};
   vscodePackages = (import ./vscode-packages.nix).extensions;
+  zoom-snapshot = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/95d26c9a9f2a102e25cf318a648de44537f42e09.tar.gz") {};
 in {
   home.packages = with pkgs; [
     # BASE
-    neofetch file
+    neofetch file nix-bundle
 
     # GUI
     yakuake xclip
@@ -13,11 +14,12 @@ in {
     fira-code fira-code-symbols
     spotify vlc ffmpeg
     ark kcalc scribusUnstable okular kate libreoffice-still
+    unstable.dbeaver
 
     # NET
-    openssl whois zoom-us nmap bmon dnsutils jq
+    openssl whois zoom-snapshot.zoom-us nmap bmon dnsutils jq
     xdg-desktop-portal-kde plasma-browser-integration
-    chromium
+    chromium adoptopenjdk-icedtea-web
 
     # VIRT
     # virt-manager vagrant
@@ -71,6 +73,9 @@ in {
         extensions.autoUpdate = false;
         "[json]" = {
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+        "[javascript]"= {
+          "editor.defaultFormatter"= "esbenp.prettier-vscode";
         };
         elmLs = {
           elmPath = "elm";

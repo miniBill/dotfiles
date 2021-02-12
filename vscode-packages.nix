@@ -12,6 +12,12 @@
     sha256 = "18659gma90wnnmzr1zmsfihp1vzn5siyyxp1w5fm8ax9c7bd261m";
   }
   {
+    name = "EditorConfig";
+    publisher = "EditorConfig";
+    version = "0.16.4";
+    sha256 = "0fa4h9hk1xq6j3zfxvf483sbb4bd17fjl5cdm3rll7z9kaigdqwg";
+  }
+  {
     name = "Nix";
     publisher = "bbenoist";
     version = "1.0.1";
@@ -20,20 +26,14 @@
   {
     name = "gitlens";
     publisher = "eamodio";
-    version = "11.0.4";
-    sha256 = "0azvfj5cz9ilwiajl6a4b0ky8m1j9pzcq049lh1f5mj6pax9qz4l";
-  }
-  {
-    name = "EditorConfig";
-    publisher = "EditorConfig";
-    version = "0.15.1";
-    sha256 = "18r19dn1an81l2nw1h8iwh9x3sy71d4ab0s5fvng5y7dcg32zajd";
+    version = "11.1.3";
+    sha256 = "1x9bkf9mb56l84n36g3jmp3hyfbyi8vkm2d4wbabavgq6gg618l6";
   }
   {
     name = "elm-ls-vscode";
     publisher = "elmTooling";
-    version = "1.5.3";
-    sha256 = "007v28j5h4z4g1dr8ch93hy0cvzj92iwjnq6q9wn2mqxgff91ykn";
+    version = "2.0.1";
+    sha256 = "06x5ld2r1hzns2s052mvhmfiaawjzcn0jf5lkfprhmrkxnmfdd43";
   }
   {
     name = "prettier-vscode";
@@ -44,62 +44,74 @@
   {
     name = "go";
     publisher = "golang";
-    version = "0.18.1";
-    sha256 = "0ldazkbi5hyqnq0rrkxiwl9n69pmh4q9rwazkg0hjh8b6pfrlrbg";
+    version = "0.22.0";
+    sha256 = "0kimryvfqqxk9sipqpzlpwn6m3if1a0mn8jxd83hh6fv8z4nbyxd";
+  }
+  {
+    name = "ansible";
+    publisher = "haaaad";
+    version = "0.2.8";
+    sha256 = "0zbnx07i9hqh348inbxwf660hih6jdwwz11l3rd1adi1v0hmcw8z";
   }
   {
     name = "vscode-docker";
     publisher = "ms-azuretools";
-    version = "1.8.0";
-    sha256 = "1xbm41aph95iy7074c9p3l45dq8jjsybbgqwzlvm94zvs1v1ki11";
+    version = "1.9.1";
+    sha256 = "1l7pm3s5kbf2vark164ykz4qbpa1ac9ls691hham36f6v91dmff9";
   }
   {
     name = "python";
     publisher = "ms-python";
-    version = "2020.11.371526539";
-    sha256 = "0iavy4c209k53jkqsbhsvibzjj3fjxa500rv72fywgb2vxsi9fc3";
+    version = "2021.1.502429796";
+    sha256 = "0drvpr98gryldbfmwjnyig8pmalrd22biqmhkhvih3sxzcwsyqjk";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2020.11.372831992";
-    sha256 = "0r39xqrbkzcfkz6rca039s87ibx79a983y8lbiglhkmw3bp4p658";
+    version = "2020.12.414227025";
+    sha256 = "1zv5p37qsmp2ycdaizb987b3jw45604vakasrggqk36wkhb4bn1v";
   }
   {
     name = "remote-ssh";
     publisher = "ms-vscode-remote";
-    version = "0.56.0";
-    sha256 = "18ddl7bgjsrl0rrarx6xqy2jvmvzgnh5jsk7fkihx9gqa36p3c09";
+    version = "0.63.0";
+    sha256 = "0dfrp4cfq04119n9272hr8aayzb66r6kbfi2smh3i2snzx4izgqx";
   }
   {
     name = "remote-ssh-edit";
     publisher = "ms-vscode-remote";
-    version = "0.56.0";
-    sha256 = "1gy03ff2xqg7q3y4j47z2l94x5gbw0mjd5h4cl3n0q3iaswk1c1r";
+    version = "0.63.0";
+    sha256 = "1m9myrvsnd22qg2fc1jmn7131kzgz2nyng9k5c18839c90r9pjqm";
   }
   {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
-    version = "1.0.3206";
-    sha256 = "0x3m4z1w1697aw898pw08f374fhr1a0v2wq4sc84r7xy2nnax4yz";
+    version = "1.0.3577";
+    sha256 = "1aprpx2mhkdg26x35hxlnlr0hx28znha1y6wrrd4cw549scssp9a";
   }
   {
     name = "nftalbs";
     publisher = "omBratteng";
-    version = "0.0.2";
-    sha256 = "152r00m25ad1jla6s45lc7qcwkisy3iybb3incn0nhxx37d0c09a";
+    version = "0.0.3";
+    sha256 = "1frcmh6vf7va46bwnqwmrwwgdbk2an59ygrqgva3r93jf8hv8qx2";
   }
   {
     name = "vscode-vault";
     publisher = "owenfarrell";
-    version = "2.2.2";
-    sha256 = "18nkz5drnqzzmgyxgiyrfpbiajwa095c3xzcjbvxxhsp3hm1hkw8";
+    version = "2.2.3";
+    sha256 = "01jnx4kbhhsmmj68kgcnvvx1bnvcn2hp7v9n84zg3s0w34vs424g";
   }
   {
     name = "docker-compose";
     publisher = "p1c2u";
     version = "0.3.5";
     sha256 = "0ghyy5zll82yp0ddxspwcaa47dycc2g8lgy47wj7jvgiqdh1g5aw";
+  }
+  {
+    name = "edit-with-shell";
+    publisher = "ryu1kn";
+    version = "1.2.0";
+    sha256 = "1v26k7pb74zg0s2rvg8flh9iysmk43h5fj010kfrw76l4i44anp7";
   }
   {
     name = "jenkinsfile-support";
@@ -110,14 +122,8 @@
   {
     name = "vscode-icons";
     publisher = "vscode-icons-team";
-    version = "11.0.0";
-    sha256 = "18gf6ikkvqrihblwpmb4zpxg792la5yg8pwfaqm07dzwzfzxxvmv";
-  }
-  {
-    name = "vscode-ansible";
-    publisher = "vscoss";
-    version = "0.5.2";
-    sha256 = "0r1aqfc969354j8b1k9xsg682fynbk4xjp196f3yknlwj66jnpwx";
+    version = "11.1.0";
+    sha256 = "1xrz9f0nckx29wxpmlj1dqqiaal3002xwgzz5p9iss119sxgpwrx";
   }
   {
     name = "jinja";
