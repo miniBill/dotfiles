@@ -33,7 +33,7 @@ in {
     ripgrep
     cfssl
     dhall dhall-json
-    elmPackages.elm elmPackages.elm-format elmPackages.elm-live nodejs
+    elmPackages.elm elmPackages.elm-format elmPackages.elm-live elmPackages.elm-json nodejs
   ];
 
   home.sessionPath = [
@@ -62,11 +62,12 @@ in {
         workbench = {
           iconTheme = "vscode-icons";
           editor.enablePreview = false;
+          editor.wrapTabs = true;
         };
         window.menuBarVisibility = "toggle";
         git = {
           enableSmartCommit = true;
-          autofetch = true;
+          autofetch = "all";
           confirmSync = false;
         };
         go.formatTool = "goimports";
