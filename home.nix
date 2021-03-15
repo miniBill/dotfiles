@@ -6,7 +6,7 @@ let
 in {
   home.packages = with pkgs; [
     # BASE
-    neofetch file nix-bundle
+    neofetch file nix-bundle pigz
 
     # GUI
     yakuake xclip
@@ -19,7 +19,7 @@ in {
     # NET
     openssl whois zoom-snapshot.zoom-us nmap bmon dnsutils jq
     xdg-desktop-portal-kde plasma-browser-integration
-    chromium adoptopenjdk-icedtea-web
+    chromium adoptopenjdk-icedtea-web filezilla
 
     # VIRT
     # virt-manager vagrant
@@ -107,6 +107,7 @@ in {
 
       sessionVariables = {
         EDITOR = "vim";
+        TERM = "xterm-256color";
       };
 
       initExtra = ''
