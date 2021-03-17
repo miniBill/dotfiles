@@ -38,8 +38,8 @@
   {
     name = "prettier-vscode";
     publisher = "esbenp";
-    version = "6.2.0";
-    sha256 = "1vsp051rbqcria078pxvymsaxjcq1kinnm36zfjd90829gd6wa8y";
+    version = "6.3.1";
+    sha256 = "0m2xx4r2sy00f3wvzi9968rxq345k057ybr21jyvkrwm5569c5mm";
   }
   {
     name = "go";
@@ -62,14 +62,14 @@
   {
     name = "vscode-docker";
     publisher = "ms-azuretools";
-    version = "1.10.0";
-    sha256 = "0kryrvs1gm2d3kj378gsszhn4dkkgv34vir4gky7347jw2rmg7rb";
+    version = "1.11.0";
+    sha256 = "141800jcxslqa5nbwcdj4mwnysa42mxligvc073gf225ns984vfr";
   }
   {
     name = "python";
     publisher = "ms-python";
-    version = "2021.2.636928669";
-    sha256 = "0ilqv2k4qnnn4l29lb4vdcwivvqq1a07gp3zc6is5n7gbcq44g5w";
+    version = "2021.3.658691958";
+    sha256 = "1ikjsq617km6cs7sd89i8j669xamcdd5f16hv1s2ny5g0jvkcaiy";
   }
   {
     name = "jupyter";

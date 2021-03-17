@@ -34,6 +34,7 @@ in {
     cfssl
     dhall dhall-json
     elmPackages.elm elmPackages.elm-format elmPackages.elm-live elmPackages.elm-json nodejs
+    dotnet-sdk # omnisharp-roslyn
   ];
 
   home.sessionPath = [
@@ -49,8 +50,10 @@ in {
       extensions =
         with unstable.vscode-extensions; [
           # ms-vscode.cpptools
+          ms-dotnettools.csharp
         ] ++ unstable.vscode-utils.extensionsFromVscodeMarketplace vscodePackages;
       userSettings = {
+        # omnisharp.path = "/run/current-system/sw/bin/omnisharp";
         editor = {
           fontFamily = "Fira Code";
           fontLigatures = true;
