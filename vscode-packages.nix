@@ -44,8 +44,8 @@
   {
     name = "go";
     publisher = "golang";
-    version = "0.23.2";
-    sha256 = "0l8j61idf8hhmjyc0wr6viiyrbw3mjl0makq0ijwcr6lnz72r08b";
+    version = "0.23.3";
+    sha256 = "0c8krqjjxg6l0a0ghqr3w32mn44jhnmx9dr0pmjv219makfyd9rj";
   }
   {
     name = "ansible";
@@ -74,14 +74,14 @@
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2021.4.678042391";
-    sha256 = "0dlbalf15w91rz6pnhjmdyb7cj26nkcvabzz97936pw4nmxb6zf7";
+    version = "2021.5.702919634";
+    sha256 = "0z27nmmn3lx8daywvqc1gx1zgj77i19ahmixf7pn8wvxkp17mzk6";
   }
   {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
-    version = "1.0.4018";
-    sha256 = "0cmlq0ch77z36fn2z0l7vq1zslrn8j1bjafmjkgj5fp65rvyab34";
+    version = "1.0.4070";
+    sha256 = "18dddaz5g0kbrmj9l9k0fivdj6p6y5a6iw24ikvzmypz8zql7gd5";
   }
   {
     name = "vetur";
