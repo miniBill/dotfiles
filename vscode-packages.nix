@@ -32,8 +32,8 @@
   {
     name = "elm-ls-vscode";
     publisher = "elmTooling";
-    version = "2.0.3";
-    sha256 = "19g5bchi3ivnxpifxfanvxavj6m4x7xvgx9hqh86yw1fssdrdy4d";
+    version = "2.1.0";
+    sha256 = "0nxwkjl2238b0wpkxwa3l69vgm6rmslwv9xzi3y1iklpv28s87kr";
   }
   {
     name = "prettier-vscode";
@@ -68,20 +68,20 @@
   {
     name = "python";
     publisher = "ms-python";
-    version = "2021.3.658691958";
-    sha256 = "1ikjsq617km6cs7sd89i8j669xamcdd5f16hv1s2ny5g0jvkcaiy";
+    version = "2021.3.680753044";
+    sha256 = "1a1krskjpwylf2ww8a48kkzd6q2x6rkyamjr576qdm4wl3f9smy5";
   }
   {
     name = "jupyter";
     publisher = "ms-toolsai";
-    version = "2021.4.641214696";
-    sha256 = "0ni4664hp4031ff81w2b5pvn9h9j3l4s3gpkhjnsxn96xgqgzmbc";
+    version = "2021.4.678042391";
+    sha256 = "0dlbalf15w91rz6pnhjmdyb7cj26nkcvabzz97936pw4nmxb6zf7";
   }
   {
     name = "vsliveshare";
     publisher = "ms-vsliveshare";
-    version = "1.0.3968";
-    sha256 = "1nmhkxrlg9blxcqh7a3hl0wc5mkk2p77mn228lvmcirpbk3acsx5";
+    version = "1.0.4018";
+    sha256 = "0cmlq0ch77z36fn2z0l7vq1zslrn8j1bjafmjkgj5fp65rvyab34";
   }
   {
     name = "vetur";
@@ -90,10 +90,10 @@
     sha256 = "1iq2h87j7dr4vf9zgzihd5q4d95grc0iirz68az5dnvy19nvfv57";
   }
   {
-    name = "nftalbs";
-    publisher = "omBratteng";
-    version = "0.0.3";
-    sha256 = "1frcmh6vf7va46bwnqwmrwwgdbk2an59ygrqgva3r93jf8hv8qx2";
+    name = "csharp";
+    publisher = "ms-dotnettools";
+    version = "1.23.9";
+    sha256 = "1609yxa6h5db8hknqz12f3l8wh71lfv8ngw1yzxs6smkxbfywvg4";
   }
   {
     name = "vscode-vault";
