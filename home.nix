@@ -107,6 +107,7 @@ in {
 
   home.file = {
     ".npmrc".source = ./npmrc;
+    ".p10k.zsh".source = ./p10k.zsh;
   };
 
   programs = {
@@ -161,11 +162,12 @@ in {
 
       oh-my-zsh = {
         enable = true;
-        plugins= [ "command-not-found" "git" "history" "ssh-agent" "sudo" "tmux" "zsh-syntax-highlighting" ];
+        plugins= [ "command-not-found" "git" "history" "ssh-agent" "sudo" "tmux" ];
       };
 
       initExtra = ''
         autopair-init
+        source ~/.p10k.zsh
       '';
 
       plugins = with pkgs; [
