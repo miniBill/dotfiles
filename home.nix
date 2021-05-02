@@ -3,10 +3,32 @@ let
   unstable = import <unstable> {};
   vscodePackages = (import ./vscode-packages.nix).extensions;
   zoom-snapshot = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/95d26c9a9f2a102e25cf318a648de44537f42e09.tar.gz") {};
+
+  wally-cli = pkgs.stdenv.mkDerivation {
+    name = "wally-cli-2.0.0";
+    src = pkgs.fetchurl {
+        name = "wally-cli";
+        url = "https://github.com/zsa/wally-cli/releases/download/2.0.0-linux/wally-cli";
+        sha256 = "0048ndgk0r2ln0f4pcy05xfwp022q8p7sdwyrfjk57d8q4f773x3";
+    };
+    dontStrip = true;
+    unpackPhase = ''
+      cp $src ./wally-cli
+    '';
+    installPhase = ''
+      mkdir -p $out/bin
+      chmod +wx wally-cli
+      cp wally-cli $out/bin
+      ${pkgs.patchelf}/bin/patchelf \
+        --interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+        --set-rpath "${pkgs.lib.makeLibraryPath [ pkgs.libusb1 ]}" \
+        $out/bin/wally-cli
+    '';
+  };
 in {
   home.packages = with pkgs; [
     # BASE
-    neofetch file nix-bundle pigz
+    neofetch file nix-bundle pigz wally-cli usbutils
 
     # GUI
     yakuake xclip
@@ -15,9 +37,12 @@ in {
     spotify vlc ffmpeg
     ark kcalc scribusUnstable okular kate libreoffice-still
     unstable.dbeaver
+    etcher
 
     # NET
-    openssl whois zoom-snapshot.zoom-us nmap bmon dnsutils jq
+    openssl whois # zoom-snapshot.zoom-us
+    zoom-us
+    nmap bmon dnsutils jq
     xdg-desktop-portal-kde plasma-browser-integration
     chromium adoptopenjdk-icedtea-web filezilla
 
