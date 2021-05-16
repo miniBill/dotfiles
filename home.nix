@@ -106,8 +106,9 @@ in {
   ];
 
   home.file = {
-    ".npmrc".source = ./npmrc;
-    ".p10k.zsh".source = ./p10k.zsh;
+    ".npmrc".source = ./files/npmrc;
+    ".p10k.zsh".source = ./files/p10k.zsh;
+    ".alsoftrc".source = ./files/alsoftrc;
   };
 
   programs = {
