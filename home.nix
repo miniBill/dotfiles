@@ -67,7 +67,7 @@ in {
     # GLSL
     glslang # (pkgWithFlags mesa "-Dwith_tools=[glsl]")
     # Misc
-    ghc
+    ghc (python38.withPackages(ps: with ps; [ black ]))
     # binutils nasm
     # Dhall
     # dhall-lsp-server dhall
