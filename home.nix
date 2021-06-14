@@ -80,7 +80,7 @@ in {
     pinned-unstable.zoom-us discord teams skypeforlinux tdesktop
 
     # GUI
-    ark yakuake kcharselect kcalc gnome3.libgnomekbd kdeApplications.spectacle kdeApplications.kate
+    ark yakuake kcharselect kcalc gnome3.libgnomekbd libsForQt5.spectacle
     gparted libreoffice-fresh xclip pinned-unstable.dbeaver etcher
     # Wine
     winetricks wineWowPackages.stable
@@ -100,6 +100,7 @@ in {
       nativeOnly = true;
     }).run
     mupen64plus wxmupen64plus
+    lutris-free
 
     # VIRT/OP
     nixops virtmanager nix-index virtualbox qemu
@@ -123,7 +124,7 @@ in {
       terminal = "xterm-256color";
     };
 
-    google-chrome.enable = true;
+    # google-chrome.enable = true;
 
     htop = {
       enable = true;
@@ -224,7 +225,6 @@ in {
     enable = true;
     enableSshSupport = true;
   };
-  services.gnome-keyring.enable = true;
 
   nixpkgs.overlays = [
     (self: super: {
