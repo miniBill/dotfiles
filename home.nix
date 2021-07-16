@@ -1,8 +1,14 @@
 { config, pkgs, ... }:
 let
   pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/e85e0f5492ddc078a5f10439840101a66fab0021.tar.gz") {};
-
-  unstable = import <unstable> {};
+  pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
+    config = {
+      allowUnfree = true;
+      chromium = {
+        enablePepperFlash = true;
+      };
+    };
+  };
 
   pkgWithFlags = pkg: flags:
     pkgs.lib.overrideDerivation pkg (old:
@@ -37,7 +43,7 @@ let
     '';
   };
 
-  polychromatic = pkgs.python3Packages.callPackage ./polychromatic.nix pkgs;
+  # polychromatic = pkgs.python3Packages.callPackage ./polychromatic.nix pkgs;
 in {
   programs.home-manager.enable = true;
 
@@ -60,6 +66,7 @@ in {
     # zig sqlitebrowser
     # Java
     adoptopenjdk-jre-openj9-bin-8 # jre
+    # pkgsi686Linux.openjdk8
     # C/C++
     qtcreator cmake clang-tools cppcheck gcc gdb linuxPackages.perf hotspot
     # Rust
@@ -75,13 +82,14 @@ in {
     # NET
     filezilla nmap ncat bind whois pinned-unstable.youtubeDL aria zotero
     bmon dnsutils jq
+    google-chrome
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     # Im
     pinned-unstable.zoom-us discord teams skypeforlinux tdesktop
 
     # GUI
     ark yakuake kcharselect kcalc gnome3.libgnomekbd libsForQt5.spectacle
-    gparted libreoffice-fresh xclip pinned-unstable.dbeaver etcher
+    gparted libreoffice-fresh xclip pinned-unstable.dbeaver etcher calibre
     # Wine
     winetricks wineWowPackages.stable
     # Multimedia
@@ -100,16 +108,21 @@ in {
       nativeOnly = true;
     }).run
     mupen64plus wxmupen64plus
-    lutris-free
+    lutris-free mgba
 
     # VIRT/OP
-    nixops virtmanager nix-index virtualbox qemu
+    # nixops
+    virtmanager nix-index virtualbox qemu
   ];
 
   home.file = {
     ".npmrc".source = ./files/npmrc;
     ".p10k.zsh".source = ./files/p10k.zsh;
     ".alsoftrc".source = ./files/alsoftrc;
+
+    # Old version of chrome that still supports flash
+    "Applications/old-chromium".source = pinned-oldstable.chromium;
+    ".config/chromium/Default/Pepper Data/Shockwave Flash/System/mms.cfg".source = ./files/mms.cfg;
   };
 
   programs = {
@@ -124,11 +137,9 @@ in {
       terminal = "xterm-256color";
     };
 
-    # google-chrome.enable = true;
-
     htop = {
       enable = true;
-      hideUserlandThreads = true;
+      settings.hide_userland_threads = true;
     };
 
     obs-studio = {
