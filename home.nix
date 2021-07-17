@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/e85e0f5492ddc078a5f10439840101a66fab0021.tar.gz") {};
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/92b32275116b25d08aadc81d5cb5cefb0d455c4a.tar.gz") {};
   pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
     config = {
       allowUnfree = true;
@@ -60,7 +60,7 @@ in {
     colordiff git gnumake gitAndTools.qgit
     # Elm
     elmPackages.elm-format elmPackages.elm elmPackages.elm-test elmPackages.elm-json elmPackages.elm-live
-    optipng yarn nodejs
+    optipng yarn nodejs (callPackage ./lamdera.nix {})
     # .NET
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ]) omnisharp-roslyn # dotnet-sdk
     # zig sqlitebrowser
@@ -84,6 +84,7 @@ in {
     bmon dnsutils jq
     google-chrome
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
+    irssi
     # Im
     pinned-unstable.zoom-us discord teams skypeforlinux tdesktop
 
@@ -144,7 +145,6 @@ in {
 
     obs-studio = {
       enable = true;
-      plugins = [ pinned-unstable.obs-v4l2sink ];
     };
 
     vscode = {
