@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/92b32275116b25d08aadc81d5cb5cefb0d455c4a.tar.gz") {};
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/f04ac9ddb9c74b50bb301fc16d8d1d12762eb4f8.tar.gz") {};
   pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
     config = {
       allowUnfree = true;
@@ -95,7 +95,7 @@ in {
     winetricks wineWowPackages.stable
     # Multimedia
     gimp spotify inkscape okular ghostscript scribusUnstable blender glxinfo vlc imagemagick ffmpeg
-    mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint
+    mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint pinned-unstable.helvum
     # Fonts
     pinned-unstable.fira-code pinned-unstable.fira-code-symbols (callPackage ./linja-pona.nix {})
 
