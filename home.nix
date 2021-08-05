@@ -95,7 +95,7 @@ in {
     winetricks wineWowPackages.stable
     # Multimedia
     gimp spotify inkscape okular ghostscript scribusUnstable blender glxinfo vlc imagemagick ffmpeg
-    mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint pinned-unstable.helvum
+    mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint pinned-unstable.helvum carla
     # Fonts
     pinned-unstable.fira-code pinned-unstable.fira-code-symbols (callPackage ./linja-pona.nix {})
 
