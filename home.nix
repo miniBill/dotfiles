@@ -97,7 +97,7 @@ in {
     gimp spotify inkscape okular ghostscript scribusUnstable blender glxinfo vlc imagemagick ffmpeg
     mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint
     # Fonts
-    pinned-unstable.fira-code pinned-unstable.fira-code-symbols
+    pinned-unstable.fira-code pinned-unstable.fira-code-symbols (callPackage ./linja-pona.nix {})
 
     # GAMES
     steam
