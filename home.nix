@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/f04ac9ddb9c74b50bb301fc16d8d1d12762eb4f8.tar.gz") {};
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/c28262e2fe67c021c37e2e3532d4ebe77401be81.tar.gz") {};
   # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
   #   config = {
   #     allowUnfree = true;
