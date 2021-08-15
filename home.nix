@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 let
   pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/f04ac9ddb9c74b50bb301fc16d8d1d12762eb4f8.tar.gz") {};
-  pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
-    config = {
-      allowUnfree = true;
-      chromium = {
-        enablePepperFlash = true;
-      };
-    };
-  };
+  # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
+  #   config = {
+  #     allowUnfree = true;
+  #     chromium = {
+  #       enablePepperFlash = true;
+  #     };
+  #   };
+  # };
 
   pkgWithFlags = pkg: flags:
     pkgs.lib.overrideDerivation pkg (old:
@@ -122,8 +122,8 @@ in {
     ".alsoftrc".source = ./files/alsoftrc;
 
     # Old version of chrome that still supports flash
-    "Applications/old-chromium".source = pinned-oldstable.chromium;
-    ".config/chromium/Default/Pepper Data/Shockwave Flash/System/mms.cfg".source = ./files/mms.cfg;
+    # "Applications/old-chromium".source = pinned-oldstable.chromium;
+    # ".config/chromium/Default/Pepper Data/Shockwave Flash/System/mms.cfg".source = ./files/mms.cfg;
   };
 
   programs = {
