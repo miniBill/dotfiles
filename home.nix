@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/c28262e2fe67c021c37e2e3532d4ebe77401be81.tar.gz") {};
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") {};
   # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
   #   config = {
   #     allowUnfree = true;
@@ -81,7 +81,7 @@ in {
 
     # NET
     filezilla nmap ncat bind whois pinned-unstable.youtubeDL aria zotero
-    bmon dnsutils jq
+    bmon dnsutils jq mtr
     google-chrome
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     irssi
@@ -96,6 +96,7 @@ in {
     # Multimedia
     gimp spotify inkscape okular ghostscript scribusUnstable blender glxinfo vlc imagemagick ffmpeg
     mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint pinned-unstable.helvum carla
+    pulseaudio
     # Fonts
     pinned-unstable.fira-code pinned-unstable.fira-code-symbols (callPackage ./linja-pona.nix {})
 
@@ -120,6 +121,14 @@ in {
     ".npmrc".source = ./files/npmrc;
     ".p10k.zsh".source = ./files/p10k.zsh;
     ".alsoftrc".source = ./files/alsoftrc;
+    ".mozilla/firefox/u3snpikq.default/chrome/userChrome.css".text = ''
+        #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+          opacity: 0;
+          pointer-events: none;
+        }
+        #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+            visibility: collapse !important;
+        }'';
 
     # Old version of chrome that still supports flash
     # "Applications/old-chromium".source = pinned-oldstable.chromium;
