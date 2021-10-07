@@ -1,11 +1,86 @@
 { pkgs, ... }:
+let
+  # Base
+  packages-base = with pkgs; [
+    bc
+    file
+    inotify-tools
+    neofetch
+    nix-bundle
+    nixpkgs-fmt
+    patchelf
+    pigz
+    smem
+    unzip
+    usbutils
+
+    (aspellWithDicts (d: [ d.it ]))
+
+    (callPackage ./programs/wally-cli.nix { })
+  ];
+
+  # Dev
+  package-dev-elm = with pkgs; [
+    elmPackages.elm
+    elmPackages.elm-format
+    elmPackages.elm-json
+    elmPackages.elm-live
+    elmPackages.elm-test
+    nodejs
+    optipng
+  ];
+
+  package-dev = package-dev-elm ++ (with pkgs; [
+    gnumake
+
+    git
+    gitAndTools.qgit
+  ]);
+
+  # GUI
+  packages-gui-fonts = with pkgs; [
+    fira-code
+    fira-code-symbols
+  ];
+
+  packages-gui-kde = with pkgs; [
+    ark
+    kcalc
+    kcharselect
+    kolourpaint
+    okular
+    spectacle
+    yakuake
+  ];
+
+  packages-gui-multimedia = with pkgs; [
+    ffmpeg
+    imagemagick
+    gimp
+    scribusUnstable
+    spotify
+    vlc
+  ];
+
+  packages-gui =
+    packages-gui-fonts
+    ++ packages-gui-kde
+    ++ packages-gui-multimedia;
+in
 {
   fonts.fontconfig.enable = true;
 
-  home.sessionPath = [
-    "$HOME/bin"
-    "$HOME/.npm-global/bin"
-  ];
+  home = {
+    packages =
+      packages-base
+      ++ package-dev
+      ++ packages-gui;
+
+    sessionPath = [
+      "$HOME/bin"
+      "$HOME/.npm-global/bin"
+    ];
+  };
 
   programs = {
     chromium.enable = true;

@@ -17,35 +17,41 @@ in
 
   home.packages = with pkgs; [
     # BASE
-    file
-    unzip
-    nix-bundle
-    exa
-    bc
-    patchelf
-    inotify-tools
-    (callPackage ./programs/wally-cli.nix { })
-    neofetch
-    pigz
-    usbutils
-    smem
-    (aspellWithDicts (d: [ d.it ]))
     # openrgb polychromatic
+
+    # GUI
+    calibre
+    etcher
+    gnome3.libgnomekbd
+    gparted
+    libreoffice-fresh
+    xclip
+    # Wine
+    winetricks
+    wineWowPackages.stable
+    # Multimedia
+    audacity
+    blender
+    carla
+    clementine
+    ghostscript
+    glxinfo
+    gnome3.cheese
+    gwenview
+    inkscape
+    mediainfo
+    pinned-unstable.helvum
+    pulseaudio
+    qjackctl
+    # Fonts
+    pinned-unstable.fira-code
+    pinned-unstable.fira-code-symbols
+    (callPackage ./linja-pona.nix { })
 
     # DEV
     colordiff
-    git
-    gnumake
-    gitAndTools.qgit
     # Elm
-    elmPackages.elm-format
-    elmPackages.elm
-    elmPackages.elm-test
-    elmPackages.elm-json
-    elmPackages.elm-live
-    optipng
     yarn
-    nodejs
     (callPackage ./programs/lamdera.nix { })
     # .NET
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
@@ -70,76 +76,33 @@ in
     glslang
     # Misc
     ghc
-    (python38.withPackages (ps: with ps; [ black ]))
+    (python38.withPackages (ps: [ ps.black ]))
     # binutils nasm
     # Dhall
     # dhall-lsp-server dhall
 
     # NET
-    filezilla
-    nmap
-    ncat
-    bind
-    whois
-    pinned-unstable.youtubeDL
+    (keepass.override { plugins = [ keepass-keepassrpc ]; })
     aria
-    zotero
+    bind
     bmon
     dnsutils
+    filezilla
+    google-chrome
+    irssi
     jq
     mtr
-    google-chrome
-    (keepass.override { plugins = [ keepass-keepassrpc ]; })
-    irssi
+    ncat
+    nmap
+    pinned-unstable.youtubeDL
+    whois
+    zotero
     # Im
     pinned-unstable.zoom-us
     discord
     teams
     skypeforlinux
     tdesktop
-
-    # GUI
-    ark
-    yakuake
-    kcharselect
-    kcalc
-    gnome3.libgnomekbd
-    libsForQt5.spectacle
-    gparted
-    libreoffice-fresh
-    xclip
-    pinned-unstable.dbeaver
-    etcher
-    calibre
-    # Wine
-    winetricks
-    wineWowPackages.stable
-    # Multimedia
-    gimp
-    spotify
-    inkscape
-    okular
-    ghostscript
-    scribusUnstable
-    blender
-    glxinfo
-    vlc
-    imagemagick
-    ffmpeg
-    mediainfo
-    qjackctl
-    gnome3.cheese
-    audacity
-    clementine
-    gwenview
-    kolourpaint
-    pinned-unstable.helvum
-    carla
-    pulseaudio
-    # Fonts
-    pinned-unstable.fira-code
-    pinned-unstable.fira-code-symbols
-    (callPackage ./linja-pona.nix { })
 
     # GAMES
     steam

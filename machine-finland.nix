@@ -1,57 +1,32 @@
 { config, pkgs, ... }:
 let
-  unstable = import <unstable> { };
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
   zoom-snapshot = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/5bb77e3ad96139efe668e81baea2ca064485f4d2.tar.gz") { };
 in
 {
   imports = [ ./machine-common.nix ];
 
   home.packages = with pkgs; [
-    # BASE
-    neofetch
-    file
-    nix-bundle
-    pigz
-    (callPackage ./programs/wally-cli.nix { })
-    usbutils
-    smem
-    imagemagick
-    nixpkgs-fmt
-
     # GUI
-    yakuake
-    xclip
-    spectacle
-    gimp
-    fira-code
-    fira-code-symbols
-    spotify
-    vlc
-    ffmpeg
-    ark
-    kcalc
-    scribusUnstable
-    okular
-    kate
-    libreoffice-still
-    unstable.dbeaver
-    postgresql
-    jetbrains.datagrip
     etcher
+    jetbrains.datagrip
+    libreoffice-still
+    postgresql
+    xclip
 
     # NET
-    openssl
-    whois
-    zoom-snapshot.zoom-us
     # zoom-us
+    adoptopenjdk-icedtea-web
     bmon
     dnsutils
+    filezilla
     jq
     nmap
-    xdg-desktop-portal-kde
+    openssl
     plasma-browser-integration
-    adoptopenjdk-icedtea-web
-    filezilla
+    whois
+    xdg-desktop-portal-kde
+    zoom-snapshot.zoom-us
 
     # VIRT
     # virt-manager vagrant
@@ -62,26 +37,18 @@ in
     go
     golangci-lint
     python3 # python37Packages.black
-    gnumake
-    git
-    gitAndTools.qgit
     ripgrep
     cfssl
     ansible-lint
     dhall
     dhall-json
-    elmPackages.elm
-    elmPackages.elm-format
-    elmPackages.elm-live
-    elmPackages.elm-json
-    nodejs
     dotnet-sdk # omnisharp-roslyn
   ];
 
   programs = {
     vscode = {
       enable = true;
-      package = unstable.vscode;
+      package = pinned-unstable.vscode;
       userSettings = {
         # omnisharp.path = "/run/current-system/sw/bin/omnisharp";
         editor = {
