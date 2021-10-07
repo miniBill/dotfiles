@@ -25,7 +25,6 @@ in
     gnome3.libgnomekbd
     gparted
     libreoffice-fresh
-    xclip
     # Wine
     winetricks
     wineWowPackages.stable
@@ -37,38 +36,28 @@ in
     ghostscript
     glxinfo
     gnome3.cheese
-    gwenview
     inkscape
     mediainfo
     pinned-unstable.helvum
     pulseaudio
     qjackctl
-    # Fonts
-    pinned-unstable.fira-code
-    pinned-unstable.fira-code-symbols
-    (callPackage ./linja-pona.nix { })
 
     # DEV
     colordiff
-    # Elm
-    yarn
-    (callPackage ./programs/lamdera.nix { })
     # .NET
-    (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
-    omnisharp-roslyn # dotnet-sdk
+    # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
+    # omnisharp-roslyn dotnet-sdk
     # zig sqlitebrowser
     # Java
     adoptopenjdk-jre-openj9-bin-8 # jre
     # pkgsi686Linux.openjdk8
     # C/C++
-    qtcreator
-    cmake
     clang-tools
+    cmake
     cppcheck
-    gcc
-    gdb
-    linuxPackages.perf
     hotspot
+    linuxPackages.perf
+    qtcreator
     # Rust
     rustc
     cargo
@@ -83,19 +72,10 @@ in
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
-    aria
     bind
-    bmon
-    dnsutils
-    filezilla
     google-chrome
     irssi
-    jq
-    mtr
-    ncat
-    nmap
     pinned-unstable.youtubeDL
-    whois
     zotero
     # Im
     discord
@@ -159,4 +139,14 @@ in
       obs-studio = pinned-unstable.obs-studio;
     })
   ];
+
+  # This value determines the Home Manager release that your
+  # configuration is compatible with. This helps avoid breakage
+  # when a new Home Manager release introduces backwards
+  # incompatible changes.
+  #
+  # You can update Home Manager without changing this value. See
+  # the Home Manager release notes for a list of state version
+  # changes in each release.
+  home.stateVersion = "20.03";
 }

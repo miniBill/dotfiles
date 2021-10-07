@@ -16,35 +16,19 @@ in
       jetbrains.datagrip
       libreoffice-still
       postgresql
-      xclip
 
       # NET
-      adoptopenjdk-icedtea-web
-      bmon
-      dnsutils
-      filezilla
-      jq
-      nmap
-      openssl
-      plasma-browser-integration
-      whois
-      xdg-desktop-portal-kde
 
       # VIRT
       # virt-manager vagrant
 
       # DEV
-      gcc
-      gdb
+      adoptopenjdk-icedtea-web
+      ansible-lint
+      cfssl
       go
       golangci-lint
       python3 # python37Packages.black
-      ripgrep
-      cfssl
-      ansible-lint
-      dhall
-      dhall-json
-      dotnet-sdk # omnisharp-roslyn
     ];
   };
 

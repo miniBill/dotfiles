@@ -12,6 +12,7 @@ let
     nixpkgs-fmt
     patchelf
     pigz
+    ripgrep
     smem
     unzip
     usbutils
@@ -22,6 +23,11 @@ let
   ];
 
   # Dev
+  packages-dev-c = with pkgs; [
+    gcc
+    gdb
+  ];
+
   package-dev-elm = with pkgs; [
     elmPackages.elm
     elmPackages.elm-format
@@ -30,6 +36,9 @@ let
     elmPackages.elm-test
     nodejs
     optipng
+    yarn
+
+    (callPackage ./programs/lamdera.nix { })
   ];
 
   package-dev = package-dev-elm ++ (with pkgs; [
@@ -43,15 +52,20 @@ let
   packages-gui-fonts = with pkgs; [
     fira-code
     fira-code-symbols
+
+    (callPackage ./linja-pona.nix { })
   ];
 
   packages-gui-kde = with pkgs; [
     ark
+    gwenview
     kcalc
     kcharselect
     kolourpaint
     okular
+    plasma-browser-integration
     spectacle
+    xdg-desktop-portal-kde
     yakuake
   ];
 
@@ -70,11 +84,30 @@ let
     ++ packages-gui-multimedia;
 
   # Network
+  packages-net-analysis = with pkgs;    [
+    bmon
+    dnsutils
+    mtr
+    ncat
+    nmap
+    whois
+  ];
+
   packages-net-communication = with pkgs; [
     pinned-unstable.zoom-us
   ];
 
-  packages-net = packages-net-communication;
+  packages-net-misc = with pkgs; [
+    aria
+    filezilla
+    jq
+    openssl
+  ];
+
+  packages-net =
+    packages-net-analysis
+    ++ packages-net-communication
+    ++ packages-net-misc;
 in
 {
   fonts.fontconfig.enable = true;
