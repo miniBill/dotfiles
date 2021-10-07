@@ -147,6 +147,8 @@ in {
       terminal = "xterm-256color";
     };
 
+    fzf.enable = true;
+
     htop = {
       enable = true;
       settings.hide_userland_threads = true;
