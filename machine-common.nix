@@ -42,10 +42,12 @@ let
   ];
 
   package-dev = package-dev-elm ++ (with pkgs; [
-    gnumake
-
     git
     gitAndTools.qgit
+
+    gnumake
+
+    (python38.withPackages (ps: [ ps.black ]))
   ]);
 
   # GUI
@@ -69,6 +71,10 @@ let
     yakuake
   ];
 
+  packages-gui-misc = with pkgs; [
+    etcher
+  ];
+
   packages-gui-multimedia = with pkgs; [
     ffmpeg
     imagemagick
@@ -81,6 +87,7 @@ let
   packages-gui =
     packages-gui-fonts
     ++ packages-gui-kde
+    ++ packages-gui-misc
     ++ packages-gui-multimedia;
 
   # Network
@@ -133,8 +140,17 @@ in
     username = "minibill";
     homeDirectory = "/home/minibill";
     language.base = "en_UK.UTF-8";
-  };
 
+    # This value determines the Home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new Home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update Home Manager without changing this value. See
+    # the Home Manager release notes for a list of state version
+    # changes in each release.
+    stateVersion = "20.03";
+  };
 
   programs = {
     chromium.enable = true;
@@ -231,5 +247,10 @@ in
         open = "xdg-open";
       };
     };
+  };
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
   };
 }

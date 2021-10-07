@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
-in
 {
   imports = [ ./machine-common.nix ];
 
@@ -12,15 +9,9 @@ in
 
     packages = with pkgs; [
       # GUI
-      etcher
       jetbrains.datagrip
       libreoffice-still
       postgresql
-
-      # NET
-
-      # VIRT
-      # virt-manager vagrant
 
       # DEV
       adoptopenjdk-icedtea-web
@@ -28,7 +19,6 @@ in
       cfssl
       go
       golangci-lint
-      python3 # python37Packages.black
     ];
   };
 
@@ -92,14 +82,4 @@ in
       }
     '';
   };
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "20.03";
 }
