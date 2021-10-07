@@ -98,7 +98,6 @@ in
     whois
     zotero
     # Im
-    pinned-unstable.zoom-us
     discord
     teams
     skypeforlinux
@@ -134,14 +133,7 @@ in
 
   home.file = {
     ".alsoftrc".source = ./files/alsoftrc;
-    ".mozilla/firefox/u3snpikq.default/chrome/userChrome.css".text = ''
-      #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-        opacity: 0;
-        pointer-events: none;
-      }
-      #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-          visibility: collapse !important;
-      }'';
+    ".mozilla/firefox/u3snpikq.default/chrome/userChrome.css".source = ./files/userChrome.css;
 
     # Old version of chrome that still supports flash
     # "Applications/old-chromium".source = pinned-oldstable.chromium;
@@ -149,24 +141,12 @@ in
   };
 
   programs = {
-    htop = {
-      enable = true;
-      settings.hide_userland_threads = true;
-    };
-
     obs-studio.enable = true;
 
-    vscode = {
-      enable = true;
-      package = pinned-unstable.vscode;
-    };
-
-    zsh = {
-      initExtra = ''
-        autopair-init
-        source ~/.p10k.zsh
-      '';
-    };
+    zsh.initExtra = ''
+      autopair-init
+      source ~/.p10k.zsh
+    '';
   };
 
   services.gpg-agent = {
@@ -179,8 +159,4 @@ in
       obs-studio = pinned-unstable.obs-studio;
     })
   ];
-
-  home.username = "minibill";
-  home.homeDirectory = "/home/minibill";
-  home.language.base = "it_IT.UTF-8";
 }

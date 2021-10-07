@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
+
   # Base
   packages-base = with pkgs; [
     bc
@@ -66,21 +68,40 @@ let
     packages-gui-fonts
     ++ packages-gui-kde
     ++ packages-gui-multimedia;
+
+  # Network
+  packages-net-communication = with pkgs; [
+    pinned-unstable.zoom-us
+  ];
+
+  packages-net = packages-net-communication;
 in
 {
   fonts.fontconfig.enable = true;
 
   home = {
+    file = {
+      ".npmrc".source = ./files/npmrc;
+      ".p10k.zsh".source = ./files/p10k.zsh;
+    };
+
     packages =
       packages-base
       ++ package-dev
-      ++ packages-gui;
+      ++ packages-gui
+      ++ packages-net
+    ;
 
     sessionPath = [
       "$HOME/bin"
       "$HOME/.npm-global/bin"
     ];
+
+    username = "minibill";
+    homeDirectory = "/home/minibill";
+    language.base = "en_UK.UTF-8";
   };
+
 
   programs = {
     chromium.enable = true;
@@ -91,11 +112,21 @@ in
 
     home-manager.enable = true;
 
+    htop = {
+      enable = true;
+      settings.hide_userland_threads = true;
+    };
+
     tmux = {
       enable = true;
       newSession = true;
       extraConfig = "set-option -g mouse on";
       terminal = "xterm-256color";
+    };
+
+    vscode = {
+      enable = true;
+      package = pinned-unstable.vscode;
     };
 
     zsh = {
@@ -167,10 +198,5 @@ in
         open = "xdg-open";
       };
     };
-  };
-
-  home.file = {
-    ".npmrc".source = ./files/npmrc;
-    ".p10k.zsh".source = ./files/p10k.zsh;
   };
 }
