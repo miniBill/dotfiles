@@ -73,6 +73,7 @@ let
 
   packages-gui-misc = with pkgs; [
     etcher
+    gnome-keyring # For vscode and saving passwords
   ];
 
   packages-gui-multimedia = with pkgs; [
