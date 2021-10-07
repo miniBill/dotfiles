@@ -5,6 +5,7 @@
   home = {
     file = {
       ".mozilla/firefox/ekr0xcc6.default/chrome/userChrome.css".source = ./files/userChrome.css;
+      ".mozilla/firefox/ekr0xcc6.default/user.js".source = ./files/user.js;
     };
 
     packages = with pkgs; [
