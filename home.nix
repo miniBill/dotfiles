@@ -52,7 +52,7 @@ in {
   home.packages = with pkgs; [
     # BASE
     file unzip nix-bundle
-    exa bc patchelf inotify-tools wally-cli neofetch pigz usbutils
+    exa bc patchelf inotify-tools wally-cli neofetch pigz usbutils smem
     (aspellWithDicts (d: [d.it]))
     # openrgb polychromatic
 
