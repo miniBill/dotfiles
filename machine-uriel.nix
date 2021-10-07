@@ -27,8 +27,6 @@ in
 {
   imports = [ ./machine-common.nix ];
 
-  programs.home-manager.enable = true;
-
   home.packages = with pkgs; [
     # BASE
     file
@@ -202,18 +200,12 @@ in
   };
 
   programs = {
-    chromium.enable = true;
-
-    firefox.enable = true;
-
     tmux = {
       enable = true;
       newSession = true;
       extraConfig = "set-option -g mouse on";
       terminal = "xterm-256color";
     };
-
-    fzf.enable = true;
 
     htop = {
       enable = true;

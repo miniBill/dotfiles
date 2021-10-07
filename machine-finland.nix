@@ -50,7 +50,6 @@ in
     nmap
     xdg-desktop-portal-kde
     plasma-browser-integration
-    chromium
     adoptopenjdk-icedtea-web
     filezilla
 
@@ -84,8 +83,6 @@ in
   ];
 
   programs = {
-    fzf.enable = true;
-
     vscode = {
       enable = true;
       package = unstable.vscode;
@@ -139,10 +136,6 @@ in
         update.mode = "none";
         python.showStartPage = false;
       };
-    };
-
-    firefox = {
-      enable = true;
     };
 
     zsh = {
@@ -216,8 +209,6 @@ in
         }
       ];
     };
-
-    home-manager.enable = true;
   };
 
   # This value determines the Home Manager release that your
