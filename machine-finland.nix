@@ -2,37 +2,17 @@
 let
   unstable = import <unstable> { };
   zoom-snapshot = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/5bb77e3ad96139efe668e81baea2ca064485f4d2.tar.gz") { };
-
-  wally-cli = pkgs.stdenv.mkDerivation {
-    name = "wally-cli-2.0.0";
-    src = pkgs.fetchurl {
-      name = "wally-cli";
-      url = "https://github.com/zsa/wally-cli/releases/download/2.0.0-linux/wally-cli";
-      sha256 = "0048ndgk0r2ln0f4pcy05xfwp022q8p7sdwyrfjk57d8q4f773x3";
-    };
-    dontStrip = true;
-    unpackPhase = ''
-      cp $src ./wally-cli
-    '';
-    installPhase = ''
-      mkdir -p $out/bin
-      chmod +wx wally-cli
-      cp wally-cli $out/bin
-      ${pkgs.patchelf}/bin/patchelf \
-        --interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-        --set-rpath "${pkgs.lib.makeLibraryPath [ pkgs.libusb1 ]}" \
-        $out/bin/wally-cli
-    '';
-  };
 in
 {
+  imports = [ ./machine-common.nix ];
+
   home.packages = with pkgs; [
     # BASE
     neofetch
     file
     nix-bundle
     pigz
-    wally-cli
+    (callPackage ./programs/wally-cli.nix { })
     usbutils
     smem
     imagemagick
@@ -102,8 +82,6 @@ in
   home.sessionPath = [
     "$HOME/.npm/bin"
   ];
-
-  fonts.fontconfig.enable = true;
 
   programs = {
     fzf.enable = true;
