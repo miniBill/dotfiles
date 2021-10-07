@@ -10,18 +10,6 @@ let
   #   };
   # };
 
-  pkgWithFlags = pkg: flags:
-    pkgs.lib.overrideDerivation pkg (old:
-      let
-        oldflags =
-          if (pkgs.lib.hasAttr "NIX_CFLAGS_COMPILE" old)
-          then "${old.NIX_CFLAGS_COMPILE}"
-          else "";
-      in
-      {
-        NIX_CFLAGS_COMPILE = "${oldflags} ${flags}";
-      });
-
   # polychromatic = pkgs.python3Packages.callPackage ./polychromatic.nix pkgs;
 in
 {
@@ -79,7 +67,7 @@ in
     rustc
     cargo
     # GLSL
-    glslang # (pkgWithFlags mesa "-Dwith_tools=[glsl]")
+    glslang
     # Misc
     ghc
     (python38.withPackages (ps: with ps; [ black ]))
