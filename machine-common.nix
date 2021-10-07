@@ -155,7 +155,21 @@ in
   programs = {
     chromium.enable = true;
 
-    firefox.enable = true;
+    firefox = {
+      enable = true;
+
+      profiles = {
+        main = {
+          isDefault = true;
+
+          settings = {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          };
+
+          userChrome = builtins.readFile ./files/userChrome.css;
+        };
+      };
+    };
 
     fzf.enable = true;
 

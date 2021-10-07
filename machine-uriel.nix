@@ -98,8 +98,6 @@ in
 
   home.file = {
     ".alsoftrc".source = ./files/alsoftrc;
-    ".mozilla/firefox/u3snpikq.default/chrome/userChrome.css".source = ./files/userChrome.css;
-    ".mozilla/firefox/u3snpikq.default/user.js".source = ./files/user.js;
 
     # Old version of chrome that still supports flash
     # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
