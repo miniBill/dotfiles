@@ -182,8 +182,6 @@ in
   ];
 
   home.file = {
-    ".npmrc".source = ./files/npmrc;
-    ".p10k.zsh".source = ./files/p10k.zsh;
     ".alsoftrc".source = ./files/alsoftrc;
     ".mozilla/firefox/u3snpikq.default/chrome/userChrome.css".text = ''
       #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
@@ -200,21 +198,12 @@ in
   };
 
   programs = {
-    tmux = {
-      enable = true;
-      newSession = true;
-      extraConfig = "set-option -g mouse on";
-      terminal = "xterm-256color";
-    };
-
     htop = {
       enable = true;
       settings.hide_userland_threads = true;
     };
 
-    obs-studio = {
-      enable = true;
-    };
+    obs-studio.enable = true;
 
     vscode = {
       enable = true;
@@ -222,84 +211,12 @@ in
     };
 
     zsh = {
-      enable = true;
-      autocd = true;
-      enableAutosuggestions = true;
-      enableCompletion = true;
-      enableVteIntegration = true;
-
-      sessionVariables = {
-        EDITOR = "vim";
-        TERM = "xterm-256color";
-      };
-
-      history = {
-        expireDuplicatesFirst = true;
-        ignoreSpace = true;
-      };
-
-      shellAliases = {
-        open = "xdg-open";
-      };
-
-      oh-my-zsh = {
-        enable = true;
-        plugins = [ "command-not-found" "git" "history" "ssh-agent" "sudo" "tmux" ];
-      };
-
       initExtra = ''
         autopair-init
         source ~/.p10k.zsh
       '';
-
-      plugins = with pkgs; [
-        {
-          name = "zsh-syntax-highlighting";
-          src = fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-syntax-highlighting";
-            rev = "0.6.0";
-            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-          };
-          file = "zsh-syntax-highlighting.zsh";
-        }
-        {
-          name = "zsh-autopair";
-          src = fetchFromGitHub {
-            owner = "hlissner";
-            repo = "zsh-autopair";
-            rev = "34a8bca0c18fcf3ab1561caef9790abffc1d3d49";
-            sha256 = "1h0vm2dgrmb8i2pvsgis3lshc5b0ad846836m62y8h3rdb3zmpy1";
-          };
-          file = "autopair.zsh";
-        }
-        {
-          name = "powerlevel10k";
-          file = "powerlevel10k.zsh-theme";
-          src = fetchFromGitHub {
-            owner = "romkatv";
-            repo = "powerlevel10k";
-            rev = "8d1daa4e6340b1689bf951730489bc64c52220c7";
-            sha256 = "0bm0dd4lb9kwv3xl6lk0wyb0fqq83gs8kl9111qs5ybavwcxlnnr";
-          };
-        }
-        {
-          name = "nix-shell";
-          src = fetchFromGitHub {
-            owner = "chisui";
-            repo = "zsh-nix-shell";
-            rev = "03a1487655c96a17c00e8c81efdd8555829715f8";
-            sha256 = "1avnmkjh0zh6wmm87njprna1zy4fb7cpzcp8q7y03nw3aq22q4ms";
-          };
-        }
-      ];
     };
   };
-
-  home.sessionPath = [
-    "$HOME/bin"
-    "$HOME/.npm-global/bin"
-  ];
 
   services.gpg-agent = {
     enable = true;
