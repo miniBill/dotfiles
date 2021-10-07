@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") {};
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
   # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
   #   config = {
   #     allowUnfree = true;
@@ -12,21 +12,22 @@ let
 
   pkgWithFlags = pkg: flags:
     pkgs.lib.overrideDerivation pkg (old:
-    let
-      oldflags = if (pkgs.lib.hasAttr "NIX_CFLAGS_COMPILE" old)
-        then "${old.NIX_CFLAGS_COMPILE}"
-        else "";
-    in
-    {
-      NIX_CFLAGS_COMPILE = "${oldflags} ${flags}";
-    });
+      let
+        oldflags =
+          if (pkgs.lib.hasAttr "NIX_CFLAGS_COMPILE" old)
+          then "${old.NIX_CFLAGS_COMPILE}"
+          else "";
+      in
+      {
+        NIX_CFLAGS_COMPILE = "${oldflags} ${flags}";
+      });
 
   wally-cli = pkgs.stdenv.mkDerivation {
     name = "wally-cli-2.0.0";
     src = pkgs.fetchurl {
-        name = "wally-cli";
-        url = "https://github.com/zsa/wally-cli/releases/download/2.0.0-linux/wally-cli";
-        sha256 = "0048ndgk0r2ln0f4pcy05xfwp022q8p7sdwyrfjk57d8q4f773x3";
+      name = "wally-cli";
+      url = "https://github.com/zsa/wally-cli/releases/download/2.0.0-linux/wally-cli";
+      sha256 = "0048ndgk0r2ln0f4pcy05xfwp022q8p7sdwyrfjk57d8q4f773x3";
     };
     dontStrip = true;
     unpackPhase = ''
@@ -44,77 +45,164 @@ let
   };
 
   # polychromatic = pkgs.python3Packages.callPackage ./polychromatic.nix pkgs;
-in {
+in
+{
   programs.home-manager.enable = true;
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     # BASE
-    file unzip nix-bundle
-    exa bc patchelf inotify-tools wally-cli neofetch pigz usbutils smem
-    (aspellWithDicts (d: [d.it]))
+    file
+    unzip
+    nix-bundle
+    exa
+    bc
+    patchelf
+    inotify-tools
+    wally-cli
+    neofetch
+    pigz
+    usbutils
+    smem
+    (aspellWithDicts (d: [ d.it ]))
     # openrgb polychromatic
 
     # DEV
-    colordiff git gnumake gitAndTools.qgit
+    colordiff
+    git
+    gnumake
+    gitAndTools.qgit
     # Elm
-    elmPackages.elm-format elmPackages.elm elmPackages.elm-test elmPackages.elm-json elmPackages.elm-live
-    optipng yarn nodejs (callPackage ./lamdera.nix {})
+    elmPackages.elm-format
+    elmPackages.elm
+    elmPackages.elm-test
+    elmPackages.elm-json
+    elmPackages.elm-live
+    optipng
+    yarn
+    nodejs
+    (callPackage ./lamdera.nix { })
     # .NET
-    (with dotnetCorePackages; combinePackages [ sdk_3_1 ]) omnisharp-roslyn # dotnet-sdk
+    (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
+    omnisharp-roslyn # dotnet-sdk
     # zig sqlitebrowser
     # Java
     adoptopenjdk-jre-openj9-bin-8 # jre
     # pkgsi686Linux.openjdk8
     # C/C++
-    qtcreator cmake clang-tools cppcheck gcc gdb linuxPackages.perf hotspot
+    qtcreator
+    cmake
+    clang-tools
+    cppcheck
+    gcc
+    gdb
+    linuxPackages.perf
+    hotspot
     # Rust
-    rustc cargo
+    rustc
+    cargo
     # GLSL
     glslang # (pkgWithFlags mesa "-Dwith_tools=[glsl]")
     # Misc
-    ghc (python38.withPackages(ps: with ps; [ black ]))
+    ghc
+    (python38.withPackages (ps: with ps; [ black ]))
     # binutils nasm
     # Dhall
     # dhall-lsp-server dhall
 
     # NET
-    filezilla nmap ncat bind whois pinned-unstable.youtubeDL aria zotero
-    bmon dnsutils jq mtr
+    filezilla
+    nmap
+    ncat
+    bind
+    whois
+    pinned-unstable.youtubeDL
+    aria
+    zotero
+    bmon
+    dnsutils
+    jq
+    mtr
     google-chrome
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     irssi
     # Im
-    pinned-unstable.zoom-us discord teams skypeforlinux tdesktop
+    pinned-unstable.zoom-us
+    discord
+    teams
+    skypeforlinux
+    tdesktop
 
     # GUI
-    ark yakuake kcharselect kcalc gnome3.libgnomekbd libsForQt5.spectacle
-    gparted libreoffice-fresh xclip pinned-unstable.dbeaver etcher calibre
+    ark
+    yakuake
+    kcharselect
+    kcalc
+    gnome3.libgnomekbd
+    libsForQt5.spectacle
+    gparted
+    libreoffice-fresh
+    xclip
+    pinned-unstable.dbeaver
+    etcher
+    calibre
     # Wine
-    winetricks wineWowPackages.stable
+    winetricks
+    wineWowPackages.stable
     # Multimedia
-    gimp spotify inkscape okular ghostscript scribusUnstable blender glxinfo vlc imagemagick ffmpeg
-    mediainfo qjackctl gnome3.cheese audacity clementine gwenview kolourpaint pinned-unstable.helvum carla
+    gimp
+    spotify
+    inkscape
+    okular
+    ghostscript
+    scribusUnstable
+    blender
+    glxinfo
+    vlc
+    imagemagick
+    ffmpeg
+    mediainfo
+    qjackctl
+    gnome3.cheese
+    audacity
+    clementine
+    gwenview
+    kolourpaint
+    pinned-unstable.helvum
+    carla
     pulseaudio
     # Fonts
-    pinned-unstable.fira-code pinned-unstable.fira-code-symbols (callPackage ./linja-pona.nix {})
+    pinned-unstable.fira-code
+    pinned-unstable.fira-code-symbols
+    (callPackage ./linja-pona.nix { })
 
     # GAMES
     steam
     (steam.override {
       withPrimus = true;
       extraPkgs = pkgs: with pkgs; [
-        nettools glxinfo mono gtk3 gtk3-x11 libgdiplus zlib
+        nettools
+        glxinfo
+        mono
+        gtk3
+        gtk3-x11
+        libgdiplus
+        zlib
       ];
       nativeOnly = true;
     }).run
-    mupen64plus wxmupen64plus
-    lutris-free mgba
+    mupen64plus
+    wxmupen64plus
+    lutris-free
+    mgba
 
     # VIRT/OP
     # nixops
-    virtmanager nix-index virtualbox qemu
+    virtmanager
+    nix-index
+    virtualbox
+    qemu
   ];
 
   home.file = {
@@ -122,13 +210,13 @@ in {
     ".p10k.zsh".source = ./files/p10k.zsh;
     ".alsoftrc".source = ./files/alsoftrc;
     ".mozilla/firefox/u3snpikq.default/chrome/userChrome.css".text = ''
-        #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-          opacity: 0;
-          pointer-events: none;
-        }
-        #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-            visibility: collapse !important;
-        }'';
+      #main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+          visibility: collapse !important;
+      }'';
 
     # Old version of chrome that still supports flash
     # "Applications/old-chromium".source = pinned-oldstable.chromium;
@@ -186,7 +274,7 @@ in {
 
       oh-my-zsh = {
         enable = true;
-        plugins= [ "command-not-found" "git" "history" "ssh-agent" "sudo" "tmux" ];
+        plugins = [ "command-not-found" "git" "history" "ssh-agent" "sudo" "tmux" ];
       };
 
       initExtra = ''

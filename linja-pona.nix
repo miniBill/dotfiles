@@ -2,7 +2,8 @@
 
 let
   version = "4.2";
-in fetchurl {
+in
+fetchurl {
   name = "linja-pona-${version}";
 
   url = "https://github.com/janSame/linja-pona/raw/5c20b3f38b419a44e938ca8f2dff871c776c6579/linja-pona-${version}.otf";

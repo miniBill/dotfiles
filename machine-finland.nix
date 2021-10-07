@@ -1,14 +1,14 @@
 { config, pkgs, ... }:
 let
-  unstable = import <unstable> {};
-  zoom-snapshot = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/5bb77e3ad96139efe668e81baea2ca064485f4d2.tar.gz") {};
+  unstable = import <unstable> { };
+  zoom-snapshot = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/5bb77e3ad96139efe668e81baea2ca064485f4d2.tar.gz") { };
 
   wally-cli = pkgs.stdenv.mkDerivation {
     name = "wally-cli-2.0.0";
     src = pkgs.fetchurl {
-        name = "wally-cli";
-        url = "https://github.com/zsa/wally-cli/releases/download/2.0.0-linux/wally-cli";
-        sha256 = "0048ndgk0r2ln0f4pcy05xfwp022q8p7sdwyrfjk57d8q4f773x3";
+      name = "wally-cli";
+      url = "https://github.com/zsa/wally-cli/releases/download/2.0.0-linux/wally-cli";
+      sha256 = "0048ndgk0r2ln0f4pcy05xfwp022q8p7sdwyrfjk57d8q4f773x3";
     };
     dontStrip = true;
     unpackPhase = ''
@@ -24,42 +24,78 @@ let
         $out/bin/wally-cli
     '';
   };
-in {
+in
+{
   home.packages = with pkgs; [
     # BASE
-    neofetch file nix-bundle pigz wally-cli usbutils smem
+    neofetch
+    file
+    nix-bundle
+    pigz
+    wally-cli
+    usbutils
+    smem
     imagemagick
+    nixpkgs-fmt
 
     # GUI
-    yakuake xclip
-    spectacle gimp
-    fira-code fira-code-symbols
-    spotify vlc ffmpeg
-    ark kcalc scribusUnstable okular kate libreoffice-still
-    unstable.dbeaver postgresql jetbrains.datagrip
+    yakuake
+    xclip
+    spectacle
+    gimp
+    fira-code
+    fira-code-symbols
+    spotify
+    vlc
+    ffmpeg
+    ark
+    kcalc
+    scribusUnstable
+    okular
+    kate
+    libreoffice-still
+    unstable.dbeaver
+    postgresql
+    jetbrains.datagrip
     etcher
 
     # NET
-    openssl whois
+    openssl
+    whois
     zoom-snapshot.zoom-us
     # zoom-us
-    bmon dnsutils jq nmap
-    xdg-desktop-portal-kde plasma-browser-integration
-    chromium adoptopenjdk-icedtea-web filezilla
+    bmon
+    dnsutils
+    jq
+    nmap
+    xdg-desktop-portal-kde
+    plasma-browser-integration
+    chromium
+    adoptopenjdk-icedtea-web
+    filezilla
 
     # VIRT
     # virt-manager vagrant
 
     # DEV
-    gcc gdb
-    go golangci-lint
+    gcc
+    gdb
+    go
+    golangci-lint
     python3 # python37Packages.black
     gnumake
-    git gitAndTools.qgit
+    git
+    gitAndTools.qgit
     ripgrep
-    cfssl ansible-lint
-    dhall dhall-json
-    elmPackages.elm elmPackages.elm-format elmPackages.elm-live elmPackages.elm-json nodejs
+    cfssl
+    ansible-lint
+    dhall
+    dhall-json
+    elmPackages.elm
+    elmPackages.elm-format
+    elmPackages.elm-live
+    elmPackages.elm-json
+    nodejs
     dotnet-sdk # omnisharp-roslyn
   ];
 
@@ -81,7 +117,7 @@ in {
           fontFamily = "Fira Code";
           fontLigatures = true;
           formatOnSave = true;
-          rulers = [85 120];
+          rulers = [ 85 120 ];
           codeLens = false;
           renderWhitespace = "boundary";
         };
@@ -135,7 +171,7 @@ in {
       enable = true;
       oh-my-zsh = {
         enable = true;
-        plugins =  [
+        plugins = [
           "command-not-found"
           "git"
           "history"
@@ -180,7 +216,7 @@ in {
             sha256 = "1h0vm2dgrmb8i2pvsgis3lshc5b0ad846836m62y8h3rdb3zmpy1";
           };
           file = "autopair.zsh";
-        }       
+        }
         {
           name = "powerlevel9k";
           file = "powerlevel9k.zsh-theme";

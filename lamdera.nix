@@ -1,4 +1,5 @@
-{ stdenv, lib
+{ stdenv
+, lib
 , fetchurl
 , ncurses5
 , gmp5

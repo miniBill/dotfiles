@@ -30,53 +30,53 @@
 , usbutils
 }:
 
-  buildPythonApplication rec {
-    name = "polychromatic-${version}";
-    version = "unstable-2020-03-10";
+buildPythonApplication rec {
+  name = "polychromatic-${version}";
+  version = "unstable-2020-03-10";
 
-    format = "other";
+  format = "other";
 
-    src = fetchFromGitHub {
-      owner = "polychromatic";
-      repo = "polychromatic";
-      rev = "5ca66b65c6d739e20c973b76a74054476e9c8cce";
-      sha256 = "1xvdpf7h148jgf0q7bh6fhzgvwxdfx2kav7w3kj1x9sxpkza72a1";
-    };
+  src = fetchFromGitHub {
+    owner = "polychromatic";
+    repo = "polychromatic";
+    rev = "5ca66b65c6d739e20c973b76a74054476e9c8cce";
+    sha256 = "1xvdpf7h148jgf0q7bh6fhzgvwxdfx2kav7w3kj1x9sxpkza72a1";
+  };
 
-    pathsToLink = [ "/bin" "/etc" "/lib" "/share" ];
+  pathsToLink = [ "/bin" "/etc" "/lib" "/share" ];
 
-    buildInputs = [
-      cairo
-      hicolor-icon-theme
-    ];
+  buildInputs = [
+    cairo
+    hicolor-icon-theme
+  ];
 
-    propagatedBuildInputs = [
-      setproctitle
-      openrazer
-      openrazer-daemon
-      requests
-      ibus
-      usbutils
-    ];
+  propagatedBuildInputs = [
+    setproctitle
+    openrazer
+    openrazer-daemon
+    requests
+    ibus
+    usbutils
+  ];
 
-    nativePropagatedBuildInputs = [
-      gobject-introspection
-      gtk3
-      gdk-pixbuf
-      imagemagick
-    ];
+  nativePropagatedBuildInputs = [
+    gobject-introspection
+    gtk3
+    gdk-pixbuf
+    imagemagick
+  ];
 
-    nativeBuildInputs = [
-      desktop-file-utils
-      gobject-introspection
-      wrapGAppsHook
-      webkitgtk
-      gnome3.librsvg
-      sass
-      sassc
-      ninja
-      meson
-    ];
+  nativeBuildInputs = [
+    desktop-file-utils
+    gobject-introspection
+    wrapGAppsHook
+    webkitgtk
+    gnome3.librsvg
+    sass
+    sassc
+    ninja
+    meson
+  ];
 
   postInstall = ''
     patchShebangsAuto $out/lib/python3.7/site-packages/polychromatic
