@@ -73,7 +73,7 @@ let
 
   packages-gui-misc = with pkgs; [
     etcher
-    gnome-keyring # For vscode and saving passwords
+    gnome3.gnome-keyring # For vscode and saving passwords
   ];
 
   packages-gui-multimedia = with pkgs; [
@@ -140,7 +140,7 @@ in
 
     username = "minibill";
     homeDirectory = "/home/minibill";
-    language.base = "en_UK.UTF-8";
+    language.base = "en_US.UTF-8";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
