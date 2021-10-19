@@ -3,7 +3,7 @@ let
   pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
 in
 {
-  imports = [ ./machine-graphical.nix ];
+  imports = [ ./machine-base.nix ./machine-graphical.nix ];
 
   home.packages = with pkgs; [
     # BASE

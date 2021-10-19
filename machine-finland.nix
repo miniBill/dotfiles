@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./machine-graphical.nix ];
+  imports = [ ./machine-base.nix ./machine-graphical.nix ];
 
   home = {
     packages = with pkgs; [
