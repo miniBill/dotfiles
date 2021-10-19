@@ -5,6 +5,7 @@ let
     bc
     file
     inotify-tools
+    openssh
     patchelf
     pigz
     ripgrep
