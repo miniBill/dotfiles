@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./machine-common.nix ];
+  imports = [ ./machine-graphical.nix ];
 
   home = {
     packages = with pkgs; [
@@ -71,8 +71,6 @@
     };
 
     zsh.initExtra = ''
-      autopair-init
-      source ~/.p10k.zsh
       ansible-short-diff () {
         export ANSIBLE_DISPLAY_OK_HOSTS=no ANSIBLE_DISPLAY_SKIPPED_HOSTS=no ANSIBLE_NOCOLOR=false 
       }

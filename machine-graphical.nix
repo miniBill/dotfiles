@@ -7,22 +7,36 @@ let
     bc
     file
     inotify-tools
-    neofetch
-    nix-bundle
-    nixpkgs-fmt
     patchelf
     pigz
     ripgrep
     smem
     unzip
+  ];
+
+  # Base - laptops and desktops
+  packages-base-pc = with pkgs; [
+    neofetch
+    nix-bundle
+    nixpkgs-fmt
+
     usbutils
 
-    (aspellWithDicts (d: [ d.it ]))
-
     (callPackage ./programs/wally-cli.nix { })
+
+    (aspellWithDicts (d: [ d.it ]))
   ];
 
   # Dev
+  packages-dev-base = with pkgs; [
+    git
+    gitAndTools.qgit
+
+    gnumake
+
+    (python38.withPackages (ps: [ ps.black ]))
+  ];
+
   packages-dev-c = with pkgs; [
     gcc
     gdb
@@ -41,14 +55,7 @@ let
     (callPackage ./programs/lamdera.nix { })
   ];
 
-  package-dev = package-dev-elm ++ (with pkgs; [
-    git
-    gitAndTools.qgit
-
-    gnumake
-
-    (python38.withPackages (ps: [ ps.black ]))
-  ]);
+  package-dev = packages-dev-base ++ package-dev-elm;
 
   # GUI
   packages-gui-fonts = with pkgs; [
@@ -73,7 +80,7 @@ let
 
   packages-gui-misc = with pkgs; [
     etcher
-    gnome3.gnome-keyring # For vscode and saving passwords
+    gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
   ];
 
   packages-gui-multimedia = with pkgs; [
@@ -128,6 +135,7 @@ in
 
     packages =
       packages-base
+      ++ packages-base-pc
       ++ package-dev
       ++ packages-gui
       ++ packages-net
@@ -205,6 +213,11 @@ in
         expireDuplicatesFirst = true;
         ignoreSpace = true;
       };
+
+      initExtra = ''
+        autopair-init
+        source ~/.p10k.zsh
+      '';
 
       oh-my-zsh = {
         enable = true;
