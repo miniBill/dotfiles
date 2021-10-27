@@ -75,6 +75,7 @@ let
     scribusUnstable
     spotify
     vlc
+    (callPackage ./programs/headset-control.nix { })
   ];
 
   packages-gui =
