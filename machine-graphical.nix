@@ -47,7 +47,7 @@ let
     fira-code
     fira-code-symbols
 
-    (callPackage ./linja-pona.nix { })
+    (callPackage ./fonts/linja-pona.nix { })
   ];
 
   packages-gui-kde = with pkgs; [
