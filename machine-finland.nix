@@ -6,6 +6,7 @@
     packages = with pkgs; [
       # GUI
       jetbrains.datagrip
+      dbeaver
       libreoffice-still
       postgresql
 
