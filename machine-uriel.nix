@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
+  maybe-qtcreator = import (fetchTarball "https://github.com/Artturin/nixpkgs/archive/2e523a3b38aa498942103e3957adef16ad697247.tar.gz") { };
 in
 {
   imports = [ ./machine-base.nix ./machine-graphical.nix ];
@@ -8,9 +9,10 @@ in
   home.packages = with pkgs; [
     # BASE
     # openrgb (pkgs.python3Packages.callPackage ./polychromatic.nix pkgs)
+    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln ; })
 
     # GUI
-    calibre
+    pinned-unstable.calibre
     gnome3.libgnomekbd
     gparted
     libreoffice-fresh
@@ -22,7 +24,6 @@ in
     blender
     carla
     clementine
-    ghostscript
     glxinfo
     gnome3.cheese
     inkscape
@@ -45,7 +46,7 @@ in
     cppcheck
     hotspot
     linuxPackages.perf
-    qtcreator
+    maybe-qtcreator.qtcreator
     # Rust
     rustc
     cargo
@@ -69,20 +70,20 @@ in
     tdesktop
 
     # GAMES
-    steam
-    (steam.override {
-      withPrimus = true;
-      extraPkgs = pkgs: with pkgs; [
-        nettools
-        glxinfo
-        mono
-        gtk3
-        gtk3-x11
-        libgdiplus
-        zlib
-      ];
-      nativeOnly = true;
-    }).run
+    # steam
+    # (steam.override {
+    #   withPrimus = true;
+    #   extraPkgs = pkgs: with pkgs; [
+    #     nettools
+    #     glxinfo
+    #     mono
+    #     gtk3
+    #     gtk3-x11
+    #     libgdiplus
+    #     zlib
+    #   ];
+    #   nativeOnly = true;
+    # }).run
     mupen64plus
     wxmupen64plus
     lutris-free

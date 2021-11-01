@@ -5,6 +5,7 @@ let
     bc
     file
     inotify-tools
+    moreutils
     openssh
     patchelf
     pigz
