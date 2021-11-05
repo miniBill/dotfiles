@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/fff46a0fd9167e60873d58e07890e58f1b837892.tar.gz") { };
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
