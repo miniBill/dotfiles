@@ -46,6 +46,7 @@ in
     file = {
       ".npmrc".source = ./files/npmrc;
       ".p10k.zsh".source = ./files/p10k.zsh;
+      ".cargo/config.toml".source = ./files/cargo/config.toml;
     };
 
     sessionPath = [
