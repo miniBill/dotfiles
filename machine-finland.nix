@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  pinned-oldstable = import (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/1c1f5649bb9c1b0d98637c8c365228f57126f361.tar.gz) { };
+in
 {
   imports = [ ./machine-base.nix ./machine-graphical.nix ];
 
@@ -16,6 +19,8 @@
       cfssl
       go
       golangci-lint
+
+      pinned-oldstable.terraform_0_11
     ];
   };
 
