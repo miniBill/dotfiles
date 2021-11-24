@@ -107,6 +107,11 @@ in
       ++ packages-gui
       ++ packages-net
     ;
+
+    file = {
+      # Always allow moving output devices in pavucontrol
+      ".alsoftrc".source = ./files/alsoftrc;
+    };
   };
 
   programs = {

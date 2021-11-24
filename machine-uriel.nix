@@ -9,7 +9,7 @@ in
   home.packages = with pkgs; [
     # BASE
     # openrgb (pkgs.python3Packages.callPackage ./polychromatic.nix pkgs)
-    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln ; })
+    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
 
     # GUI
     pinned-unstable.calibre
@@ -98,8 +98,6 @@ in
   ];
 
   home.file = {
-    ".alsoftrc".source = ./files/alsoftrc;
-
     # Old version of chrome that still supports flash
     # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
     #   config = {
