@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/4ad4ae68c427ef8458be34051b4e545eb752811c.tar.gz") { };
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/90af5cacfbcf6b3c57a33feb1e19be797b27e7e8.tar.gz") { };
   maybe-qtcreator = import (fetchTarball "https://github.com/Artturin/nixpkgs/archive/2e523a3b38aa498942103e3957adef16ad697247.tar.gz") { };
 in
 {
@@ -28,7 +28,7 @@ in
     gnome3.cheese
     inkscape
     mediainfo
-    pinned-unstable.helvum
+    # helvum
     pulseaudio
     qjackctl
 
