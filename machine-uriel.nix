@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/90af5cacfbcf6b3c57a33feb1e19be797b27e7e8.tar.gz") { };
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/669740ba937fb7f821a9528e9b6f5e1a6c5d4ab6.tar.gz") { };
   maybe-qtcreator = import (fetchTarball "https://github.com/Artturin/nixpkgs/archive/2e523a3b38aa498942103e3957adef16ad697247.tar.gz") { };
 in
 {
@@ -8,8 +8,7 @@ in
 
   home.packages = with pkgs; [
     # BASE
-    # openrgb (pkgs.python3Packages.callPackage ./polychromatic.nix pkgs)
-    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
+    openrgb (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
 
     # GUI
     pinned-unstable.calibre

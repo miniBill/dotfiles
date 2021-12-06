@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/fff46a0fd9167e60873d58e07890e58f1b837892.tar.gz") { };
+  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/669740ba937fb7f821a9528e9b6f5e1a6c5d4ab6.tar.gz") { };
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
@@ -135,7 +135,7 @@ in
 
     vscode = {
       enable = true;
-      package = pinned-unstable.vscode;
+      package = pinned-unstable.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 
