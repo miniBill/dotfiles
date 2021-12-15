@@ -20,7 +20,8 @@ in
       go
       golangci-lint
 
-      pinned-oldstable.terraform_0_11 google-cloud-sdk
+      pinned-oldstable.terraform_0_11
+      google-cloud-sdk
     ];
   };
 
@@ -93,16 +94,18 @@ in
       controlPersist = "10m";
       matchBlocks = {
         "10.0.0.*" = lib.hm.dag.entryBefore
-          ["*.rstor.net 209.163.* 10.* ns*.rstorcloud.io"] {
-          user = "minibill";
-        };
+          [ "*.rstor.net 209.163.* 10.* ns*.rstorcloud.io" ]
+          {
+            user = "minibill";
+          };
         "rramp-gcp-* 10.128.0.*" = lib.hm.dag.entryBefore
-          ["*.rstor.net 209.163.* 10.* ns*.rstorcloud.io"] {
-          user = "minibill";
-          # pubkeyAuthentication = "yes";
-          proxyJump = "storage-ops-usc.packetfabric.net"; # 10.4.2.21
-        };
-        "*.rstor.net 209.163.* 10.* ns*.rstorcloud.io" = {
+          [ "*.rstor.net 209.163.* 10.* ns*.rstorcloud.io" ]
+          {
+            user = "minibill";
+            # pubkeyAuthentication = "yes";
+            proxyJump = "storage-ops-usc.packetfabric.net"; # 10.4.2.21
+          };
+        "*.rstor.net 209.163.* 216.180.* 10.* ns*.rstorcloud.io" = {
           user = "ltaglialegne";
           proxyJump = "storage-ops-usc.packetfabric.net";
         };
@@ -111,7 +114,7 @@ in
         };
         "storage-ops storage-ops-usc.packetfabric.net" = {
           hostname = "storage-ops-usc.packetfabric.net";
-          dynamicForwards = [ { port = 1080; } ];
+          dynamicForwards = [{ port = 1080; }];
           extraOptions = { ControlPersist = "12h"; };
         };
         "lax01-jumphost01 jump01.lax01 jump01.lax01.rstor.net 10.3.204.168" = {
@@ -122,11 +125,11 @@ in
         };
       };
       extraConfig = ''
-CanonicalizeHostname yes
-CanonicalDomains rstor.net rstorcloud.io
-CanonicalizeMaxDots 1
-CanonicalizeFallbackLocal yes
-CanonicalizePermittedCNAMEs *.rstor.net:*.rstor.net *.rstorcloud.io:*.rstorcloud.io'';
+        CanonicalizeHostname yes
+        CanonicalDomains rstor.net rstorcloud.io
+        CanonicalizeMaxDots 1
+        CanonicalizeFallbackLocal yes
+        CanonicalizePermittedCNAMEs *.rstor.net:*.rstor.net *.rstorcloud.io:*.rstorcloud.io'';
     };
   };
 }
