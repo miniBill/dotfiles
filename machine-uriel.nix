@@ -8,14 +8,15 @@ in
 
   home.packages = with pkgs; [
     # BASE
-    openrgb (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
+    openrgb
+    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
 
     # GUI
     pinned-unstable.calibre
     gnome3.libgnomekbd
     gparted
     libreoffice-fresh
-    # Wine
+    # Wine 
     winetricks
     wineWowPackages.stable
     # Multimedia
@@ -30,6 +31,8 @@ in
     # helvum
     pulseaudio
     qjackctl
+    jackmix
+    jamulus
 
     # DEV
     colordiff
@@ -37,7 +40,8 @@ in
     # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # omnisharp-roslyn dotnet-sdk
     # Java
-    adoptopenjdk-jre-openj9-bin-8 # jre
+    # adoptopenjdk-jre-openj9-bin-8 # JRE
+    adoptopenjdk-bin # JDK
     # pkgsi686Linux.openjdk8
     # C/C++
     clang-tools
