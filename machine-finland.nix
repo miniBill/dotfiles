@@ -68,8 +68,8 @@ in
       "[html]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
-      elmLs = {
-        elmPath = "elm";
+      elmLS = {
+        elmPath = "/home/minibill/.nix-profile/bin/elm";
       };
       python.formatting = {
         provider = "black";
