@@ -111,6 +111,7 @@ in
     file = {
       # Always allow moving output devices in pavucontrol
       ".alsoftrc".source = ./files/alsoftrc;
+      "bin/elm-format-hack".source = ./programs/elm-format-hack;
     };
   };
 
