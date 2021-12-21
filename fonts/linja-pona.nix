@@ -1,14 +1,14 @@
 { lib, fetchurl }:
 
 let
-  version = "4.2";
+  version = "4.9";
 in
 fetchurl {
   name = "linja-pona-${version}";
 
-  url = "https://github.com/janSame/linja-pona/raw/5c20b3f38b419a44e938ca8f2dff871c776c6579/linja-pona-${version}.otf";
+  url = "https://github.com/janSame/linja-pona/raw/8436d31ba84bb9c7198f7df2ec07d5b8b56ffdf7/linja-pona-${version}.otf";
 
-  sha256 = "19596wh2yb4h5sp5lrd6bb2vqyaibj7dm9m7qm8gf1asw3kliaig";
+  sha256 = "1s61lcmc958jxf55paw8wmi2mh5s3ihghr8x1q2ggb235x1b4xh5";
 
   downloadToTemp = true;
   recursiveHash = true;
