@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 let
   pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/521958cb8fb729775b9174c92f32af2821b59560.tar.gz") { };
 
@@ -10,7 +11,7 @@ let
 
     usbutils
 
-    (callPackage ./programs/wally-cli.nix { })
+    (callPackage ../programs/wally-cli.nix { })
 
     (aspellWithDicts (d: [ d.it ]))
   ];
@@ -37,7 +38,7 @@ let
     optipng
     yarn
 
-    (callPackage ./programs/lamdera.nix { })
+    (callPackage ../programs/lamdera.nix { })
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
@@ -47,7 +48,7 @@ let
     fira-code
     fira-code-symbols
 
-    (callPackage ./fonts/linja-pona.nix { })
+    (callPackage ../fonts/linja-pona.nix { })
   ];
 
   packages-gui-kde = with pkgs; [
@@ -75,7 +76,7 @@ let
     scribusUnstable
     spotify
     vlc
-    (callPackage ./programs/headset-control.nix { })
+    (callPackage ../programs/headset-control.nix { })
   ];
 
   packages-gui =
@@ -98,6 +99,8 @@ let
     ++ packages-net-misc;
 in
 {
+  imports = [ ./base.nix ];
+
   fonts.fontconfig.enable = true;
 
   home = {
@@ -110,8 +113,8 @@ in
 
     file = {
       # Always allow moving output devices in pavucontrol
-      ".alsoftrc".source = ./files/alsoftrc;
-      "bin/elm-format-hack".source = ./programs/elm-format-hack;
+      ".alsoftrc".source = ../files/alsoftrc;
+      "bin/elm-format-hack".source = ../programs/elm-format-hack;
     };
   };
 
@@ -129,7 +132,7 @@ in
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           };
 
-          userChrome = builtins.readFile ./files/userChrome.css;
+          userChrome = builtins.readFile ../files/userChrome.css;
         };
       };
     };

@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
+
 let
   pinned-oldstable = import (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-20.09.tar.gz) { };
 in
 {
-  imports = [ ./machine-base.nix ./machine-graphical.nix ];
+  imports = [ ../groups/graphical.nix ];
 
   home = {
     packages = with pkgs; [
@@ -100,6 +101,7 @@ in
       controlMaster = "auto";
       controlPath = "~/.ssh/control/%r@%h:%p";
       controlPersist = "10m";
+      forwardAgent = true;
       matchBlocks = {
         "10.0.0.*" = lib.hm.dag.entryBefore
           [ "*.rstor.net 209.163.* 10.* ns*.rstorcloud.io" ]

@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ ... }:
+
 {
-  imports = [ ./machine-base.nix ];
+  imports = [ ./base.nix ];
 
   programs = {
     zsh.initExtra = ''

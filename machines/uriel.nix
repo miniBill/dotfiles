@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
+
 let
   pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/669740ba937fb7f821a9528e9b6f5e1a6c5d4ab6.tar.gz") { };
   maybe-qtcreator = import (fetchTarball "https://github.com/Artturin/nixpkgs/archive/2e523a3b38aa498942103e3957adef16ad697247.tar.gz") { };
 in
 {
-  imports = [ ./machine-base.nix ./machine-graphical.nix ];
+  imports = [ ../groups/graphical.nix ];
 
   home.packages = with pkgs; [
     # BASE
@@ -102,7 +103,7 @@ in
 
   home.file = {
     # Old version of chrome that still supports flash
-    # pinned-oldstable = pkgs.callPackage ./nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
+    # pinned-oldstable = pkgs.callPackage ../nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
     #   config = {
     #     allowUnfree = true;
     #     chromium = {
@@ -111,7 +112,7 @@ in
     #   };
     # };
     # "Applications/old-chromium".source = pinned-oldstable.chromium;
-    # ".config/chromium/Default/Pepper Data/Shockwave Flash/System/mms.cfg".source = ./files/mms.cfg;
+    # ".config/chromium/Default/Pepper Data/Shockwave Flash/System/mms.cfg".source = ../files/mms.cfg;
   };
 
   programs = {
