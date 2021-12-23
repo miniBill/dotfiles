@@ -29,7 +29,6 @@ in
     gnome3.cheese
     inkscape
     mediainfo
-    # helvum
     pulseaudio
     qjackctl
     jackmix
@@ -92,6 +91,7 @@ in
     wxmupen64plus
     lutris-free
     mgba
+    minecraft
 
     # VIRT/OP
     # nixops
