@@ -33,6 +33,7 @@ in
     qjackctl
     jackmix
     jamulus
+    (callPackage ../programs/jack_mixer.nix { })
 
     # DEV
     colordiff
