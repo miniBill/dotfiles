@@ -23,6 +23,7 @@ python3Packages.buildPythonApplication rec {
 
   nativeBuildInputs = with pkgs; [
     gettext
+    gobject-introspection
     meson
     ninja
     pkg-config
