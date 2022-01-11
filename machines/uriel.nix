@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/669740ba937fb7f821a9528e9b6f5e1a6c5d4ab6.tar.gz") { };
-  maybe-qtcreator = import (fetchTarball "https://github.com/Artturin/nixpkgs/archive/2e523a3b38aa498942103e3957adef16ad697247.tar.gz") { };
+  pinned-unstable = import ../repos/pinned-unstable.nix;
+  maybe-qtcreator = import ../repos/maybe-qtcreator.nix;
 in
 {
   imports = [ ../groups/graphical.nix ];
@@ -29,9 +29,6 @@ in
     gnome3.cheese
     inkscape
     mediainfo
-    pulseaudio
-    qjackctl
-    jackmix
     jamulus
     ardour
     # (callPackage ../programs/jack_mixer.nix { })

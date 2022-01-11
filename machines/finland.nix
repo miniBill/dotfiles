@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  pinned-oldstable = import (builtins.fetchTarball https://github.com/NixOS/nixpkgs/archive/nixos-20.09.tar.gz) { };
+  pinned-oldstable = import ../repos/pinned-oldstable.nix;
 in
 {
   imports = [ ../groups/graphical.nix ];

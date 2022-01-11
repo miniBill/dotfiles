@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  pinned-unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/521958cb8fb729775b9174c92f32af2821b59560.tar.gz") { };
+  pinned-unstable = import ../repos/pinned-unstable.nix;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
@@ -71,8 +71,11 @@ let
 
   packages-gui-multimedia = with pkgs; [
     ffmpeg
-    imagemagick
     gimp
+    imagemagick
+    jackmix
+    pulseaudio
+    qjackctl
     scribusUnstable
     spotify
     vlc
