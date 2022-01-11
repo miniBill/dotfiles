@@ -102,38 +102,38 @@ in
       controlPath = "~/.ssh/control/%r@%h:%p";
       controlPersist = "10m";
       forwardAgent = true;
-      matchBlocks = {
-        "10.0.0.*" = lib.hm.dag.entryBefore
-          [ "*.rstor.net 209.163.* 10.* ns*.rstorcloud.io" ]
-          {
+      matchBlocks =
+        let
+          mainKey = "*.rstor.net 209.163.* 216.180.* 10.* ns*.rstorcloud.io";
+        in
+        {
+          "10.0.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
             user = "minibill";
           };
-        "rramp-gcp-* 10.128.0.*" = lib.hm.dag.entryBefore
-          [ "*.rstor.net 209.163.* 10.* ns*.rstorcloud.io" ]
-          {
+          "rramp-gcp-* 10.128.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
             user = "minibill";
             # pubkeyAuthentication = "yes";
-            proxyJump = "storage-ops-usc.packetfabric.net"; # 10.4.2.21
+            proxyJump = "storage-ops-usc.packetfabric.net"; # 10.65.0.3
           };
-        "*.rstor.net 209.163.* 216.180.* 10.* ns*.rstorcloud.io" = {
-          user = "ltaglialegne";
-          proxyJump = "storage-ops-usc.packetfabric.net";
+          mainKey = {
+            user = "ltaglialegne";
+            proxyJump = "storage-ops-usc.packetfabric.net";
+          };
+          "ci.pre-rstor.com" = {
+            hostname = "172.30.23.11";
+          };
+          "storage-ops storage-ops-usc.packetfabric.net 34.136.96.227" = {
+            hostname = "storage-ops-usc.packetfabric.net";
+            dynamicForwards = [{ port = 1080; }];
+            extraOptions = { ControlPersist = "12h"; };
+          };
+          "lax01-jumphost01 jump01.lax01 jump01.lax01.rstor.net 10.3.204.168" = {
+            hostname = "10.3.204.168";
+          };
+          "dca02-jumphost01 jump01.dca02 jump01.dca02.rstor.net 10.4.204.215" = {
+            hostname = "10.4.204.215";
+          };
         };
-        "ci.pre-rstor.com" = {
-          hostname = "172.30.23.11";
-        };
-        "storage-ops storage-ops-usc.packetfabric.net" = {
-          hostname = "storage-ops-usc.packetfabric.net";
-          dynamicForwards = [{ port = 1080; }];
-          extraOptions = { ControlPersist = "12h"; };
-        };
-        "lax01-jumphost01 jump01.lax01 jump01.lax01.rstor.net 10.3.204.168" = {
-          hostname = "10.3.204.168";
-        };
-        "dca02-jumphost01 jump01.dca02 jump01.dca02.rstor.net 10.4.204.215" = {
-          hostname = "10.4.204.215";
-        };
-      };
       extraConfig = ''
         CanonicalizeHostname yes
         CanonicalDomains rstor.net rstorcloud.io
