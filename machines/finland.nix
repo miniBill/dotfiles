@@ -115,7 +115,7 @@ in
             # pubkeyAuthentication = "yes";
             proxyJump = "storage-ops-usc.packetfabric.net"; # 10.65.0.3
           };
-          mainKey = {
+          "*.rstor.net 209.163.* 216.180.* 10.* ns*.rstorcloud.io" = {
             user = "ltaglialegne";
             proxyJump = "storage-ops-usc.packetfabric.net";
           };
