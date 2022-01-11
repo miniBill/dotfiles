@@ -33,6 +33,7 @@ in
     qjackctl
     jackmix
     jamulus
+    ardour
     # (callPackage ../programs/jack_mixer.nix { })
 
     # DEV
