@@ -50,8 +50,7 @@ in
     linuxPackages.perf
     maybe-qtcreator.qtcreator
     # Rust
-    rustc
-    cargo
+    rustup
     # GLSL
     glslang
     # Misc
