@@ -104,7 +104,7 @@ in
       forwardAgent = true;
       matchBlocks =
         let
-          mainKey = "*.rstor.net 209.163.* 216.180.* 10.* ns*.rstorcloud.io";
+          mainKey = "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io";
         in
         {
           "10.0.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
@@ -115,7 +115,7 @@ in
             # pubkeyAuthentication = "yes";
             proxyJump = "storage-ops-usc.packetfabric.net"; # 10.65.0.3
           };
-          "*.rstor.net 209.163.* 216.180.* 10.* ns*.rstorcloud.io" = {
+          "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io" = {
             user = "ltaglialegne";
             proxyJump = "storage-ops-usc.packetfabric.net";
           };
