@@ -127,6 +127,10 @@ in
             dynamicForwards = [{ port = 1080; }];
             extraOptions = { ControlPersist = "12h"; };
           };
+          "ops ops.packetfabric.net" = {
+            hostname = "ops.packetfabric.net";
+            extraOptions = { ControlPersist = "12h"; };
+          };
           "lax01-jumphost01 jump01.lax01 jump01.lax01.rstor.net 10.3.204.168" = {
             hostname = "10.3.204.168";
           };
