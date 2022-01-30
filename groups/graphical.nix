@@ -74,6 +74,7 @@ let
     gimp
     imagemagick
     jackmix
+    pavucontrol
     pulseaudio
     qjackctl
     scribusUnstable
