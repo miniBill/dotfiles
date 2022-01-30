@@ -34,7 +34,7 @@ in
     # (callPackage ../programs/jack_mixer.nix { })
 
     # DEV
-    colordiff
+    colordiff valgrind
     # .NET
     # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # omnisharp-roslyn dotnet-sdk
