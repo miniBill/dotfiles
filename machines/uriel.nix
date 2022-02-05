@@ -21,20 +21,24 @@ in
     winetricks
     wineWowPackages.stable
     # Multimedia
+    ardour
     audacity
     blender
     carla
     clementine
+    frescobaldi
     glxinfo
     gnome3.cheese
     inkscape
-    mediainfo
     jamulus
-    ardour
+    mediainfo
+    timidity
+    vmpk
     # (callPackage ../programs/jack_mixer.nix { })
 
     # DEV
-    colordiff valgrind
+    colordiff
+    valgrind
     # .NET
     # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # omnisharp-roslyn dotnet-sdk
