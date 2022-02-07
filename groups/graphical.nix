@@ -97,6 +97,7 @@ let
 
   packages-net-misc = with pkgs; [
     filezilla
+    remmina
   ];
 
   packages-net =
