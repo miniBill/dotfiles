@@ -160,6 +160,7 @@ in
       sessionVariables = {
         EDITOR = "vim";
         TERM = "xterm-256color";
+        DOTNET_CLI_TELEMETRY_OPTOUT = "1";
       };
 
       shellAliases = {

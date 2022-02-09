@@ -40,7 +40,7 @@ in
     colordiff
     valgrind
     # .NET
-    # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
+    (with dotnetCorePackages; combinePackages [ dotnet-sdk_5 ])
     # omnisharp-roslyn dotnet-sdk
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
