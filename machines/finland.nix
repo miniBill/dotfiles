@@ -104,7 +104,7 @@ in
       forwardAgent = true;
       matchBlocks =
         let
-          mainKey = "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io";
+          mainKey = "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io !10.0.0.*";
         in
         {
           "10.0.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
@@ -112,10 +112,8 @@ in
           };
           "rramp-gcp-* 10.128.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
             user = "minibill";
-            # pubkeyAuthentication = "yes";
-            proxyJump = "storage-ops-usc.packetfabric.net"; # 10.65.0.3
           };
-          "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io" = {
+          "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io !10.0.0.*" = {
             user = "ltaglialegne";
             proxyJump = "storage-ops-usc.packetfabric.net";
           };
@@ -131,12 +129,12 @@ in
             hostname = "ops.packetfabric.net";
             extraOptions = { ControlPersist = "12h"; };
           };
-          "lax01-jumphost01 jump01.lax01 jump01.lax01.rstor.net 10.3.204.168" = {
-            hostname = "10.3.204.168";
-          };
-          "dca02-jumphost01 jump01.dca02 jump01.dca02.rstor.net 10.4.204.215" = {
-            hostname = "10.4.204.215";
-          };
+          # "lax01-jumphost01 jump01.lax01 jump01.lax01.rstor.net 10.3.204.168" = {
+          #   hostname = "10.3.204.168";
+          # };
+          # "dca02-jumphost01 jump01.dca02 jump01.dca02.rstor.net 10.4.204.215" = {
+          #   hostname = "10.4.204.215";
+          # };
         };
       extraConfig = ''
         CanonicalizeHostname yes
