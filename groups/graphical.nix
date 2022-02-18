@@ -1,7 +1,8 @@
 { pkgs, ... }:
 
 let
-  pinned-unstable = import ../repos/pinned-unstable.nix;
+  pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
+  pinned-unstable-zoom = import ../repos/pinned-unstable-zoom.nix;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
@@ -92,7 +93,7 @@ let
 
   # Network
   packages-net-communication = with pkgs; [
-    pinned-unstable.zoom-us
+    pinned-unstable-zoom.zoom-us
   ];
 
   packages-net-misc = with pkgs; [
@@ -147,7 +148,7 @@ in
 
     vscode = {
       enable = true;
-      package = pinned-unstable.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+      package = pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 

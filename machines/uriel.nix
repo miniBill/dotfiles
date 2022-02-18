@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 let
-  pinned-unstable = import ../repos/pinned-unstable.nix;
+  pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
+  pinned-unstable-youtube-dl = import ../repos/pinned-unstable-youtube-dl.nix;
+  pinned-unstable-obs-studio = import ../repos/pinned-unstable-obs-studio.nix;
   maybe-qtcreator = import ../repos/maybe-qtcreator.nix;
 in
 {
@@ -13,7 +15,7 @@ in
     (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
 
     # GUI
-    pinned-unstable.calibre
+    pinned-unstable-calibre.calibre
     gnome3.libgnomekbd
     gparted
     libreoffice-fresh
@@ -66,7 +68,7 @@ in
     bind
     google-chrome
     irssi
-    pinned-unstable.youtubeDL
+    pinned-unstable-youtube-dl.youtubeDL
     zotero
     nixops
     # Im
@@ -124,7 +126,7 @@ in
 
   nixpkgs.overlays = [
     (self: super: {
-      obs-studio = pinned-unstable.obs-studio;
+      obs-studio = pinned-unstable-obs-studio.obs-studio;
     })
   ];
 }
