@@ -104,7 +104,7 @@ in
       forwardAgent = true;
       matchBlocks =
         let
-          mainKey = "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io !10.0.0.*";
+          mainKey = "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io *.rstor.space !10.0.0.*";
         in
         {
           "10.0.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
@@ -113,7 +113,7 @@ in
           "rramp-gcp-* 10.128.0.*" = lib.hm.dag.entryBefore [ mainKey ] {
             user = "minibill";
           };
-          "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io !10.0.0.*" = {
+          "*.rstor.net 209.163.* 124.254.* 216.180.* 10.* ns*.rstorcloud.io *.rstor.space !10.0.0.*" = {
             user = "ltaglialegne";
             proxyJump = "storage-ops-usc.packetfabric.net";
           };
