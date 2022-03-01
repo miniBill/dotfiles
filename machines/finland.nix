@@ -10,6 +10,7 @@ in
     packages = with pkgs; [
       # GUI
       jetbrains.datagrip
+      jetbrains.pycharm-community
       dbeaver
       libreoffice-still
       postgresql
