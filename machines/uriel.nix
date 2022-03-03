@@ -4,6 +4,7 @@ let
   pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
   pinned-unstable-youtube-dl = import ../repos/pinned-unstable-youtube-dl.nix;
   pinned-unstable-obs-studio = import ../repos/pinned-unstable-obs-studio.nix;
+  pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
   maybe-qtcreator = import ../repos/maybe-qtcreator.nix;
 in
 {
@@ -12,7 +13,7 @@ in
   home.packages = with pkgs; [
     # BASE
     openrgb
-    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln; })
+    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln footmisc relsize; })
 
     # GUI
     pinned-unstable-calibre.calibre
@@ -72,7 +73,7 @@ in
     zotero
     nixops
     # Im
-    discord
+    pinned-unstable-discord.discord
     teams
     skypeforlinux
     tdesktop
