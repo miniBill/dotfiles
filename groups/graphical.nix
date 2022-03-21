@@ -22,6 +22,9 @@ let
     gitAndTools.qgit
 
     (python38.withPackages (ps: [ ps.black ]))
+
+    watchexec
+    sass
   ];
 
   packages-dev-c = with pkgs; [
