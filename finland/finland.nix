@@ -12,6 +12,7 @@
       ../hardware-configuration.nix
       ./toPR.nix
       ../groups/common.nix
+      ../groups/graphical.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

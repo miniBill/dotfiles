@@ -11,6 +11,7 @@
       ../hardware-configuration.nix
       ../wip-pinebook-pro/pinebook_pro.nix
       ../groups/common.nix
+      ../groups/graphical.nix
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
