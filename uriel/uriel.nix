@@ -20,9 +20,6 @@ in
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
@@ -34,6 +31,8 @@ in
       }
     ];
   };
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
