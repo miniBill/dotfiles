@@ -4,7 +4,10 @@ let
   pinned-oldstable = import ../repos/pinned-oldstable.nix;
 in
 {
-  imports = [ ../groups/graphical.nix ];
+  imports = [
+    ../groups/graphical.nix
+    ../groups/x86_64.nix
+  ];
 
   home = {
     packages = with pkgs; [
@@ -21,7 +24,6 @@ in
       cfssl
       go
       golangci-lint
-      (callPackage ../programs/lamdera.nix { })
 
       pinned-oldstable.terraform_0_11
       google-cloud-sdk

@@ -67,7 +67,6 @@ let
   ];
 
   packages-gui-misc = with pkgs; [
-    etcher
     gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
   ];
 

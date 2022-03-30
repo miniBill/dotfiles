@@ -9,7 +9,10 @@ let
   maybe-qtcreator = import ../repos/maybe-qtcreator.nix;
 in
 {
-  imports = [ ../groups/graphical.nix ];
+  imports = [
+    ../groups/graphical.nix
+    ../groups/x86_64.nix
+  ];
 
   home.packages = with pkgs; [
     # BASE
@@ -43,7 +46,6 @@ in
     # DEV
     colordiff
     valgrind
-    (callPackage ../programs/lamdera.nix { })
     # .NET
     (with dotnetCorePackages; combinePackages [ dotnet-sdk_5 ])
     # omnisharp-roslyn dotnet-sdk
@@ -63,7 +65,8 @@ in
     # GLSL
     glslang
     # Misc
-    ghc libwebp
+    ghc
+    libwebp
     # zig sqlitebrowser binutils nasm
 
     # NET
