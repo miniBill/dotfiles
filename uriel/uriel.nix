@@ -19,7 +19,7 @@ in
       <musnix>
       ../groups/common.nix
       ../groups/graphical.nix
-      ./web.nix
+      # ./web.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
