@@ -131,6 +131,8 @@ in
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
   services.tailscale.enable = true;
 
+  programs.adb.enable = true;
+
   system.autoUpgrade.enable = true;
 
   # This value determines the NixOS release from which the default
