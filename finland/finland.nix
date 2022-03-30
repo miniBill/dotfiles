@@ -55,21 +55,7 @@
 
   nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.mtr.enable = true;
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-  };
-  programs.adb.enable = true;
-  programs.ssh.startAgent = true;
-
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 1234 ];
@@ -85,42 +71,13 @@
     updater.enable = true;
   };
 
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-  # hardware.pulseaudio.support32Bit = true;
-  # hardware.bluetooth.enable = true;
-  # rtkit is optional but recommended
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    jack.enable = true;
-  };
-
   services.udev.extraRules = ''
-    # Rule for all ZSA keyboards
-    SUBSYSTEM=="usb", ATTR{idVendor}=="3297", GROUP="plugdev"
-    # Rule for the Moonlander
-    SUBSYSTEM=="usb", ATTR{idVendor}=="3297", ATTR{idProduct}=="1969", GROUP="plugdev"
     # Rule for Logitech headset
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="0a87", GROUP="plugdev"
   '';
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "it";
-  # services.xserver.xkbOptions = "eurosign:e";
-
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
-
-  # Enable the KDE Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
 
   virtualisation = {
     docker.enable = true;
@@ -140,13 +97,6 @@
   };
   users.groups.plugdev = { };
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-  nix.autoOptimiseStore = true;
-
   system.autoUpgrade.enable = true;
 
   # This value determines the NixOS release from which the default
@@ -156,6 +106,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.03"; # Did you read the comment?
-
 }
-

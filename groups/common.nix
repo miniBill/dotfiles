@@ -29,4 +29,28 @@
     wget
     zsh
   ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  programs.adb.enable = true;
+  programs.mtr.enable = true;
+  programs.ssh.startAgent = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+  };
+
+  # Services
+  services.openssh.enable = true;
+
+  # Nix
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+    autoOptimiseStore = true;
+  };
 }

@@ -73,72 +73,36 @@ in
     DefaultTimeoutStopSec=5s
   '';
 
-  nixpkgs.config.allowUnfree = true;
-
   hardware.cpu.intel.updateMicrocode = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
 
   # 32-bit support for Steam
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   programs.steam.enable = true;
 
-  # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio = {
-  #   enable = true;
-  #   support32Bit = true; # Needed for Steam
-  #   extraModules = [ pkgs.pulseaudio-modules-bt ];
-  #   package = pkgs.pulseaudioFull;
-  # };
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    package = pinned-unstable.pipewire;
-  };
+  services.pipewire.package = pinned-unstable.pipewire;
   musnix.enable = true;
   security.pam.loginLimits = [
     { domain = "@audio"; item = "nofile"; type = "soft"; value = "999999"; }
     { domain = "@audio"; item = "nofile"; type = "hard"; value = "999999"; }
   ];
 
-  # More hardware info
-  # hardware.keyboard.zsa.enable = true; # one day...
-  services.blueman.enable = true;
-  services.udev.extraRules = ''
-    SUBSYSTEM=="usb", ATTR{idVendor}=="3297", GROUP="zsa"
-    SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="df11", GROUP="zsa"
-    SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
-  '' + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ] (builtins.readFile openrgb-rules);
   virtualisation.libvirtd.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-  };
-  programs.adb.enable = true;
-
-  users.groups.zsa = { };
+  # More hardware info
+  services.blueman.enable = true;
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
+  '' + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ] (builtins.readFile openrgb-rules);
 
   users.users.minibill = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "zsa" "video" "plugdev" "libvirtd" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "video" "plugdev" "libvirtd" "audio" ];
   };
   users.groups.audio = { };
 
@@ -160,20 +124,6 @@ in
     usbutils
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
   # Open ports in the firewall.
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
@@ -184,14 +134,6 @@ in
   services.tailscale.enable = true;
 
   system.autoUpgrade.enable = true;
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    autoOptimiseStore = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
