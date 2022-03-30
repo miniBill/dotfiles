@@ -155,16 +155,12 @@ in
     gparted
     i2c-tools
     kwin
-    lsof
-    ncdu
     ntfs3g
     openrgb
     parted
     pciutils
-    screen
     sysstat
     tailscale
-    tmux
     usbutils
   ];
 

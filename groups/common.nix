@@ -19,8 +19,14 @@
 
   # Common software
   environment.systemPackages = with pkgs; [
-    vim
     git
+    htop
+    lsof
+    ncdu
+    screen
+    tmux
+    vim
     wget
+    zsh
   ];
 }

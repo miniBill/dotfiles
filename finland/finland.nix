@@ -42,20 +42,14 @@
     acpitool
     cpufrequtils
     dmidecode
-    htop
     kwin
     lm_sensors
-    lsof
-    ncdu
     openconnect
     pavucontrol
     powertop
-    screen
     sysstat
     tailscale
-    tmux
     yakuake
-    zsh
   ];
 
   nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
