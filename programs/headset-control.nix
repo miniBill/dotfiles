@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
   version = "2.5";
 
   src = builtins.fetchGit {
-    url = "https://github.com/Sapd/HeadsetControl.git";
+    url = "https://github.com/Sapd/HeadsetControl.git/";
     ref = "74b650532a43c1494f65604baff7ecc2d4437264";
   };
 
