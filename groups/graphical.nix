@@ -2,7 +2,6 @@
 
 let
   pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
-  pinned-unstable-zoom = import ../repos/pinned-unstable-zoom.nix;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
@@ -92,7 +91,6 @@ let
 
   # Network
   packages-net-communication = with pkgs; [
-    pinned-unstable-zoom.zoom-us
   ];
 
   packages-net-misc = with pkgs; [
