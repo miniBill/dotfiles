@@ -10,6 +10,7 @@
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
       ../wip-pinebook-pro/pinebook_pro.nix
+      ../groups/common.nix
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -18,28 +19,12 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   networking.hostName = "sohu"; # Define your hostname.
-  networking.networkmanager.enable = true; # Enables NetworkManager
-
-  # Set your time zone.
-  time.timeZone = "Europe/Rome";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
   networking.interfaces.usb0.useDHCP = true;
   networking.interfaces.wlan0.useDHCP = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

@@ -17,6 +17,7 @@ in
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
       <musnix>
+      ../groups/common.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -36,6 +37,9 @@ in
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
+
+  networking.hostName = "uriel"; # Define your hostname.
+  networking.interfaces.wlo1.useDHCP = false;
 
   boot.kernelModules = [
     #  RGB
@@ -74,26 +78,6 @@ in
   '';
 
   nixpkgs.config.allowUnfree = true;
-
-  networking.hostName = "uriel"; # Define your hostname.
-  networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.wlo1.useDHCP = false;
-
-  # Select internationalisation properties.
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    inputMethod.enabled = "ibus";
-  };
-  console = {
-    useXkbConfig = true;
-  };
-
-  time.timeZone = "Europe/Rome";
 
   hardware.cpu.intel.updateMicrocode = true;
 

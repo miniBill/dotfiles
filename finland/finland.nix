@@ -11,6 +11,7 @@
       # Include the results of the hardware scan.
       ../hardware-configuration.nix
       ./toPR.nix
+      ../groups/common.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -32,24 +33,8 @@
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   networking.hostName = "finland"; # Define your hostname.
-  networking.networkmanager.enable = true; # Enables NetworkManager
-  services.tailscale.enable = true;
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
   networking.interfaces.wlp59s0.useDHCP = false;
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "it_IT.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Rome";
+  services.tailscale.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
