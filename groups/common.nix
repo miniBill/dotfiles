@@ -16,4 +16,11 @@
     defaultLocale = "en_US.UTF-8";
     inputMethod.enabled = "ibus";
   };
+
+  # Common software
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    wget
+  ];
 }

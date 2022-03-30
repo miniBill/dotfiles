@@ -39,25 +39,23 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget
-    vim
-    lsof
-    sysstat
-    ncdu
-    htop
     acpitool
-    dmidecode
-    lm_sensors
-    powertop
     cpufrequtils
-    zsh
-    tmux
-    screen
-    openconnect
-    tailscale
+    dmidecode
+    htop
     kwin
-    yakuake
+    lm_sensors
+    lsof
+    ncdu
+    openconnect
     pavucontrol
+    powertop
+    screen
+    sysstat
+    tailscale
+    tmux
+    yakuake
+    zsh
   ];
 
   nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;

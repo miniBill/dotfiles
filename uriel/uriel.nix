@@ -149,25 +149,23 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    lsof
-    sysstat
-    ncdu
-    gparted
-    ntfs3g
-    parted
-    exfat
     acpitool
-    pciutils
-    tmux
-    screen
-    vim
-    wget
-    tailscale
-    kwin
-    openrgb
-    usbutils
-    i2c-tools
     dmidecode
+    exfat
+    gparted
+    i2c-tools
+    kwin
+    lsof
+    ncdu
+    ntfs3g
+    openrgb
+    parted
+    pciutils
+    screen
+    sysstat
+    tailscale
+    tmux
+    usbutils
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
