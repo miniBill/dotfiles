@@ -19,6 +19,8 @@ in
       <musnix>
       ../groups/common.nix
       ../groups/graphical.nix
+      ./php-fpm.nix
+      ./web.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
