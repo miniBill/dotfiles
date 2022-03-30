@@ -99,13 +99,6 @@ in
     SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
   '' + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ] (builtins.readFile openrgb-rules);
 
-  users.users.minibill = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "video" "plugdev" "libvirtd" "audio" ];
-  };
-  users.groups.audio = { };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

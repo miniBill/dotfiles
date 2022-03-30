@@ -8,6 +8,10 @@
   # replicates the default behaviour.
   networking.useDHCP = false;
 
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
@@ -53,4 +57,12 @@
     };
     autoOptimiseStore = true;
   };
+
+  # Users
+  users.users.minibill = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "video" "plugdev" "libvirtd" "audio" ];
+  };
+  users.groups.audio = { };
 }

@@ -85,11 +85,6 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.minibill = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" "libvirtd" "adbusers" "plugdev" ];
-  };
   users.users.llibinim = {
     isNormalUser = true;
     shell = pkgs.zsh;
