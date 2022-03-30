@@ -19,7 +19,6 @@ in
       <musnix>
       ../groups/common.nix
       ../groups/graphical.nix
-      ./php-fpm.nix
       ./web.nix
     ];
 
