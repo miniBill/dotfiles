@@ -58,11 +58,6 @@ in
   #];
   # boot.kernelPackages = pkgs.linuxPackages_5_12;
 
-  # Used by vscode, parcel and friends
-  boot.kernel.sysctl = {
-    "fs.inotify.max_user_watches" = 524288;
-    "fs.inotify.max_user_instances" = 1024;
-  };
   boot.kernelParams = [
     "intel_iommu=on"
     # "i915.enable_guc=0"
