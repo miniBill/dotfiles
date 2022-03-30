@@ -21,8 +21,10 @@ in
       "pm.start_servers" = 2;
       "pm.min_spare_servers" = 2;
       "pm.max_spare_servers" = 5;
-      "php_admin_value[error_log]" = "stderr";
+      # "php_admin_value[error_log]" = "stderr";
       "php_admin_flag[log_errors]" = true;
+      "php_admin_flag[upload_max_filesize]" = "400M";
+      "php_admin_flag[post_max_size]" = "400M";
       "catch_workers_output" = true;
     };
     phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
@@ -40,7 +42,7 @@ in
 
       extraConfig = ''
         # Maximum file upload size is 4MB - change accordingly if needed
-        client_max_body_size 4M;
+        client_max_body_size 400M;
         client_body_buffer_size 128k;
 
         location ~ \.php$ {
