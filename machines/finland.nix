@@ -21,6 +21,7 @@ in
       cfssl
       go
       golangci-lint
+      (callPackage ../programs/lamdera.nix { })
 
       pinned-oldstable.terraform_0_11
       google-cloud-sdk

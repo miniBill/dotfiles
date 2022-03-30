@@ -43,6 +43,7 @@ in
     # DEV
     colordiff
     valgrind
+    (callPackage ../programs/lamdera.nix { })
     # .NET
     (with dotnetCorePackages; combinePackages [ dotnet-sdk_5 ])
     # omnisharp-roslyn dotnet-sdk

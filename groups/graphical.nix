@@ -41,8 +41,6 @@ let
     nodejs
     optipng
     yarn
-
-    (callPackage ../programs/lamdera.nix { })
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
