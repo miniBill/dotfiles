@@ -17,7 +17,7 @@ in
     pinned-unstable-youtube-dl.youtubeDL
 
     # Im
-    pinned-unstable-discord.discord
+    # pinned-unstable-discord.discord
     pinned-unstable-tdesktop.tdesktop
   ];
 }
