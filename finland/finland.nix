@@ -9,7 +9,7 @@
     [
       <nixos-hardware/dell/xps/15-7590>
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ../hardware-configuration.nix
       ./toPR.nix
     ];
 

@@ -8,8 +8,8 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./wip-pinebook-pro/pinebook_pro.nix
+      ../hardware-configuration.nix
+      ../wip-pinebook-pro/pinebook_pro.nix
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
