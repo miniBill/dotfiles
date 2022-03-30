@@ -79,7 +79,6 @@ let
     pulseaudio
     qjackctl
     scribusUnstable
-    spotify
     vlc
     calf
     (callPackage ../programs/headset-control.nix { })
