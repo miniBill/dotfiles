@@ -14,14 +14,11 @@
       ../groups/graphical.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    device = "nodev";
-    efiSupport = true;
-    configurationLimit = 10;
-  };
+  # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
+  boot.loader.grub.enable = false;
+  # Enables the generation of /boot/extlinux/extlinux.conf
+  boot.loader.generic-extlinux-compatible.enable = true;
+
   boot.initrd.luks.devices = {
     vault = {
       device = "/dev/mmcblk2p2";
