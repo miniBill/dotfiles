@@ -30,7 +30,6 @@
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   networking.hostName = "sohu"; # Define your hostname.
-  networking.interfaces.usb0.useDHCP = true;
   networking.interfaces.wlan0.useDHCP = false;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
