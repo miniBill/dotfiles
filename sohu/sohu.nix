@@ -18,6 +18,7 @@
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
   boot.loader.generic-extlinux-compatible.enable = true;
+  boot.kernelParams = [ "console=tty0" ];
 
   boot.initrd.luks.devices = {
     vault = {
