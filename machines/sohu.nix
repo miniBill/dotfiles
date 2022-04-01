@@ -7,7 +7,7 @@ let
   pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
 in
 {
-  imports = [ ../groups/base.nix ];
+  imports = [ ../groups/graphical.nix ];
 
   home.packages = with pkgs; [
     # pinned-unstable-calibre.calibre
