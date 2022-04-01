@@ -10,14 +10,14 @@ in
   imports = [ ../groups/base.nix ];
 
   home.packages = with pkgs; [
-    pinned-unstable-calibre.calibre
+    # pinned-unstable-calibre.calibre
     libreoffice-fresh
 
     # NET
-    pinned-unstable-youtube-dl.youtubeDL
+    # pinned-unstable-youtube-dl.youtubeDL
 
     # Im
     # pinned-unstable-discord.discord
-    pinned-unstable-tdesktop.tdesktop
+    # pinned-unstable-tdesktop.tdesktop
   ];
 }
