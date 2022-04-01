@@ -111,14 +111,11 @@ in
     acpitool
     dmidecode
     exfat
-    gparted
     i2c-tools
-    kwin
     ntfs3g
     openrgb
     parted
     pciutils
-    sysstat
     tailscale
     usbutils
   ];

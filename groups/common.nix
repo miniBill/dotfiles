@@ -28,6 +28,7 @@
     lsof
     ncdu
     screen
+    sysstat
     tmux
     vim
     wget

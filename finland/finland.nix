@@ -43,12 +43,10 @@
     acpitool
     cpufrequtils
     dmidecode
-    kwin
     lm_sensors
     openconnect
     pavucontrol
     powertop
-    sysstat
     tailscale
     yakuake
   ];

@@ -14,6 +14,12 @@
     "fs.inotify.max_user_instances" = 1024;
   };
 
+  # List packages installed in system profile.
+  environment.systemPackages = with pkgs; [
+    gparted
+    kwin
+  ];
+
   # Hardware
   hardware.keyboard.zsa.enable = true;
 
