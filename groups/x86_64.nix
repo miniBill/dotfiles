@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 let
+  pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
   pinned-unstable-zoom = import ../repos/pinned-unstable-zoom.nix;
 in
 {
@@ -15,6 +16,6 @@ in
   };
 
   programs = {
-    vscode.enable = true;
+    vscode.package = pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
   };
 }
