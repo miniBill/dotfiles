@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 let
-  pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
-
   # Base - laptops and desktops
   packages-base = with pkgs; [
     neofetch
