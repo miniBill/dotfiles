@@ -145,7 +145,6 @@ in
 
     vscode = {
       enable = true;
-      package = pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 

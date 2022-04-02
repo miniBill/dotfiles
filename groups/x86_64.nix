@@ -13,4 +13,8 @@ in
       (callPackage ../programs/lamdera.nix { })
     ];
   };
+
+  programs = {
+    vscode.enable = true;
+  };
 }
