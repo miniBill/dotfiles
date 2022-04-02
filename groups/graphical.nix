@@ -119,6 +119,8 @@ in
       "bin/elm-format-hack".source = ../programs/elm-format-hack;
 
       ".config/pipewire/jack.conf".source = ../files/jack.conf;
+
+      ".config/yakuakerc".source = ../files/yakuakerc;
     };
   };
 

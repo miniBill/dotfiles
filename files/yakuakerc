@@ -1,0 +1,13 @@
+[Desktop Entry]
+DefaultProfile=Main.profile
+
+[Dialogs]
+FirstRun=false
+
+[Favorite Profiles]
+Favorites=
+
+[Window]
+Height=100
+ShowSystrayIcon=false
+Width=100
