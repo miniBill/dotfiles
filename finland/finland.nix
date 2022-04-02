@@ -40,15 +40,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    acpitool
     cpufrequtils
     dmidecode
     lm_sensors
     openconnect
-    pavucontrol
     powertop
     tailscale
-    yakuake
   ];
 
   nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
@@ -62,8 +59,6 @@
   # networking.firewall.enable = false;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
   services.clamav = {
     daemon.enable = true;
     updater.enable = true;

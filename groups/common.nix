@@ -23,6 +23,7 @@
 
   # Common software
   environment.systemPackages = with pkgs; [
+    acpitool
     git
     htop
     lsof

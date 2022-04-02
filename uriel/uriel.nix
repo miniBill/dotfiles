@@ -86,9 +86,6 @@ in
     "steam-runtime"
   ];
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
   # Enable sound.
   services.pipewire.package = pinned-unstable.pipewire;
   musnix.enable = true;
@@ -108,7 +105,6 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    acpitool
     dmidecode
     exfat
     i2c-tools
