@@ -24,10 +24,12 @@
   # Common software
   environment.systemPackages = with pkgs; [
     acpitool
+    exfat
     git
     htop
     lsof
     ncdu
+    ntfs3g
     screen
     sysstat
     tmux

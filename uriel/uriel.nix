@@ -106,9 +106,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dmidecode
-    exfat
     i2c-tools
-    ntfs3g
     openrgb
     parted
     pciutils
