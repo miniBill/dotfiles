@@ -70,6 +70,10 @@ in
     stateVersion = "21.11";
   };
 
+  systemd.user.tmpfiles.rules = [
+    "d /home/minibill/.ssh/control 700 minibill users"
+  ];
+
   programs = {
     direnv = {
       enable = true;
@@ -83,6 +87,19 @@ in
     htop = {
       enable = true;
       settings.hide_userland_threads = true;
+    };
+
+    ssh = {
+      enable = true;
+      controlMaster = "auto";
+      controlPath = "~/.ssh/control/%r@%h:%p";
+      controlPersist = "10m";
+
+      matchBlocks = {
+        "tharmas" = {
+          hostname = "tharmas.taglialegne.it";
+        };
+      };
     };
 
     tmux = {

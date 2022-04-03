@@ -15,7 +15,6 @@ in
       jetbrains.datagrip
       jetbrains.pycharm-community
       dbeaver
-      libreoffice-still
       postgresql
 
       # DEV
@@ -29,10 +28,6 @@ in
       google-cloud-sdk
     ];
   };
-
-  systemd.user.tmpfiles.rules = [
-    "d /home/minibill/.ssh/control 700 minibill users"
-  ];
 
   programs = {
     vscode.userSettings = {
@@ -101,10 +96,6 @@ in
     };
 
     ssh = {
-      enable = true;
-      controlMaster = "auto";
-      controlPath = "~/.ssh/control/%r@%h:%p";
-      controlPersist = "10m";
       forwardAgent = true;
       matchBlocks =
         let

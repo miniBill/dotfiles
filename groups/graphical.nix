@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 let
+  pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
+
   # Base - laptops and desktops
   packages-base = with pkgs; [
     neofetch
@@ -65,9 +67,15 @@ let
 
   packages-gui-misc = with pkgs; [
     gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
+    gparted
+    libreoffice-fresh
+    pinned-unstable-calibre.calibre
+    virtmanager
   ];
 
   packages-gui-multimedia = with pkgs; [
+    audacity
+    calf
     ffmpeg
     gimp
     imagemagick
@@ -77,7 +85,6 @@ let
     qjackctl
     scribusUnstable
     vlc
-    calf
     (callPackage ../programs/headset-control.nix { })
   ];
 
