@@ -20,7 +20,7 @@ in
 
     # GUI
     gnome3.libgnomekbd
-    # Wine 
+    # Wine
     winetricks
     wineWowPackages.stable
     # Multimedia
@@ -31,7 +31,6 @@ in
     frescobaldi
     glxinfo
     gnome3.cheese
-    inkscape
     jamulus
     mediainfo
     timidity

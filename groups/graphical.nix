@@ -79,6 +79,7 @@ let
     ffmpeg
     gimp
     imagemagick
+    inkscape
     jackmix
     pavucontrol
     pulseaudio
