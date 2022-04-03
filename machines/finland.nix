@@ -6,7 +6,6 @@ in
 {
   imports = [
     ../groups/graphical.nix
-    ../groups/x86_64.nix
   ];
 
   home = {

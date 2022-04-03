@@ -2,6 +2,7 @@
 
 let
   pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
+  pinned-unstable-zoom = import ../repos/pinned-unstable-zoom.nix;
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
 
   # Base - laptops and desktops
@@ -90,11 +91,21 @@ let
     (callPackage ../programs/headset-control.nix { })
   ];
 
+  packages-gui-platform-specific =
+    with pkgs; lib.optionals (!isAarch64) [
+      etcher
+      spotify
+      pinned-unstable-zoom.zoom-us
+
+      (callPackage ../programs/lamdera.nix { })
+    ];
+
   packages-gui =
     packages-gui-fonts
     ++ packages-gui-kde
     ++ packages-gui-misc
-    ++ packages-gui-multimedia;
+    ++ packages-gui-multimedia
+    ++ packages-gui-platform-specific;
 
   # Network
   packages-net-communication = with pkgs; [
