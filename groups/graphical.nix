@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 let
-  pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
-
   # Base - laptops and desktops
   packages-base = with pkgs; [
     neofetch
@@ -69,7 +67,7 @@ let
     gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
     gparted
     libreoffice
-    pinned-unstable-calibre.calibre
+    calibre
     virtmanager
   ];
 
