@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 let
+  pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
+  isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
+
   # Base - laptops and desktops
   packages-base = with pkgs; [
     neofetch
@@ -151,6 +154,11 @@ in
 
     vscode = {
       enable = true;
+      package =
+        if isAarch64 then
+          pkgs.vscode
+        else
+          pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 
