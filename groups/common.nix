@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  # Boot
+  boot.cleanTmpDir = true;
+
   # Networking
   networking.networkmanager.enable = true; # Enables NetworkManager
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
