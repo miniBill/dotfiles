@@ -5,15 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      <nixos-hardware/dell/xps/15-7590>
-      # Include the results of the hardware scan.
-      ../hardware-configuration.nix
-      ./toPR.nix
-      ../groups/common.nix
-      ../groups/graphical.nix
-    ];
+  imports = [
+    <nixos-hardware/dell/xps/15-7590>
+    # Include the results of the hardware scan.
+    ../hardware-configuration.nix
+    ./toPR.nix
+    ../groups/common.nix
+    ../groups/graphical.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.grub = {

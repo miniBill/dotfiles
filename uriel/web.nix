@@ -3,8 +3,7 @@ let
   app = "casa";
   domain = "${app}.taglialegne.it";
   dataDir = "/srv/http/${domain}";
-in
-{
+in {
   security.acme = {
     acceptTerms = true;
     email = "leonardo@taglialegne.it";
@@ -37,8 +36,15 @@ in
       forceSSL = true;
       enableACME = true;
       listen = [
-        { addr = "0.0.0.0"; port = 80; }
-        { addr = "0.0.0.0"; port = 443; ssl = true; }
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+        {
+          addr = "0.0.0.0";
+          port = 443;
+          ssl = true;
+        }
       ];
       root = dataDir;
 

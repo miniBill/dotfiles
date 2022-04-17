@@ -15,10 +15,7 @@
   };
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [
-    gparted
-    kwin
-  ];
+  environment.systemPackages = with pkgs; [ gparted kwin ];
 
   # Hardware
   hardware.keyboard.zsa.enable = true;

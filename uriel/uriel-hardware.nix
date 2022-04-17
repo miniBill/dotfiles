@@ -4,33 +4,31 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/2a81d0e0-c05e-4810-aba1-819adb3020c5";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/2a81d0e0-c05e-4810-aba1-819adb3020c5";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D8E4-BA2C";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/D8E4-BA2C";
+    fsType = "vfat";
+  };
 
-  fileSystems."/boot-fallback" =
-    { device = "/dev/disk/by-uuid/8C92-D8C0";
-      fsType = "vfat";
-    };
+  fileSystems."/boot-fallback" = {
+    device = "/dev/disk/by-uuid/8C92-D8C0";
+    fsType = "vfat";
+  };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/bad3c25b-7dad-4bef-9646-caa3a430e5aa"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/bad3c25b-7dad-4bef-9646-caa3a430e5aa"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

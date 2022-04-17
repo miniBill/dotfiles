@@ -68,7 +68,16 @@
   users.users.minibill = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" "adbusers" "video" "plugdev" "libvirtd" "audio" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+      "adbusers"
+      "video"
+      "plugdev"
+      "libvirtd"
+      "audio"
+    ];
   };
   users.groups.audio = { };
 }
