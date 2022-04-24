@@ -6,12 +6,13 @@
 
 let
   pinned-unstable = import ./pinned-unstable.nix;
-  openrgb-rules = builtins.fetchurl {
-    url =
-      "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
-  };
+  # openrgb-rules = builtins.fetchurl {
+  #   url =
+  #     "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
+  # };
 
-in {
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ../hardware-configuration.nix
@@ -106,15 +107,16 @@ in {
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
   ''
-    + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ]
-    (builtins.readFile openrgb-rules);
+    # + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ]
+    #   (builtins.readFile openrgb-rules)
+  ;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dmidecode
     i2c-tools
-    openrgb
+    # openrgb
     parted
     pciutils
     tailscale
