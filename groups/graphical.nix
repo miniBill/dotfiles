@@ -93,7 +93,7 @@ let
 
   packages-gui-platform-specific =
     with pkgs; lib.optionals (!isAarch64) [
-      etcher
+      # etcher
       spotify
       pinned-unstable-zoom.zoom-us
 

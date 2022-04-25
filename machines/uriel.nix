@@ -76,6 +76,7 @@ in
     teams
     skypeforlinux
     pinned-unstable-tdesktop.tdesktop
+    signal-desktop
 
     # GAMES
     # steam
