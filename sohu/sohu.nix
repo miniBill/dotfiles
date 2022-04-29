@@ -30,9 +30,6 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "pinebookpro-ap6256-firmware" ];
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ ];
@@ -43,4 +40,7 @@
 
   # Don't change this.
   system.stateVersion = "21.11"; # Did you read the comment?
+
+  # Use ondemand governor
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }

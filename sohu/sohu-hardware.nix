@@ -23,6 +23,4 @@
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/f8439bc9-c7e2-4c9f-b19d-fb2ce6464bce"; }];
-
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }
