@@ -37,6 +37,8 @@ let
   ];
 
   packages-net = packages-net-analysis ++ packages-net-misc;
+
+  pnpm-home = "/home/minibill/.local/share/pnpm";
 in
 {
   home = {
@@ -44,14 +46,13 @@ in
       packages-base ++ packages-dev ++ packages-net;
 
     file = {
-      ".npmrc".source = ../files/npmrc;
       ".p10k.zsh".source = ../files/p10k.zsh;
       ".cargo/config.toml".source = ../files/cargo/config.toml;
     };
 
     sessionPath = [
       "$HOME/bin"
-      "$HOME/.npm-global/bin"
+      pnpm-home
     ];
 
     language.base = "en_US.UTF-8";
@@ -178,6 +179,7 @@ in
         EDITOR = "vim";
         TERM = "xterm-256color";
         DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+        PNPM_HOME = pnpm-home;
       };
 
       shellAliases = {
