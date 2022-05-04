@@ -10,11 +10,13 @@
 stdenv.mkDerivation rec {
   name = "lamdera-${version}";
 
-  version = "1.0.1";
+  version = "1.0.2";
 
   src = fetchurl {
-    url = "https://static.lamdera.com/bin/linux/lamdera";
-    sha256 = "sha256:17wx4g8vna8dlgkv1qjzl1xkx36dgl7rvn7vcmxb0wafbpgykphm";
+    url = "https://static.lamdera.com/bin/linux/lamdera-next";
+    sha256 = "sha256:01cd5706iig7v2chbjyjipqnry5lmfp5d588z0dmfrxrarkpv2w3";
+    # url = "https://static.lamdera.com/bin/linux/lamdera";
+    # sha256 = "sha256:17wx4g8vna8dlgkv1qjzl1xkx36dgl7rvn7vcmxb0wafbpgykphm";
   };
 
   unpackPhase = ":";
