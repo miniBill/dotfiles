@@ -27,6 +27,7 @@ in
     enable = true;
     efiSupport = true;
     device = "nodev";
+    useOSProber = true;
     mirroredBoots = [{
       devices = [ "nodev" ];
       path = "/boot-fallback";
