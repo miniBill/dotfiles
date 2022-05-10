@@ -70,6 +70,7 @@ in
   '';
 
   hardware.cpu.intel.updateMicrocode = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # 32-bit support for Steam
   hardware.opengl.driSupport32Bit = true;
@@ -80,6 +81,8 @@ in
       "steam"
       "steam-original"
       "steam-runtime"
+      "nvidia-settings"
+      "nvidia-x11"
     ];
 
   # Enable sound.
