@@ -61,6 +61,7 @@ in
     # Misc
     ghc
     libwebp
+    cachix
     # zig sqlitebrowser binutils nasm
 
     # NET
