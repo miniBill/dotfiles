@@ -20,6 +20,7 @@ in
     ../groups/common.nix
     ../groups/graphical.nix
     # ./web.nix
+    ../cachix.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
