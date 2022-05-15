@@ -60,7 +60,6 @@ in
     glslang
     # Misc
     shake
-    haskellPackages.hfmt
     ghc
     libwebp
     cachix
