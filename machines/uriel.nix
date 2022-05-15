@@ -59,7 +59,8 @@ in
     # GLSL
     glslang
     # Misc
-    stack
+    shake
+    haskellPackages.hfmt
     ghc
     libwebp
     cachix
