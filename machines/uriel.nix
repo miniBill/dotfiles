@@ -59,6 +59,7 @@ in
     # GLSL
     glslang
     # Misc
+    stack
     ghc
     libwebp
     cachix
