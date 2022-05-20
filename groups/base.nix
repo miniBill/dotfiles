@@ -100,6 +100,12 @@ in
         "tharmas" = {
           hostname = "tharmas.taglialegne.it";
         };
+        "uriel" = {
+          hostname = "100.69.168.4";
+        };
+        "edge" = {
+          hostname = "100.108.17.9";
+        };
       };
     };
 
