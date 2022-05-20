@@ -58,6 +58,14 @@ in {
 
   programs = {
     obs-studio.enable = true;
+
+    ssh = {
+      matchBlocks = {
+        "cjmilky" = {
+          hostname = "fc7b:a519:e66f:2ce9:feb3:731e:cb6d:3144";
+        };
+      };
+    };
   };
 
   nixpkgs.overlays = [
