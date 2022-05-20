@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  tailscale-key = ../keys/tailscale.nix;
+  tailscale-key = import ../keys/tailscale.nix;
 in
 
 {
