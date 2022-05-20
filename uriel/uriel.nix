@@ -129,10 +129,8 @@ in
   ];
 
   # Open ports in the firewall.
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
   networking.firewall.allowedTCPPorts = [ 1234 3000 8000 ];
-  networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
-  services.tailscale.enable = true;
+  # networking.firewall.allowedUDPPorts = [ ... ];
 
   programs.adb.enable = true;
 
