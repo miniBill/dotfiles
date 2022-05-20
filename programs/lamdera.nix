@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://static.lamdera.com/bin/linux/lamdera-next";
-    sha256 = "sha256:01cd5706iig7v2chbjyjipqnry5lmfp5d588z0dmfrxrarkpv2w3";
+    sha256 = "sha256:0a585xgc09rrkg4i2ki7vh9nc9qb7j1i02fv7ls1a585w4kbvb0q";
     # url = "https://static.lamdera.com/bin/linux/lamdera";
     # sha256 = "sha256:17wx4g8vna8dlgkv1qjzl1xkx36dgl7rvn7vcmxb0wafbpgykphm";
   };
