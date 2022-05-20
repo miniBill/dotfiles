@@ -15,7 +15,7 @@ in {
     exa bc patchelf file inotify-tools (aspellWithDicts (d: [d.it])) nix-bundle
 
     # DEV
-    colordiff git vscode gcc omnisharp-roslyn gnumake python3 ghc
+    colordiff git gcc omnisharp-roslyn gnumake ghc
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     dhall-lsp-server dhall
     # Elm
