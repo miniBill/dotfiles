@@ -12,19 +12,18 @@ in {
 
   home.packages = with pkgs; [
     # BASE
-   inotify-tools (aspellWithDicts (d: [d.it])) nix-bundle
+    (aspellWithDicts (d: [d.it])) nix-bundle
 
     # DEV
-    colordiff gcc omnisharp-roslyn gnumake ghc
+    colordiff gcc omnisharp-roslyn ghc
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
-    dhall-lsp-server dhall
     # Elm
     glslang adoptopenjdk-jre-openj9-bin-8
     qtcreator cmake clang-tools cppcheck linuxPackages.perf hotspot
     rustc cargo
 
     # MULTIMEDIA
-    ghostscript blender glxinfo mediainfo qjackctl gnome3.cheese
+    blender glxinfo mediainfo gnome3.cheese
 
     # NET
     skypeforlinux bind pinned-unstable-youtube-dl.youtubeDL
@@ -32,8 +31,8 @@ in {
     pinned-unstable-discord.discord teams zotero
 
     # BASE-GUI
-    pinned-unstable-tdesktop.tdesktop gnome3.libgnomekbd spectacle wineWowPackages.stable gwenview
-    fira-code fira-code-symbols gparted winetricks wineWowPackages.stable libreoffice-fresh
+    pinned-unstable-tdesktop.tdesktop gnome3.libgnomekbd
+    winetricks wineWowPackages.stable
 
     # GAMES
     steam
@@ -49,7 +48,7 @@ in {
 
 
     # VIRT/OP
-    nixops virtmanager nix-index virtualbox qemu
+    nixops nix-index virtualbox qemu
   ];
 
   programs = {
