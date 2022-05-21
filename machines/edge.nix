@@ -19,10 +19,9 @@ in {
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     dhall-lsp-server dhall
     # Elm
-    elmPackages.elm-format elmPackages.elm elmPackages.elm-test
     glslang adoptopenjdk-jre-openj9-bin-8
-    qtcreator cmake clang-tools cppcheck gdb linuxPackages.perf hotspot
-    rustc cargo optipng yarn
+    qtcreator cmake clang-tools cppcheck linuxPackages.perf hotspot
+    rustc cargo
 
     # MULTIMEDIA
     ghostscript blender glxinfo mediainfo qjackctl gnome3.cheese
@@ -33,7 +32,7 @@ in {
     pinned-unstable-discord.discord teams zotero
 
     # BASE-GUI
-    ark yakuake kcharselect kolourpaint pinned-unstable-tdesktop.tdesktop kcalc gnome3.libgnomekbd spectacle wineWowPackages.stable gwenview
+    pinned-unstable-tdesktop.tdesktop gnome3.libgnomekbd spectacle wineWowPackages.stable gwenview
     fira-code fira-code-symbols gparted winetricks wineWowPackages.stable libreoffice-fresh
 
     # GAMES
