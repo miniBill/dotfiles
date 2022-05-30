@@ -54,8 +54,6 @@ in
     hotspot
     linuxPackages.perf
     maybe-qtcreator.qtcreator
-    # Rust
-    rustup
     # GLSL
     glslang
     # Misc

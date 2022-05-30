@@ -20,7 +20,6 @@ in {
     # Elm
     glslang adoptopenjdk-jre-openj9-bin-8
     qtcreator cmake clang-tools cppcheck linuxPackages.perf hotspot
-    rustc cargo
 
     # MULTIMEDIA
     blender glxinfo mediainfo gnome3.cheese
