@@ -124,6 +124,19 @@ in
 
   programs = {
     obs-studio.enable = true;
+
+    firefox.profiles = {
+      bridgeverse = {
+        isDefault = false;
+        id = 1;
+
+        settings = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        };
+
+        userChrome = builtins.readFile ../files/userChrome.css;
+      };
+    };
   };
 
   nixpkgs.overlays = [
