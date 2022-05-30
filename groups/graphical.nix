@@ -41,6 +41,7 @@ let
     elmPackages.elm-test
     nodejs-17_x
     optipng
+    jpegoptim
     yarn
   ];
 
