@@ -5,33 +5,53 @@ let
   pinned-unstable-obs-studio = import ../repos/pinned-unstable-obs-studio.nix;
   pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
   pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
-in {
+in
+{
   imports = [
     ../groups/graphical.nix
   ];
 
   home.packages = with pkgs; [
     # BASE
-    (aspellWithDicts (d: [d.it])) nix-bundle
+    (aspellWithDicts (d: [ d.it ]))
+    nix-bundle
 
     # DEV
-    colordiff gcc omnisharp-roslyn ghc
+    colordiff
+    gcc
+    omnisharp-roslyn
+    ghc
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # Elm
-    glslang adoptopenjdk-jre-openj9-bin-8
-    qtcreator cmake clang-tools cppcheck linuxPackages.perf hotspot
+    glslang
+    adoptopenjdk-jre-openj9-bin-8
+    qtcreator
+    cmake
+    clang-tools
+    cppcheck
+    linuxPackages.perf
+    hotspot
 
     # MULTIMEDIA
-    blender glxinfo mediainfo gnome3.cheese
+    blender
+    glxinfo
+    mediainfo
+    gnome3.cheese
 
     # NET
-    skypeforlinux bind pinned-unstable-youtube-dl.youtubeDL
+    skypeforlinux
+    bind
+    pinned-unstable-youtube-dl.youtubeDL
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
-    pinned-unstable-discord.discord teams zotero
+    pinned-unstable-discord.discord
+    teams
+    zotero
 
     # BASE-GUI
-    pinned-unstable-tdesktop.tdesktop libgnomekbd
-    winetricks wineWowPackages.stable
+    pinned-unstable-tdesktop.tdesktop
+    libgnomekbd
+    winetricks
+    wineWowPackages.stable
 
     # GAMES
     steam
@@ -39,15 +59,24 @@ in {
       withPrimus = true;
       extraPkgs = pkgs: with pkgs; [
         # bumblebee
-        nettools glxinfo mono gtk3 gtk3-x11 libgdiplus zlib
+        nettools
+        glxinfo
+        mono
+        gtk3
+        gtk3-x11
+        libgdiplus
+        zlib
       ];
       nativeOnly = true;
     }).run
-    mupen64plus wxmupen64plus
+    mupen64plus
 
 
     # VIRT/OP
-    nixops nix-index virtualbox qemu
+    nixops
+    nix-index
+    virtualbox
+    qemu
   ];
 
   programs = {

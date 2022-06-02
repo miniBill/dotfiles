@@ -94,7 +94,6 @@ in
     #   nativeOnly = true;
     # }).run
     mupen64plus
-    wxmupen64plus
     lutris-free
     mgba
     minecraft
