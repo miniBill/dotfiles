@@ -139,7 +139,7 @@ in
       ".alsoftrc".source = ../files/alsoftrc;
       "bin/elm-format-hack".source = ../programs/elm-format-hack;
 
-      ".config/pipewire/jack.conf".source = ../files/jack.conf;
+      ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../files/jack-merge-monitor.conf;
 
       ".config/yakuakerc".source = ../files/yakuakerc;
     };
