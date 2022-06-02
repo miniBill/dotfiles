@@ -87,7 +87,7 @@ let
     pavucontrol
     pulseaudio
     qjackctl
-    scribusUnstable
+    scribus
     vlc
     (callPackage ../programs/headset-control.nix { })
   ];
