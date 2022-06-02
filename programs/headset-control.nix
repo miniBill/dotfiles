@@ -1,14 +1,17 @@
 { pkgs ? import <nixpkgs> { }
 , stdenv ? pkgs.stdenv
+, fetchFromGitHub
 }:
 
 stdenv.mkDerivation rec {
   name = "headsetcontrol";
   version = "2.5";
 
-  src = builtins.fetchGit {
-    url = "https://github.com/Sapd/HeadsetControl.git/";
-    ref = "6c224e70372843c4f316975ef6ed078f2eae593c";
+  src = fetchFromGitHub {
+    owner = "Sapd";
+    repo = "HeadsetControl";
+    rev = "6c224e70372843c4f316975ef6ed078f2eae593c";
+    sha256 = "sha256-iD5yADhX5djBAntLxGQSyyyhNTAx00XcihLRSjXtsv4=";
   };
 
   nativeBuildInputs = with pkgs; [ cmake gcc ];
