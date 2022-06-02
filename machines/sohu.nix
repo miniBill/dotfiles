@@ -10,7 +10,7 @@ in
 
   home.packages = with pkgs; [
     # NET
-    # pinned-unstable-youtube-dl.youtubeDL
+    # pinned-unstable-youtube-dl.youtube-dl
 
     # Im
     # pinned-unstable-discord.discord

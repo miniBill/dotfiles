@@ -40,7 +40,7 @@ in
     # NET
     skypeforlinux
     bind
-    pinned-unstable-youtube-dl.youtubeDL
+    pinned-unstable-youtube-dl.youtube-dl
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     pinned-unstable-discord.discord
     teams

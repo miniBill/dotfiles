@@ -67,7 +67,7 @@ in
     bind
     google-chrome
     irssi
-    pinned-unstable-youtube-dl.youtubeDL
+    pinned-unstable-youtube-dl.youtube-dl
     zotero
     nixops
     # Im
