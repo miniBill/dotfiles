@@ -16,6 +16,8 @@ in
   networking.useDHCP = false;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+  # Strict reverse path check can break tailscale exit nodes
+  networking.firewall.checkReversePath = "loose";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
