@@ -25,7 +25,6 @@ let
     bmon
     dnsutils
     mtr
-    ncat
     nmap
     whois
   ];
