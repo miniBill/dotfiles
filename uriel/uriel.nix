@@ -5,7 +5,7 @@
 { config, pkgs, lib, ... }:
 
 let
-  pinned-unstable = import ./pinned-unstable.nix;
+  # pinned-unstable = import ./pinned-unstable.nix;
   # openrgb-rules = builtins.fetchurl {
   #   url =
   #     "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
@@ -88,7 +88,6 @@ in
     ];
 
   # Enable sound.
-  services.pipewire.package = pinned-unstable.pipewire;
   musnix.enable = true;
   security.pam.loginLimits = [
     {
