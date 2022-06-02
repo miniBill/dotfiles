@@ -19,7 +19,7 @@ in
     (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln footmisc relsize; })
 
     # GUI
-    gnome3.libgnomekbd
+    libgnomekbd
     # Wine
     winetricks
     wineWowPackages.stable

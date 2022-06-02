@@ -30,7 +30,7 @@ in {
     pinned-unstable-discord.discord teams zotero
 
     # BASE-GUI
-    pinned-unstable-tdesktop.tdesktop gnome3.libgnomekbd
+    pinned-unstable-tdesktop.tdesktop libgnomekbd
     winetricks wineWowPackages.stable
 
     # GAMES
