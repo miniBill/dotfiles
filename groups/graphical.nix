@@ -39,7 +39,7 @@ let
     elmPackages.elm-json
     elmPackages.elm-live
     elmPackages.elm-test
-    nodejs-17_x
+    nodejs-18_x
     optipng
     jpegoptim
     yarn
