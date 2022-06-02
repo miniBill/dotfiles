@@ -22,7 +22,7 @@ let
   packages-dev-base = with pkgs; [
     gitAndTools.qgit
 
-    (python38.withPackages (ps: [ ps.black ]))
+    (python3.withPackages (ps: [ ps.black ]))
 
     watchexec
     sass
