@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
 
   src = builtins.fetchGit {
     url = "https://github.com/Sapd/HeadsetControl.git/";
-    ref = "74b650532a43c1494f65604baff7ecc2d4437264";
+    ref = "6c224e70372843c4f316975ef6ed078f2eae593c";
   };
 
   nativeBuildInputs = with pkgs; [ cmake gcc ];
