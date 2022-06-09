@@ -43,7 +43,6 @@ in
     pinned-unstable-youtube-dl.youtube-dl
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     pinned-unstable-discord.discord
-    teams
     zotero
 
     # BASE-GUI

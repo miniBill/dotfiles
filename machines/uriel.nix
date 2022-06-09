@@ -72,7 +72,6 @@ in
     nixops
     # Im
     pinned-unstable-discord.discord
-    teams
     skypeforlinux
     pinned-unstable-tdesktop.tdesktop
     signal-desktop
