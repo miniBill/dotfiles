@@ -58,6 +58,9 @@ in
     # Misc
     shake
     ghc
+    haskellPackages.hindent
+    haskellPackages.hlint
+    haskellPackages.stylish-haskell
     libwebp
     cachix
     # zig sqlitebrowser binutils nasm
