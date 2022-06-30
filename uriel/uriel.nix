@@ -135,6 +135,12 @@ in
 
   system.autoUpgrade.enable = true;
 
+  # Podman
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   # Don't change this.
   system.stateVersion = "20.09"; # Did you read the comment?
 
