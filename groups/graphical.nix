@@ -24,6 +24,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable smart card reader
+  services.pcscd.enable = true;
+
   # Enable sound.
   sound.enable = true;
   security.rtkit.enable = true;
