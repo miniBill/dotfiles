@@ -64,6 +64,7 @@ in
     libwebp
     cachix
     # zig sqlitebrowser binutils nasm
+    dbeaver
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
