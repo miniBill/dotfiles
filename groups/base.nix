@@ -11,7 +11,7 @@ let
     pigz
     ripgrep
     smem
-    unzip
+    zip
   ];
 
   # Dev
