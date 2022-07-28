@@ -51,6 +51,7 @@ let
   packages-gui-fonts = with pkgs; [
     fira-code
     fira-code-symbols
+    inter
 
     (callPackage ../fonts/linja-pona.nix { })
   ];
