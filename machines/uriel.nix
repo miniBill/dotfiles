@@ -95,6 +95,7 @@ in
     #   ];
     #   nativeOnly = true;
     # }).run
+    heroic
     mupen64plus
     lutris-free
     mgba
