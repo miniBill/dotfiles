@@ -75,6 +75,7 @@ let
     libreoffice
     calibre
     virtmanager
+    rustdesk
   ];
 
   packages-gui-multimedia = with pkgs; [
