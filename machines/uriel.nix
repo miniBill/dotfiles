@@ -15,7 +15,7 @@ in
   home.packages = with pkgs; [
     # BASE
     openrgb
-    (texlive.combine { inherit (texlive) scheme-medium moderncv multirow arydshln footmisc relsize; })
+    (texlive.combine { inherit (texlive) academicons arydshln fontawesome5 footmisc moderncv multirow relsize scheme-medium textpos; })
 
     # GUI
     libgnomekbd
