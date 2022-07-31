@@ -75,8 +75,7 @@ let
     libreoffice
     calibre
     virtmanager
-    rustdesk
-  ];
+  ] ++ lib.optionals (!isAarch64) [ rustdesk];
 
   packages-gui-multimedia = with pkgs; [
     audacity
