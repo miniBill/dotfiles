@@ -55,6 +55,12 @@ in
     maybe-qtcreator.qtcreator
     # GLSL
     glslang
+    # Rust
+    lld
+    cargo
+    rustc
+    rustfmt
+    pkg-config
     # Misc
     shake
     ghc
