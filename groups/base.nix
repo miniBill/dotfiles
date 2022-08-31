@@ -174,7 +174,7 @@ in
           src = fetchFromGitHub {
             owner = "chisui";
             repo = "zsh-nix-shell";
-            rev = "03a1487655c96a17c00e8c81efdd8555829715f8";
+            rev = "v0.5.0";
             sha256 = "1avnmkjh0zh6wmm87njprna1zy4fb7cpzcp8q7y03nw3aq22q4ms";
           };
         }
