@@ -26,6 +26,7 @@ let
 
     watchexec
     sass
+    hyperfine
   ];
 
   packages-dev-c = with pkgs; [
