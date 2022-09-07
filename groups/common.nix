@@ -40,7 +40,7 @@ in
     htop
     lsof
     ncdu
-    du-dust
+    gdu
     ntfs3g
     screen
     sysstat
