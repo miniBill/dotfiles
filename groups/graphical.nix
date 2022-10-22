@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  pinned-unstable-zoom = import ../repos/pinned-unstable-zoom.nix;
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
 
   # Base - laptops and desktops
@@ -97,7 +96,7 @@ let
     with pkgs; lib.optionals (!isAarch64) [
       # etcher
       spotify
-      pinned-unstable-zoom.zoom-us
+      zoom-us
 
       (callPackage ../programs/lamdera.nix { })
     ];
