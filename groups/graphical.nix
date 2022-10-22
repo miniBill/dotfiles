@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 let
-  pinned-unstable-vscode = import ../repos/pinned-unstable-vscode.nix;
   pinned-unstable-zoom = import ../repos/pinned-unstable-zoom.nix;
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
 
