@@ -82,8 +82,8 @@ in
     zotero
     nixops
     # Im
-    pinned-unstable-discord.discord
-    # discord
+    # pinned-unstable-discord.discord
+    discord
     skypeforlinux
     # pinned-unstable-tdesktop.tdesktop
     tdesktop
