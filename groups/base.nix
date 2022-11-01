@@ -185,6 +185,7 @@ in
         TERM = "xterm-256color";
         DOTNET_CLI_TELEMETRY_OPTOUT = "1";
         PNPM_HOME = pnpm-home;
+        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
       };
 
       shellAliases = {
