@@ -58,6 +58,7 @@ in
     # Rust
     lld
     cargo
+    rust-analyzer
     rustc
     rustfmt
     pkg-config
