@@ -45,7 +45,7 @@ in
       packages-base ++ packages-dev ++ packages-net;
 
     file = {
-      ".p10k.zsh".source = ../files/p10k.zsh;
+      ".zsh/p10k.zsh".source = ../files/zsh/p10k.zsh;
       ".cargo/config.toml".source = ../files/cargo/config.toml;
     };
 
@@ -130,7 +130,7 @@ in
 
       initExtra = ''
         autopair-init
-        source ~/.p10k.zsh
+        source ~/.zsh/p10k.zsh
       '';
 
       oh-my-zsh = {
