@@ -73,6 +73,7 @@
     # kubecontext             # current kubernetes context (https://kubernetes.io/)
     # terraform               # terraform workspace (https://www.terraform.io)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+    aws_vault
     # aws_eb_env              # aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/)
     # azure                   # azure account name (https://docs.microsoft.com/en-us/cli/azure)
     # gcloud                  # google cloud cli account and project (https://cloud.google.com/)
@@ -1510,6 +1511,12 @@
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
+  }
+
+  prompt_aws_vault() {
+    local vault_segment
+    vault_segment="`prompt_aws_vault_segment`"
+    [[ $vault_segment != '' ]] && p10k segment -f cyan -t "$vault_segment"
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
