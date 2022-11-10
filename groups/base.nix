@@ -1,17 +1,21 @@
 { pkgs, ... }:
 let
+  isDarwin = pkgs.stdenv.isDarwin;
+  onLinux = x: if isDarwin then [ ] else x;
+
   # Base
   packages-base = with pkgs; [
     bc
     file
-    inotify-tools
     moreutils
     openssh
     patchelf
     pigz
     ripgrep
-    smem
     zip
+  ] ++ onLinux [
+    inotify-tools
+    smem
   ];
 
   # Dev
@@ -22,11 +26,12 @@ let
 
   # Net
   packages-net-analysis = with pkgs; [
-    bmon
-    dnsutils
     mtr
     nmap
     whois
+  ] ++ onLinux [
+    bmon
+    dnsutils
   ];
 
   packages-net-misc = with pkgs; [
@@ -37,7 +42,10 @@ let
 
   packages-net = packages-net-analysis ++ packages-net-misc;
 
-  pnpm-home = "/home/minibill/.local/share/pnpm";
+  username = builtins.getEnv "USER";
+  homeDirectory = builtins.getEnv "HOME";
+
+  pnpm-home = homeDirectory + "/.local/share/pnpm";
 in
 {
   home = {
@@ -51,13 +59,14 @@ in
 
     sessionPath = [
       "$HOME/bin"
+      (homeDirectory + "/.volta/bin")
       pnpm-home
     ];
 
     language.base = "en_US.UTF-8";
 
-    username = "minibill";
-    homeDirectory = "/home/minibill";
+    username = username;
+    homeDirectory = homeDirectory;
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -70,8 +79,8 @@ in
     stateVersion = "21.11";
   };
 
-  systemd.user.tmpfiles.rules = [
-    "d /home/minibill/.ssh/control 700 minibill users"
+  systemd.user.tmpfiles.rules = onLinux [
+    ("d " + homeDirectory + "/.ssh/control 700 " + username + " users")
   ];
 
   programs = {
@@ -121,17 +130,26 @@ in
       autocd = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableVteIntegration = true;
+      enableVteIntegration = !isDarwin;
 
       history = {
         expireDuplicatesFirst = true;
         ignoreSpace = true;
       };
 
-      initExtra = ''
-        autopair-init
-        source ~/.zsh/p10k.zsh
-      '';
+      initExtra =
+        if isDarwin then
+          ''
+            export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels''${NIX_PATH:+:$NIX_PATH}
+            
+            autopair-init
+            source ~/.zsh/p10k.zsh
+          ''
+        else
+          ''
+            autopair-init
+            source ~/.zsh/p10k.zsh
+          '';
 
       oh-my-zsh = {
         enable = true;
@@ -196,6 +214,7 @@ in
         DOTNET_CLI_TELEMETRY_OPTOUT = "1";
         PNPM_HOME = pnpm-home;
         RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+        VOLTA_HOME = homeDirectory + "/.volta";
       };
 
       shellAliases = {

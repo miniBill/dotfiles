@@ -2,32 +2,32 @@
 
 let
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
+  isDarwin = pkgs.stdenv.isDarwin;
+  onLinux = x: if isDarwin then [ ] else x;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
     neofetch
     nix-bundle
     nixpkgs-fmt
-
+  ] ++ onLinux [
     usbutils
-
     (callPackage ../programs/wally-cli.nix { })
-
     (aspellWithDicts (d: [ d.it ]))
   ];
 
   # Dev
   packages-dev-base = with pkgs; [
+    hyperfine
+  ] ++ onLinux [
     gitAndTools.qgit
 
     (python3.withPackages (ps: [ ps.black ps.pillow ]))
 
     watchexec
-    sass
-    hyperfine
   ];
 
-  packages-dev-c = with pkgs; [
+  packages-dev-c = with pkgs; onLinux [
     gcc
     gdb
   ];
@@ -42,6 +42,7 @@ let
     optipng
     jpegoptim
     yarn
+    sass
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
@@ -55,7 +56,7 @@ let
     (callPackage ../fonts/linja-pona.nix { })
   ];
 
-  packages-gui-kde = with pkgs; [
+  packages-gui-kde = with pkgs; onLinux [
     ark
     gwenview
     kcalc
@@ -68,7 +69,7 @@ let
     yakuake
   ];
 
-  packages-gui-misc = with pkgs; [
+  packages-gui-misc = with pkgs; onLinux [
     gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
     gparted
     libreoffice
@@ -77,11 +78,12 @@ let
   ] ++ lib.optionals (!isAarch64) [ rustdesk ];
 
   packages-gui-multimedia = with pkgs; [
+    imagemagick
+  ] ++ onLinux [
     audacity
     calf
     ffmpeg
     gimp
-    imagemagick
     inkscape
     jackmix
     pavucontrol
@@ -109,17 +111,12 @@ let
     ++ packages-gui-platform-specific;
 
   # Network
-  packages-net-communication = with pkgs; [
-  ];
-
-  packages-net-misc = with pkgs; [
+  packages-net-misc = with pkgs; onLinux [
     filezilla
     remmina
   ];
 
-  packages-net =
-    packages-net-communication
-    ++ packages-net-misc;
+  packages-net = packages-net-misc;
 in
 {
   imports = [ ./base.nix ];
@@ -146,10 +143,10 @@ in
   };
 
   programs = {
-    chromium.enable = true;
+    chromium.enable = !isDarwin;
 
     firefox = {
-      enable = true;
+      enable = !isDarwin;
 
       profiles = {
         main = {
@@ -165,7 +162,7 @@ in
     };
 
     vscode = {
-      enable = true;
+      enable = !isDarwin;
       package =
         if isAarch64 then
           pkgs.vscode
@@ -175,7 +172,7 @@ in
   };
 
   services.gpg-agent = {
-    enable = true;
-    enableSshSupport = true;
+    enable = !isDarwin;
+    enableSshSupport = !isDarwin;
   };
 }

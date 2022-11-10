@@ -5,7 +5,7 @@
 
   programs = {
     zsh.initExtra = ''
-      . /home/minibill/.nix-profile/etc/profile.d/nix.sh
+      . $HOME/.nix-profile/etc/profile.d/nix.sh
     '';
   };
 }
