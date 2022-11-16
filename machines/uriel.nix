@@ -3,7 +3,7 @@
 let
   pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
   pinned-unstable-youtube-dl = import ../repos/pinned-unstable-youtube-dl.nix;
-  pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
+  # pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
   # pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
   maybe-qtcreator = import ../repos/maybe-qtcreator.nix;
 in
