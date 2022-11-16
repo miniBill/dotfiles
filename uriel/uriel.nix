@@ -60,6 +60,7 @@ in
 
   boot.kernelParams = [
     "intel_iommu=on"
+    "pci=hpbussize=0x33"
     # "i915.enable_guc=0"
   ];
   # boot.extraModprobeConfig = "options i916 enable_gvt=1";
