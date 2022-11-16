@@ -63,6 +63,7 @@ in
   # Services
   services.openssh.enable = true;
   services.tailscale.enable = true;
+  services.hardware.bolt.enable = true;
   systemd.services.tailscale-autoconnect = {
     description = "Automatic connection to Tailscale";
 
