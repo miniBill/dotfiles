@@ -108,6 +108,7 @@ in
 
   # More hardware info
   services.blueman.enable = true;
+  services.ratbagd.enable = true;
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
   ''
