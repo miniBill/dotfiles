@@ -60,14 +60,14 @@ in
 
   boot.kernelParams = [
     "intel_iommu=on"
-    "pci=hpbussize=0x33"
+    "pci=assign-busses,hpbussize=0x33,realloc,hpmemsize=128M,hpmemprefsize=1G"
     # "i915.enable_guc=0"
   ];
   # boot.extraModprobeConfig = "options i916 enable_gvt=1";
   virtualisation.kvmgt.enable = true;
-  virtualisation.kvmgt.vgpus = {
-    "i915-GVTg_V5_4" = { uuid = [ "a297db4a-f4c2-11e6-90f6-d3b88d6c9525" ]; };
-  };
+  # virtualisation.kvmgt.vgpus = {
+  #   "i915-GVTg_V5_4" = { uuid = [ "a297db4a-f4c2-11e6-90f6-d3b88d6c9525" ]; };
+  # };
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=5s
   '';
