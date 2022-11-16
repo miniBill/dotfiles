@@ -16,6 +16,7 @@ in
     # BASE
     openrgb
     (texlive.combine { inherit (texlive) academicons arydshln fontawesome5 footmisc moderncv multirow relsize scheme-medium textpos; })
+    piper
 
     # GUI
     libgnomekbd
