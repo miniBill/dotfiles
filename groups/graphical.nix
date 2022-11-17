@@ -64,6 +64,7 @@ let
     kolourpaint
     okular
     plasma-browser-integration
+    plasma5Packages.plasma-thunderbolt
     spectacle
     xdg-desktop-portal-kde
     yakuake
