@@ -16,10 +16,16 @@
   };
 
   # List packages installed in system profile.
-  environment.systemPackages = with pkgs; [ gparted kwin ];
+  environment.systemPackages = with pkgs; [
+    gparted
+    kwin
+    pavucontrol
+    yakuake
+  ];
 
   # Hardware
   hardware.keyboard.zsa.enable = true;
+  services.blueman.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

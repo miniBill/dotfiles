@@ -36,14 +36,15 @@ in
   environment.systemPackages = with pkgs; [
     acpitool
     exfat
+    gdu
     git
     htop
     lsof
     ncdu
-    gdu
     ntfs3g
     screen
     sysstat
+    tailscale
     tmux
     vim
     wget

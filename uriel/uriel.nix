@@ -19,11 +19,11 @@ in
     <musnix>
     ../groups/common.nix
     ../groups/graphical.nix
+    ../groups/steam.nix
     # ./web.nix
     ../cachix.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
@@ -75,19 +75,6 @@ in
   hardware.cpu.intel.updateMicrocode = true;
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # 32-bit support for Steam
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-  programs.steam.enable = true;
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-runtime"
-      "nvidia-settings"
-      "nvidia-x11"
-    ];
-
   # Enable sound.
   musnix.enable = true;
   security.pam.loginLimits = [
@@ -108,7 +95,6 @@ in
   virtualisation.libvirtd.enable = true;
 
   # More hardware info
-  services.blueman.enable = true;
   services.ratbagd.enable = true;
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
@@ -125,7 +111,6 @@ in
     # openrgb
     parted
     pciutils
-    tailscale
     usbutils
   ];
 
