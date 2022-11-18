@@ -20,6 +20,7 @@ in
     gcc
     omnisharp-roslyn
     ghc
+    lld
     (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # Elm
     glslang
