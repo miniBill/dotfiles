@@ -39,6 +39,7 @@ in
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
+  boot.kernelPackages = pkgs.linuxPackages_6_0;
 
   networking.hostName = "uriel"; # Define your hostname.
   networking.interfaces.wlo1.useDHCP = false;
