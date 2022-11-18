@@ -53,23 +53,7 @@ in
     wineWowPackages.stable
 
     # GAMES
-    steam
-    (steam.override {
-      withPrimus = true;
-      extraPkgs = pkgs: with pkgs; [
-        # bumblebee
-        nettools
-        glxinfo
-        mono
-        gtk3
-        gtk3-x11
-        libgdiplus
-        zlib
-      ];
-      nativeOnly = true;
-    }).run
     mupen64plus
-
 
     # VIRT/OP
     nixops
