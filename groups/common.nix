@@ -55,7 +55,6 @@ in
   # started in user sessions.
   programs.mtr.enable = true;
   programs.ssh.startAgent = true;
-  programs.ssh.forwardX11 = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -64,6 +63,7 @@ in
 
   # Services
   services.openssh.enable = true;
+  services.openssh.forwardX11 = true;
   services.tailscale.enable = true;
   services.hardware.bolt.enable = true;
   systemd.services.tailscale-autoconnect = {
