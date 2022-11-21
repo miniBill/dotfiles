@@ -55,6 +55,7 @@ in
   # started in user sessions.
   programs.mtr.enable = true;
   programs.ssh.startAgent = true;
+  programs.ssh.forwardX11 = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;
