@@ -9,6 +9,7 @@
     builtins.elem (lib.getName pkg) [
       "steam"
       "steam-original"
+      "steam-run"
       "steam-runtime"
       "nvidia-settings"
       "nvidia-x11"
