@@ -21,6 +21,7 @@
     kwin
     pavucontrol
     yakuake
+    konsole
   ];
 
   # Hardware
