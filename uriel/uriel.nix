@@ -21,7 +21,7 @@ in
     ../groups/graphical.nix
     ../groups/steam.nix
     # ./web.nix
-    ../cachix.nix
+    # ../cachix.nix
   ];
 
   boot.loader.grub = {
