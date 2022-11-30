@@ -2,7 +2,6 @@
 
 let
   pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
-  pinned-unstable-youtube-dl = import ../repos/pinned-unstable-youtube-dl.nix;
   # pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
   pinned-unstable-piper = import ../repos/pinned-unstable-piper.nix;
   # pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
@@ -80,7 +79,6 @@ in
     bind
     google-chrome
     irssi
-    pinned-unstable-youtube-dl.youtube-dl
     zotero
     nixops
     # Im

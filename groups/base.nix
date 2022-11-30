@@ -124,6 +124,8 @@ in
       terminal = "xterm-256color";
     };
 
+    yt-dlp.enable = true;
+
     zsh = {
       enable = true;
 

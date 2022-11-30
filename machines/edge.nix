@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
   pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
-  pinned-unstable-youtube-dl = import ../repos/pinned-unstable-youtube-dl.nix;
   pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
   pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
 in
@@ -41,7 +40,6 @@ in
     # NET
     skypeforlinux
     bind
-    pinned-unstable-youtube-dl.youtube-dl
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     pinned-unstable-discord.discord
     zotero
