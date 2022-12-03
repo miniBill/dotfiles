@@ -13,10 +13,11 @@ in
     settings = {
       upstream = {
         default = [
-          "46.182.19.48"
-          "80.241.218.68"
-          "tcp-tls:fdns1.dismail.de:853"
-          "https://dns.digitale-gesellschaft.ch/dns-query"
+          "9.9.9.9"
+          "8.8.8.8"
+          "8.8.4.4"
+          "85.38.28.2"
+          "85.38.28.3"
         ];
       };
       blocking = {
