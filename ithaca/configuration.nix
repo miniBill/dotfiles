@@ -3,8 +3,8 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ../hardware-configuration.nix
     <nixos-hardware/raspberry-pi/4>
+    ./hardware-configuration.nix
     ../groups/common.nix
   ];
 

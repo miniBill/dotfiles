@@ -15,7 +15,7 @@ in
 {
   imports = [
     # Include the results of the hardware scan.
-    ../hardware-configuration.nix
+    ./hardware-configuration.nix
     <musnix>
     ../groups/common.nix
     ../groups/graphical.nix

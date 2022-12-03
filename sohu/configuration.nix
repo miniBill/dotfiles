@@ -3,7 +3,7 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ../hardware-configuration.nix
+    ./hardware-configuration.nix
     <nixos-hardware/pine64/pinebook-pro>
     ../groups/common.nix
     ../groups/graphical.nix
