@@ -101,7 +101,9 @@ in
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
-    autoOptimiseStore = true;
+    settings = {
+      auto-optimise-store = true;
+    };
   };
 
   # Users
