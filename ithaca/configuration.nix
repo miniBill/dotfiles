@@ -5,6 +5,7 @@
     # Include the results of the hardware scan.
     <nixos-hardware/raspberry-pi/4>
     ./hardware-configuration.nix
+    ./pi-myhole.nix
     ../groups/common.nix
   ];
 
