@@ -4,6 +4,9 @@ let
   blockyUDPPort = 53;
 in
 {
+  networking.firewall.allowedTCPPorts = [
+    blockyUDPPort
+  ];
   networking.firewall.allowedUDPPorts = [
     blockyUDPPort
   ];
