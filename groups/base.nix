@@ -22,6 +22,7 @@ let
   packages-dev = with pkgs; [
     git
     gnumake
+  ] ++ onLinux [
     tup
   ];
 
