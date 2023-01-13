@@ -80,7 +80,6 @@ in
     google-chrome
     irssi
     zotero
-    nixops
     # Im
     # pinned-unstable-discord.discord
     discord
