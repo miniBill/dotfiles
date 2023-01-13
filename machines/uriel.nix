@@ -109,7 +109,6 @@ in
     lutris-free
     mgba
     minecraft
-    jre8 # For tekkit
 
     # VIRT/OP
     # nixops
