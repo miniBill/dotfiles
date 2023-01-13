@@ -88,6 +88,7 @@ in
     # pinned-unstable-tdesktop.tdesktop
     tdesktop
     signal-desktop
+    x11vnc
 
     # GAMES
     # steam
@@ -109,6 +110,7 @@ in
     lutris-free
     mgba
     minecraft
+    jre8 # For tekkit
 
     # VIRT/OP
     # nixops
