@@ -43,7 +43,7 @@ in
   networking.hostName = "uriel"; # Define your hostname.
   networking.interfaces.wlo1.useDHCP = false;
 
-  boot.kernelPackages = pkgs.linuxPackages_6_0;
+  # boot.kernelPackages = pkgs.linuxPackages_6_0;
   boot.kernelModules = [
     #  RGB
     "i3c-dev"
