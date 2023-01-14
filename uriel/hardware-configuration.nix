@@ -17,12 +17,12 @@
     fsType = "ext4";
   };
 
-  fileSystems."/boot" = {
+  fileSystems."/boot-fallback" = {
     device = "/dev/disk/by-uuid/D8E4-BA2C";
     fsType = "vfat";
   };
 
-  fileSystems."/boot-fallback" = {
+  fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8C92-D8C0";
     fsType = "vfat";
   };
