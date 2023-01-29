@@ -28,9 +28,9 @@ in
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = "en_GB.UTF-8";
+    defaultLocale = "it_IT.UTF-8";
     extraLocaleSettings = {
-      LC_TIME = "it_IT.UTF-8";
+      LANG = "en_GB.UTF-8";
     };
     inputMethod.enabled = "ibus";
     supportedLocales = [
