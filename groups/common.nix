@@ -28,8 +28,16 @@ in
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_GB.UTF-8";
+    extraLocaleSettings = {
+      LC_TIME = "it_IT.UTF-8";
+    };
     inputMethod.enabled = "ibus";
+    supportedLocales = [
+      "en_GB.UTF-8"
+      "it_IT.UTF-8"
+      "en_US.UTF-8"
+    ];
   };
 
   # Common software
