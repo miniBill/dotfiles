@@ -34,9 +34,9 @@ in
     };
     inputMethod.enabled = "ibus";
     supportedLocales = [
-      "en_GB.UTF-8"
-      "it_IT.UTF-8"
-      "en_US.UTF-8"
+      "en_GB.UTF-8/UTF-8"
+      "it_IT.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
     ];
   };
 
