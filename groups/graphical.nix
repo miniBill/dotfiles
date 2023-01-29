@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   security.pam.services.kwallet.enableKwallet = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Used by vscode, parcel and friends
   boot.kernel.sysctl = {
@@ -23,6 +23,9 @@
     yakuake
     konsole
   ];
+
+  # Fix themes not working for GTK apps in Wayland
+  programs.dconf.enable = true;
 
   # Hardware
   hardware.keyboard.zsa.enable = true;
