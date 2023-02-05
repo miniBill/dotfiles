@@ -76,7 +76,11 @@ let
     libreoffice
     calibre
     virtmanager
-  ] ++ lib.optionals (!isAarch64) [ rustdesk ];
+  ] ++ lib.optionals (!isAarch64) [
+    rustdesk
+  ] ++ onLinux [
+    solaar
+  ];
 
   packages-gui-multimedia = with pkgs; [
     imagemagick
