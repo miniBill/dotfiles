@@ -117,20 +117,6 @@ in
     qemu
   ];
 
-  home.file = {
-    # Old version of chrome that still supports flash
-    # pinned-oldstable = pkgs.callPackage ../nixpkgs-9518fac712ca001009bd12a3c94621f1ee805657/default.nix {
-    #   config = {
-    #     allowUnfree = true;
-    #     chromium = {
-    #       enablePepperFlash = true;
-    #     };
-    #   };
-    # };
-    # "Applications/old-chromium".source = pinned-oldstable.chromium;
-    # ".config/chromium/Default/Pepper Data/Shockwave Flash/System/mms.cfg".source = ../files/mms.cfg;
-  };
-
   programs = {
     obs-studio.enable = true;
 
