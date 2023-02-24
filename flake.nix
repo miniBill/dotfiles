@@ -11,10 +11,10 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      withConfig = { arch, username }:
+      withConfig = { arch, username, module }:
         home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${arch};
-          modules = [ ./home.nix ];
+          modules = [ module ];
           extraSpecialArgs = {
             username = username;
           };
@@ -29,7 +29,11 @@
       };
 
       homeConfigurations = {
-        "minibill@uriel" = withConfig { arch = "x86_64-linux"; username = "minibill"; };
+        "minibill@uriel" = withConfig {
+          arch = "x86_64-linux";
+          username = "minibill";
+          module = ./machines/uriel.nix;
+        };
       };
     };
 }
