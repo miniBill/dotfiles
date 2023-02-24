@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 let
   isDarwin = pkgs.stdenv.isDarwin;
   onLinux = x: if isDarwin then [ ] else x;
@@ -44,8 +44,7 @@ let
 
   packages-net = packages-net-analysis ++ packages-net-misc;
 
-  username = builtins.getEnv "USER";
-  homeDirectory = builtins.getEnv "HOME";
+  homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
 
   pnpm-home = homeDirectory + "/.local/share/pnpm";
 in
@@ -61,7 +60,7 @@ in
 
     sessionPath = [
       "$HOME/bin"
-      (homeDirectory + "/.volta/bin")
+      ("${homeDirectory}/.volta/bin")
       pnpm-home
     ];
 
@@ -82,7 +81,7 @@ in
   };
 
   systemd.user.tmpfiles.rules = onLinux [
-    ("d " + homeDirectory + "/.ssh/control 700 " + username + " users")
+    ("d ${homeDirectory}/.ssh/control 700 ${username} users")
   ];
 
   programs = {
