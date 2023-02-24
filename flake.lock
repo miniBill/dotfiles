@@ -70,6 +70,22 @@
         "type": "github"
       }
     },
+    "pinned-unstable-discord": {
+      "locked": {
+        "lastModified": 1667317463,
+        "narHash": "sha256-9MtO36H+F7XpYCKbqF51VPEdg8kSe1f28ekrfcm9YT0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "eeca5969b3f42ac943639aaec503816f053e5e53",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "eeca5969b3f42ac943639aaec503816f053e5e53",
+        "type": "github"
+      }
+    },
     "pinned-unstable-piper": {
       "locked": {
         "lastModified": 1661689996,
@@ -86,13 +102,31 @@
         "type": "github"
       }
     },
+    "pinned-unstable-tdesktop": {
+      "locked": {
+        "lastModified": 1665923326,
+        "narHash": "sha256-EsK9OEOkJRZYhmpkT6bL14ShEc7uDPFFW791pewnXu4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "910b2be5ac08264311123d3add6d81e8e6fd05b8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "910b2be5ac08264311123d3add6d81e8e6fd05b8",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "maybe-qtcreator": "maybe-qtcreator",
         "nixpkgs": "nixpkgs",
         "pinned-unstable-calibre": "pinned-unstable-calibre",
-        "pinned-unstable-piper": "pinned-unstable-piper"
+        "pinned-unstable-discord": "pinned-unstable-discord",
+        "pinned-unstable-piper": "pinned-unstable-piper",
+        "pinned-unstable-tdesktop": "pinned-unstable-tdesktop"
       }
     },
     "utils": {
