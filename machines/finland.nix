@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config
+, lib
+, pkgs
+, pinned-oldstable
+, ...
+}:
 
-let
-  pinned-oldstable = import ../repos/pinned-oldstable.nix;
-in
 {
   imports = [
     ../groups/graphical.nix

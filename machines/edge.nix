@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-let
-  pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
-  pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
-  pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
-in
+{ config
+, pkgs
+, pinned-unstable-calibre
+, pinned-unstable-discord
+, pinned-unstable-tdesktop
+, ...
+}:
+
 {
   imports = [
     ../groups/graphical.nix

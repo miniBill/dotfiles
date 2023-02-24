@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
+{ config
+, pkgs
+, pinned-unstable-calibre
+  # , pinned-unstable-discord
+, pinned-unstable-piper
+  # , pinned-unstable-tdesktop
+, maybe-qtcreator
+, ...
+}:
 
-let
-  pinned-unstable-calibre = import ../repos/pinned-unstable-calibre.nix;
-  # pinned-unstable-discord = import ../repos/pinned-unstable-discord.nix;
-  pinned-unstable-piper = import ../repos/pinned-unstable-piper.nix;
-  # pinned-unstable-tdesktop = import ../repos/pinned-unstable-tdesktop.nix;
-  maybe-qtcreator = import ../repos/maybe-qtcreator.nix;
-in
 {
   imports = [
     ../groups/graphical.nix
