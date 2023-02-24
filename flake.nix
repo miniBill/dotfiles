@@ -29,7 +29,7 @@
       };
 
       homeConfigurations = {
-        "miniBill@uriel" = withConfig { arch = "x86_64-linux"; username = "minibill"; };
+        "minibill@uriel" = withConfig { arch = "x86_64-linux"; username = "minibill"; };
       };
     };
 }
