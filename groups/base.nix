@@ -59,11 +59,15 @@ in
       ".cargo/config.toml".source = ../files/cargo/config.toml;
     };
 
-    sessionPath = [
-      "$HOME/bin"
-      ("${homeDirectory}/.volta/bin")
-      pnpm-home
-    ];
+    sessionPath =
+      if isDarwin then [
+        "$HOME/bin"
+        ("${homeDirectory}/.volta/bin")
+        pnpm-home
+      ] else [
+        "$HOME/bin"
+        pnpm-home
+      ];
 
     language.base = "en_US.UTF-8";
 
