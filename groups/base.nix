@@ -90,6 +90,11 @@ in
   ];
 
   programs = {
+    bash = {
+      enable = true;
+      historyFile = "${config.xdg.stateHome}/bash/history";
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
