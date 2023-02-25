@@ -20,7 +20,6 @@ let
 
   # Dev
   packages-dev = with pkgs; [
-    git
     gnumake
   ] ++ onLinux [
     tup
@@ -91,6 +90,13 @@ in
     };
 
     fzf.enable = true;
+
+    git = {
+      enable = true;
+      userName = "Leonardo Taglialegne";
+      userEmail = "cmt.miniBill@gmail.com";
+      includes = [{ path = "~/.config/nixpkgs/files/gitconfig"; }];
+    };
 
     home-manager.enable = true;
 
@@ -212,14 +218,26 @@ in
         }
       ];
 
-      sessionVariables = {
-        EDITOR = "vim";
-        TERM = "xterm-256color";
-        DOTNET_CLI_TELEMETRY_OPTOUT = "1";
-        PNPM_HOME = pnpm-home;
-        RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
-        VOLTA_HOME = homeDirectory + "/.volta";
-      };
+      sessionVariables =
+        {
+          EDITOR = "vim";
+          TERM = "xterm-256color";
+          DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+
+          ANDROID_HOME = "${config.xdg.dataHome}/android";
+          CARGO_HOME = "${config.xdg.dataHome}/cargo";
+          CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
+          PNPM_HOME = pnpm-home;
+
+          # RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+        }
+        //
+        (if isDarwin then
+          {
+            VOLTA_HOME = homeDirectory + "/.volta";
+          }
+        else
+          { });
 
       shellAliases = {
         open = "xdg-open";

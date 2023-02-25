@@ -14,4 +14,6 @@
     # pinned-unstable-discord.discord
     # pinned-unstable-tdesktop.tdesktop
   ];
+
+  programs.git.userEmail = "leonardo.taglialegne@vendr.com";
 }
