@@ -58,6 +58,7 @@ in
         PNPM_HOME = pnpm-home;
         RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
         WINEPREFIX = "${config.xdg.dataHome}/wine";
+        ZSH_COMPDUMP = "${config.xdg.cacheHome}/zsh/zcompdump-\$HOST";
 
         # RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
       }
