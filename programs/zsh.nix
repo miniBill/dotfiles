@@ -102,6 +102,7 @@ in
         ANDROID_HOME = "${config.xdg.dataHome}/android";
         CARGO_HOME = "${config.xdg.dataHome}/cargo";
         CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
+        ELM_HOME = "${config.xdg.configHome}/elm";
         LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
         NUGET_PACKAGES = "${config.xdg.cacheHome}/NuGetPackages";
         PNPM_HOME = pnpm-home;
