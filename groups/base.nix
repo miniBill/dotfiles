@@ -95,7 +95,12 @@ in
       enable = true;
       userName = "Leonardo Taglialegne";
       userEmail = "cmt.miniBill@gmail.com";
-      includes = [{ path = "~/.config/nixpkgs/files/gitconfig"; }];
+      extraConfig = {
+        init.defaultBranch = "main";
+        pull.rebase = "true";
+        safe.directory = "/etc/nixos";
+        advice.detachedHead = "false";
+      };
     };
 
     home-manager.enable = true;
