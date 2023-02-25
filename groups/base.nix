@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, config, username, ... }:
 let
   isDarwin = pkgs.stdenv.isDarwin;
   onLinux = x: if isDarwin then [ ] else x;
@@ -138,6 +138,7 @@ in
       history = {
         expireDuplicatesFirst = true;
         ignoreSpace = true;
+        path = "${config.xdg.stateHome}/zsh/history";
       };
 
       initExtra =
