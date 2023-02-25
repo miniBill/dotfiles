@@ -99,6 +99,7 @@ in
 
     git = {
       enable = true;
+      delta.enable = true;
       userName = "Leonardo Taglialegne";
       userEmail = "cmt.miniBill@gmail.com";
       extraConfig = {
