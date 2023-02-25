@@ -1,12 +1,10 @@
-{ pkgs
-, unfree-pkgs
-, ...
-}:
+{ pkgs, ... }:
 
 let
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
   isDarwin = pkgs.stdenv.isDarwin;
   onLinux = x: if isDarwin then [ ] else x;
+  onX86 = x: if isAarch64 then [ ] else x;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
@@ -79,8 +77,8 @@ let
     libreoffice
     calibre
     virtmanager
-  ] ++ lib.optionals (!isAarch64) [
-    unfree-pkgs.rustdesk
+  ] ++ onX86 [
+    rustdesk
   ] ++ onLinux [
     solaar
   ];
@@ -103,7 +101,7 @@ let
   ];
 
   packages-gui-platform-specific =
-    with pkgs; lib.optionals (!isAarch64) [
+    with pkgs; onX86 [
       # etcher
       spotify
       zoom-us

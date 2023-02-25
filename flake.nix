@@ -28,15 +28,31 @@
     let
       withConfig = { system, username, module }:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+              "code"
+              "discord"
+              "google-chrome"
+              "lamdera"
+              "minecraft-launcher"
+              "skypeforlinux"
+              "spotify"
+              "vscode"
+              "zoom"
+
+              # Needed for rustdesk
+              "libsciter"
+            ];
+          };
           modules = [ module ];
           extraSpecialArgs = {
             username = username;
-            pinned-unstable-calibre = import pinned-unstable-calibre { inherit system; config.allowUnfree = true; };
-            pinned-unstable-discord = import pinned-unstable-discord { inherit system; config.allowUnfree = true; };
-            pinned-unstable-piper = import pinned-unstable-piper { inherit system; config.allowUnfree = true; };
-            pinned-unstable-tdesktop = import pinned-unstable-tdesktop { inherit system; config.allowUnfree = true; };
-            maybe-qtcreator = import maybe-qtcreator { inherit system; config.allowUnfree = true; };
+            pinned-unstable-calibre = import pinned-unstable-calibre { inherit system; };
+            pinned-unstable-discord = import pinned-unstable-discord { inherit system; };
+            pinned-unstable-piper = import pinned-unstable-piper { inherit system; };
+            pinned-unstable-tdesktop = import pinned-unstable-tdesktop { inherit system; };
+            maybe-qtcreator = import maybe-qtcreator { inherit system; };
           };
         };
     in
