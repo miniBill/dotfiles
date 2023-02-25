@@ -112,7 +112,7 @@
     minecraft
 
     # VIRT/OP
-    # nixops
+    nixops
     nix-index
     virtualbox
     qemu
