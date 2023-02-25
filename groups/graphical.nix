@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs
+, unfree-pkgs
+, ...
+}:
 
 let
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
@@ -77,7 +80,7 @@ let
     calibre
     virtmanager
   ] ++ lib.optionals (!isAarch64) [
-    rustdesk
+    unfree-pkgs.rustdesk
   ] ++ onLinux [
     solaar
   ];
