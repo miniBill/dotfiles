@@ -102,7 +102,9 @@ in
         ANDROID_HOME = "${config.xdg.dataHome}/android";
         CARGO_HOME = "${config.xdg.dataHome}/cargo";
         CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
+        RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
         PNPM_HOME = pnpm-home;
+        WINEPREFIX = "${config.xdg.dataHome}/wine";
 
         # RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
       }
