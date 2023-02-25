@@ -4,7 +4,7 @@ let
 
   homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
 
-  pnpm-home = homeDirectory + "/.local/share/pnpm";
+  pnpm-home = "${homeDirectory}/.local/share/pnpm";
 in
 
 {
@@ -63,9 +63,7 @@ in
       }
       //
       (if isDarwin then
-        {
-          VOLTA_HOME = homeDirectory + "/.volta";
-        }
+        { VOLTA_HOME = "${homeDirectory}/.volta"; }
       else
         { });
 

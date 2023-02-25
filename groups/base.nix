@@ -45,7 +45,7 @@ let
 
   homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
 
-  pnpm-home = homeDirectory + "/.local/share/pnpm";
+  pnpm-home = "${homeDirectory}/.local/share/pnpm";
 in
 {
   imports = [ ../programs/zsh.nix ];
