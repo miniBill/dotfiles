@@ -30,20 +30,27 @@
         home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-              "code"
-              "discord"
-              "google-chrome"
-              "lamdera"
-              "minecraft-launcher"
-              "skypeforlinux"
-              "spotify"
-              "vscode"
-              "zoom"
+            config = {
+              allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+                "code"
+                "discord"
+                "google-chrome"
+                "lamdera"
+                "minecraft-launcher"
+                "skypeforlinux"
+                "spotify"
+                "vscode"
+                "zoom"
 
-              # Needed for rustdesk
-              "libsciter"
-            ];
+                # Needed for rustdesk
+                "libsciter"
+              ];
+              permittedInsecurePackages = [
+                # Needed for nixops
+                "python2.7-certifi-2021.10.8"
+                "python2.7-pyjwt-1.7.1"
+              ];
+            };
           };
           modules = [ module ];
           extraSpecialArgs = {
