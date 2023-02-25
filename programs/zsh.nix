@@ -22,7 +22,7 @@ in
       path = "${config.xdg.stateHome}/zsh/history";
     };
 
-    initExtraFirst = "export ZSH_COMPDUMP = \"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"";
+    initExtraFirst = "export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"";
 
     initExtra =
       if isDarwin then
