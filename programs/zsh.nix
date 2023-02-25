@@ -56,6 +56,7 @@ in
         CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
         ELM_HOME = "${config.xdg.configHome}/elm";
         LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
+        NODE_REPL_HISTORY = "${config.xdg.stateHome}/node/history";
         NUGET_PACKAGES = "${config.xdg.cacheHome}/NuGetPackages";
         PNPM_HOME = pnpm-home;
         RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
