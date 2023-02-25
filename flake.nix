@@ -26,17 +26,17 @@
     , ...
     }:
     let
-      withConfig = { arch, username, module }:
+      withConfig = { system, username, module }:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${arch};
+          pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
           modules = [ module ];
           extraSpecialArgs = {
             username = username;
-            pinned-unstable-calibre = pinned-unstable-calibre.legacyPackages.${arch};
-            pinned-unstable-discord = pinned-unstable-discord.legacyPackages.${arch};
-            pinned-unstable-piper = pinned-unstable-piper.legacyPackages.${arch};
-            pinned-unstable-tdesktop = pinned-unstable-tdesktop.legacyPackages.${arch};
-            maybe-qtcreator = maybe-qtcreator.legacyPackages.${arch};
+            pinned-unstable-calibre = import pinned-unstable-calibre { inherit system; config.allowUnfree = true; };
+            pinned-unstable-discord = import pinned-unstable-discord { inherit system; config.allowUnfree = true; };
+            pinned-unstable-piper = import pinned-unstable-piper { inherit system; config.allowUnfree = true; };
+            pinned-unstable-tdesktop = import pinned-unstable-tdesktop { inherit system; config.allowUnfree = true; };
+            maybe-qtcreator = import maybe-qtcreator { inherit system; config.allowUnfree = true; };
           };
         };
     in
@@ -50,7 +50,7 @@
 
       homeConfigurations = {
         "minibill@uriel" = withConfig {
-          arch = "x86_64-linux";
+          system = "x86_64-linux";
           username = "minibill";
           module = ./machines/uriel.nix;
         };
