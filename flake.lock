@@ -118,6 +118,22 @@
         "type": "github"
       }
     },
+    "pinned-unstable-vscode": {
+      "locked": {
+        "lastModified": 1675988701,
+        "narHash": "sha256-xO+8Lq9QaujAS7XQVr21s+0NWvSa/V5OKIZyPSXJ4ak=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "47301c257adf2e479d9ef810d92aa1aa2a7df0b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "47301c257adf2e479d9ef810d92aa1aa2a7df0b5",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
@@ -126,7 +142,8 @@
         "pinned-unstable-calibre": "pinned-unstable-calibre",
         "pinned-unstable-discord": "pinned-unstable-discord",
         "pinned-unstable-piper": "pinned-unstable-piper",
-        "pinned-unstable-tdesktop": "pinned-unstable-tdesktop"
+        "pinned-unstable-tdesktop": "pinned-unstable-tdesktop",
+        "pinned-unstable-vscode": "pinned-unstable-vscode"
       }
     },
     "utils": {

@@ -12,6 +12,7 @@
     pinned-unstable-discord.url = "github:nixos/nixpkgs?rev=eeca5969b3f42ac943639aaec503816f053e5e53";
     pinned-unstable-piper.url = "github:nixos/nixpkgs?rev=d92383b18de4ec74807e740054ff00e2a3b8bcd9";
     pinned-unstable-tdesktop.url = "github:nixos/nixpkgs?rev=910b2be5ac08264311123d3add6d81e8e6fd05b8";
+    pinned-unstable-vscode.url = "github:nixos/nixpkgs?rev=47301c257adf2e479d9ef810d92aa1aa2a7df0b5";
     maybe-qtcreator.url = "github:Artturin/nixpkgs?rev=2e523a3b38aa498942103e3957adef16ad697247";
   };
 
@@ -22,6 +23,7 @@
     , pinned-unstable-discord
     , pinned-unstable-piper
     , pinned-unstable-tdesktop
+    , pinned-unstable-vscode
     , maybe-qtcreator
     , ...
     }:
@@ -59,6 +61,15 @@
             pinned-unstable-discord = import pinned-unstable-discord { inherit system; };
             pinned-unstable-piper = import pinned-unstable-piper { inherit system; };
             pinned-unstable-tdesktop = import pinned-unstable-tdesktop { inherit system; };
+            pinned-unstable-vscode = import pinned-unstable-vscode {
+              inherit system;
+              config = {
+                allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+                  "code"
+                  "vscode"
+                ];
+              };
+            };
             maybe-qtcreator = import maybe-qtcreator { inherit system; };
           };
         };

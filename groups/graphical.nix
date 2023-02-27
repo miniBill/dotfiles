@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs
+, pinned-unstable-vscode
+, ...
+}:
 
 let
   isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
@@ -173,7 +176,7 @@ in
         if isAarch64 then
           pkgs.vscode
         else
-          pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+          pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 
