@@ -11,16 +11,6 @@ pkgs:
     file = "zsh-syntax-highlighting.zsh";
   }
   {
-    name = "zsh-aws-vault";
-    src = pkgs.fetchFromGitHub
-      {
-        owner = "blimmer";
-        repo = "zsh-aws-vault";
-        rev = "818fc96a73512dd86bfcad850c430e974fd53d78";
-        sha256 = "sha256-WuzBwfIOmENQpo94r9+h2E0OEzs1bGNbLy/D2izK+Qw=";
-      };
-  }
-  {
     name = "zsh-autopair";
     src = pkgs.fetchFromGitHub {
       owner = "hlissner";
