@@ -112,6 +112,7 @@ in
         pull.rebase = "true";
         safe.directory = "/etc/nixos";
         advice.detachedHead = "false";
+        push.autoSetupRemote = "true";
       };
     };
 
