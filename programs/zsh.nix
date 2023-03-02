@@ -72,6 +72,7 @@ in
 
     shellAliases = {
       open = "xdg-open";
+      elm = "lamdera";
     };
   };
 }

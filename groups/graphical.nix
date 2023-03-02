@@ -37,7 +37,7 @@ let
   ];
 
   package-dev-elm = with pkgs; [
-    elmPackages.elm
+    # elmPackages.elm
     elmPackages.elm-format
     elmPackages.elm-json
     elmPackages.elm-live
@@ -109,8 +109,12 @@ let
       spotify
       zoom-us
 
-      (callPackage ../programs/lamdera.nix { })
-    ];
+    ] ++ (
+      if (isAarch64 || isDarwin) then
+        [ (callPackage ../programs/lamdera.nix { }) ]
+      else
+        [ ]
+    );
 
   packages-gui =
     packages-gui-fonts
