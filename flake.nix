@@ -88,6 +88,11 @@
           username = "minibill";
           module = ./machines/uriel.nix;
         };
+        "leonardotaglialegne@VNDR-A406" = withConfig {
+          system = "aarch64-darwin";
+          username = "leonardotaglialegne";
+          module = ./machines/gadiriel.nix;
+        };
       };
     };
 }
