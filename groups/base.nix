@@ -1,4 +1,4 @@
-{ pkgs, config, username, ... }:
+{ pkgs, lib, config, username, ... }:
 let
   isDarwin = pkgs.stdenv.isDarwin;
   onLinux = x: if isDarwin then [ ] else x;
@@ -106,7 +106,7 @@ in
       enable = true;
       delta.enable = true;
       userName = "Leonardo Taglialegne";
-      userEmail = "cmt.miniBill@gmail.com";
+      userEmail = lib.mkDefault "cmt.miniBill@gmail.com";
       extraConfig = {
         init.defaultBranch = "main";
         pull.rebase = "true";
