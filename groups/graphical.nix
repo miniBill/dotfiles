@@ -110,7 +110,7 @@ let
       zoom-us
 
     ] ++ (
-      if (isAarch64 || isDarwin) then
+      if (isDarwin || !isAarch64) then
         [ (callPackage ../programs/lamdera.nix { }) ]
       else
         [ ]
