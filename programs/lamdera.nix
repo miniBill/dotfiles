@@ -1,16 +1,7 @@
-{ stdenv
-, lib
-, pkgs
-, fetchurl
-, ncurses5
-, gmp5
-, zlib
-, autoPatchelfHook
-}:
+{ stdenv, lib, fetchurl }:
 
 let
-  isDarwin = stdenv.isDarwin;
-  os = if isDarwin then "macos" else "linux";
+  os = if stdenv.isDarwin then "macos" else "linux";
   arch = if stdenv.isAarch64 then "arm64" else "x86_64";
   hashes =
     {
@@ -33,22 +24,6 @@ stdenv.mkDerivation rec {
   };
 
   unpackPhase = ":";
-
-  nativeBuildInputs =
-    if isDarwin then
-      [ ]
-    else
-      [ autoPatchelfHook ];
-
-  buildInputs =
-    if isDarwin then [
-      ncurses5
-      zlib
-    ] else [
-      ncurses5
-      gmp5
-      zlib
-    ];
 
   sourceRoot = ".";
 
