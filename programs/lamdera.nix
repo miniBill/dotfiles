@@ -8,28 +8,29 @@
 , autoPatchelfHook
 }:
 
-let isDarwin = pkgs.stdenv.isDarwin; in
+let
+  isDarwin = stdenv.isDarwin;
+  os = if isDarwin then "macos" else "linux";
+  arch = if stdenv.isAarch64 then "arm64" else "x86_64";
+  hashes =
+    {
+      "x86_64-linux" = "08h5xq6l2zdivgbyxfiivdpyifz684s1kzhb29hajvrnhws7cfj4";
+      "aarch64-linux" = "0vcq5r47w7lzjzzdaal839krw6bhanphf7lgiaaw1w2d14xyq6zi";
+      "x86_64-darwin" = "0lqqz5nqb6s473ivj6wnjlydbly4kr51mgb4pz0xn3r47v8qhnnh";
+      "aarch64-darwin" = "02dh8nzfk21ip9ar92zj6l0ryy05n1mcbl9da2xa97jv7bm9nvy6";
+    };
+in
 
 stdenv.mkDerivation rec {
   name = "lamdera-${version}";
 
-  version = "1.0.2";
+  version = "1.1.0";
 
-  src =
-    if isDarwin then
-      fetchurl
-        {
-          url = "https://static.lamdera.com/bin/osx/lamdera-next";
-          sha256 = "sha256-GZ4N14Xc7f0QKtul114Y6LyndY0Ol3rvyx5nVGBev94=";
-        }
-    else
-      fetchurl
-        {
-          url = "https://static.lamdera.com/bin/linux/lamdera-next";
-          sha256 = "sha256:0a585xgc09rrkg4i2ki7vh9nc9qb7j1i02fv7ls1a585w4kbvb0q";
-          # url = "https://static.lamdera.com/bin/linux/lamdera";
-          # sha256 = "sha256:17wx4g8vna8dlgkv1qjzl1xkx36dgl7rvn7vcmxb0wafbpgykphm";
-        };
+
+  src = fetchurl {
+    url = "https://static.lamdera.com/bin/lamdera-${version}-${os}-${arch}";
+    sha256 = hashes.${stdenv.system};
+  };
 
   unpackPhase = ":";
 
@@ -56,9 +57,9 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    homepage = "https://lamdera.app/";
+    homepage = "https://lamdera.com/";
     license = licenses.unfree;
     description = "Lamdera";
-    platforms = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
+    platforms = [ "aarch64-linux" "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
   };
 }
