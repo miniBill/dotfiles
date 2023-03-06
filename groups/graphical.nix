@@ -37,11 +37,12 @@ let
   ];
 
   package-dev-elm = with pkgs; [
-    # elmPackages.elm
+    elmPackages.elm
     elmPackages.elm-format
     elmPackages.elm-json
     elmPackages.elm-live
     elmPackages.elm-test
+    (callPackage ../programs/lamdera.nix { })
     nodejs-18_x
     optipng
     jpegoptim
@@ -108,13 +109,7 @@ let
       # etcher
       spotify
       zoom-us
-
-    ] ++ (
-      if (isDarwin || !isAarch64) then
-        [ (callPackage ../programs/lamdera.nix { }) ]
-      else
-        [ ]
-    );
+    ];
 
   packages-gui =
     packages-gui-fonts
