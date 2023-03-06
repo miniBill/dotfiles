@@ -93,6 +93,11 @@
           username = "leonardotaglialegne";
           module = ./machines/gadiriel.nix;
         };
+        "minibill@sohu" = withConfig {
+          system = "aarch64-linux";
+          username = "minibill";
+          module = ./machines/sohu.nix;
+        };
       };
     };
 }
