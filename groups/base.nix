@@ -1,7 +1,6 @@
 { pkgs, lib, config, username, ... }:
 let
-  isDarwin = pkgs.stdenv.isDarwin;
-  onLinux = x: if isDarwin then [ ] else x;
+  stdenv = pkgs.stdenv;
 
   # Base
   packages-base = with pkgs; [
@@ -13,7 +12,7 @@ let
     pigz
     ripgrep
     zip
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     inotify-tools
     smem
   ];
@@ -21,7 +20,7 @@ let
   # Dev
   packages-dev = with pkgs; [
     gnumake
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     tup
   ];
 
@@ -30,7 +29,7 @@ let
     mtr
     nmap
     whois
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     bmon
     dnsutils
   ];
@@ -43,7 +42,7 @@ let
 
   packages-net = packages-net-analysis ++ packages-net-misc;
 
-  homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
+  homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
   pnpm-home = "${homeDirectory}/.local/share/pnpm";
 in
@@ -62,7 +61,7 @@ in
     };
 
     sessionPath =
-      if isDarwin then [
+      if stdenv.isDarwin then [
         "$HOME/bin"
         ("${homeDirectory}/.volta/bin")
         pnpm-home
@@ -87,7 +86,7 @@ in
     stateVersion = "21.11";
   };
 
-  systemd.user.tmpfiles.rules = onLinux [
+  systemd.user.tmpfiles.rules = lib.optionals stdenv.isLinux [
     ("d ${homeDirectory}/.ssh/control 700 ${username} users")
   ];
 

@@ -1,20 +1,18 @@
 { pkgs
+, lib
 , pinned-unstable-vscode
 , ...
 }:
 
 let
-  isAarch64 = pkgs.stdenv.hostPlatform.isAarch64;
-  isDarwin = pkgs.stdenv.isDarwin;
-  onLinux = x: if isDarwin then [ ] else x;
-  onX86 = x: if isAarch64 then [ ] else x;
+  stdenv = pkgs.stdenv;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [
     neofetch
     nix-bundle
     nixpkgs-fmt
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     usbutils
     (callPackage ../programs/wally-cli.nix { })
     (aspellWithDicts (d: [ d.it ]))
@@ -23,7 +21,7 @@ let
   # Dev
   packages-dev-base = with pkgs; [
     hyperfine
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     gitAndTools.qgit
 
     (python3.withPackages (ps: [ ps.black ps.pillow ]))
@@ -31,7 +29,7 @@ let
     watchexec
   ];
 
-  packages-dev-c = with pkgs; onLinux [
+  packages-dev-c = with pkgs; lib.optionals stdenv.isLinux [
     gcc
     gdb
   ];
@@ -61,7 +59,7 @@ let
     (callPackage ../fonts/linja-pona.nix { })
   ];
 
-  packages-gui-kde = with pkgs; onLinux [
+  packages-gui-kde = with pkgs; lib.optionals stdenv.isLinux [
     ark
     gwenview
     kcalc
@@ -75,21 +73,21 @@ let
     yakuake
   ];
 
-  packages-gui-misc = with pkgs; onLinux [
+  packages-gui-misc = with pkgs; lib.optionals stdenv.isLinux [
     gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
     gparted
     libreoffice
     calibre
     virtmanager
-  ] ++ onX86 [
+  ] ++ lib.optionals stdenv.isx86_64 [
     rustdesk
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     solaar
   ];
 
   packages-gui-multimedia = with pkgs; [
     imagemagick
-  ] ++ onLinux [
+  ] ++ lib.optionals stdenv.isLinux [
     audacity
     calf
     ffmpeg
@@ -105,7 +103,7 @@ let
   ];
 
   packages-gui-platform-specific =
-    with pkgs; onX86 [
+    with pkgs; lib.optionals (stdenv.isx86_64) [
       # etcher
       spotify
       zoom-us
@@ -119,7 +117,7 @@ let
     ++ packages-gui-platform-specific;
 
   # Network
-  packages-net-misc = with pkgs; onLinux [
+  packages-net-misc = with pkgs; lib.optionals stdenv.isLinux [
     filezilla
     remmina
   ];
@@ -151,10 +149,10 @@ in
   };
 
   programs = {
-    chromium.enable = !isDarwin;
+    chromium.enable = !stdenv.isDarwin;
 
     firefox = {
-      enable = !isDarwin;
+      enable = !stdenv.isDarwin;
 
       profiles = {
         main = {
@@ -170,9 +168,9 @@ in
     };
 
     vscode = {
-      enable = !isDarwin;
+      enable = !stdenv.isDarwin;
       package =
-        if isAarch64 then
+        if stdenv.isAarch64 then
           pkgs.vscode
         else
           pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
@@ -180,7 +178,7 @@ in
   };
 
   services.gpg-agent = {
-    enable = !isDarwin;
-    enableSshSupport = !isDarwin;
+    enable = !stdenv.isDarwin;
+    enableSshSupport = !stdenv.isDarwin;
   };
 }

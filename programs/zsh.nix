@@ -1,8 +1,8 @@
 { pkgs, config, username, ... }:
 let
-  isDarwin = pkgs.stdenv.isDarwin;
+  stdenv = pkgs.stdenv;
 
-  homeDirectory = if isDarwin then "/Users/${username}" else "/home/${username}";
+  homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
   pnpm-home = "${homeDirectory}/.local/share/pnpm";
 in
@@ -14,7 +14,7 @@ in
     autocd = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableVteIntegration = !isDarwin;
+    enableVteIntegration = !stdenv.isDarwin;
 
     history = {
       expireDuplicatesFirst = true;
@@ -25,7 +25,7 @@ in
     initExtraFirst = "export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"";
 
     initExtra =
-      if isDarwin then
+      if stdenv.isDarwin then
         ''
           export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels''${NIX_PATH:+:$NIX_PATH}
             
@@ -65,7 +65,7 @@ in
         # RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
       }
       //
-      (if isDarwin then
+      (if stdenv.isDarwin then
         { VOLTA_HOME = "${homeDirectory}/.volta"; }
       else
         { });
