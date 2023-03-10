@@ -2,7 +2,6 @@
 , pkgs
 , pinned-unstable-calibre
 , pinned-unstable-discord
-, pinned-unstable-tdesktop
 , ...
 }:
 
@@ -47,7 +46,7 @@
     zotero
 
     # BASE-GUI
-    pinned-unstable-tdesktop.tdesktop
+    tdesktop
     libgnomekbd
     winetricks
     wineWowPackages.stable

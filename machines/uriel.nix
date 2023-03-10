@@ -3,8 +3,6 @@
 , pinned-unstable-calibre
   # , pinned-unstable-discord
 , pinned-unstable-piper
-  # , pinned-unstable-tdesktop
-, maybe-qtcreator
 , ...
 }:
 
@@ -54,7 +52,6 @@
     cppcheck
     hotspot
     linuxPackages.perf
-    maybe-qtcreator.qtcreator
     # GLSL
     glslang
     # Rust
@@ -85,7 +82,6 @@
     # pinned-unstable-discord.discord
     discord
     skypeforlinux
-    # pinned-unstable-tdesktop.tdesktop
     tdesktop
     signal-desktop
     x11vnc

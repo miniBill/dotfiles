@@ -1,7 +1,6 @@
 { config
 , pkgs
   # , pinned-unstable-discord
-  # , pinned-unstable-tdesktop
 , ...
 }:
 
@@ -12,7 +11,6 @@
     rust-script
     # Im
     # pinned-unstable-discord.discord
-    # pinned-unstable-tdesktop.tdesktop
   ];
 
   programs.git.userEmail = "leonardo.taglialegne@vendr.com";

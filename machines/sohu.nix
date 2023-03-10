@@ -1,7 +1,6 @@
 { config
 , pkgs
   # , pinned-unstable-discord
-  # , pinned-unstable-tdesktop
 , ...
 }:
 
@@ -11,6 +10,5 @@
   home.packages = with pkgs; [
     # Im
     # pinned-unstable-discord.discord
-    # pinned-unstable-tdesktop.tdesktop
   ];
 }

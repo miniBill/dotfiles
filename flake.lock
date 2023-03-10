@@ -8,11 +8,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1677533640,
-        "narHash": "sha256-FHbqVw5q0Xi0Lep30+FyoAKAkXVMK+G1NLMq5pGVbuY=",
+        "lastModified": 1678285456,
+        "narHash": "sha256-2rIk5OFGQmoFX1MWntKGPVCZvy5yQMX3ZCYz7i8+yb0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "550809881b9792c20adbc0bbf6a090b4035ebaca",
+        "rev": "b0be47978de5cfd729a79c3f57ace4c86364ff45",
         "type": "github"
       },
       "original": {
@@ -22,29 +22,13 @@
         "type": "github"
       }
     },
-    "maybe-qtcreator": {
-      "locked": {
-        "lastModified": 1633744019,
-        "narHash": "sha256-skHrL1dJ7GkQwyVieowKWEErg/vWQNpavD3zaDkjKGE=",
-        "owner": "Artturin",
-        "repo": "nixpkgs",
-        "rev": "2e523a3b38aa498942103e3957adef16ad697247",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Artturin",
-        "repo": "nixpkgs",
-        "rev": "2e523a3b38aa498942103e3957adef16ad697247",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1677543769,
-        "narHash": "sha256-LwbqS8vGisXl2WHpK9r5+kodr0zoIT8F2YB0R4y1TsA=",
+        "lastModified": 1678230755,
+        "narHash": "sha256-SFAXgNjNTXzcAideXcP0takfUGVft/VR5CACmYHg+Fc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b26d52c9feb6476580016e78935cbf96eb3e2115",
+        "rev": "a7cc81913bb3cd1ef05ed0ece048b773e1839e51",
         "type": "github"
       },
       "original": {
@@ -102,22 +86,6 @@
         "type": "github"
       }
     },
-    "pinned-unstable-tdesktop": {
-      "locked": {
-        "lastModified": 1665923326,
-        "narHash": "sha256-EsK9OEOkJRZYhmpkT6bL14ShEc7uDPFFW791pewnXu4=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "910b2be5ac08264311123d3add6d81e8e6fd05b8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "910b2be5ac08264311123d3add6d81e8e6fd05b8",
-        "type": "github"
-      }
-    },
     "pinned-unstable-vscode": {
       "locked": {
         "lastModified": 1675988701,
@@ -137,12 +105,10 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "maybe-qtcreator": "maybe-qtcreator",
         "nixpkgs": "nixpkgs",
         "pinned-unstable-calibre": "pinned-unstable-calibre",
         "pinned-unstable-discord": "pinned-unstable-discord",
         "pinned-unstable-piper": "pinned-unstable-piper",
-        "pinned-unstable-tdesktop": "pinned-unstable-tdesktop",
         "pinned-unstable-vscode": "pinned-unstable-vscode"
       }
     },
