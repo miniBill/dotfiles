@@ -8,8 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    pinned-unstable-calibre.url = "github:nixos/nixpkgs?rev=1657c3114e93d380dc54441a8ae2ecdf5840ab31";
-    pinned-unstable-discord.url = "github:nixos/nixpkgs?rev=eeca5969b3f42ac943639aaec503816f053e5e53";
     pinned-unstable-piper.url = "github:nixos/nixpkgs?rev=d92383b18de4ec74807e740054ff00e2a3b8bcd9";
 
     # vscode 1.75.1
@@ -19,8 +17,6 @@
   outputs =
     { nixpkgs
     , home-manager
-    , pinned-unstable-calibre
-    , pinned-unstable-discord
     , pinned-unstable-piper
     , pinned-unstable-vscode
     , ...
@@ -59,8 +55,6 @@
           modules = [ module ];
           extraSpecialArgs = {
             username = username;
-            pinned-unstable-calibre = import pinned-unstable-calibre { inherit system; };
-            pinned-unstable-discord = import pinned-unstable-discord { inherit system; };
             pinned-unstable-piper = import pinned-unstable-piper { inherit system; };
             pinned-unstable-vscode = import pinned-unstable-vscode {
               inherit system;

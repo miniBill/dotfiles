@@ -1,14 +1,7 @@
-{ config
-, pkgs
-  # , pinned-unstable-discord
-, ...
-}:
+{ config, pkgs, ... }:
 
 {
   imports = [ ../groups/graphical.nix ];
 
-  home.packages = with pkgs; [
-    # Im
-    # pinned-unstable-discord.discord
-  ];
+  home.packages = with pkgs; [ ];
 }

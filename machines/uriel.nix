@@ -1,7 +1,5 @@
 { config
 , pkgs
-, pinned-unstable-calibre
-  # , pinned-unstable-discord
 , pinned-unstable-piper
 , ...
 }:
@@ -79,7 +77,6 @@
     irssi
     zotero
     # Im
-    # pinned-unstable-discord.discord
     discord
     skypeforlinux
     tdesktop

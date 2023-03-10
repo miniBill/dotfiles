@@ -1,7 +1,5 @@
 { config
 , pkgs
-, pinned-unstable-calibre
-, pinned-unstable-discord
 , ...
 }:
 
@@ -42,7 +40,7 @@
     skypeforlinux
     bind
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
-    pinned-unstable-discord.discord
+    discord
     zotero
 
     # BASE-GUI

@@ -38,38 +38,6 @@
         "type": "github"
       }
     },
-    "pinned-unstable-calibre": {
-      "locked": {
-        "lastModified": 1665920649,
-        "narHash": "sha256-UbQM3c4T4ZHLGobrDc72cGVvqlA92FJ4044I393IiY8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1657c3114e93d380dc54441a8ae2ecdf5840ab31",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1657c3114e93d380dc54441a8ae2ecdf5840ab31",
-        "type": "github"
-      }
-    },
-    "pinned-unstable-discord": {
-      "locked": {
-        "lastModified": 1667317463,
-        "narHash": "sha256-9MtO36H+F7XpYCKbqF51VPEdg8kSe1f28ekrfcm9YT0=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "eeca5969b3f42ac943639aaec503816f053e5e53",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "eeca5969b3f42ac943639aaec503816f053e5e53",
-        "type": "github"
-      }
-    },
     "pinned-unstable-piper": {
       "locked": {
         "lastModified": 1661689996,
@@ -106,8 +74,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "pinned-unstable-calibre": "pinned-unstable-calibre",
-        "pinned-unstable-discord": "pinned-unstable-discord",
         "pinned-unstable-piper": "pinned-unstable-piper",
         "pinned-unstable-vscode": "pinned-unstable-vscode"
       }
