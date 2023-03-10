@@ -1,6 +1,5 @@
 { config
 , pkgs
-, pinned-unstable-piper
 , ...
 }:
 
@@ -13,7 +12,7 @@
     # BASE
     openrgb
     (texlive.combine { inherit (texlive) academicons arydshln fontawesome5 footmisc moderncv multirow relsize scheme-medium textpos; })
-    pinned-unstable-piper.piper
+    piper
 
     # GUI
     libgnomekbd

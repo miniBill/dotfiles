@@ -38,22 +38,6 @@
         "type": "github"
       }
     },
-    "pinned-unstable-piper": {
-      "locked": {
-        "lastModified": 1661689996,
-        "narHash": "sha256-kw4ZheiVoNkgpcf5XRRnSTUpR98+tYUCbpJO8asR1vE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d92383b18de4ec74807e740054ff00e2a3b8bcd9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "d92383b18de4ec74807e740054ff00e2a3b8bcd9",
-        "type": "github"
-      }
-    },
     "pinned-unstable-vscode": {
       "locked": {
         "lastModified": 1675988701,
@@ -74,7 +58,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "pinned-unstable-piper": "pinned-unstable-piper",
         "pinned-unstable-vscode": "pinned-unstable-vscode"
       }
     },

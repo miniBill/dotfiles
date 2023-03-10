@@ -3,12 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+
     home-manager = {
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    pinned-unstable-piper.url = "github:nixos/nixpkgs?rev=d92383b18de4ec74807e740054ff00e2a3b8bcd9";
 
     # vscode 1.75.1
     pinned-unstable-vscode.url = "github:nixos/nixpkgs?rev=47301c257adf2e479d9ef810d92aa1aa2a7df0b5";
@@ -17,7 +16,6 @@
   outputs =
     { nixpkgs
     , home-manager
-    , pinned-unstable-piper
     , pinned-unstable-vscode
     , ...
     }:
@@ -55,7 +53,6 @@
           modules = [ module ];
           extraSpecialArgs = {
             username = username;
-            pinned-unstable-piper = import pinned-unstable-piper { inherit system; };
             pinned-unstable-vscode = import pinned-unstable-vscode {
               inherit system;
               config = {
