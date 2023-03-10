@@ -79,8 +79,6 @@ let
     libreoffice
     calibre
     virtmanager
-  ] ++ lib.optionals stdenv.isx86_64 [
-    rustdesk
   ] ++ lib.optionals stdenv.isLinux [
     solaar
   ];

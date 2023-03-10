@@ -39,9 +39,6 @@
                 "spotify"
                 "vscode"
                 "zoom"
-
-                # Needed for rustdesk
-                "libsciter"
               ];
               permittedInsecurePackages = [
                 # Needed for nixops
