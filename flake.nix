@@ -9,8 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # vscode 1.75.1
-    pinned-unstable-vscode.url = "github:nixos/nixpkgs?rev=47301c257adf2e479d9ef810d92aa1aa2a7df0b5";
+    # vscode 1.76.0
+    pinned-unstable-vscode.url = "github:nixos/nixpkgs?rev=9c3b025931e19ddf3f67a8cc8502cfecace58ace";
   };
 
   outputs =
