@@ -1,10 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, agenix, ... }:
 
 let
   tailscale-key = import ../keys/tailscale.nix;
 in
 
 {
+  imports = [
+    agenix.nixosModules.default
+  ];
+
   # Boot
   boot.cleanTmpDir = true;
 
@@ -47,6 +51,7 @@ in
     gdu
     git
     htop
+    agenix.packages."${system}".default
     lsof
     ncdu
     ntfs3g

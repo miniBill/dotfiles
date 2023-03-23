@@ -1,9 +1,8 @@
-# musnix https://github.com/musnix/musnix/archive/master.tar.gz
-# nixos https://nixos.org/channels/nixos-22.11
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
     musnix.url = github:musnix/musnix;
+    inputs.agenix.url = "github:ryantm/agenix";
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
