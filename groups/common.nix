@@ -111,11 +111,9 @@ in
     };
     settings = {
       auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
     };
     package = pkgs.nixFlakes;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
 
   # Users
