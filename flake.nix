@@ -1,8 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
-    musnix.url = github:musnix/musnix;
-    inputs.agenix.url = "github:ryantm/agenix";
+    musnix.url = "github:musnix/musnix";
+    agenix.url = "github:ryantm/agenix";
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
