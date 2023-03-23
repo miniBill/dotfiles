@@ -6,8 +6,5 @@ let
   systems = [ uriel ];
 in
 {
-  "tailscale.age".publicKeys = [
-    # minibill
-    uriel
-  ];
+  "tailscale.age".publicKeys = systems;
 }
