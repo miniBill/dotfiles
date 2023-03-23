@@ -1,13 +1,15 @@
 { config, pkgs, agenix, ... }:
 
-let
-  tailscale-key = import ../keys/tailscale.nix;
-in
-
 {
   imports = [
     agenix.nixosModules.default
   ];
+
+  age.secrets.tailscale = {
+    file = /etc/nixos/secrets/tailscale.age;
+    owner = "root";
+    group = "root";
+  };
 
   # Boot
   boot.cleanTmpDir = true;
@@ -102,7 +104,7 @@ in
       fi
 
       # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up -authkey ${tailscale-key}
+      ${tailscale}/bin/tailscale up -authkey file:${config.age.secrets.tailscale.path}
     '';
   };
 

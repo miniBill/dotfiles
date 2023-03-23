@@ -30,7 +30,6 @@
 
   networking.hostName = "finland"; # Define your hostname.
   networking.interfaces.wlp59s0.useDHCP = false;
-  services.tailscale.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -40,7 +39,6 @@
     lm_sensors
     openconnect
     powertop
-    tailscale
   ];
 
   nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
