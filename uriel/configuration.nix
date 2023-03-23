@@ -1,11 +1,6 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, musnix, ... }:
 
 let
-  # pinned-unstable = import ./pinned-unstable.nix;
   # openrgb-rules = builtins.fetchurl {
   #   url =
   #     "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
@@ -16,7 +11,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    <musnix>
+    musnix.nixosModules.musnix
     ../groups/common.nix
     ../groups/graphical.nix
     ../groups/steam.nix

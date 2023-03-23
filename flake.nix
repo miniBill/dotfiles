@@ -3,13 +3,15 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-22.11";
-    musnix.url = github:musnix/musnix/master;
+    musnix.url = github:musnix/musnix;
+    # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
-  outputs = { self, nixpkgs }: {
-    nixosConfiguration = {
+  outputs = { self, nixpkgs, ... } @ attrs: {
+    nixosConfigurations = {
       uriel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = attrs;
         modules = [ ./uriel/configuration.nix ];
       };
     };
