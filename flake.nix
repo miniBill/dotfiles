@@ -63,13 +63,6 @@
         };
     in
     {
-      defaultPackage = {
-        "x86_64-darwin" = home-manager.defaultPackage.x86_64-darwin;
-        "x86_64-linux" = home-manager.defaultPackage.x86_64-linux;
-        "aarch64-darwin" = home-manager.defaultPackage.aarch64-darwin;
-        "aarch64-linux" = home-manager.defaultPackage.aarch64-linux;
-      };
-
       homeConfigurations = {
         "minibill@uriel" = withConfig {
           system = "x86_64-linux";
