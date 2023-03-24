@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    roc.url = github:roc-lang/roc;
+
     # vscode 1.76.0
     pinned-unstable-vscode.url = "github:nixos/nixpkgs?rev=9c3b025931e19ddf3f67a8cc8502cfecace58ace";
   };
@@ -17,6 +19,7 @@
     { nixpkgs
     , home-manager
     , pinned-unstable-vscode
+    , roc
     , ...
     }:
     let
@@ -50,6 +53,7 @@
           modules = [ module ];
           extraSpecialArgs = {
             username = username;
+            roc = roc;
             pinned-unstable-vscode = import pinned-unstable-vscode {
               inherit system;
               config = {
