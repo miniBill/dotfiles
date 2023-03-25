@@ -128,6 +128,9 @@ in
     owner = "root";
     group = "root";
   };
+  services.openvpn.servers = {
+    snizzoVPN = { config = ''config ${config.age.secrets.snizzovpn.path}''; };
+  };
 
   programs.adb.enable = true;
 
