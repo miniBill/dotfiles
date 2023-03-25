@@ -111,8 +111,8 @@ in
   ];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 1234 3000 8000 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 80 8000 1234 28852 8075 20560 ];
+  networking.firewall.allowedUDPPorts = [ 28852 20560 7707 7708 7717 ];
 
   programs.adb.enable = true;
 
