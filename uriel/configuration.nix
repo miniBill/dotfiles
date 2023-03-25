@@ -111,8 +111,23 @@ in
   ];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 8000 1234 28852 8075 20560 ];
-  networking.firewall.allowedUDPPorts = [ 28852 20560 7707 7708 7717 ];
+  networking.firewall.allowedTCPPorts =
+    let
+      killingFloorPorts = [ 28852 8075 20560 ];
+      httpPorts = [ 80 8000 1234 ];
+    in
+    httpPorts ++ killingFloorPorts;
+  networking.firewall.allowedUDPPorts =
+    let
+      kilingFloorPorts = [ 28852 20560 7707 7708 7717 ];
+    in
+    kilingFloorPorts;
+
+  age.secrets.snizzovpn = {
+    file = secrets/snizzovpn.age;
+    owner = "root";
+    group = "root";
+  };
 
   programs.adb.enable = true;
 

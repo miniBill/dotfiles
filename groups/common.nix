@@ -6,7 +6,7 @@
   ];
 
   age.secrets.tailscale = {
-    file = /etc/nixos/secrets/tailscale.age;
+    file = secrets/tailscale.age;
     owner = "root";
     group = "root";
   };

@@ -7,4 +7,5 @@ let
 in
 {
   "tailscale.age".publicKeys = systems;
+  "snizzovpn.age".publicKeys = systems;
 }
