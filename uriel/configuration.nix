@@ -124,7 +124,7 @@ in
     kilingFloorPorts;
 
   age.secrets.snizzovpn = {
-    file = secrets/snizzovpn.age;
+    file = ../secrets/snizzovpn.age;
     owner = "root";
     group = "root";
   };
