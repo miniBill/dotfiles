@@ -5,7 +5,8 @@ let
   #   url =
   #     "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
   # };
-
+  killingFloorTCPPorts = [ 28852 8075 20560 ];
+  kilingFloorUDPPorts = [ 28852 20560 7707 7708 7717 ];
 in
 {
   imports = [
@@ -111,17 +112,13 @@ in
   ];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts =
-    let
-      killingFloorPorts = [ 28852 8075 20560 ];
-      httpPorts = [ 80 8000 1234 ];
-    in
-    httpPorts ++ killingFloorPorts;
-  networking.firewall.allowedUDPPorts =
-    let
-      kilingFloorPorts = [ 28852 20560 7707 7708 7717 ];
-    in
-    kilingFloorPorts;
+  networking.firewall.allowedTCPPorts = [ 80 8000 1234 ];
+  networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.interfaces.tun0 =
+    {
+      allowedTCPPorts = killingFloorTCPPorts;
+      allowedUDPPorts = kilingFloorUDPPorts;
+    };
 
   age.secrets.snizzovpn = {
     file = ../secrets/snizzovpn.age;
