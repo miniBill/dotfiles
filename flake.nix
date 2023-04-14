@@ -13,6 +13,9 @@
 
     # vscode 1.76.0
     pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=9c3b025931e19ddf3f67a8cc8502cfecace58ace";
+
+    # elm-format 0.8.7
+    pinned-unstable-elm-format.url = "github:NixOS/nixpkgs?rev=a7f2c2c93968445b88584847a48be245f8fd0a08";
   };
 
   outputs =
