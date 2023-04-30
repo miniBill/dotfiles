@@ -104,8 +104,8 @@
     mupen64plus
     lutris-free
     mgba
-    minecraft
     pinned-unstable-ferium.legacyPackages.${system}.ferium
+    prismlauncher
 
     # VIRT/OP
     nixops
