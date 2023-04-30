@@ -11,6 +11,9 @@
 
     roc.url = github:roc-lang/roc;
 
+    # ferium 4.4.0
+    pinned-unstable-ferium.url = "github:NixOS/nixpkgs?rev=8f511d49a692d2e8cd950aac20b0c71b6bc65ac2";
+
     # vscode 1.76.0
     pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=9c3b025931e19ddf3f67a8cc8502cfecace58ace";
 
@@ -22,6 +25,7 @@
     { nixpkgs
     , home-manager
     , pinned-unstable-vscode
+    , pinned-unstable-ferium
     , ...
     }@inputs:
     let

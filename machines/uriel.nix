@@ -1,6 +1,7 @@
 { config
 , pkgs
 , roc
+, pinned-unstable-ferium
 , ...
 }:
 
@@ -104,6 +105,7 @@
     lutris-free
     mgba
     minecraft
+    pinned-unstable-ferium.legacyPackages.${system}.ferium
 
     # VIRT/OP
     nixops
