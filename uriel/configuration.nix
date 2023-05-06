@@ -100,6 +100,15 @@ in
     #   (builtins.readFile openrgb-rules)
   ;
 
+  power.ups = {
+    enable = true;
+    ups."Trustino" = {
+      driver = "blazer_usb";
+      port = "auto";
+      description = "Trust UPS";
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
