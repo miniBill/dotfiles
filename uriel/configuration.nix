@@ -70,7 +70,34 @@ in
   '';
 
   hardware.cpu.intel.updateMicrocode = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+    xrandrHeads = [
+      {
+        output = "DP-4";
+        primary = true;
+        monitorConfig = ''
+          DisplaySize 2560 1440
+        '';
+      }
+      {
+        output = "DP-2";
+        monitorConfig = ''
+          DisplaySize 1920 1080
+        '';
+      }
+    ];
+    virtualScreen = { x = 4480; y = 1440; };
+    screenSection = ''
+      Option      "metamodes" "DP-2: nvidia-auto-select +2560+0 {AllowGSYNC=Off}, DP-4: nvidia-auto-select +0+0"
+      Option      "nvidiaXineramaInfoOrder" "DFP-6"
+    '';
+    monitorSection = ''
+      Modeline    "2560x1440_75.00"  397.25  2560 2760 3040 3520  1440 1443 1448 1506 -hsync +vsync
+      Option      "PreferredMode" "2560x1440_75.00"
+    '';
+  };
 
   # Enable sound.
   musnix.enable = true;
