@@ -103,7 +103,7 @@ in
   power.ups = {
     enable = true;
     ups."Trustino" = {
-      driver = "blazer_usb";
+      driver = "usbhid-ups";
       port = "auto";
       description = "Trust UPS";
     };
