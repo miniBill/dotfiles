@@ -64,6 +64,7 @@ in
       if stdenv.isDarwin then [
         "$HOME/bin"
         ("${homeDirectory}/.volta/bin")
+        ("${homeDirectory}/.vendr/bin")
         pnpm-home
       ] else [
         "$HOME/bin"
