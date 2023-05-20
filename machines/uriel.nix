@@ -1,7 +1,6 @@
 { config
 , pkgs
 , roc
-, pinned-unstable-ferium
 , ...
 }:
 
@@ -104,7 +103,6 @@
     mupen64plus
     lutris-free
     mgba
-    pinned-unstable-ferium.legacyPackages.${system}.ferium
     prismlauncher
 
     # VIRT/OP

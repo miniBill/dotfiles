@@ -143,22 +143,6 @@
         "type": "github"
       }
     },
-    "pinned-unstable-ferium": {
-      "locked": {
-        "lastModified": 1680458334,
-        "narHash": "sha256-rxX8hjUeuM7Tl5VdB0lDRkdRclIB//3bvwTIiOO1q/Y=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "8f511d49a692d2e8cd950aac20b0c71b6bc65ac2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "8f511d49a692d2e8cd950aac20b0c71b6bc65ac2",
-        "type": "github"
-      }
-    },
     "pinned-unstable-vscode": {
       "locked": {
         "lastModified": 1677768870,
@@ -201,7 +185,6 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "pinned-unstable-elm-format": "pinned-unstable-elm-format",
-        "pinned-unstable-ferium": "pinned-unstable-ferium",
         "pinned-unstable-vscode": "pinned-unstable-vscode",
         "roc": "roc"
       }
