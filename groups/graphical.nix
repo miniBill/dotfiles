@@ -1,7 +1,7 @@
 { pkgs
 , lib
-, pinned-unstable-vscode
-, pinned-unstable-elm-format
+  # , pinned-unstable-vscode
+  # , pinned-unstable-elm-format
 , ...
 }:
 
@@ -37,7 +37,8 @@ let
 
   package-dev-elm = with pkgs; [
     elmPackages.elm
-    (pinned-unstable-elm-format.legacyPackages.${system}.elmPackages.elm-format)
+    # (pinned-unstable-elm-format.legacyPackages.${system}.elmPackages.elm-format)
+    elmPackages.elm-format
     elmPackages.elm-json
     elmPackages.elm-live
     elmPackages.elm-test
@@ -172,7 +173,7 @@ in
         if stdenv.isAarch64 then
           pkgs.vscode
         else
-          # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+        # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
           pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };

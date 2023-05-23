@@ -126,38 +126,6 @@
         "type": "github"
       }
     },
-    "pinned-unstable-elm-format": {
-      "locked": {
-        "lastModified": 1681255767,
-        "narHash": "sha256-ZbU/AOVipILNuVzJ3Vmxfp/bO50EHy0vse2Sj+7BJGE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "a7f2c2c93968445b88584847a48be245f8fd0a08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "a7f2c2c93968445b88584847a48be245f8fd0a08",
-        "type": "github"
-      }
-    },
-    "pinned-unstable-vscode": {
-      "locked": {
-        "lastModified": 1677768870,
-        "narHash": "sha256-E0Gjt+gZIZ9rNLQ/9AuNY0VXpnrn2bD3fB3Zw3wxouY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9c3b025931e19ddf3f67a8cc8502cfecace58ace",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "9c3b025931e19ddf3f67a8cc8502cfecace58ace",
-        "type": "github"
-      }
-    },
     "roc": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -183,8 +151,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "pinned-unstable-elm-format": "pinned-unstable-elm-format",
-        "pinned-unstable-vscode": "pinned-unstable-vscode",
         "roc": "roc"
       }
     },

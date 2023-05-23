@@ -1,7 +1,7 @@
 { config
 , lib
 , pkgs
-, pinned-oldstable
+  # , pinned-oldstable
 , ...
 }:
 
@@ -25,7 +25,7 @@
       go
       golangci-lint
 
-      pinned-oldstable.terraform_0_11
+      # pinned-oldstable.terraform_0_11
       google-cloud-sdk
     ];
   };
