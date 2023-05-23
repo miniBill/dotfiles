@@ -12,7 +12,7 @@
   };
 
   # Boot
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
 
   # Networking
   networking.networkmanager.enable = true; # Enables NetworkManager
@@ -80,8 +80,8 @@
   services.openssh = {
     enable = true;
     settings = {
-        X11Forwarding = true;
-        UseDns = false;
+      X11Forwarding = true;
+      UseDns = false;
     };
   };
   services.tailscale.enable = true;
