@@ -45,11 +45,6 @@
                 "vscode"
                 "zoom"
               ];
-              permittedInsecurePackages = [
-                # Needed for nixops
-                "python2.7-certifi-2021.10.8"
-                "python2.7-pyjwt-1.7.1"
-              ];
             };
           };
           modules = [ module ];

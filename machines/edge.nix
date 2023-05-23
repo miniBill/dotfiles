@@ -53,7 +53,6 @@
     mupen64plus
 
     # VIRT/OP
-    nixops
     nix-index
     virtualbox
     qemu

@@ -107,7 +107,6 @@
     prismlauncher
 
     # VIRT/OP
-    nixops
     nix-index
     virtualbox
     qemu
