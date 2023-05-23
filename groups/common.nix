@@ -77,8 +77,13 @@
   };
 
   # Services
-  services.openssh.enable = true;
-  services.openssh.forwardX11 = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+        X11Forwarding = true;
+        UseDns = false;
+    };
+  };
   services.tailscale.enable = true;
   services.hardware.bolt.enable = true;
   systemd.services.tailscale-autoconnect = {
