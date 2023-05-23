@@ -17,6 +17,7 @@
 
     # GUI
     libgnomekbd
+    x11vnc
     # Wine
     winetricks
     wineWowPackages.stable
