@@ -1,13 +1,7 @@
-{ config
-, pkgs
-, roc
-, ...
-}:
+{ pkgs, roc, ... }:
 
 {
-  imports = [
-    ../groups/graphical.nix
-  ];
+  imports = [ ../groups/graphical.nix ];
 
   home.packages = with pkgs; [
     # BASE

@@ -1,14 +1,11 @@
-{ config
-, lib
+{ lib
 , pkgs
   # , pinned-oldstable
 , ...
 }:
 
 {
-  imports = [
-    ../groups/graphical.nix
-  ];
+  imports = [ ../groups/graphical.nix ];
 
   home = {
     packages = with pkgs; [

@@ -103,7 +103,7 @@ let
   ];
 
   packages-gui-platform-specific =
-    with pkgs; lib.optionals (stdenv.isx86_64) [
+    with pkgs; lib.optionals stdenv.isx86_64 [
       # etcher
       spotify
       zoom-us

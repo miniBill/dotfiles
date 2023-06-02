@@ -5,7 +5,7 @@
 , pkgs
 , python3
 , python3Packages
-, wrapGAppsHook
+  # , wrapGAppsHook
 }:
 
 python3Packages.buildPythonApplication rec {
@@ -59,7 +59,7 @@ python3Packages.buildPythonApplication rec {
 
   meta = with lib; {
     description = "A multi-channel audio mixer desktop application for the JACK Audio Connection Kit. ";
-    homepage = https://github.com/jack-mixer/jack_mixer;
+    homepage = "https://github.com/jack-mixer/jack_mixer";
     license = licenses.gpl2;
     platforms = [ "x86_64-linux" ];
   };

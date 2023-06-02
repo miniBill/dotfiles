@@ -67,8 +67,7 @@ in
 
     language.base = "en_US.UTF-8";
 
-    username = username;
-    homeDirectory = homeDirectory;
+    inherit username homeDirectory;
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -82,7 +81,7 @@ in
   };
 
   systemd.user.tmpfiles.rules = lib.optionals stdenv.isLinux [
-    ("d ${homeDirectory}/.ssh/control 700 ${username} users")
+    "d ${homeDirectory}/.ssh/control 700 ${username} users"
   ];
 
   programs = {
