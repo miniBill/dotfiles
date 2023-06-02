@@ -6,7 +6,7 @@
 }:
 
 let
-  stdenv = pkgs.stdenv;
+  inherit (pkgs) stdenv;
 
   # Base - laptops and desktops
   packages-base = with pkgs; [

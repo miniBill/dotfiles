@@ -1,6 +1,6 @@
 { pkgs, lib, config, username, ... }:
 let
-  stdenv = pkgs.stdenv;
+  inherit (pkgs) stdenv;
 
   # Base
   packages-base = with pkgs; [

@@ -1,6 +1,6 @@
 { pkgs, config, username, ... }:
 let
-  stdenv = pkgs.stdenv;
+  inherit (pkgs) stdenv;
 
   homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
