@@ -60,16 +60,10 @@ in
       ".config/nix/nix.conf".source = ../files/nix.conf;
     };
 
-    sessionPath =
-      if stdenv.isDarwin then [
-        "$HOME/bin"
-        ("${homeDirectory}/.volta/bin")
-        ("${homeDirectory}/.vendr/bin")
-        pnpm-home
-      ] else [
-        "$HOME/bin"
-        pnpm-home
-      ];
+    sessionPath = [
+      "$HOME/bin"
+      pnpm-home
+    ];
 
     language.base = "en_US.UTF-8";
 

@@ -20,7 +20,6 @@
 
       # DEV
       adoptopenjdk-icedtea-web
-      ansible-lint
       cfssl
       go
       golangci-lint
@@ -80,20 +79,6 @@
       redhat.telemetry.enabled = false;
       update.mode = "none";
       python.showStartPage = false;
-    };
-
-    zsh = {
-      initExtra = ''
-        ansible-short-diff () {
-          export ANSIBLE_DISPLAY_OK_HOSTS=no ANSIBLE_DISPLAY_SKIPPED_HOSTS=no ANSIBLE_NOCOLOR=false 
-        }
-      '';
-      sessionVariables = {
-        # used by rstor_ansible.sh
-        DOCKER_EXTRA = ''
-          -v /nix:/nix:ro \
-          -v /home/minibill/.ssh/control:/home/minibill/.ssh/control:rw'';
-      };
     };
 
     ssh = {
