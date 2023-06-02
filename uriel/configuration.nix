@@ -1,4 +1,4 @@
-{ config, pkgs, lib, musnix, ... }:
+{ config, pkgs, musnix, ... }:
 
 let
   # openrgb-rules = builtins.fetchurl {

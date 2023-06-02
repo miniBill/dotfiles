@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 
 {
   imports = [
@@ -16,7 +16,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = [ ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

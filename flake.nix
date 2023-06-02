@@ -7,7 +7,7 @@
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs: {
+  outputs = { nixpkgs, ... } @ attrs: {
     nixosConfigurations = {
       uriel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
