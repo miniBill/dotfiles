@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   age.secrets.cjdnsConf = {
     file = ../secrets/cjdroute.conf.age;

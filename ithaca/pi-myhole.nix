@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 let
   blockyUDPPort = 53;
