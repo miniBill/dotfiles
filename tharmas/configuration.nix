@@ -33,7 +33,6 @@ in
     listenAddress = ip;
   };
   services.openssh = {
-    permitRootLogin = "yes";
     ports = [ 22 2222 ];
   };
   networking = {
