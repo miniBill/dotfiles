@@ -25,6 +25,9 @@
     konsole
   ];
 
+  # Set your time zone.
+  time.timeZone = "Europe/Rome";
+
   # Use Italian for time and money
   i18n = {
     defaultLocale = "en_GB.UTF-8";
