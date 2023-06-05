@@ -77,6 +77,10 @@
           system = "aarch64-linux";
           module = ./machines/sohu.nix;
         };
+        "minibill@tharmas" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/tharmas.nix;
+        };
       };
     };
 }

@@ -1,0 +1,5 @@
+{ ... }:
+
+{
+  imports = [ ../groups/base.nix ];
+}
