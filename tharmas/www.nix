@@ -136,7 +136,7 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-    settings.mysql.bind-address = "127.0.0.1";
+    settings.mysqld.bind-address = "127.0.0.1";
     ensureDatabases = [ "latisanalingue" ];
     ensureUsers = [{
       name = "latisanalingue";
