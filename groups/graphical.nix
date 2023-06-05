@@ -62,4 +62,17 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  users.groups.audio = { };
+
+  # Users
+  users.users.minibill.extraGroups = [
+    "wheel"
+    "networkmanager"
+    "docker"
+    "adbusers"
+    "video"
+    "plugdev"
+    "libvirtd"
+    "audio"
+  ];
 }

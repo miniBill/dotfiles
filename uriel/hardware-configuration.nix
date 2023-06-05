@@ -10,7 +10,8 @@
     [ "xhci_pci" "ahci" "nvme" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/2a81d0e0-c05e-4810-aba1-819adb3020c5";

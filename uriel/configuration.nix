@@ -16,7 +16,6 @@ in
     ../groups/graphical.nix
     ../groups/steam.nix
     # ./web.nix
-    # ../cachix.nix
   ];
 
   boot.loader.grub = {
@@ -31,9 +30,6 @@ in
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = false;
-
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-  boot.blacklistedKernelModules = [ "snd_hda_codec_hdmi" ];
 
   networking.hostName = "uriel";
   networking.interfaces.wlo1.useDHCP = false;

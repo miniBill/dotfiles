@@ -43,22 +43,28 @@
 
   # Common software
   environment.systemPackages = with pkgs; [
-    acpitool
-    exfat
-    gdu
-    git
-    htop
+    # Core
+    vim
+
+    # Sysadmining
     agenix.packages."${system}".default
+    gdu
+    htop
     lsof
-    ncdu
-    ntfs3g
     screen
     sysstat
-    tailscale
     tmux
-    vim
+
+    # Network
+    nmap
     wget
-    zsh
+    tailscale
+
+    # Misc
+    acpitool
+    exfat
+    git
+    ntfs3g
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -126,19 +132,8 @@
   users.users.minibill = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "docker"
-      "adbusers"
-      "video"
-      "plugdev"
-      "libvirtd"
-      "audio"
-    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel"
     ];
   };
-  users.groups.audio = { };
 }
