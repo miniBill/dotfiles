@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  ip = "149.91.81.222";
+  ip = "144.76.3.185";
 in
 {
   imports = [
@@ -41,13 +41,13 @@ in
     usePredictableInterfaceNames = false;
     interfaces.eth0.ipv4.addresses = [{
       address = ip;
-      prefixLength = 24;
+      prefixLength = 27;
     }];
     interfaces.eth0.ipv6.addresses = [{
       address = "2a07:abc4::1:b0e";
       prefixLength = 64;
     }];
-    defaultGateway = "149.91.81.1";
+    defaultGateway = "144.76.3.161";
     defaultGateway6 = {
       address = "2a07:abc4::1";
       interface = "eth0";
