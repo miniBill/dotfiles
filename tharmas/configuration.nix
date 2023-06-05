@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    pkgs.nixosModules.profiles.qemu-guest
 
     ./cjdns.nix
     ./www.nix
@@ -44,12 +43,12 @@ in
       prefixLength = 27;
     }];
     interfaces.eth0.ipv6.addresses = [{
-      address = "2a07:abc4::1:b0e";
+      address = "2a01:4f8:190:738b::";
       prefixLength = 64;
     }];
     defaultGateway = "144.76.3.161";
     defaultGateway6 = {
-      address = "2a07:abc4::1";
+      address = "fe80::1";
       interface = "eth0";
     };
     nameservers = [
