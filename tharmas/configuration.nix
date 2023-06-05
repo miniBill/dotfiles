@@ -35,7 +35,7 @@ in
   };
   services.openssh = {
     permitRootLogin = "yes";
-    ports = [ 22 ];
+    ports = [ 22 2222 ];
   };
   networking = {
     usePredictableInterfaceNames = false;
@@ -57,8 +57,20 @@ in
       "2606:4700:4700::1001"
       "1.1.1.1"
     ];
-    firewall.allowedTCPPorts = [ 80 443 2222 30033 10011 4144 25565 ];
-    firewall.allowedUDPPorts = [ 54345 9987 25565 ];
+    firewall.allowedTCPPorts = [
+      80 # Http - nginx
+      443 # Https - nginx
+      2222 # Ssh alternate port
+      30033 # ?
+      10011 # ?
+      4144 # ?
+      25565 # ?
+    ];
+    firewall.allowedUDPPorts = [
+      54345 # ?
+      9987 # ?
+      25565 # ?
+    ];
   };
   users.mutableUsers = false;
   users.users = {
