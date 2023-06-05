@@ -1,5 +1,10 @@
 { pkgs, config, lib, ... }:
 {
+  security.acme = {
+    acceptTerms = true;
+    email = "leonardo@taglialegne.it";
+  };
+
   services.nginx = {
     enable = true;
     recommendedGzipSettings = true;
@@ -131,7 +136,7 @@
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
-    bind = "127.0.0.1";
+    settings.mysql.bind-address = "127.0.0.1";
     ensureDatabases = [ "latisanalingue" ];
     ensureUsers = [{
       name = "latisanalingue";
