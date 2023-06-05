@@ -13,7 +13,6 @@ in
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../groups/common.nix
     ../groups/graphical.nix
@@ -35,7 +34,7 @@ in
 
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
 
-  networking.hostName = "edge"; # Define your hostname.
+  networking.hostName = "edge";
   networking.interfaces.enp5s0.useDHCP = false;
   networking.interfaces.wlp4s0.useDHCP = false;
 

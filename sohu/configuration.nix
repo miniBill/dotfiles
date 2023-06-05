@@ -2,9 +2,8 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     nixos-hardware.nixosModules.pine64-pinebook-pro
+    ./hardware-configuration.nix
     ../groups/common.nix
     ../groups/graphical.nix
   ];
@@ -24,23 +23,12 @@
   };
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
-  networking.hostName = "sohu"; # Define your hostname.
+  networking.hostName = "sohu";
   networking.interfaces.wlan0.useDHCP = false;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "pinebookpro-ap6256-firmware" ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = [ ];
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-
   # Don't change this.
   system.stateVersion = "21.11"; # Did you read the comment?
-
-  # Use ondemand governor
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }

@@ -3,7 +3,6 @@
 {
   imports = [
     <nixos-hardware/dell/xps/15-7590>
-    # Include the results of the hardware scan.
     ../hardware-configuration.nix
     ./toPR.nix
     ../groups/common.nix
@@ -28,7 +27,7 @@
   };
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
-  networking.hostName = "finland"; # Define your hostname.
+  networking.hostName = "finland";
   networking.interfaces.wlp59s0.useDHCP = false;
 
   # List packages installed in system profile. To search, run:
