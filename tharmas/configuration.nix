@@ -88,6 +88,7 @@ in
       hashedPassword = "$6$H1taZPIYM3/Yfbo8$dgRRy9dpHtIue9ygwFdz3egnmhhOZDWnnPhmWQgUGpp7oPo52973j.q62sMjjIOrf/sSUXGVa2MWWrmKpZ39X1";
     };
     latisanalingue = {
+      isSystemUser = true;
       group = "latisanalingue";
     };
     root = {
