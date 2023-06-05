@@ -28,9 +28,10 @@
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
-  # Use Italian for time and money
+  # Internationalization
   i18n = {
     defaultLocale = "en_GB.UTF-8";
+    # Use Italian for time and money
     extraLocaleSettings = {
       LC_TIME = "it_IT.UTF-8";
       LC_MONETARY = "it_IT.UTF-8";
