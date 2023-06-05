@@ -30,7 +30,7 @@ in
   services.sslh = {
     enable = true;
     transparent = true;
-    listenAddress = ip;
+    listenAddresses = [ ip ];
   };
   services.openssh = {
     ports = [ 22 2222 ];

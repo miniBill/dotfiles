@@ -2,7 +2,7 @@
 {
   security.acme = {
     acceptTerms = true;
-    email = "leonardo@taglialegne.it";
+    defaults.email = "leonardo@taglialegne.it";
   };
 
   services.nginx = {
