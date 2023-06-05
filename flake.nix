@@ -19,6 +19,12 @@
         specialArgs = attrs;
         modules = [ ./sohu/configuration.nix ];
       };
+
+      tharmas = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [ ./tharmas/configuration.nix ];
+      };
     };
   };
 }
