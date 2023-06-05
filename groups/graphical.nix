@@ -3,6 +3,7 @@
 {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.openssh.settings.X11Forwarding = true;
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
@@ -23,6 +24,20 @@
     yakuake
     konsole
   ];
+
+  # Use Italian for time and money
+  i18n = {
+    defaultLocale = "en_GB.UTF-8";
+    extraLocaleSettings = {
+      LC_TIME = "it_IT.UTF-8";
+      LC_MONETARY = "it_IT.UTF-8";
+    };
+    supportedLocales = [
+      "en_GB.UTF-8/UTF-8"
+      "it_IT.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
+    ];
+  };
 
   # Fix themes not working for GTK apps in Wayland
   programs.dconf.enable = true;

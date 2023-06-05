@@ -34,14 +34,9 @@
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = "it_IT.UTF-8";
-    extraLocaleSettings = {
-      LANG = "en_GB.UTF-8";
-    };
-    inputMethod.enabled = "ibus";
+    defaultLocale = "en_GB.UTF-8";
     supportedLocales = [
       "en_GB.UTF-8/UTF-8"
-      "it_IT.UTF-8/UTF-8"
       "en_US.UTF-8/UTF-8"
     ];
   };
@@ -79,13 +74,12 @@
   # Services
   services.openssh = {
     enable = true;
-    settings = {
-      X11Forwarding = true;
-      UseDns = false;
-    };
+    settings.UseDns = false;
   };
-  services.tailscale.enable = true;
   services.hardware.bolt.enable = true;
+
+  # Services - Tailscale
+  services.tailscale.enable = true;
   systemd.services.tailscale-autoconnect = {
     description = "Automatic connection to Tailscale";
 
