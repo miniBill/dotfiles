@@ -168,7 +168,7 @@ in
     };
 
     vscode = {
-      enable = !stdenv.isDarwin;
+      enable = true;
       package =
         if stdenv.isAarch64 then
           pkgs.vscode
