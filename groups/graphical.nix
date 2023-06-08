@@ -1,6 +1,6 @@
 { pkgs
 , lib
-  # , pinned-unstable-vscode
+, pinned-unstable-vscode
   # , pinned-unstable-elm-format
 , ...
 }:
@@ -171,10 +171,10 @@ in
       enable = true;
       package =
         if stdenv.isAarch64 then
-          pkgs.vscode
+          pinned-unstable-vscode.vscode # pkgs.vscode
         else
-        # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
-          pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+          pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+          # pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 

@@ -58,11 +58,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685189510,
-        "narHash": "sha256-Hq5WF7zIixojPgvhgcd6MBvywwycVZ9wpK/8ogOyoaA=",
+        "lastModified": 1685599623,
+        "narHash": "sha256-Tob4CMOVHue0D3RzguDBCtUmX5ji2PsdbQDbIOIKvsc=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "2d963854ae2499193c0c72fd67435fee34d3e4fd",
+        "rev": "93db05480c0c0f30382d3e80779e8386dcb4f9dd",
         "type": "github"
       },
       "original": {
@@ -96,11 +96,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1685272473,
-        "narHash": "sha256-oHNi6BgcGquKDkVN1/awsh+KLBey+Nj3ejTVH585upU=",
+        "lastModified": 1686059680,
+        "narHash": "sha256-sp0WlCIeVczzB0G8f8iyRg3IYW7KG31mI66z7HIZwrI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a7adeadc7d4033048592fac7c87ca888d2a99d31",
+        "rev": "a558f7ac29f50c4b937fb5c102f587678ae1c9fb",
         "type": "github"
       },
       "original": {
@@ -126,6 +126,22 @@
         "type": "github"
       }
     },
+    "pinned-unstable-vscode": {
+      "locked": {
+        "lastModified": 1685416521,
+        "narHash": "sha256-+VZ2htkn5FS7+BU2Z58kyTXPkU1o6w0U8W0oH8/m/Ic=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "db7c5d174aa7fc9b49730ed62f93aeb0449c70ca",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "db7c5d174aa7fc9b49730ed62f93aeb0449c70ca",
+        "type": "github"
+      }
+    },
     "roc": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -134,11 +150,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1685331097,
-        "narHash": "sha256-hP40xNBOHGYcbt4ArQ6pMKBwgS762dYuPBxATje9alE=",
+        "lastModified": 1686134360,
+        "narHash": "sha256-dYxyBxB8TTBZWC8fgx6iMYfr/uvGy/Lu8udK1nwWNWU=",
         "owner": "roc-lang",
         "repo": "roc",
-        "rev": "ebd5cbb00de3cc977c69caca9918524703cd5683",
+        "rev": "c7f5007cd8108a6c2e5ebd6de6ab485ba72f02d4",
         "type": "github"
       },
       "original": {
@@ -151,6 +167,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "pinned-unstable-vscode": "pinned-unstable-vscode",
         "roc": "roc"
       }
     },

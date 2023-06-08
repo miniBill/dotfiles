@@ -11,8 +11,8 @@
 
     roc.url = "github:roc-lang/roc";
 
-    # vscode 1.76.0
-    # pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=9c3b025931e19ddf3f67a8cc8502cfecace58ace";
+    # vscode 1.78.2, working on macOS
+    pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=db7c5d174aa7fc9b49730ed62f93aeb0449c70ca";
 
     # elm-format 0.8.7
     # pinned-unstable-elm-format.url = "github:NixOS/nixpkgs?rev=a7f2c2c93968445b88584847a48be245f8fd0a08";
@@ -21,7 +21,7 @@
   outputs =
     { nixpkgs
     , home-manager
-      # , pinned-unstable-vscode
+    , pinned-unstable-vscode
     , ...
     }@inputs:
     let
@@ -50,15 +50,15 @@
           modules = [ module ];
           extraSpecialArgs = inputs // {
             inherit username;
-            # pinned-unstable-vscode = import pinned-unstable-vscode {
-            #   inherit system;
-            #   config = {
-            #     allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-            #       "code"
-            #       "vscode"
-            #     ];
-            #   };
-            # };
+            pinned-unstable-vscode = import pinned-unstable-vscode {
+              inherit system;
+              config = {
+                allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+                  "code"
+                  "vscode"
+                ];
+              };
+            };
           };
         };
     in
