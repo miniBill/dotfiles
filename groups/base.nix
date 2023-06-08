@@ -4,6 +4,7 @@ let
 
   # Base
   packages-base = with pkgs; [
+    bash
     bc
     file
     moreutils
