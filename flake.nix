@@ -68,9 +68,8 @@
           system = "x86_64-linux";
           module = ./machines/uriel.nix;
         };
-        "leonardotaglialegne@VNDR-A406" = withConfig {
+        "minibill@gadiriel" = withConfig {
           system = "aarch64-darwin";
-          username = "leonardotaglialegne";
           module = ./machines/gadiriel.nix;
         };
         "minibill@sohu" = withConfig {
