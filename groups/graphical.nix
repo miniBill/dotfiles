@@ -87,11 +87,11 @@ let
 
   packages-gui-multimedia = with pkgs; [
     imagemagick
+    gimp
   ] ++ lib.optionals stdenv.isLinux [
     audacity
     calf
     ffmpeg
-    gimp
     inkscape
     jackmix
     pavucontrol
