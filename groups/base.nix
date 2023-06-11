@@ -100,6 +100,7 @@ in
 
     git = {
       enable = true;
+      lfs.enable = true;
       delta.enable = true;
       userName = "Leonardo Taglialegne";
       userEmail = lib.mkDefault "cmt.miniBill@gmail.com";
