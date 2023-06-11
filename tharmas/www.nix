@@ -80,36 +80,16 @@
         locations."~ \\.(js|css|png|jpg|gif|swf|woff|ttf|ico|pdf|mov|fla|zip|rar)$" = {
           tryFiles = "$uri =404";
         };
-        # locations."~ ^/https://?www.patreon.com/([^\\r\\n]*)$" = {
-        #   extraConfig = ''
-        #     proxy_pass https://www.patreon.com/$1$is_args$args;
-        #     proxy_hide_header Access-Control-Allow-Origin;
-        #     proxy_set_header Host www.patreon.com;
-        #     add_header Strict-Transport-Security $hsts_header;
-        #     add_header 'Referrer-Policy' 'origin-when-cross-origin';
-        #     add_header X-Frame-Options DENY;
-        #     add_header X-Content-Type-Options nosniff;
-        #     add_header X-XSS-Protection "1; mode=block";
-        #     add_header 'Access-Control-Allow-Origin' $http_origin always;
-        #     add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
-        #     add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS,PUT,DELETE,PATCH';
-        #   '';
-        # };
-        # locations."~ ^/https://?([a-z0-9]*).patreonusercontent.com/([^\\r\\n]*)$" = {
-        #   extraConfig = ''
-        #     proxy_pass https://$1.patreonusercontent.com/$2$is_args$args;
-        #     proxy_hide_header Access-Control-Allow-Origin;
-        #     proxy_set_header Host $1.patreonusercontent.com;
-        #     add_header Strict-Transport-Security $hsts_header;
-        #     add_header 'Referrer-Policy' 'origin-when-cross-origin';
-        #     add_header X-Frame-Options DENY;
-        #     add_header X-Content-Type-Options nosniff;
-        #     add_header X-XSS-Protection "1; mode=block";
-        #     add_header 'Access-Control-Allow-Origin' $http_origin always;
-        #     add_header 'Access-Control-Allow-Headers' 'Authorization,Accept,Origin,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range';
-        #     add_header 'Access-Control-Allow-Methods' 'GET,POST,OPTIONS,PUT,DELETE,PATCH';
-        #   '';
-        # };
+      };
+      "emilywelbers.com" = {
+        onlySSL = true;
+        enableACME = true;
+        serverAliases = [ "www.emilywelbers.com" ];
+        listen = [
+          { addr = "0.0.0.0"; port = 80; }
+          { addr = "127.0.0.1"; port = 443; ssl = true; }
+        ];
+        root = "/var/www/emilywelbers";
       };
       "snizzo.latisanalingue.it" = {
         locations."/".proxyPass = "http://127.0.0.1:8080/";

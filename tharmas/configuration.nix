@@ -89,6 +89,10 @@ in
       isSystemUser = true;
       group = "latisanalingue";
     };
+    emilywelbers = {
+      isSystemUser = true;
+      group = "emilywelbers";
+    };
     root = {
       hashedPassword = "$6$fWJ47Jp5U7LytfoV$Z1XqNGZIA0m9MUtNgmmjIGqsKkyoqT0PhQ0F7OyMrElwtjHeRrDUu5PzISxuUXgcxIauyA/8R/IH7r7cWq4Fu/";
       openssh.authorizedKeys.keys = [
@@ -99,6 +103,9 @@ in
       isNormalUser = true;
     };
   };
-  users.groups.latisanalingue = { };
+  users.groups = {
+    latisanalingue = { };
+    emilywelbers = { };
+  };
   system.stateVersion = "22.11";
 }
