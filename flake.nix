@@ -1,9 +1,18 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-23.05";
-    musnix.url = "github:musnix/musnix";
-    agenix.url = "github:ryantm/agenix";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
