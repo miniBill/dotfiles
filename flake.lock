@@ -43,6 +43,46 @@
         "type": "github"
       }
     },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1685518550,
+        "narHash": "sha256-o2d0KcvaXzTrPRIo0kOLV0/QXHhDQ5DTi+OxcjO8xqY=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "a1720a10a6cfe8234c0e93907ffe81be440f4cef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "frontend": {
+      "inputs": {
+        "flake-utils": [
+          "sdc-map-backend",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "sdc-map-backend",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1,
+        "narHash": "sha256-s4U8ncNtT45J6MijhYcm+YdG6aE4WAryAmemkyLmecY=",
+        "path": "../frontend",
+        "type": "path"
+      },
+      "original": {
+        "path": "../frontend",
+        "type": "path"
+      }
+    },
     "musnix": {
       "inputs": {
         "nixpkgs": [
@@ -60,6 +100,27 @@
       "original": {
         "owner": "musnix",
         "repo": "musnix",
+        "type": "github"
+      }
+    },
+    "naersk": {
+      "inputs": {
+        "nixpkgs": [
+          "sdc-map-backend",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1686572087,
+        "narHash": "sha256-jXTut7ZSYqLEgm/nTk7TuVL2ExahTip605bLINklAnQ=",
+        "owner": "nix-community",
+        "repo": "naersk",
+        "rev": "8507af04eb40c5520bd35d9ce6f9d2342cea5ad1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "naersk",
         "type": "github"
       }
     },
@@ -99,7 +160,48 @@
         "agenix": "agenix",
         "musnix": "musnix",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "sdc-map-backend": "sdc-map-backend"
+      }
+    },
+    "sdc-map-backend": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "frontend": "frontend",
+        "naersk": "naersk",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "backend",
+        "lastModified": 1687125537,
+        "narHash": "sha256-KN2QcdC/Aa2qvZRAE9xpWnfXRwtKDE0PUQ6wWphqeD4=",
+        "owner": "miniBill",
+        "repo": "sdc-map",
+        "rev": "3ca99a37e9f73f856c59d03fd47ecd281f2cb28a",
+        "type": "github"
+      },
+      "original": {
+        "dir": "backend",
+        "owner": "miniBill",
+        "repo": "sdc-map",
+        "type": "github"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },
