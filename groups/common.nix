@@ -24,6 +24,7 @@
   networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
   # Strict reverse path check can break tailscale exit nodes
   networking.firewall.checkReversePath = "loose";
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
