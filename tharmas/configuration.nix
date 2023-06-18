@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, sdc-map-backend, ... }:
 let
   ip = "144.76.3.185";
 in
@@ -10,7 +10,11 @@ in
     ./www.nix
     ../groups/common.nix
     ../groups/server.nix
+
+    sdc-map-backend.nixosModules.x86_64-linux.sdc-map-backend
   ];
+
+  services.sdc-map-backend.enable = true;
 
   boot.loader.grub = {
     enable = true;
