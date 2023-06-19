@@ -46,6 +46,18 @@
     '';
 
     virtualHosts = {
+      "tharmas.taglialegne.it" = {
+        onlySSL = true;
+        enableACME = true;
+        serverAliases = [ ];
+        listen = [
+          { addr = "0.0.0.0"; port = 80; }
+          { addr = "127.0.0.1"; port = 443; ssl = true; }
+        ];
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:${toString config.services.sdc-map-backend.port}/";
+        };
+      };
       "latisanalingue.it" = {
         onlySSL = true;
         enableACME = true;
