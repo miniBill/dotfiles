@@ -75,11 +75,11 @@
       "locked": {
         "lastModified": 1,
         "narHash": "sha256-s4U8ncNtT45J6MijhYcm+YdG6aE4WAryAmemkyLmecY=",
-        "path": "../frontend",
+        "path": "/nix/store/l67h57ajcwm2948l9n8ip880pngjnn3y-source/frontend",
         "type": "path"
       },
       "original": {
-        "path": "../frontend",
+        "path": "/nix/store/l67h57ajcwm2948l9n8ip880pngjnn3y-source/frontend",
         "type": "path"
       }
     },
@@ -175,11 +175,11 @@
       },
       "locked": {
         "dir": "backend",
-        "lastModified": 1687125537,
-        "narHash": "sha256-KN2QcdC/Aa2qvZRAE9xpWnfXRwtKDE0PUQ6wWphqeD4=",
+        "lastModified": 1687172715,
+        "narHash": "sha256-8l8FIjUOwA5pGVI74ac/xFeNtenCm5vYHwMj+GXi/7o=",
         "owner": "miniBill",
         "repo": "sdc-map",
-        "rev": "3ca99a37e9f73f856c59d03fd47ecd281f2cb28a",
+        "rev": "eb2b338a275d519d810182b346ef6c91b2fd2a4b",
         "type": "github"
       },
       "original": {
