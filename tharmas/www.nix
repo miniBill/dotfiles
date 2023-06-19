@@ -47,7 +47,7 @@
 
     virtualHosts = {
       "tharmas.taglialegne.it" = {
-        onlySSL = true;
+        forceSSL = true;
         enableACME = true;
         serverAliases = [ ];
         listen = [
@@ -59,7 +59,7 @@
         };
       };
       "latisanalingue.it" = {
-        onlySSL = true;
+        forceSSL = true;
         enableACME = true;
         serverAliases = [ "www.latisanalingue.it" ];
         listen = [
@@ -94,7 +94,7 @@
         };
       };
       "emilywelbers.com" = {
-        onlySSL = true;
+        forceSSL = true;
         enableACME = true;
         serverAliases = [ "www.emilywelbers.com" ];
         listen = [
