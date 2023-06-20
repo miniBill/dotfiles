@@ -33,7 +33,7 @@
     colordiff
     valgrind
     # .NET
-    # (with dotnetCorePackages; combinePackages [ dotnet-sdk_5 ])
+    dotnet-runtime
     # omnisharp-roslyn dotnet-sdk
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
@@ -80,20 +80,6 @@
     x11vnc
 
     # GAMES
-    # steam
-    # (steam.override {
-    #   withPrimus = true;
-    #   extraPkgs = pkgs: with pkgs; [
-    #     nettools
-    #     glxinfo
-    #     mono
-    #     gtk3
-    #     gtk3-x11
-    #     libgdiplus
-    #     zlib
-    #   ];
-    #   nativeOnly = true;
-    # }).run
     heroic
     mupen64plus
     lutris-free
