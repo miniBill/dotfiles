@@ -13,6 +13,7 @@ let
     pigz
     ripgrep
     zip
+    unzip
   ] ++ lib.optionals stdenv.isLinux [
     inotify-tools
     smem
