@@ -67,6 +67,7 @@ in
   hardware.cpu.intel.updateMicrocode = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   # Enable sound.
   musnix.enable = true;
