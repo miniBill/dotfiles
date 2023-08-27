@@ -13,8 +13,7 @@ let
 in
 
 stdenv.mkDerivation rec {
-  name = "lamdera-${version}";
-
+  pname = "lamdera";
   version = "1.1.0";
 
   src = fetchurl {
@@ -22,9 +21,7 @@ stdenv.mkDerivation rec {
     sha256 = hashes.${stdenv.system};
   };
 
-  unpackPhase = ":";
-
-  sourceRoot = ".";
+  dontUnpack = true;
 
   installPhase = ''
     install -m755 -D $src $out/bin/lamdera
@@ -33,7 +30,8 @@ stdenv.mkDerivation rec {
   meta = with lib; {
     homepage = "https://lamdera.com/";
     license = licenses.unfree;
-    description = "Lamdera";
+    description = "A delightful platform for full-stack web apps";
     platforms = [ "aarch64-linux" "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
+    maintainers = with maintainers; [ Zimmi48 ];
   };
 }
