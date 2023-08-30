@@ -64,7 +64,7 @@
     cachix
     # zig sqlitebrowser binutils nasm
     dbeaver
-    roc.packages.${system}.default
+    # roc.packages.${system}.default
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
