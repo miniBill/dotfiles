@@ -54,44 +54,6 @@
           { addr = "0.0.0.0"; port = 80; }
           { addr = "127.0.0.1"; port = 443; ssl = true; }
         ];
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString config.services.sdc-map-backend.port}/";
-        };
-      };
-      "latisanalingue.it" = {
-        forceSSL = true;
-        enableACME = true;
-        serverAliases = [ "www.latisanalingue.it" ];
-        listen = [
-          { addr = "0.0.0.0"; port = 80; }
-          { addr = "127.0.0.1"; port = 443; ssl = true; }
-        ];
-        root = "/var/www/latisanalingue";
-        extraConfig = "index index.php;";
-        locations."/" = {
-          tryFiles = "$uri $uri/ /index.php?$args";
-        };
-        locations."~ \\.php$" = {
-          extraConfig = ''
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
-            fastcgi_index index.php;
-            fastcgi_pass unix:${config.services.phpfpm.pools.latisanalingue.socket};
-            include ${pkgs.nginx}/conf/fastcgi.conf;
-            fastcgi_param PATH_INFO       $fastcgi_path_info;
-            fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
-            # Mitigate https://httpoxy.org/ vulnerabilities
-            fastcgi_param HTTP_PROXY "";
-            fastcgi_intercept_errors off;
-            fastcgi_buffer_size 16k;
-            fastcgi_buffers 4 16k;
-            fastcgi_connect_timeout 300;
-            fastcgi_send_timeout 300;
-            fastcgi_read_timeout 300;
-          '';
-        };
-        locations."~ \\.(js|css|png|jpg|gif|swf|woff|ttf|ico|pdf|mov|fla|zip|rar)$" = {
-          tryFiles = "$uri =404";
-        };
       };
       "emilywelbers.com" = {
         forceSSL = true;
@@ -103,38 +65,9 @@
         ];
         root = "/var/www/emilywelbers";
       };
-      "snizzo.latisanalingue.it" = {
-        locations."/".proxyPass = "http://127.0.0.1:8080/";
-      };
+      # "snizzo.taglialegne.it" = {
+      #   locations."/".proxyPass = "http://127.0.0.1:8080/";
+      # };
     };
-  };
-  services.phpfpm.pools.latisanalingue = {
-    user = "latisanalingue";
-    settings = {
-      "listen.owner" = "nginx";
-      "listen.group" = "nginx";
-      "pm" = "dynamic";
-      "pm.max_children" = 5;
-      "pm.start_servers" = 2;
-      "pm.min_spare_servers" = 1;
-      "pm.max_spare_servers" = 3;
-      "pm.max_requests" = 500;
-      "php_admin_value[error_log]" = "stderr";
-      "php_admin_flag[log_errors]" = true;
-      "catch_workers_output" = true;
-    };
-    phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
-  };
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-    settings.mysqld.bind-address = "127.0.0.1";
-    ensureDatabases = [ "latisanalingue" ];
-    ensureUsers = [{
-      name = "latisanalingue";
-      ensurePermissions = {
-        "latisanalingue.*" = "ALL PRIVILEGES";
-      };
-    }];
   };
 }

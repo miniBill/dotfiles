@@ -1,4 +1,4 @@
-{ pkgs, sdc-map-backend, ... }:
+{ pkgs, ... }:
 let
   ip = "144.76.3.185";
 in
@@ -10,11 +10,7 @@ in
     ./www.nix
     ../groups/common.nix
     ../groups/server.nix
-
-    sdc-map-backend.nixosModules.x86_64-linux.sdc-map-backend
   ];
-
-  services.sdc-map-backend.enable = true;
 
   boot.loader.grub = {
     enable = true;
@@ -89,10 +85,6 @@ in
       isNormalUser = true;
       hashedPassword = "$6$H1taZPIYM3/Yfbo8$dgRRy9dpHtIue9ygwFdz3egnmhhOZDWnnPhmWQgUGpp7oPo52973j.q62sMjjIOrf/sSUXGVa2MWWrmKpZ39X1";
     };
-    latisanalingue = {
-      isSystemUser = true;
-      group = "latisanalingue";
-    };
     emilywelbers = {
       isNormalUser = true;
       group = "emilywelbers";
@@ -111,7 +103,6 @@ in
     };
   };
   users.groups = {
-    latisanalingue = { };
     emilywelbers = { };
   };
   system.stateVersion = "22.11";

@@ -10,10 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    sdc-map-backend = {
-      url = "github:miniBill/sdc-map?dir=backend";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
