@@ -60,6 +60,7 @@
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.stylish-haskell
+    ninja
     libwebp
     cachix
     # zig sqlitebrowser binutils nasm
