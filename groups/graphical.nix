@@ -37,11 +37,8 @@ let
 
   package-dev-elm = with pkgs; [
     elmPackages.elm
-    # (pinned-unstable-elm-format.legacyPackages.${system}.elmPackages.elm-format)
     elmPackages.elm-format
     elmPackages.elm-json
-    elmPackages.elm-live
-    elmPackages.elm-test
     (callPackage ../programs/lamdera.nix { })
     nodejs-18_x
     optipng
@@ -174,7 +171,7 @@ in
           pinned-unstable-vscode.vscode # pkgs.vscode
         else
           pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
-          # pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+      # pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
     };
   };
 
