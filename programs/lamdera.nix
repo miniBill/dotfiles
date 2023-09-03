@@ -1,4 +1,7 @@
-{ stdenv, lib, fetchurl }:
+{ stdenv
+, lib
+, fetchurl
+}:
 
 let
   os = if stdenv.isDarwin then "macos" else "linux";
@@ -28,7 +31,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    homepage = "https://lamdera.com/";
+    homepage = "https://lamdera.com";
     license = licenses.unfree;
     description = "A delightful platform for full-stack web apps";
     platforms = [ "aarch64-linux" "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
