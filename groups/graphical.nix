@@ -78,6 +78,7 @@ let
     libreoffice
     calibre
     virtmanager
+    glxinfo
   ] ++ lib.optionals stdenv.isLinux [
     solaar
   ];

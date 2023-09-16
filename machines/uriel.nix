@@ -17,11 +17,9 @@
     wineWowPackages.stable
     # Multimedia
     ardour
-    blender
     carla
     clementine
     frescobaldi
-    glxinfo
     gnome3.cheese
     jamulus
     mediainfo
@@ -34,11 +32,10 @@
     valgrind
     # .NET
     dotnet-runtime
-    # omnisharp-roslyn dotnet-sdk
+    # dotnet-sdk
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
     adoptopenjdk-bin # JDK
-    # pkgsi686Linux.openjdk8
     # C/C++
     clang-tools
     cmake
