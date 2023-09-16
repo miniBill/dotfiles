@@ -102,6 +102,10 @@
           system = "x86_64-linux";
           module = ./machines/tharmas.nix;
         };
+        "minibill@thamiel" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/thamiel.nix;
+        };
       };
     };
 }
