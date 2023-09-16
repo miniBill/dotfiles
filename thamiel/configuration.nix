@@ -9,6 +9,7 @@
   networking.hostName = "thamiel";
 
   zramSwap.enable = true;
+  services.logind.extraConfig = "RuntimeDirectorySize=500M";
 
   users.users.root.openssh.authorizedKeys.keys = [
     ''ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel''
