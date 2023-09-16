@@ -30,6 +30,11 @@
         specialArgs = attrs;
         modules = [ ./tharmas/configuration.nix ];
       };
+      thamiel = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [ ./thamiel/configuration.nix ];
+      };
     };
   };
 }
