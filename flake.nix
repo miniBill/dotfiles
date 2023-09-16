@@ -9,7 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    roc.url = "github:roc-lang/roc";
+    roc = {
+      url = "github:roc-lang/roc";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # vscode 1.78.2, working on macOS
     pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=db7c5d174aa7fc9b49730ed62f93aeb0449c70ca";
