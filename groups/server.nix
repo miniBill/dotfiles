@@ -11,5 +11,9 @@ _:
   };
   time.timeZone = "UTC";
 
+  services.openssh = {
+    ports = [ 22 2222 ];
+  };
+
   services.cron.enable = true;
 }

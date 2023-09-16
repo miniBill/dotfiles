@@ -32,9 +32,6 @@ in
     transparent = true;
     listenAddresses = [ ip ];
   };
-  services.openssh = {
-    ports = [ 22 2222 ];
-  };
   networking = {
     usePredictableInterfaceNames = false;
     interfaces.eth0.ipv4.addresses = [{
