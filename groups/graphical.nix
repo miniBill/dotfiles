@@ -73,7 +73,6 @@ let
   ];
 
   packages-gui-misc = with pkgs; lib.optionals stdenv.isLinux [
-    gnome3.gnome-keyring # For vscode and saving passwords. Except it doesn't work. Eh.
     gparted
     libreoffice
     calibre
@@ -169,10 +168,9 @@ in
       enable = true;
       package =
         if stdenv.isAarch64 then
-          pinned-unstable-vscode.vscode # pkgs.vscode
+          pinned-unstable-vscode.vscode
         else
-          pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
-      # pkgs.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils gnome3.gnome-keyring ]);
+          pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils ]);
     };
   };
 

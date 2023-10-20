@@ -80,17 +80,17 @@
     },
     "pinned-unstable-vscode": {
       "locked": {
-        "lastModified": 1685416521,
-        "narHash": "sha256-+VZ2htkn5FS7+BU2Z58kyTXPkU1o6w0U8W0oH8/m/Ic=",
+        "lastModified": 1697243011,
+        "narHash": "sha256-IJCrDRKLX9S16wXjiXFq+5jyeeJqqBwZadNDlVJrxmg=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "db7c5d174aa7fc9b49730ed62f93aeb0449c70ca",
+        "rev": "ad425c0caf8b588d7296393c629481f22fecd00b",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "db7c5d174aa7fc9b49730ed62f93aeb0449c70ca",
+        "rev": "ad425c0caf8b588d7296393c629481f22fecd00b",
         "type": "github"
       }
     },
