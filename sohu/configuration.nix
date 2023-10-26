@@ -27,7 +27,7 @@
   networking.interfaces.wlan0.useDHCP = false;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "pinebookpro-ap6256-firmware" ];
+    builtins.elem (lib.getName pkg) [ "pinebookpro-ap6256-firmware-xz" ];
 
   # Don't change this.
   system.stateVersion = "21.11"; # Did you read the comment?
