@@ -167,10 +167,10 @@ in
     vscode = {
       enable = true;
       package =
-        if stdenv.isAarch64 then
-          pinned-unstable-vscode.vscode
-        else
-          pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils ]);
+        # if stdenv.isAarch64 then
+          pinned-unstable-vscode.vscode;
+        # else
+          # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils ]);
     };
   };
 
