@@ -67,6 +67,9 @@
                 "vscode"
                 "zoom"
               ];
+              permittedInsecurePackages = [
+                "zotero-6.0.26"
+              ];
             };
           };
           modules = [ module ];

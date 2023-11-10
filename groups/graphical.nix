@@ -54,6 +54,8 @@ let
     fira-code
     fira-code-symbols
     inter
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
 
     (callPackage ../fonts/linja-pona.nix { })
   ];
@@ -168,9 +170,9 @@ in
       enable = true;
       package =
         # if stdenv.isAarch64 then
-          pinned-unstable-vscode.vscode;
-        # else
-          # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils ]);
+        pinned-unstable-vscode.vscode;
+      # else
+      # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils ]);
     };
   };
 
