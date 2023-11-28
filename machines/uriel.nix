@@ -28,6 +28,7 @@
     # (callPackage ../programs/jack_mixer.nix { })
 
     # DEV
+    arduino
     colordiff
     valgrind
     # .NET
