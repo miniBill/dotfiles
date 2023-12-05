@@ -1,6 +1,6 @@
 { pkgs
 , lib
-, pinned-unstable-vscode
+  # , pinned-unstable-vscode
   # , pinned-unstable-elm-format
 , ...
 }:
@@ -78,7 +78,7 @@ let
     gparted
     libreoffice
     calibre
-    virtmanager
+    virt-manager
     glxinfo
   ] ++ lib.optionals stdenv.isLinux [
     solaar
@@ -168,11 +168,7 @@ in
 
     vscode = {
       enable = true;
-      package =
-        # if stdenv.isAarch64 then
-        pinned-unstable-vscode.vscode;
-      # else
-      # pinned-unstable-vscode.vscode-fhsWithPackages (ps: with ps; [ desktop-file-utils ]);
+      # package = pinned-unstable-vscode.vscode;
     };
   };
 

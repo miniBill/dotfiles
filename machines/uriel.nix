@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     # BASE
     openrgb
-    (texlive.combine { inherit (texlive) academicons arydshln fontawesome5 footmisc moderncv multirow relsize scheme-medium textpos; })
+    (texlive.combined.scheme-basic.withPackages (ps: with ps; [ academicons arydshln fontawesome5 footmisc moderncv multirow relsize scheme-medium textpos ]))
     piper
 
     # GUI

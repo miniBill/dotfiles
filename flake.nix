@@ -2,10 +2,10 @@
   description = "Home Manager configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -34,7 +34,7 @@
     };
 
     # vscode 1.83.1
-    pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=ad425c0caf8b588d7296393c629481f22fecd00b";
+    # pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=ad425c0caf8b588d7296393c629481f22fecd00b";
 
     # elm-format 0.8.7
     # pinned-unstable-elm-format.url = "github:NixOS/nixpkgs?rev=a7f2c2c93968445b88584847a48be245f8fd0a08";
@@ -43,7 +43,7 @@
   outputs =
     { nixpkgs
     , home-manager
-    , pinned-unstable-vscode
+      # , pinned-unstable-vscode
     , ...
     }@inputs:
     let
@@ -75,15 +75,15 @@
           modules = [ module ];
           extraSpecialArgs = inputs // {
             inherit username;
-            pinned-unstable-vscode = import pinned-unstable-vscode {
-              inherit system;
-              config = {
-                allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-                  "code"
-                  "vscode"
-                ];
-              };
-            };
+            # pinned-unstable-vscode = import pinned-unstable-vscode {
+            #   inherit system;
+            #   config = {
+            #     allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            #       "code"
+            #       "vscode"
+            #     ];
+            #   };
+            # };
           };
         };
     in
