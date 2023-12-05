@@ -21,8 +21,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
-  # Don't change this.
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "21.11";
 
   # Enable GPU acceleration
   hardware.raspberry-pi."4".fkms-3d.enable = true;

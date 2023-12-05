@@ -137,16 +137,13 @@ in
 
   programs.adb.enable = true;
 
-  system.autoUpgrade.enable = true;
-
   # Podman
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
 
-  # Don't change this.
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.05";
 
   networking.extraHosts = "127.0.0.1 casa.taglialegne.it";
 }
