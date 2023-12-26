@@ -30,10 +30,10 @@ let
   packages-net-analysis = with pkgs; [
     mtr
     nmap
-    whois
   ] ++ lib.optionals stdenv.isLinux [
     bmon
     dnsutils
+    whois
   ];
 
   packages-net-misc = with pkgs; [
