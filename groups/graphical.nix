@@ -22,6 +22,7 @@ let
   # Dev
   packages-dev-base = with pkgs; [
     hyperfine
+    black
   ] ++ lib.optionals stdenv.isLinux [
     gitAndTools.qgit
 
