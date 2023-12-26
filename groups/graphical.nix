@@ -44,7 +44,6 @@ let
     optipng
     jpegoptim
     yarn
-    sass
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
