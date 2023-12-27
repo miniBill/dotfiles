@@ -26,7 +26,7 @@ let
   ] ++ lib.optionals stdenv.isLinux [
     gitAndTools.qgit
 
-    (python3.withPackages (ps: [ ps.black ps.pillow ps.pyserial ]))
+    (python3.withPackages (ps: [ ps.pillow ps.pyserial ]))
 
     watchexec
   ];
