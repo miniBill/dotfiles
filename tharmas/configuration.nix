@@ -29,7 +29,7 @@ in
   virtualisation.lxd.enable = true;
   services.sslh = {
     enable = true;
-    transparent = true;
+    settings.transparent = true;
     listenAddresses = [ ip ];
   };
   networking = {
