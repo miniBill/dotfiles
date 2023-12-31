@@ -11,7 +11,7 @@ let
       "x86_64-linux" = "YI9p52SeCDORHZIntUZRwt0/jh+ZfW0C1iQbw6hTlzA=";
       "aarch64-linux" = "afbc71f0570b86215942d1b4207fe3de0299e6fdfd2e6caac78bf688c81b9bd1";
       "x86_64-darwin" = "50a3df09b02b34e1653beb1507c6de0f332674e088ded7c66af4e5987753304e";
-      "aarch64-darwin" = "174a5bfec355361c4f030861405513818be25fd7e4325f7221aa71ebd27475d3";
+      "aarch64-darwin" = "+RwfJH1CkY5AdKsMTI70zCYLC+3WK4scgQ1lsLhexWQ=";
     };
 in
 
