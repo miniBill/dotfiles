@@ -5,7 +5,7 @@
 
   home.packages = with pkgs; [
     # BASE
-    (aspellWithDicts (d: [ d.it ]))
+    (aspellWithDicts (d: [ d.en d.it ]))
     nix-bundle
 
     # DEV

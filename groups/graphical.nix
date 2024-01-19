@@ -16,7 +16,7 @@ let
   ] ++ lib.optionals stdenv.isLinux [
     usbutils
     (callPackage ../programs/wally-cli.nix { })
-    (aspellWithDicts (d: [ d.it ]))
+    (aspellWithDicts (d: [ d.en d.it ]))
   ];
 
   # Dev
