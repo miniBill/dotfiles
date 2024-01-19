@@ -40,6 +40,7 @@ let
     elmPackages.elm
     elmPackages.elm-format
     elmPackages.elm-json
+    elmPackages.elm-test
     (callPackage ../programs/lamdera.nix { })
     nodejs-18_x
     optipng
