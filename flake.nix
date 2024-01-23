@@ -9,13 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    roc = {
-      url = "github:roc-lang/roc";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.rust-overlay.follows = "rust-overlay";
-      inputs.nixgl.follows = "nixgl";
-    };
+    # roc = {
+    #   url = "github:roc-lang/roc";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    #   inputs.rust-overlay.follows = "rust-overlay";
+    #   inputs.nixgl.follows = "nixgl";
+    # };
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -27,11 +27,11 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
-    nixgl = {
-      url = "github:guibou/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    # nixgl = {
+    #   url = "github:guibou/nixGL";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
 
     # vscode 1.83.1
     # pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=ad425c0caf8b588d7296393c629481f22fecd00b";

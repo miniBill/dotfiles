@@ -1,4 +1,7 @@
-{ pkgs, roc, ... }:
+{ pkgs
+  # , roc
+, ...
+}:
 
 {
   imports = [ ../groups/graphical.nix ];
