@@ -8,6 +8,16 @@ let
 in
 
 {
+  # programs.starship = {
+  #   enable = true;
+  #   settings = {
+  #     add_newline = false;
+  #     format = "$directory$vcsh$fossil_branch$fossil_metrics$git_branch$git_commit$git_state$git_metrics$git_status$hg_branch$pijul_channel$character";
+  #     git_branch.format = "[$branch(:$remote_branch)](green) ";
+  #     right_format = "$all";
+  #   };
+  # };
+
   programs.zsh = {
     enable = true;
 
