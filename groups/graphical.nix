@@ -120,6 +120,7 @@ let
   packages-net-misc = with pkgs; lib.optionals stdenv.isLinux [
     filezilla
     remmina
+    thunderbird
   ];
 
   packages-net = packages-net-misc;
