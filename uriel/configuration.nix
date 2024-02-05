@@ -118,9 +118,13 @@ in
   ];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 80 8000 1234
+  networking.firewall.allowedTCPPorts = [
+    80
+    8000
+    1234
     # Minecraft
-    25565 ];
+    25565
+  ];
   networking.firewall.allowedUDPPorts = [ ];
   networking.firewall.interfaces.tun0 =
     {
