@@ -1,4 +1,4 @@
-{ config, pkgs, musnix, ... }:
+{ config, pkgs, musnix, lib, nixpkgs-small, ... }:
 
 let
   # openrgb-rules = builtins.fetchurl {
@@ -34,7 +34,18 @@ in
   networking.hostName = "uriel";
   networking.interfaces.wlo1.useDHCP = false;
 
-  # boot.kernelPackages = pkgs.linuxPackages_6_6;
+  boot.kernelPackages =
+    let
+      smallpkgs = import nixpkgs-small {
+        system = "x86_64-linux";
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (lib.getName pkg) [
+            "nvidia-settings"
+            "nvidia-x11"
+          ];
+      };
+    in
+    smallpkgs.linuxPackages_6_6;
   boot.kernelModules = [
     #  RGB
     "i3c-dev"
