@@ -72,7 +72,7 @@
   users.users.minibill.extraGroups = [
     "wheel"
     "networkmanager"
-    "docker"
+    "podman"
     "adbusers"
     "video"
     "plugdev"
