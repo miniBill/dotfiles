@@ -63,6 +63,7 @@
                 "lamdera"
                 "minecraft-launcher"
                 "skypeforlinux"
+                "slack"
                 "spotify"
                 "vscode"
                 "zoom"

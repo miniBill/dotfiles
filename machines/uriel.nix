@@ -74,6 +74,7 @@
     google-chrome
     irssi
     zotero
+    slack
     # Im
     discord
     skypeforlinux
