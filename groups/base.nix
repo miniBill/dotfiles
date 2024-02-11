@@ -140,6 +140,11 @@ in
         "edge" = {
           hostname = "100.108.17.9";
         };
+        "lamdera-ambue" = {
+          hostname = "apps.lamdera.com";
+          identityFile = "~/.ssh/id_ed25519_ci_ambue";
+          identitiesOnly = true;
+        };
       };
     };
 
