@@ -54,6 +54,7 @@
           { addr = "0.0.0.0"; port = 80; }
           { addr = "127.0.0.1"; port = 443; ssl = true; }
         ];
+        root = "/var/www/tharmas";
       };
       "emilywelbers.com" = {
         forceSSL = true;
