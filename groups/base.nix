@@ -106,11 +106,34 @@ in
       userName = "Leonardo Taglialegne";
       userEmail = lib.mkDefault "cmt.miniBill@gmail.com";
       extraConfig = {
-        init.defaultBranch = "main";
-        pull.rebase = "true";
-        safe.directory = "/etc/nixos";
         advice.detachedHead = "false";
+        branch.sort = "-committerdate";
+        core.editor = "vim";
+        diff.algorithm = "histogram";
+        fetch.prune = true;
+        gpg.format = "ssh";
+        help.autocorrect = 10;
+        init.defaultBranch = "main";
+        merge.conflictstyle = "zdiff3";
+        pull.rebase = "true";
         push.autoSetupRemote = "true";
+        rerere.enabled = true;
+        safe.directory = "/etc/nixos";
+        url."git@github.com".insteadOf = "gh:";
+
+        rebase = {
+          autosquash = true;
+          autostash = true;
+          updateRefs = true;
+        };
+
+        transfer.fsckobjects = true;
+        fetch.fsckobjects = true;
+        receive.fsckObjects = true;
+
+        status.submoduleSummary = true;
+        diff.submodule = "log";
+        submodule.recurse = true;
       };
     };
 
