@@ -119,7 +119,7 @@ in
         push.autoSetupRemote = "true";
         rerere.enabled = true;
         safe.directory = "/etc/nixos";
-        url."git@github.com".insteadOf = "gh:";
+        url."git@github.com:".insteadOf = "gh:";
 
         rebase = {
           autosquash = true;
