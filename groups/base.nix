@@ -110,7 +110,11 @@ in
         branch.sort = "-committerdate";
         core.editor = "vim";
         diff.algorithm = "histogram";
-        fetch.prune = true;
+        fetch =
+          {
+            prune = true;
+            parallel = 0;
+          };
         gpg.format = "ssh";
         help.autocorrect = 10;
         init.defaultBranch = "main";
