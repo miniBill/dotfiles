@@ -45,7 +45,7 @@ let
     nodejs-18_x
     optipng
     jpegoptim
-    yarn-berry
+    yarn
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
