@@ -16,6 +16,7 @@ in
     ../groups/graphical.nix
     ../groups/steam.nix
     # ./web.nix
+    # ./ups.nix
   ];
 
   boot.loader.grub = {
@@ -107,15 +108,6 @@ in
     # + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ]
     #   (builtins.readFile openrgb-rules)
   ;
-
-  power.ups = {
-    enable = true;
-    ups."Trustino" = {
-      driver = "usbhid-ups";
-      port = "auto";
-      description = "Trust UPS";
-    };
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
