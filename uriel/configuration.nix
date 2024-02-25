@@ -108,14 +108,14 @@ in
     #   (builtins.readFile openrgb-rules)
   ;
 
-  # power.ups = {
-  #   enable = true;
-  #   ups."Trustino" = {
-  #     driver = "usbhid-ups";
-  #     port = "auto";
-  #     description = "Trust UPS";
-  #   };
-  # };
+  power.ups = {
+    enable = true;
+    ups."Trustino" = {
+      driver = "usbhid-ups";
+      port = "auto";
+      description = "Trust UPS";
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
