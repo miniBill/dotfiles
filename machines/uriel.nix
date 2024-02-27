@@ -1,4 +1,5 @@
 { pkgs
+, devenv
   # , roc
 , ...
 }:
@@ -67,6 +68,7 @@
     # zig sqlitebrowser binutils nasm
     dbeaver
     # roc.packages.${system}.default
+    devenv
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })

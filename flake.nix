@@ -9,6 +9,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    devenv = { url = "github:cachix/devenv/main"; };
+
     # roc = {
     #   url = "github:roc-lang/roc";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +41,18 @@
     # elm-format 0.8.7
     # pinned-unstable-elm-format.url = "github:NixOS/nixpkgs?rev=a7f2c2c93968445b88584847a48be245f8fd0a08";
   };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+      "https://devenv.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+    ];
+  };
+
 
   outputs =
     { nixpkgs
@@ -76,6 +90,8 @@
           modules = [ module ];
           extraSpecialArgs = inputs // {
             inherit username;
+            devenv = inputs.devenv.packages.${system}.devenv;
+
             # pinned-unstable-vscode = import pinned-unstable-vscode {
             #   inherit system;
             #   config = {
