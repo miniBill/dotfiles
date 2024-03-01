@@ -8,7 +8,7 @@ let
   arch = if stdenv.isAarch64 then "arm64" else "x86_64";
   hashes =
     {
-      "x86_64-linux" = "B1x+wq+QP+7xZ/rO6f93RFo97ZfSOrUREW2Jq3y/rkY=";
+      "x86_64-linux" = "vDyAtSjovMaYt2cADrhTYvXZjUtKP2+I2jZsnZ18+ss=";
       "aarch64-linux" = "afbc71f0570b86215942d1b4207fe3de0299e6fdfd2e6caac78bf688c81b9bd1";
       "x86_64-darwin" = "50a3df09b02b34e1653beb1507c6de0f332674e088ded7c66af4e5987753304e";
       "aarch64-darwin" = "+RwfJH1CkY5AdKsMTI70zCYLC+3WK4scgQ1lsLhexWQ=";
