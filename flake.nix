@@ -9,7 +9,39 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    devenv = { url = "github:cachix/devenv/main"; };
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
+    };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
+    comma = {
+      # just run any tool!
+      url = "github:nix-community/comma";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+
+    systems.url = "github:nix-systems/default";
 
     # roc = {
     #   url = "github:roc-lang/roc";
@@ -19,15 +51,11 @@
     #   inputs.nixgl.follows = "nixgl";
     # };
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    # rust-overlay = {
+    #   url = "github:oxalica/rust-overlay";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.flake-utils.follows = "flake-utils";
+    # };
 
     # nixgl = {
     #   url = "github:guibou/nixGL";
@@ -54,23 +82,21 @@
   };
 
 
-  outputs =
-    { nixpkgs
-    , home-manager
-      # , pinned-unstable-vscode
-    , ...
-    }@inputs:
+  outputs = inputs:
     let
       withConfig =
         { system
         , username ? "minibill"
         , module
         }:
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
+        inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = import inputs.nixpkgs {
             inherit system;
             config = {
-              allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+              overlays = [
+                inputs.comma.overlay
+              ];
+              allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
                 "code"
                 "discord"
                 "google-chrome"
@@ -92,10 +118,10 @@
             inherit username;
             devenv = inputs.devenv.packages.${system}.devenv;
 
-            # pinned-unstable-vscode = import pinned-unstable-vscode {
+            # pinned-unstable-vscode = import inputs.pinned-unstable-vscode {
             #   inherit system;
             #   config = {
-            #     allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+            #     allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
             #       "code"
             #       "vscode"
             #     ];

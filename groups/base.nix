@@ -14,6 +14,7 @@ let
     ripgrep
     zip
     unzip
+    comma
   ] ++ lib.optionals stdenv.isLinux [
     inotify-tools
     smem
