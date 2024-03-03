@@ -137,6 +137,7 @@
     '';
   };
 
+  services.fwupd.enable = true;
 
   # Nix
   nix = {
