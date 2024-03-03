@@ -46,8 +46,6 @@ let
   packages-net = packages-net-analysis ++ packages-net-misc;
 
   homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
-
-  pnpm-home = "${homeDirectory}/.local/share/pnpm";
 in
 {
   imports = [ ../programs/zsh.nix ];
@@ -65,7 +63,6 @@ in
 
     sessionPath = [
       "$HOME/bin"
-      pnpm-home
     ];
 
     language.base = "en_US.UTF-8";

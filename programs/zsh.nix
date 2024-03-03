@@ -3,8 +3,6 @@ let
   inherit (pkgs) stdenv;
 
   homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
-
-  pnpm-home = "${homeDirectory}/.local/share/pnpm";
 in
 
 {
@@ -68,7 +66,6 @@ in
         LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
         NODE_REPL_HISTORY = "${config.xdg.stateHome}/node/history";
         NUGET_PACKAGES = "${config.xdg.cacheHome}/NuGetPackages";
-        PNPM_HOME = pnpm-home;
         RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
         WINEPREFIX = "${config.xdg.dataHome}/wine";
 
