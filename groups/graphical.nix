@@ -57,6 +57,7 @@ let
     inter
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
+    stix-two
 
     (callPackage ../fonts/linja-pona.nix { })
   ];
