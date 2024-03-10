@@ -64,7 +64,7 @@
     # haskellPackages.stylish-haskell
     ninja
     libwebp
-    cachix
+    # cachix
     # zig sqlitebrowser binutils nasm
     dbeaver
     # roc.packages.${system}.default
