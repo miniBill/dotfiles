@@ -170,6 +170,10 @@ in
           identityFile = "~/.ssh/id_ed25519_ci_ambue";
           identitiesOnly = true;
         };
+        "ambue-enterprise.lamdera.com" = {
+          identityFile = "~/.ssh/id_ed25519_ci_ambue";
+          identitiesOnly = true;
+        };
       };
     };
 
