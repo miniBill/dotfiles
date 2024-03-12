@@ -90,6 +90,7 @@
     lutris-free
     mgba
     prismlauncher
+    papermc
 
     # VIRT/OP
     nix-index
