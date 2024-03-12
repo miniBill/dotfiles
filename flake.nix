@@ -43,6 +43,8 @@
 
     systems.url = "github:nix-systems/default";
 
+    pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=9dab6dd095a9ffec9981f2e213826b531452154d";
+
     # roc = {
     #   url = "github:roc-lang/roc";
     #   inputs.nixpkgs.follows = "nixpkgs";

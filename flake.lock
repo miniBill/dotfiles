@@ -242,6 +242,22 @@
         "type": "github"
       }
     },
+    "pinned-unstable-papermc": {
+      "locked": {
+        "lastModified": 1708800442,
+        "narHash": "sha256-UY/9huWox8MjUOJifpgXHG/R3t06xYyEjIZyqXLcQ9E=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9dab6dd095a9ffec9981f2e213826b531452154d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9dab6dd095a9ffec9981f2e213826b531452154d",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": [
@@ -278,6 +294,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "pinned-unstable-papermc": "pinned-unstable-papermc",
         "pre-commit-hooks": "pre-commit-hooks",
         "systems": "systems"
       }
