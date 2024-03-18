@@ -89,7 +89,6 @@
     # ];
   };
 
-
   outputs = inputs:
     let
       withConfig =
@@ -97,6 +96,22 @@
         , username ? "minibill"
         , module
         }:
+        let
+          lamdera-overlay = final: prev: {
+            elmPackages = prev.elmPackages // {
+              lamdera-next = inputs.lamdera.packages.${system}.lamdera-next;
+            };
+          };
+          # vscode-overlay = final: prev: {
+          #   vscode = (import inputs.pinned-unstable-vscode {
+          #     inherit system;
+          #     config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+          #       "code"
+          #       "vscode"
+          #     ];
+          #   }).vscode;
+          # };
+        in
         inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = import inputs.nixpkgs {
             inherit system;
@@ -121,20 +136,18 @@
               ];
             };
           };
-          modules = [ module ];
+          modules = [
+            {
+              nixpkgs.overlays = [
+                lamdera-overlay
+                # vscode-overlay
+              ];
+            }
+            module
+          ];
           extraSpecialArgs = inputs // {
             inherit username;
             devenv = inputs.devenv.packages.${system}.devenv;
-
-            # pinned-unstable-vscode = import inputs.pinned-unstable-vscode {
-            #   inherit system;
-            #   config = {
-            #     allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
-            #       "code"
-            #       "vscode"
-            #     ];
-            #   };
-            # };
           };
         };
     in
