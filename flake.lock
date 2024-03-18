@@ -132,6 +132,29 @@
         "type": "github"
       }
     },
+    "lamdera": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710742888,
+        "narHash": "sha256-T1t2ZwzHfLwA59yaduK9yNJl4bdASrNKVQ1VaKZ5v7k=",
+        "owner": "miniBill",
+        "repo": "lamdera-flake",
+        "rev": "f28471b0f28f0a450ddb52cb5a9d306521cb570d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "miniBill",
+        "repo": "lamdera-flake",
+        "type": "github"
+      }
+    },
     "lowdown-src": {
       "flake": false,
       "locked": {
@@ -293,6 +316,7 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "lamdera": "lamdera",
         "nixpkgs": "nixpkgs",
         "pinned-unstable-papermc": "pinned-unstable-papermc",
         "pre-commit-hooks": "pre-commit-hooks",
