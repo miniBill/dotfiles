@@ -108,11 +108,8 @@ in
         branch.sort = "-committerdate";
         core.editor = "vim";
         diff.algorithm = "histogram";
-        fetch =
-          {
-            prune = true;
-            parallel = 0;
-          };
+        fetch.prune = true;
+        fetch.parallel = 0;
         gpg.format = "ssh";
         help.autocorrect = 10;
         init.defaultBranch = "main";
@@ -120,14 +117,11 @@ in
         pull.rebase = "true";
         push.autoSetupRemote = "true";
         rerere.enabled = true;
-        safe.directory = "/etc/nixos";
         url."git@github.com:".insteadOf = "gh:";
 
-        rebase = {
-          autosquash = true;
-          autostash = true;
-          updateRefs = true;
-        };
+        rebase.autosquash = true;
+        rebase.autostash = true;
+        rebase.updateRefs = true;
 
         transfer.fsckobjects = true;
         fetch.fsckobjects = true;
@@ -136,6 +130,8 @@ in
         status.submoduleSummary = true;
         diff.submodule = "log";
         submodule.recurse = true;
+
+        safe.directory = "/etc/nixos";
       };
     };
 
