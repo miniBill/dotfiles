@@ -91,60 +91,56 @@
 
   outputs = inputs:
     let
+      allowedUnfree = [
+        "code"
+        "discord"
+        "google-chrome"
+        "lamdera"
+        "lamdera-next"
+        "minecraft-launcher"
+        "skypeforlinux"
+        "slack"
+        "spotify"
+        "vscode"
+        "zoom"
+      ];
+
+      lamdera-overlay = system: final: prev: {
+        elmPackages = prev.elmPackages // {
+          lamdera-next = inputs.lamdera.packages.${system}.lamdera-next;
+        };
+      };
+
+      # vscode-overlay = system: final: prev: {
+      #   vscode = (import inputs.pinned-unstable-vscode {
+      #     inherit system;
+      #     config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+      #       "code"
+      #       "vscode"
+      #     ];
+      #   }).vscode;
+      # };
+
+      pkgs = system: import inputs.nixpkgs {
+        inherit system;
+        config = {
+          overlays = [ inputs.comma.overlay ];
+          allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
+          permittedInsecurePackages = [
+            "zotero-6.0.26"
+          ];
+        };
+        overlays = [ (lamdera-overlay system) ];
+      };
+
       withConfig =
         { system
         , username ? "minibill"
         , module
         }:
-        let
-          lamdera-overlay = final: prev: {
-            elmPackages = prev.elmPackages // {
-              lamdera-next = inputs.lamdera.packages.${system}.lamdera-next;
-            };
-          };
-          # vscode-overlay = final: prev: {
-          #   vscode = (import inputs.pinned-unstable-vscode {
-          #     inherit system;
-          #     config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
-          #       "code"
-          #       "vscode"
-          #     ];
-          #   }).vscode;
-          # };
-        in
         inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = import inputs.nixpkgs {
-            inherit system;
-            config = {
-              overlays = [
-                inputs.comma.overlay
-              ];
-              allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
-                "code"
-                "discord"
-                "google-chrome"
-                "lamdera"
-                "minecraft-launcher"
-                "skypeforlinux"
-                "slack"
-                "spotify"
-                "vscode"
-                "zoom"
-              ];
-              permittedInsecurePackages = [
-                "zotero-6.0.26"
-              ];
-            };
-          };
-          modules = [
-            {
-              nixpkgs.overlays = [
-                lamdera-overlay
-                # vscode-overlay
-              ];
-            }
-            module
-          ];
+          pkgs = pkgs system;
+          modules = [ module ];
           extraSpecialArgs = inputs // {
             inherit username;
             devenv = inputs.devenv.packages.${system}.devenv;
