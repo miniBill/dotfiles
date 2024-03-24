@@ -50,43 +50,6 @@
     systems.url = "github:nix-systems/default";
 
     pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=9dab6dd095a9ffec9981f2e213826b531452154d";
-
-    # roc = {
-    #   url = "github:roc-lang/roc";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    #   inputs.rust-overlay.follows = "rust-overlay";
-    #   inputs.nixgl.follows = "nixgl";
-    # };
-
-    # rust-overlay = {
-    #   url = "github:oxalica/rust-overlay";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
-
-    # nixgl = {
-    #   url = "github:guibou/nixGL";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.flake-utils.follows = "flake-utils";
-    # };
-
-    # vscode 1.83.1
-    # pinned-unstable-vscode.url = "github:NixOS/nixpkgs?rev=ad425c0caf8b588d7296393c629481f22fecd00b";
-
-    # elm-format 0.8.7
-    # pinned-unstable-elm-format.url = "github:NixOS/nixpkgs?rev=a7f2c2c93968445b88584847a48be245f8fd0a08";
-  };
-
-  nixConfig = {
-    # extra-substituters = [
-    #   "https://nix-community.cachix.org"
-    #   "https://devenv.cachix.org"
-    # ];
-    # extra-trusted-public-keys = [
-    #   "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    #   "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-    # ];
   };
 
   outputs = inputs:
@@ -96,7 +59,6 @@
         "discord"
         "google-chrome"
         "lamdera"
-        "lamdera-next"
         "minecraft-launcher"
         "skypeforlinux"
         "slack"
@@ -104,22 +66,6 @@
         "vscode"
         "zoom"
       ];
-
-      lamdera-overlay = system: final: prev: {
-        elmPackages = prev.elmPackages // {
-          lamdera-next = inputs.lamdera.packages.${system}.lamdera-next;
-        };
-      };
-
-      # vscode-overlay = system: final: prev: {
-      #   vscode = (import inputs.pinned-unstable-vscode {
-      #     inherit system;
-      #     config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) [
-      #       "code"
-      #       "vscode"
-      #     ];
-      #   }).vscode;
-      # };
 
       pkgs = system: import inputs.nixpkgs {
         inherit system;
@@ -130,7 +76,6 @@
             "zotero-6.0.26"
           ];
         };
-        overlays = [ (lamdera-overlay system) ];
       };
 
       withConfig =

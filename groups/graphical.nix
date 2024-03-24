@@ -1,5 +1,6 @@
 { pkgs
 , lib
+, lamdera
   # , pinned-unstable-vscode
 , ...
 }:
@@ -40,7 +41,7 @@ let
     elmPackages.elm-format
     elmPackages.elm-json
     elmPackages.elm-test
-    elmPackages.lamdera-next
+    lamdera.packages.${system}.lamdera-next
     nodejs-18_x
     optipng
     jpegoptim
