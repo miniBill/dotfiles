@@ -49,6 +49,8 @@
     screen
     sysstat
     tmux
+    tcpdump
+    ethtool
 
     # Network
     nmap
