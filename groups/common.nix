@@ -15,21 +15,26 @@
   boot.tmp.cleanOnBoot = true;
 
   # Networking
-  networking.networkmanager.enable = true; # Enables NetworkManager
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
-  networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
-  # Strict reverse path check can break tailscale exit nodes
-  networking.firewall.checkReversePath = "loose";
-  networking.domain = "taglialegne.it";
-  systemd.services.NetworkManager-wait-online.enable = false;
+  networking = {
+    networkmanager.enable = true; # Enables NetworkManager
+    # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+    # Per-interface useDHCP will be mandatory in the future, so this generated config
+    # replicates the default behaviour.
+    useDHCP = false;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    domain = "taglialegne.it";
+
+    # Strict reverse path check can break tailscale exit nodes
+    firewall.checkReversePath = "loose";
+    firewall.trustedInterfaces = [ "tailscale0" ];
+    firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  };
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Common software
   environment.systemPackages = with pkgs; [
