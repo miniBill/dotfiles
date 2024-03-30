@@ -123,8 +123,7 @@ function mainForCommandLine() {
   // Run elm-format
   //
   let cp = require('child_process');
-  const os = require("os");
-  let result = cp.spawnSync(os.homeDir() + '/.nix-profile/bin/elm-format', ['--stdin'], {
+  let result = cp.spawnSync('node_modules/elm-format/bin/elm-format', ['--stdin'], {
     stdio: [ inputStream, 'pipe', process.stderr ],
     encoding: 'utf-8',
   });
