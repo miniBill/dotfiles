@@ -51,6 +51,7 @@
     tmux
     tcpdump
     ethtool
+    socat
 
     # Network
     nmap
