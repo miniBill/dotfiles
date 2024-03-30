@@ -117,28 +117,12 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-small": {
-      "locked": {
-        "lastModified": 1710542629,
-        "narHash": "sha256-FdP5ENwCiMt5G+E6fCTcnKASKz2cTW19A5gOFgdiajw=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "fc27eaa61bf866e03be1ea030fb1164fe4af02a3",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-23.11-small",
-        "type": "indirect"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "musnix": "musnix",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-small": "nixpkgs-small"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
