@@ -80,6 +80,7 @@ in
     shellAliases = {
       open = "xdg-open";
       elm = "lamdera";
+      c = "code .";
     };
   };
 }
