@@ -19,8 +19,11 @@ in
     # ./ups.nix
   ];
 
+  # ZFS
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
+  networking.hostId = "5581d319";
+
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
