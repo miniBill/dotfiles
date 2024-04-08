@@ -19,6 +19,8 @@ in
     # ./ups.nix
   ];
 
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
   boot.loader.grub = {
     enable = true;
     efiSupport = true;
