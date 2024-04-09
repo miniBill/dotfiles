@@ -7,8 +7,13 @@
     ../groups/server.nix
   ];
 
-  boot.loader.grub.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = false;
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
