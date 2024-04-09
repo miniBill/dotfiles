@@ -36,7 +36,7 @@
         modules = [ ./thamiel/configuration.nix ];
       };
       ithaca = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = "aarch64-linux";
         specialArgs = attrs;
         modules = [ ./ithaca/configuration.nix ];
       };
