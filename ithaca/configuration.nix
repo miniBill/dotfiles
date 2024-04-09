@@ -1,4 +1,4 @@
-{ ... }:
+{ nixos-hardware, ... }:
 
 {
   imports = [
