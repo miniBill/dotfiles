@@ -71,7 +71,6 @@ in
   users.users = {
     minibill = {
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
       hashedPassword = "$6$dPi0t.m3Rat601ku$zULH0TmfZQPZzxnQEchMGKLEUxnEFYkT47zWnNTfm3yopOEo5CdD6Ymhr1yIakq5zwtIaXDCAoaJWNYm5My0W0";
     };
     silvia = {
