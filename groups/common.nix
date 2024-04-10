@@ -52,6 +52,7 @@
     tcpdump
     ethtool
     socat
+    smartmontools
 
     # Network
     nmap
