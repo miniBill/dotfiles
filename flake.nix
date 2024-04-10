@@ -15,20 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.pre-commit-hooks.follows = "pre-commit-hooks";
-    };
-
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
-    };
-
     comma = {
       # just run any tool!
       url = "github:nix-community/comma";
@@ -49,7 +35,8 @@
 
     systems.url = "github:nix-systems/default";
 
-    pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=9dab6dd095a9ffec9981f2e213826b531452154d";
+    pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6";
+    pinned-unstable-devenv.url = "github:NixOS/nixpkgs?rev=4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6";
   };
 
   outputs = inputs:
@@ -88,7 +75,6 @@
           modules = [ module ];
           extraSpecialArgs = inputs // {
             inherit username;
-            devenv = inputs.devenv.packages.${system}.devenv;
           };
         };
     in
