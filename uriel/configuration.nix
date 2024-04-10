@@ -57,9 +57,14 @@ in
   # ];
 
   boot.kernelParams = [
+    # Fixes for Thunderbolt
     "intel_iommu=on"
     "pci=assign-busses,hpbussize=0x33,realloc,hpmemsize=128M,hpmemprefsize=1G"
+
     # "i915.enable_guc=0"
+
+    # Disable deepest sleep state on SSD to fix disk disappearing
+    "nvme_core.default_ps_max_latency_us=1200"
   ];
   # boot.extraModprobeConfig = "options i916 enable_gvt=1";
   virtualisation.kvmgt.enable = true;
