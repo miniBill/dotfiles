@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import fs from "fs/promises";
+const fs = require("fs/promises");
 
 const inputPath = process.argv[2];
 const outputPath = process.argv[3];
