@@ -94,11 +94,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710742888,
-        "narHash": "sha256-T1t2ZwzHfLwA59yaduK9yNJl4bdASrNKVQ1VaKZ5v7k=",
+        "lastModified": 1713310118,
+        "narHash": "sha256-PyaMbAkzUS2tFOr3RrpVLSiuvraH4C2keZfHmAomDNM=",
         "owner": "miniBill",
         "repo": "lamdera-flake",
-        "rev": "f28471b0f28f0a450ddb52cb5a9d306521cb570d",
+        "rev": "5e26586091a54e308d9583c358a05adc009516cb",
         "type": "github"
       },
       "original": {
