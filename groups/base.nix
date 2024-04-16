@@ -152,9 +152,6 @@ in
         "tharmas" = {
           hostname = "tharmas.taglialegne.it";
         };
-        "thamiel" = {
-          hostname = "thamiel.taglialegne.it";
-        };
         "uriel" = {
           hostname = "100.69.168.4";
         };
