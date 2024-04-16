@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+import fs from "fs/promises";
+
+const inputPath = process.argv[2];
+const outputPath = process.argv[3];
+const inputContents = await fs.readFile(inputPath, "utf8");
+const outputContents = inputContents
+    .replace(/var ([^=]+)( = F\d\([^f]+function)[^(]\(/gim, `var $1$2 __$1( `)
+    .replace(
+        /(\sA\d\([\s]+)([^,]+)(,[\s]+)(function[^(]+)\(/gm,
+        (_, $1, $2, $3, $4) =>
+            `${$1}${$2}${$3}${$4}___${$2.replace(/\./g, "_")}(`
+    );
+await fs.writeFile(outputPath, outputContents);

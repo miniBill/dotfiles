@@ -143,6 +143,7 @@ in
       # Always allow moving output devices in pavucontrol
       ".alsoftrc".source = ../files/alsoftrc;
       "bin/elm-format-hack".source = ../programs/elm-format-hack;
+      "bin/elm-make-readable".source = ../programs/elm-make-readable;
 
       ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../files/jack-merge-monitor.conf;
 
