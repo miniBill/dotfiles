@@ -80,25 +80,29 @@
     in
     {
       homeConfigurations = {
-        "minibill@uriel" = withConfig {
-          system = "x86_64-linux";
-          module = ./machines/uriel.nix;
-        };
         "minibill@gadiriel" = withConfig {
           system = "aarch64-darwin";
           module = ./machines/gadiriel.nix;
+        };
+        "minibill@ithaca" = withConfig {
+          system = "aarch64-linux";
+          module = ./machines/ithaca.nix;
         };
         "minibill@sohu" = withConfig {
           system = "aarch64-linux";
           module = ./machines/sohu.nix;
         };
+        "minibill@thamiel" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/thamiel.nix;
+        };
         "minibill@tharmas" = withConfig {
           system = "x86_64-linux";
           module = ./machines/tharmas.nix;
         };
-        "minibill@thamiel" = withConfig {
+        "minibill@uriel" = withConfig {
           system = "x86_64-linux";
-          module = ./machines/thamiel.nix;
+          module = ./machines/uriel.nix;
         };
       };
     };
