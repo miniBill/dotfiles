@@ -36,7 +36,7 @@ in
       if stdenv.isDarwin then
         ''
           export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels''${NIX_PATH:+:$NIX_PATH}
-            
+
           autopair-init
           source ~/.zsh/p10k.zsh
         ''
@@ -58,6 +58,7 @@ in
         EDITOR = "vim";
         TERM = "xterm-256color";
         DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+        SKIP_ELM_CODEGEN = "true";
 
         ANDROID_HOME = "${config.xdg.dataHome}/android";
         CARGO_HOME = "${config.xdg.dataHome}/cargo";
