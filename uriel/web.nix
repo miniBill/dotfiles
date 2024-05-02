@@ -59,6 +59,7 @@
           ssl = true;
         }
       ];
+      locations."/rss/orlagartland".proxyPass = "https://www.patreon.com/rss/orlagartland";
       locations."/".proxyPass = "http://127.0.0.1:8080/";
     };
   };
