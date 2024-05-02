@@ -65,7 +65,7 @@
           { addr = "0.0.0.0"; port = 80; }
           { addr = "127.0.0.1"; port = 443; ssl = true; }
         ];
-        root = "/home/minibill/src/orla-player/dist";
+        root = "/var/www/orla-player";
       };
       "emilywelbers.com" = {
         forceSSL = true;
