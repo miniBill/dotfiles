@@ -56,6 +56,13 @@
         ];
         root = "/var/www/tharmas";
       };
+      "orla-player.taglialegne.it" = {
+        locations."/rss/orlagartland" = {
+          proxyPass = "https://www.patreon.com/rss/orlagartland";
+          extraConfig = "proxy_set_header Host www.patreon.com;";
+        };
+        root = "/home/minibill/src/orla-player/dist";
+      };
       "emilywelbers.com" = {
         forceSSL = true;
         enableACME = true;
