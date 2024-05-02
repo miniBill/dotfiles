@@ -57,6 +57,8 @@
         root = "/var/www/tharmas";
       };
       "orla-player.taglialegne.it" = {
+        forceSSL = true;
+        enableACME = true;
         locations."/rss/orlagartland" = {
           proxyPass = "https://www.patreon.com/rss/orlagartland";
           extraConfig = "proxy_set_header Host www.patreon.com;";
