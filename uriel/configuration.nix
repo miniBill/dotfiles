@@ -15,7 +15,7 @@ in
     ../groups/common.nix
     ../groups/graphical.nix
     ../groups/steam.nix
-    # ./web.nix
+    ./web.nix
     # ./ups.nix
   ];
 

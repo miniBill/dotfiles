@@ -1,38 +1,51 @@
 { pkgs, lib, config, ... }:
-let
-  app = "casa";
-  domain = "${app}.taglialegne.it";
-  dataDir = "/srv/http/${domain}";
-in {
+{
   security.acme = {
     acceptTerms = true;
     email = "leonardo@taglialegne.it";
   };
 
-  services.phpfpm.pools.${app} = {
-    user = app;
-    phpOptions = ''
-      upload_max_filesize = 400M
-      post_max_size = 400M
-    '';
-    settings = {
-      "listen.owner" = config.services.nginx.user;
-      "listen.group" = config.services.nginx.group;
-      "pm" = "dynamic";
-      "pm.max_children" = 32;
-      "pm.max_requests" = 500;
-      "pm.start_servers" = 2;
-      "pm.min_spare_servers" = 2;
-      "pm.max_spare_servers" = 5;
-      "php_admin_value[error_log]" = "stderr";
-      "php_admin_flag[log_errors]" = true;
-      "catch_workers_output" = true;
-    };
-    phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
-  };
   services.nginx = {
     enable = true;
-    virtualHosts.${domain} = {
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+
+    # Only allow PFS-enabled ciphers with AES256
+    sslCiphers = "AES256+EECDH:AES256+EDH:!aNULL";
+
+    commonHttpConfig = ''
+      resolver 1.1.1.1;
+
+      # Add HSTS header with preloading to HTTPS requests.
+      # Adding this header to HTTP requests is discouraged
+      map $scheme $hsts_header {
+          https   "max-age=31536000; includeSubdomains; preload";
+      }
+      add_header Strict-Transport-Security $hsts_header;
+
+      # Enable CSP for your services.
+      #add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
+
+      # Minimize information leaked to other domains
+      add_header 'Referrer-Policy' 'origin-when-cross-origin';
+
+      # Disable embedding as a frame
+      add_header X-Frame-Options DENY;
+
+      # Prevent injection of code in other mime types (XSS Attacks)
+      add_header X-Content-Type-Options nosniff;
+
+      # Enable XSS protection of the browser.
+      # May be unnecessary when CSP is configured properly (see above)
+      add_header X-XSS-Protection "1; mode=block";
+
+      # This might create errors
+      proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+    '';
+
+    virtualHosts."uriel.taglialegne.it" = {
       forceSSL = true;
       enableACME = true;
       listen = [
@@ -46,38 +59,7 @@ in {
           ssl = true;
         }
       ];
-      root = dataDir;
-
-      extraConfig = ''
-        # Maximum file upload size is 4MB - change accordingly if needed
-        client_max_body_size 400M;
-        client_body_buffer_size 128k;
-
-        location ~ \.php$ {
-          fastcgi_index index.php;
-          fastcgi_split_path_info ^(.+\.php)(/.+)$;
-          fastcgi_pass unix:${config.services.phpfpm.pools.${app}.socket};
-          include ${pkgs.nginx}/conf/fastcgi_params;
-          include ${pkgs.nginx}/conf/fastcgi.conf;
-          fastcgi_param PATH_INFO       $fastcgi_path_info;
-          fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
-          # Mitigate https://httpoxy.org/ vulnerabilities
-          fastcgi_param HTTP_PROXY "";
-          fastcgi_intercept_errors off;
-          fastcgi_buffer_size 16k;
-          fastcgi_buffers 4 16k;
-          fastcgi_connect_timeout 300;
-          fastcgi_send_timeout 300;
-          fastcgi_read_timeout 300;
-        }
-      '';
+      locations."/".proxyPass = "http://127.0.0.1:8080/";
     };
   };
-  users.users.${app} = {
-    isSystemUser = true;
-    createHome = true;
-    home = dataDir;
-    group = app;
-  };
-  users.groups.${app} = { };
 }
