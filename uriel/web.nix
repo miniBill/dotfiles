@@ -1,4 +1,13 @@
 { pkgs, lib, config, ... }:
+let
+  orla-player = {
+    locations."/rss/orlagartland" = {
+      proxyPass = "https://www.patreon.com/rss/orlagartland";
+      extraConfig = "proxy_set_header Host www.patreon.com;";
+    };
+    locations."/".proxyPass = "http://127.0.0.1:8080/";
+  };
+in
 {
   security.acme = {
     acceptTerms = true;
@@ -45,10 +54,7 @@
       proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
     '';
 
-    virtualHosts."localhost" = {
-      locations."/rss/orlagartland".proxyPass = "https://www.patreon.com/rss/orlagartland";
-      locations."/".proxyPass = "http://127.0.0.1:8080/";
-    };
+    virtualHosts."localhost" = orla-player;
 
     virtualHosts."uriel.taglialegne.it" = {
       forceSSL = true;
@@ -64,8 +70,6 @@
           ssl = true;
         }
       ];
-      locations."/rss/orlagartland".proxyPass = "https://www.patreon.com/rss/orlagartland";
-      locations."/".proxyPass = "http://127.0.0.1:8080/";
-    };
+    } // orla-player;
   };
 }
