@@ -98,6 +98,7 @@ in
   ];
 
   virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # More hardware info
   services.ratbagd.enable = true;
