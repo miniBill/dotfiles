@@ -53,7 +53,6 @@
     ethtool
     socat
     smartmontools
-    nh
 
     # Network
     nmap
@@ -70,6 +69,14 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
+  programs.nh = {
+    enable = true;
+    flake = ./..;
+    clean = {
+      enable = true;
+      extraArgs = "--keep 5 --keep-since 14d";
+    };
+  };
   programs.ssh = {
     startAgent = true;
 
@@ -151,11 +158,11 @@
 
   # Nix
   nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 30d";
+    # };
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
