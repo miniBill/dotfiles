@@ -53,6 +53,7 @@
     ethtool
     socat
     smartmontools
+    nh
 
     # Network
     nmap
