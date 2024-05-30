@@ -20,7 +20,7 @@ in
     enable = true;
 
     autocd = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     enableVteIntegration = !stdenv.isDarwin;
 

@@ -12,7 +12,7 @@
       # GUI
       jetbrains.datagrip
       jetbrains.pycharm-community
-      dbeaver
+      dbeaver-bin
       postgresql
 
       # DEV

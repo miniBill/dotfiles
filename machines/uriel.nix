@@ -67,7 +67,7 @@
     libwebp
     # cachix
     # zig sqlitebrowser binutils nasm
-    dbeaver
+    dbeaver-bin
     # roc.packages.${system}.default
     pinned-unstable-devenv.legacyPackages.${system}.devenv
 
