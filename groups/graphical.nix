@@ -7,7 +7,7 @@
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
   security.pam.services.kwallet.enableKwallet = true;
 
   # Used by vscode, parcel and friends
