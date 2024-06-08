@@ -57,12 +57,14 @@
     rustc
     rustfmt
     pkg-config
-    # Misc
+    # Haskell
     # shake
     # ghc
     # haskellPackages.hindent
     # haskellPackages.hlint
     # haskellPackages.stylish-haskell
+    haskellPackages.haskell-language-server
+    # Misc
     ninja
     libwebp
     # cachix
