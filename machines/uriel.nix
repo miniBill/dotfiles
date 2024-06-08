@@ -59,7 +59,7 @@
     pkg-config
     # Haskell
     # shake
-    # ghc
+    ghc
     # haskellPackages.hindent
     # haskellPackages.hlint
     # haskellPackages.stylish-haskell
