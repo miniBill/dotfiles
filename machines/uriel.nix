@@ -38,7 +38,7 @@
     valgrind
     # .NET
     dotnet-runtime_8
-    # dotnet-sdk
+    dotnetCorePackages.dotnet_8.sdk
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
     adoptopenjdk-bin # JDK
