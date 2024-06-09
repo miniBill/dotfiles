@@ -37,7 +37,7 @@
     colordiff
     valgrind
     # .NET
-    dotnet-runtime_8
+    # dotnet-runtime_8
     dotnetCorePackages.dotnet_8.sdk
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
