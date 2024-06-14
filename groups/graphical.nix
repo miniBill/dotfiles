@@ -37,7 +37,6 @@ let
   ];
 
   package-dev-elm = with pkgs; [
-    elmPackages.elm
     elmPackages.elm-format
     elmPackages.elm-json
     elmPackages.elm-test
@@ -46,6 +45,8 @@ let
     optipng
     jpegoptim
     yarn
+  ] ++ lib.optionals stdenv.isLinux [
+    elmPackages.elmelmPackages.elm
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
