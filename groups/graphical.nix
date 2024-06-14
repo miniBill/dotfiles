@@ -46,7 +46,7 @@ let
     jpegoptim
     yarn
   ] ++ lib.optionals stdenv.isLinux [
-    elmPackages.elmelmPackages.elm
+    elmPackages.elm
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
