@@ -64,6 +64,7 @@
     # haskellPackages.hlint
     # haskellPackages.stylish-haskell
     haskellPackages.haskell-language-server
+    haskellPackages.stack
     # Misc
     ninja
     libwebp
