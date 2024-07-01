@@ -1,4 +1,9 @@
-{ config, pkgs, agenix, ... }:
+{ config
+, pkgs
+, nixpkgs-small
+, agenix
+, ...
+}:
 
 {
   imports = [
@@ -111,6 +116,7 @@
       "rsa-sha2-512"
       "rsa-sha2-256"
     ];
+    package = nixpkgs-small.legacyPackages."${pkgs.system}".openssh;
   };
   programs.zsh = {
     enable = true;
