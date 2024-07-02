@@ -58,6 +58,7 @@ in
       ".cargo/config.toml".source = ../files/cargo/config.toml;
       ".elm".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/elm";
       ".config/nix/nix.conf".source = ../files/nix.conf;
+      ".config/Code/Dictionaries".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
     };
 
     sessionPath = [
