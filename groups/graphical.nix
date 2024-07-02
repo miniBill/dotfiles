@@ -17,6 +17,11 @@ let
     usbutils
     (callPackage ../programs/wally-cli.nix { })
     (aspellWithDicts (d: [ d.en d.it ]))
+    hunspell
+    hunspellDicts.en-us
+    hunspellDicts.en-gb-ise
+    hunspellDicts.it-it
+    hunspellDicts.tok
   ];
 
   # Dev
