@@ -4,11 +4,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
 
-    lamdera = {
-      url = "github:miniBill/lamdera-flake";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # lamdera = {
+    #   url = "github:miniBill/lamdera-flake";
+    #   inputs.flake-utils.follows = "flake-utils";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -45,7 +45,7 @@
         "code"
         "discord"
         "google-chrome"
-        "lamdera"
+        # "lamdera"
         "minecraft-launcher"
         "skypeforlinux"
         "slack"

@@ -1,6 +1,6 @@
 { pkgs
 , lib
-, lamdera
+  # , lamdera
   # , pinned-unstable-vscode
 , ...
 }:
@@ -42,16 +42,16 @@ let
   ];
 
   package-dev-elm = with pkgs; [
-    elmPackages.elm-format
-    elmPackages.elm-json
-    elmPackages.elm-test
-    lamdera.packages.${system}.lamdera-next
+    # elmPackages.elm-format
+    # elmPackages.elm-json
+    # elmPackages.elm-test
+    # lamdera.packages.${system}.lamdera-next
     nodejs-18_x
     optipng
     jpegoptim
     yarn
   ] ++ lib.optionals stdenv.isLinux [
-    elmPackages.elm
+    # elmPackages.elm
   ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;

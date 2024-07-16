@@ -84,29 +84,6 @@
         "type": "github"
       }
     },
-    "lamdera": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1715202754,
-        "narHash": "sha256-SUf8+vk8rZEWQJdh9vS/lKfTFDsCl807XKj19AR1y2c=",
-        "owner": "miniBill",
-        "repo": "lamdera-flake",
-        "rev": "3b31b0c131c074eb8fa04c8a55dfcd1798dd7e35",
-        "type": "github"
-      },
-      "original": {
-        "owner": "miniBill",
-        "repo": "lamdera-flake",
-        "type": "github"
-      }
-    },
     "naersk": {
       "inputs": {
         "nixpkgs": [
@@ -183,7 +160,6 @@
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "lamdera": "lamdera",
         "nixpkgs": "nixpkgs",
         "pinned-unstable-devenv": "pinned-unstable-devenv",
         "pinned-unstable-papermc": "pinned-unstable-papermc",
