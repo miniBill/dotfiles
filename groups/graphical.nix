@@ -42,8 +42,8 @@ let
   ];
 
   package-dev-elm = with pkgs; [
-    # elmPackages.elm-format
-    # elmPackages.elm-json
+    elmPackages.elm-format
+    elmPackages.elm-json
     # elmPackages.elm-test
     # lamdera.packages.${system}.lamdera-next
     nodejs-18_x
