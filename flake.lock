@@ -118,29 +118,12 @@
         "type": "github"
       }
     },
-    "nixpkgs-small": {
-      "locked": {
-        "lastModified": 1722460556,
-        "narHash": "sha256-icgowa4FsmHJ2lH7wGwF95e7fvm7IsSVkhn6yjmHXdA=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b87dfeec0dd13dd7bdea01877df48a8d7eb46091",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.05-small",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "musnix": "musnix",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-small": "nixpkgs-small"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {
