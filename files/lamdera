@@ -1,0 +1,2 @@
+#!/bin/sh
+systemd-run --scope -p MemoryMax=8G --user ~/bin/lamdera-actual
