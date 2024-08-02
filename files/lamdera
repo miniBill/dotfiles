@@ -1,2 +1,2 @@
 #!/bin/sh
-systemd-run --scope -p MemoryMax=8G --user ~/bin/lamdera-actual
+systemd-run --quiet --scope -p MemoryMax=8G --user ~/bin/lamdera-actual $@
