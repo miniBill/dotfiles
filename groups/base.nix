@@ -59,8 +59,12 @@ in
       ".elm".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/elm";
       ".config/nix/nix.conf".source = ../files/nix.conf;
       ".config/Code/Dictionaries".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
-      "bin/lamdera".source = ../files/lamdera;
-    };
+    } // (
+      if stdenv.isDarwin then
+        { }
+      else
+        { "bin/lamdera".source = ../files/lamdera; }
+    );
 
     sessionPath = [
       "$HOME/bin"

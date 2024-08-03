@@ -80,7 +80,7 @@
     in
     {
       homeConfigurations = {
-        "minibill@gadiriel" = withConfig {
+        "minibill@gadiriel.local" = withConfig {
           system = "aarch64-darwin";
           module = ./machines/gadiriel.nix;
         };
