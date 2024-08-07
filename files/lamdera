@@ -1,2 +1,2 @@
 #!/bin/sh
-systemd-run --quiet --scope -p MemoryMax=8G --user ~/bin/lamdera-actual $@
+exec systemd-run --quiet --scope -p MemoryMax=8G --user -- zsh -c "exec -a lamdera ~/bin/lamdera-actual $@"
