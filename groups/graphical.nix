@@ -68,6 +68,8 @@
   };
   users.groups.audio = { };
 
+  programs.nix-ld.enable = true;
+
   # Users
   users.users.minibill.extraGroups = [
     "wheel"
