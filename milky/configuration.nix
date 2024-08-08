@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  ip = "185.216.25.227";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -47,7 +49,7 @@
   networking = {
     usePredictableInterfaceNames = false;
     interfaces.eth0.ipv4.addresses = [{
-      address = "185.216.25.227";
+      address = ip;
       prefixLength = 24;
     }];
     interfaces.eth0.ipv6.addresses = [{
