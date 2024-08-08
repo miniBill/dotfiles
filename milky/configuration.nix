@@ -56,7 +56,7 @@ in
       address = "2a07:abc4::1:b0e";
       prefixLength = 48;
     }];
-    defaultGateway = "149.91.81.1";
+    defaultGateway = "185.216.25.1";
     defaultGateway6 = {
       address = "2a07:abc4::1";
     };
