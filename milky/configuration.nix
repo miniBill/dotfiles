@@ -21,38 +21,11 @@ in
 
   networking.hostName = "milky";
 
-  virtualisation.vmVariant = {
-    # following configuration is added only when building VM with build-vm
-    virtualisation.diskSize = 8192;
+  services.sslh = {
+    enable = true;
+    settings.transparent = true;
+    listenAddresses = [ ip ];
   };
-
-  # SSH in initrd
-  # boot.initrd = {
-  #   availableKernelModules = [ "e1000" ];
-  #   network.ssh = {
-  #     enable = true;
-  #     # Defaults to 22.
-  #     port = 222;
-  #     # Stored in plain text on boot partition, so don't reuse your host
-  #     # keys. Also, make sure to use a boot loader with support for initrd
-  #     # secrets (e.g. systemd-boot), or this will be exposed in the nix store
-  #     # to unprivileged users.
-  #     hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
-  #     authorizedKeys = config.users.users.minibill.openssh.authorizedKeys.keys;
-  #   };
-  #   # Block the boot process until /tmp/continue is written to
-  #   postDeviceCommands = ''
-  #     echo 'waiting for root device to be opened...'
-  #     mkfifo /tmp/continue
-  #     cat /tmp/continue
-  #   '';
-  # };
-
-  # services.sslh = {
-  #   enable = true;
-  #   settings.transparent = true;
-  #   listenAddresses = [ ip ];
-  # };
 
   # services.mysql = {
   #   enable = true;
@@ -78,17 +51,17 @@ in
       address = ip;
       prefixLength = 24;
     }];
-    # interfaces.eth0.ipv6.addresses = [{
-    #   address = "2a07:abc4::1:b0e";
-    #   prefixLength = 48;
-    # }];
+    interfaces.eth0.ipv6.addresses = [{
+      address = "2a07:abc4::1:b0e";
+      prefixLength = 48;
+    }];
     defaultGateway = "185.216.25.1";
-    # defaultGateway6 = {
-    #   address = "2a07:abc4::1";
-    # };
+    defaultGateway6 = {
+      address = "2a07:abc4::1";
+    };
     nameservers = [
-      # "2a07:abc4:2::19:1"
-      # "2a07:abc4:2::19:2"
+      "2a07:abc4:2::19:1"
+      "2a07:abc4:2::19:2"
       "1.1.1.1"
     ];
     firewall.allowedTCPPorts = [ 2222 ];
