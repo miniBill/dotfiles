@@ -41,6 +41,11 @@
         specialArgs = attrs;
         modules = [ ./ithaca/configuration.nix ];
       };
+      milky = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [ ./milky/configuration.nix ];
+      };
     };
   };
 }
