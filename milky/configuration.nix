@@ -21,11 +21,11 @@ in
 
   networking.hostName = "milky";
 
-  services.sslh = {
-    enable = true;
-    settings.transparent = true;
-    listenAddresses = [ ip ];
-  };
+  # services.sslh = {
+  #   enable = true;
+  #   settings.transparent = true;
+  #   listenAddresses = [ ip ];
+  # };
 
   # services.mysql = {
   #   enable = true;
@@ -51,17 +51,17 @@ in
       address = ip;
       prefixLength = 24;
     }];
-    interfaces.eth0.ipv6.addresses = [{
-      address = "2a07:abc4::1:b0e";
-      prefixLength = 48;
-    }];
+    # interfaces.eth0.ipv6.addresses = [{
+    #   address = "2a07:abc4::1:b0e";
+    #   prefixLength = 48;
+    # }];
     defaultGateway = "185.216.25.1";
-    defaultGateway6 = {
-      address = "2a07:abc4::1";
-    };
+    # defaultGateway6 = {
+    #   address = "2a07:abc4::1";
+    # };
     nameservers = [
-      "2a07:abc4:2::19:1"
-      "2a07:abc4:2::19:2"
+      # "2a07:abc4:2::19:1"
+      # "2a07:abc4:2::19:2"
       "1.1.1.1"
     ];
     firewall.allowedTCPPorts = [ 2222 ];
