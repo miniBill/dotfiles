@@ -21,6 +21,28 @@ in
 
   networking.hostName = "milky";
 
+  # SSH in initrd
+  boot.initrd = {
+    availableKernelModules = [ "e1000" ];
+    network.ssh = {
+      enable = true;
+      # Defaults to 22.
+      port = 222;
+      # Stored in plain text on boot partition, so don't reuse your host
+      # keys. Also, make sure to use a boot loader with support for initrd
+      # secrets (e.g. systemd-boot), or this will be exposed in the nix store
+      # to unprivileged users.
+      hostKeys = [ "/etc/ssh/ssh_host_ed25519_key" ];
+      authorizedKeys = config.users.users.minibill.openssh.authorizedKeys.keys;
+    };
+    # Block the boot process until /tmp/continue is written to
+    postDeviceCommands = ''
+      echo 'waiting for root device to be opened...'
+      mkfifo /tmp/continue
+      cat /tmp/continue
+    '';
+  };
+
   # services.sslh = {
   #   enable = true;
   #   settings.transparent = true;
