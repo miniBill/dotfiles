@@ -28,20 +28,20 @@ in
     listenAddresses = [ ip ];
   };
 
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-    bind = "127.0.0.1";
-    # ensureDatabases = ["latisanalingue"];
-    # ensureUsers = [
-    #   {
-    #     name = "latisanalingue";
-    #     ensurePermissions = {
-    #       "latisanalingue.*" = "ALL PRIVILEGES";
-    #     };
-    #   }
-    # ];
-  };
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  #   bind = "127.0.0.1";
+  #   # ensureDatabases = ["latisanalingue"];
+  #   # ensureUsers = [
+  #   #   {
+  #   #     name = "latisanalingue";
+  #   #     ensurePermissions = {
+  #   #       "latisanalingue.*" = "ALL PRIVILEGES";
+  #   #     };
+  #   #   }
+  #   # ];
+  # };
 
   virtualisation.libvirtd.enable = true;
 
