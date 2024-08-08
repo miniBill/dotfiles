@@ -21,6 +21,11 @@ in
 
   networking.hostName = "milky";
 
+  virtualisation.vmVariant = {
+    # following configuration is added only when building VM with build-vm
+    virtualisation.diskSize = 8192;
+  };
+
   # SSH in initrd
   # boot.initrd = {
   #   availableKernelModules = [ "e1000" ];
