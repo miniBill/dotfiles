@@ -7,9 +7,10 @@ let
   thamiel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPQGYonsRdGY68K4KiawiCOn/lWGGqUX8iLHvfRKtML1 root@thamiel";
   tharmas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8UP9vkY+7OROsHeqZCnBlOwwPZW5fdoyENlxfpIGPl root@tharmas";
   uriel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMMRil53Dkrw2+/QwfK/amfnPKGa6ZRmXBYrs3KB+aSY root@uriel";
+  milky = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICDSS99OTEcGWMtfdX+XU3JotWiBKtDpTwJ16FzZOVeZ root@milky";
 
   home = [ uriel sohu ];
-  servers = [ tharmas ithaca thamiel ];
+  servers = [ tharmas ithaca thamiel milky ];
 in
 {
   "snizzovpn.age".publicKeys = home;
