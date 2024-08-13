@@ -31,6 +31,11 @@
         specialArgs = attrs;
         modules = [ ./tharmas/configuration.nix ];
       };
+      edge = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [ ./edge/configuration.nix ];
+      };
       thamiel = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
