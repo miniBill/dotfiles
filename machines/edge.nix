@@ -14,7 +14,7 @@
     omnisharp-roslyn
     ghc
     lld
-    (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
+    # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # Elm
     glslang
     adoptopenjdk-jre-openj9-bin-8
