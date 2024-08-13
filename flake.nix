@@ -100,6 +100,10 @@
           system = "x86_64-linux";
           module = ./machines/tharmas.nix;
         };
+        "minibill@edge" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/edge.nix;
+        };
         "minibill@milky" = withConfig {
           system = "x86_64-linux";
           module = ./machines/milky.nix;
