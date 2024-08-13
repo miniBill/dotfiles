@@ -82,9 +82,7 @@
     zotero
     slack
     # Im
-    discord
     skypeforlinux
-    tdesktop
     signal-desktop
     x11vnc
 

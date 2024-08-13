@@ -128,6 +128,10 @@ let
     filezilla
     remmina
     thunderbird
+
+    tdesktop
+    discord
+    signal-desktop
   ];
 
   packages-net = packages-net-misc;

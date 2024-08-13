@@ -4,10 +4,6 @@
   imports = [ ../groups/graphical.nix ];
 
   home.packages = with pkgs; [
-    # BASE
-    (aspellWithDicts (d: [ d.en d.it ]))
-    nix-bundle
-
     # DEV
     colordiff
     gcc
@@ -17,11 +13,6 @@
     # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # Elm
     glslang
-    adoptopenjdk-jre-openj9-bin-8
-    qtcreator
-    cmake
-    clang-tools
-    cppcheck
     linuxPackages.perf
     hotspot
 
@@ -35,11 +26,9 @@
     skypeforlinux
     bind
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
-    discord
     zotero
 
     # BASE-GUI
-    tdesktop
     libgnomekbd
     winetricks
     wineWowPackages.stable
