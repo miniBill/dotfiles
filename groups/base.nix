@@ -63,7 +63,7 @@ in
       if stdenv.isDarwin then
         { }
       else
-        { "bin/lamdera".source = ../files/lamdera; }
+        { "bin/lamdera-wrapped".source = ../files/lamdera; }
     );
 
     sessionPath = [
