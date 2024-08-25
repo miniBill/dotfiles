@@ -173,6 +173,7 @@ in
 
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+            "dom.private-attribution.submission.enabled" = false;
           };
 
           userChrome = builtins.readFile ../files/userChrome.css;
