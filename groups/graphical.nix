@@ -7,6 +7,7 @@
 
   # Enable the KDE Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
   security.pam.services.kwallet.enableKwallet = true;
 
@@ -23,6 +24,7 @@
     pavucontrol
     yakuake
     konsole
+    qt6.qtwayland
   ];
 
   # Set your time zone.
