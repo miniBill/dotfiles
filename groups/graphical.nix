@@ -83,4 +83,9 @@
     "libvirtd"
     "audio"
   ];
+
+  # MCH2022 badge
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="16d0", ATTR{idProduct}=="0f9a", GROUP="plugdev"
+  '';
 }
