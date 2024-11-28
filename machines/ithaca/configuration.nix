@@ -5,7 +5,7 @@
     nixos-hardware.nixosModules.raspberry-pi-4
     ./hardware-configuration.nix
     ./pi-myhole.nix
-    ../groups/common.nix
+    ../../groups/machines/common.nix
   ];
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];

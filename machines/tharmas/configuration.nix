@@ -8,8 +8,8 @@ in
 
     ./cjdns.nix
     ./www.nix
-    ../groups/common.nix
-    ../groups/server.nix
+    ../../groups/machines/common.nix
+    ../../groups/machines/server.nix
   ];
 
   boot.loader.grub = {

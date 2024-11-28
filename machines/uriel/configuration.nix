@@ -12,9 +12,9 @@ in
   imports = [
     ./hardware-configuration.nix
     musnix.nixosModules.musnix
-    ../groups/common.nix
-    ../groups/graphical.nix
-    ../groups/steam.nix
+    ../../groups/machines/common.nix
+    ../../groups/machines/graphical.nix
+    ../../groups/machines/steam.nix
     ./web.nix
     # ./ups.nix
   ];
@@ -142,7 +142,7 @@ in
     };
 
   age.secrets.snizzovpn = {
-    file = ../secrets/snizzovpn.age;
+    file = ../../secrets/snizzovpn.age;
     owner = "root";
     group = "root";
   };

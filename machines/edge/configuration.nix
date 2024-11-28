@@ -14,9 +14,9 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../groups/common.nix
-    ../groups/graphical.nix
-    ../groups/steam.nix
+    ../../groups/machines/common.nix
+    ../../groups/machines/graphical.nix
+    ../../groups/machines/steam.nix
   ];
 
   # Mirror GRUB on the two disks

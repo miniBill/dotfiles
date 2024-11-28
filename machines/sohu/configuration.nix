@@ -4,8 +4,8 @@
   imports = [
     nixos-hardware.nixosModules.pine64-pinebook-pro
     ./hardware-configuration.nix
-    ../groups/common.nix
-    ../groups/graphical.nix
+    ../../groups/machines/common.nix
+    ../../groups/machines/graphical.nix
   ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)

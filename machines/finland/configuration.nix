@@ -3,10 +3,10 @@
 {
   imports = [
     <nixos-hardware/dell/xps/15-7590>
-    ../hardware-configuration.nix
+    ./hardware-configuration.nix
     ./toPR.nix
-    ../groups/common.nix
-    ../groups/graphical.nix
+    ../../groups/machines/common.nix
+    ../../groups/machines/graphical.nix
   ];
 
   # Use the systemd-boot EFI boot loader.

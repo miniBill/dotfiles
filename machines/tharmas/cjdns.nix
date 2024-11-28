@@ -1,7 +1,7 @@
 { config, ... }:
 {
   age.secrets.cjdnsConf = {
-    file = ../secrets/cjdroute.conf.age;
+    file = ../../secrets/cjdroute.conf.age;
     owner = "root";
     group = "root";
   };
