@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  imports = [ ../groups/base.nix ];
+  imports = [ ../../groups/home-manager/base.nix ];
 }

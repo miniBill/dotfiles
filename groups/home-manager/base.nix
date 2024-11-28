@@ -47,23 +47,23 @@ let
   homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 in
 {
-  imports = [ ../programs/zsh.nix ];
+  imports = [ ../../programs/zsh.nix ];
 
   home = {
     packages =
       packages-base ++ packages-dev ++ packages-net;
 
     file = {
-      ".zsh/p10k.zsh".source = ../files/zsh/p10k.zsh;
-      ".cargo/config.toml".source = ../files/cargo/config.toml;
+      ".zsh/p10k.zsh".source = ../../files/zsh/p10k.zsh;
+      ".cargo/config.toml".source = ../../files/cargo/config.toml;
       ".elm".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/elm";
-      ".config/nix/nix.conf".source = ../files/nix.conf;
+      ".config/nix/nix.conf".source = ../../files/nix.conf;
       ".config/Code/Dictionaries".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
     } // (
       if stdenv.isDarwin then
         { }
       else
-        { "bin/lamdera-wrapped".source = ../files/lamdera; }
+        { "bin/lamdera-wrapped".source = ../../files/lamdera; }
     );
 
     sessionPath = [

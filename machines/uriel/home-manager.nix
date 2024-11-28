@@ -6,7 +6,7 @@
 }:
 
 {
-  imports = [ ../groups/graphical.nix ];
+  imports = [ ../../groups/home-manager/graphical.nix ];
 
   home.packages = with pkgs; [
     # BASE
@@ -30,7 +30,7 @@
     mediainfo
     timidity
     vmpk
-    # (callPackage ../programs/jack_mixer.nix { })
+    # (callPackage ../../programs/jack_mixer.nix { })
 
     # DEV
     arduino
@@ -112,7 +112,7 @@
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
 
-        userChrome = builtins.readFile ../files/userChrome.css;
+        userChrome = builtins.readFile ../../files/userChrome.css;
       };
     };
   };

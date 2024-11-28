@@ -1,5 +1,5 @@
 { ... }:
 
 {
-  imports = [ ../groups/graphical.nix ];
+  imports = [ ../../groups/home-manager/graphical.nix ];
 }

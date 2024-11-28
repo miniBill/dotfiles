@@ -15,7 +15,7 @@ let
     nixpkgs-fmt
   ] ++ lib.optionals stdenv.isLinux [
     usbutils
-    (callPackage ../programs/wally-cli.nix { })
+    (callPackage ../../programs/wally-cli.nix { })
     (aspellWithDicts (d: [ d.en d.it ]))
     hunspell
     hunspellDicts.en-us
@@ -65,7 +65,7 @@ let
     noto-fonts-cjk-serif
     stix-two
 
-    (callPackage ../fonts/linja-pona.nix { })
+    (callPackage ../../fonts/linja-pona.nix { })
   ];
 
   packages-gui-kde = with pkgs; lib.optionals stdenv.isLinux [
@@ -106,7 +106,7 @@ let
     qjackctl
     scribus
     vlc
-    (callPackage ../programs/headset-control.nix { })
+    (callPackage ../../programs/headset-control.nix { })
   ];
 
   packages-gui-platform-specific =
@@ -151,13 +151,13 @@ in
 
     file = {
       # Always allow moving output devices in pavucontrol
-      ".alsoftrc".source = ../files/alsoftrc;
-      "bin/elm-format-hack".source = ../programs/elm-format-hack;
-      "bin/elm-make-readable".source = ../programs/elm-make-readable;
+      ".alsoftrc".source = ../../files/alsoftrc;
+      "bin/elm-format-hack".source = ../../programs/elm-format-hack;
+      "bin/elm-make-readable".source = ../../programs/elm-make-readable;
 
-      ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../files/jack-merge-monitor.conf;
+      ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
 
-      ".config/yakuakerc".source = ../files/yakuakerc;
+      ".config/yakuakerc".source = ../../files/yakuakerc;
     };
   };
 
@@ -176,7 +176,7 @@ in
             "dom.private-attribution.submission.enabled" = false;
           };
 
-          userChrome = builtins.readFile ../files/userChrome.css;
+          userChrome = builtins.readFile ../../files/userChrome.css;
         };
       };
     };

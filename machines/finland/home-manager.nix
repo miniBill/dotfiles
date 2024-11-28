@@ -5,7 +5,7 @@
 }:
 
 {
-  imports = [ ../groups/graphical.nix ];
+  imports = [ ../../groups/home-manager/graphical.nix ];
 
   home = {
     packages = with pkgs; [
