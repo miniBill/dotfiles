@@ -2,7 +2,11 @@
 let
   inherit (pkgs) stdenv;
 
-  homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+  homeDirectory =
+    if stdenv.isDarwin then
+      "/Users/${username}"
+    else
+      "/home/${username}";
 in
 
 {
