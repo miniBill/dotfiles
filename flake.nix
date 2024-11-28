@@ -14,41 +14,41 @@
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
   };
 
-  outputs = { nixpkgs, ... } @ attrs: {
+  outputs = inputs: {
     nixosConfigurations = {
-      uriel = nixpkgs.lib.nixosSystem {
+      uriel = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./uriel/configuration.nix ];
       };
-      sohu = nixpkgs.lib.nixosSystem {
+      sohu = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./sohu/configuration.nix ];
       };
-      tharmas = nixpkgs.lib.nixosSystem {
+      tharmas = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./tharmas/configuration.nix ];
       };
-      edge = nixpkgs.lib.nixosSystem {
+      edge = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./edge/configuration.nix ];
       };
-      thamiel = nixpkgs.lib.nixosSystem {
+      thamiel = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./thamiel/configuration.nix ];
       };
-      ithaca = nixpkgs.lib.nixosSystem {
+      ithaca = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./ithaca/configuration.nix ];
       };
-      milky = nixpkgs.lib.nixosSystem {
+      milky = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = inputs;
         modules = [ ./milky/configuration.nix ];
       };
     };
