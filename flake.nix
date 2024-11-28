@@ -19,37 +19,37 @@
       uriel = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ ./uriel/configuration.nix ];
+        modules = [ ./machines/uriel/configuration.nix ];
       };
       sohu = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = inputs;
-        modules = [ ./sohu/configuration.nix ];
+        modules = [ ./machines/sohu/configuration.nix ];
       };
       tharmas = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ ./tharmas/configuration.nix ];
+        modules = [ ./machines/tharmas/configuration.nix ];
       };
       edge = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ ./edge/configuration.nix ];
+        modules = [ ./machines/edge/configuration.nix ];
       };
       thamiel = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ ./thamiel/configuration.nix ];
+        modules = [ ./machines/thamiel/configuration.nix ];
       };
       ithaca = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = inputs;
-        modules = [ ./ithaca/configuration.nix ];
+        modules = [ ./machines/ithaca/configuration.nix ];
       };
       milky = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = inputs;
-        modules = [ ./milky/configuration.nix ];
+        modules = [ ./machines/milky/configuration.nix ];
       };
     };
   };
