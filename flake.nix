@@ -82,35 +82,35 @@
       homeConfigurations = {
         "minibill@gadiriel.local" = withConfig {
           system = "aarch64-darwin";
-          module = ./machines/gadiriel.nix;
+          module = ./machines/gadiriel/home-manager.nix;
         };
         "minibill@ithaca" = withConfig {
           system = "aarch64-linux";
-          module = ./machines/ithaca.nix;
+          module = ./machines/ithaca/home-manager.nix;
         };
         "minibill@sohu" = withConfig {
           system = "aarch64-linux";
-          module = ./machines/sohu.nix;
+          module = ./machines/sohu/home-manager.nix;
         };
         "minibill@thamiel" = withConfig {
           system = "x86_64-linux";
-          module = ./machines/thamiel.nix;
+          module = ./machines/thamiel/home-manager.nix;
         };
         "minibill@tharmas" = withConfig {
           system = "x86_64-linux";
-          module = ./machines/tharmas.nix;
+          module = ./machines/tharmas/home-manager.nix;
         };
         "minibill@edge" = withConfig {
           system = "x86_64-linux";
-          module = ./machines/edge.nix;
+          module = ./machines/edge/home-manager.nix;
         };
         "minibill@milky" = withConfig {
           system = "x86_64-linux";
-          module = ./machines/milky.nix;
+          module = ./machines/milky/home-manager.nix;
         };
         "minibill@uriel" = withConfig {
           system = "x86_64-linux";
-          module = ./machines/uriel.nix;
+          module = ./machines/uriel/home-manager.nix;
         };
       };
     };
