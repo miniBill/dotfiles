@@ -69,6 +69,7 @@
     exfat
     git
     ntfs3g
+    p7zip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
