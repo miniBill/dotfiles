@@ -66,7 +66,7 @@ in
     # videoDrivers = [ "modesetting" "nvidia" "intel" ];
   };
 
-  service.libinput.enable = true;
+  services.libinput.enable = true;
 
   programs.adb.enable = true;
 
@@ -77,6 +77,28 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
   };
+  users.users.francesca = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "networkmanager" ];
+  };
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (
+        subject.isInGroup("users")
+          && (
+            action.id == "org.freedesktop.login1.reboot" ||
+            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+            action.id == "org.freedesktop.login1.power-off" ||
+            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+          )
+        )
+      {
+        return polkit.Result.YES;
+      }
+    });
+  '';
 
   system.stateVersion = "20.03";
 }
