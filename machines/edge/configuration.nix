@@ -80,7 +80,7 @@ in
   users.users.francesca = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "networkmanager" ];
   };
 
   security.polkit.extraConfig = ''
