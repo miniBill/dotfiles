@@ -62,10 +62,11 @@ in
 
   # Enable the X11 windowing system.
   services.xserver = {
-    layout = "it";
-    libinput.enable = true;
+    xkb.layout = "it";
     # videoDrivers = [ "modesetting" "nvidia" "intel" ];
   };
+
+  service.libinput.enable = true;
 
   programs.adb.enable = true;
 
