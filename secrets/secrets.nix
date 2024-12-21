@@ -8,8 +8,9 @@ let
   tharmas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8UP9vkY+7OROsHeqZCnBlOwwPZW5fdoyENlxfpIGPl root@tharmas";
   uriel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMMRil53Dkrw2+/QwfK/amfnPKGa6ZRmXBYrs3KB+aSY root@uriel";
   milky = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICDSS99OTEcGWMtfdX+XU3JotWiBKtDpTwJ16FzZOVeZ root@milky";
+  edge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMT/em7DhFIVRdXQ+zRWneD5t3T9pk3OXFVQ7NAP+bjB root@edge";
 
-  home = [ uriel sohu ];
+  home = [ uriel sohu edge ];
   servers = [ tharmas ithaca thamiel milky ];
 in
 {
