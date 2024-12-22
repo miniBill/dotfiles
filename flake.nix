@@ -115,6 +115,10 @@
           system = "x86_64-linux";
           module = ./machines/edge/home-manager.nix;
         };
+        "francesca@edge" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/edge/home-manager.nix;
+        };
         "minibill@milky" = withConfig {
           system = "x86_64-linux";
           module = ./machines/milky/home-manager.nix;
