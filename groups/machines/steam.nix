@@ -10,6 +10,7 @@
       "steam-original"
       "steam-run"
       "steam-runtime"
+      "steam-unwrapped"
       "nvidia-settings"
       "nvidia-x11"
     ];
