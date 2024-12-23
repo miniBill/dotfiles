@@ -20,7 +20,7 @@
     blender
     glxinfo
     mediainfo
-    gnome3.cheese
+    cheese
 
     # NET
     skypeforlinux

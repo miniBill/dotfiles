@@ -25,7 +25,7 @@
     carla
     clementine
     frescobaldi
-    gnome3.cheese
+    cheese
     jamulus
     mediainfo
     timidity
