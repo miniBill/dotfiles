@@ -53,6 +53,7 @@ in
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = false;
   hardware.nvidia.modesetting.enable = true;
   hardware.nvidia.prime = {
     offload.enable = true;
