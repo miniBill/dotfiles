@@ -58,8 +58,6 @@
   # Enable smart card reader
   services.pcscd.enable = true;
 
-  # Enable sound.
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

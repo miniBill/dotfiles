@@ -86,7 +86,6 @@ in
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # Enable sound.
   musnix.enable = true;
   security.pam.loginLimits = [
     {
