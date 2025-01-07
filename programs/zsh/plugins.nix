@@ -20,16 +20,16 @@ pkgs:
     };
     file = "autopair.zsh";
   }
-  {
-    name = "powerlevel10k";
-    file = "powerlevel10k.zsh-theme";
-    src = pkgs.fetchFromGitHub {
-      owner = "romkatv";
-      repo = "powerlevel10k";
-      rev = "8d1daa4e6340b1689bf951730489bc64c52220c7";
-      sha256 = "0bm0dd4lb9kwv3xl6lk0wyb0fqq83gs8kl9111qs5ybavwcxlnnr";
-    };
-  }
+  # {
+  #   name = "powerlevel10k";
+  #   file = "powerlevel10k.zsh-theme";
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "romkatv";
+  #     repo = "powerlevel10k";
+  #     rev = "8d1daa4e6340b1689bf951730489bc64c52220c7";
+  #     sha256 = "0bm0dd4lb9kwv3xl6lk0wyb0fqq83gs8kl9111qs5ybavwcxlnnr";
+  #   };
+  # }
   {
     name = "nix-shell";
     src = pkgs.fetchFromGitHub {
