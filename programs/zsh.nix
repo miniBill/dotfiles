@@ -72,6 +72,7 @@ in
         NODE_REPL_HISTORY = "${config.xdg.stateHome}/node/history";
         NUGET_PACKAGES = "${config.xdg.cacheHome}/NuGetPackages";
         RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
+        SQLITE_HISTORY = "${config.xdg.cacheHome}/sqlite_history";
         WINEPREFIX = "${config.xdg.dataHome}/wine";
 
         # RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
