@@ -41,7 +41,7 @@
     dotnetCorePackages.dotnet_8.sdk
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
-    adoptopenjdk-bin # JDK
+    # adoptopenjdk-bin # JDK
     # C/C++
     clang-tools
     cmake
