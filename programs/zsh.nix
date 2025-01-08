@@ -122,11 +122,15 @@ in
 
           autopair-init
           # source ~/.zsh/p10k.zsh
+          bindkey '^[[1;5C' emacs-forward-word
+          bindkey '^[[1;5D' emacs-backward-word
         ''
       else
         ''
           autopair-init
           # source ~/.zsh/p10k.zsh
+          bindkey '^[[1;5C' emacs-forward-word
+          bindkey '^[[1;5D' emacs-backward-word
         '';
 
     # oh-my-zsh = {
