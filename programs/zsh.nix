@@ -38,6 +38,7 @@ in
         fish_style_pwd_dir_length = 4;
         truncation_length = 4;
         style = "blue";
+        read_only = "";
       };
       git_branch.format = "[$branch(:$remote_branch)](green) ";
       git_status = {
