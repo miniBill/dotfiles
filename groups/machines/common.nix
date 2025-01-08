@@ -50,6 +50,7 @@
     agenix.packages."${system}".default
     gdu
     htop
+    btop
     lsof
     screen
     sysstat
