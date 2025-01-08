@@ -2,7 +2,7 @@
 
 {
   # 32-bit support for Steam
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   programs.steam.enable = true;
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
