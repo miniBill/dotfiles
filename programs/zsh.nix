@@ -67,14 +67,14 @@ in
         heuristic = true;
         format = "via [$symbol$state]($style) ";
       };
-      shlvl = {
-        disabled = false;
-        format = "[$symbol]($style)";
-        repeat = true;
-        symbol = "❯";
-        repeat_offset = 1;
-        threshold = 0;
-      };
+      # shlvl = {
+      #   disabled = false;
+      #   format = "[$symbol]($style)";
+      #   repeat = true;
+      #   symbol = "❯";
+      #   repeat_offset = 1;
+      #   threshold = 0;
+      # };
       time = {
         disabled = false;
         format = "[$time]($style)";
