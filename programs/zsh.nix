@@ -41,18 +41,18 @@ in
       };
       git_branch.format = "[$branch(:$remote_branch)](green) ";
       git_status = {
-        format = "([$all_status$ahead_behind]($style) )";
+        format = "([$all_status$ahead_behind]($style))";
         style = "dimmed yellow";
         conflicted = "[=$count](bold red)";
-        ahead = "⇡$count";
-        behind = "⇣$count";
+        ahead = "⇡$count ";
+        behind = "⇣$count ";
         diverged = "⇡$ahead_count ⇣$behind_count";
-        untracked = "?$count";
-        stashed = "\\$$count";
-        modified = "!$count";
-        staged = "[*$count](green)";
-        renamed = "»$count";
-        deleted = "[✘$count](bold red)";
+        untracked = "?$count ";
+        stashed = "\\$$count ";
+        modified = "!$count ";
+        staged = "[*$count ](green)";
+        renamed = "»$count ";
+        deleted = "[✘$count ](bold red)";
       };
       hostname = {
         format = "[$hostname]($style)";
