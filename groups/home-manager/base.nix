@@ -11,6 +11,8 @@ let
     patchelf
     pigz
     ripgrep
+    fd
+    bfs
     zip
     unzip
     comma
@@ -100,7 +102,12 @@ in
       nix-direnv.enable = true;
     };
 
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      defaultCommand = "bfs -type f";
+      fileWidgetCommand = "bfs -type f";
+      changeDirWidgetCommand = "bfs -type d";
+    };
 
     git = {
       enable = true;
