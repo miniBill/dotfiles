@@ -57,17 +57,6 @@ let
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
 
   # GUI
-  packages-gui-fonts = with pkgs; [
-    fira-code
-    fira-code-symbols
-    inter
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    stix-two
-
-    (callPackage ../../fonts/linja-pona.nix { })
-  ];
-
   packages-gui-kde = with pkgs; lib.optionals stdenv.isLinux [
     ark
     gwenview
@@ -117,8 +106,7 @@ let
     ];
 
   packages-gui =
-    packages-gui-fonts
-    ++ packages-gui-kde
+    packages-gui-kde
     ++ packages-gui-misc
     ++ packages-gui-multimedia
     ++ packages-gui-platform-specific;
@@ -138,8 +126,6 @@ let
 in
 {
   imports = [ ./base.nix ];
-
-  fonts.fontconfig.enable = true;
 
   home = {
     packages =

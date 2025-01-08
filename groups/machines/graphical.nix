@@ -82,6 +82,40 @@
     "audio"
   ];
 
+  fonts = {
+    fontDir.enable = true;
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "FiraCode Nerd Font" ];
+      };
+    };
+    enableDefaultPackages = false;
+    packages = with pkgs;
+      # Defaults:
+      [
+        dejavu_fonts
+        # freefont_ttf # WARN: breaks braille
+        gyre-fonts # TrueType substitutes for standard PostScript fonts
+        liberation_ttf
+        unifont
+        noto-fonts-color-emoji
+      ]
+      ++
+      # Mine:
+      [
+        inter
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        fira-code-symbols # fira code ligatures for compatibility reasons
+        stix-two
+        (callPackage ../../fonts/linja-pona.nix { })
+
+        (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      ];
+  };
+
   # MCH2022 badge
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="16d0", ATTR{idProduct}=="0f9a", GROUP="plugdev"
