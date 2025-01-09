@@ -190,5 +190,7 @@ in
     };
 
     yt-dlp.enable = true;
+
+    zoxide.enable = true;
   };
 }
