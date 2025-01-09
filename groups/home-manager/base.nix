@@ -142,8 +142,6 @@ in
         status.submoduleSummary = true;
         diff.submodule = "log";
         submodule.recurse = true;
-
-        safe.directory = "/etc/nixos";
       };
     };
 
