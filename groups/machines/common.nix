@@ -76,6 +76,7 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;
+
   programs.nh = {
     enable = true;
     flake = ./..;
@@ -84,6 +85,7 @@
       extraArgs = "--keep 5 --keep-since 14d";
     };
   };
+
   programs.ssh = {
     startAgent = true;
 
@@ -120,6 +122,7 @@
     ];
     # package = nixpkgs-small.legacyPackages."${pkgs.system}".openssh;
   };
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -131,6 +134,7 @@
     enable = true;
     settings.UseDns = false;
   };
+
   services.hardware.bolt.enable = true;
 
   # Services - Tailscale

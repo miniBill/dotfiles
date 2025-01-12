@@ -37,7 +37,7 @@
     mupen64plus
 
     # VIRT/OP
-    nix-index
+    # nix-index
     virtualbox
     qemu
   ];

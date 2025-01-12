@@ -26,13 +26,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    comma = {
-      # just run any tool!
-      url = "github:nix-community/comma";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.utils.follows = "flake-utils";
-      inputs.flake-compat.follows = "flake-compat";
     };
+
+    # comma = {
+    #   # just run any tool!
+    #   url = "github:nix-community/comma";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.utils.follows = "flake-utils";
+    #   inputs.flake-compat.follows = "flake-compat";
+    # };
 
     flake-utils = {
       url = "github:numtide/flake-utils";
@@ -68,7 +73,7 @@
       pkgs = system: import inputs.nixpkgs {
         inherit system;
         config = {
-          overlays = [ inputs.comma.overlay ];
+          # overlays = [ inputs.comma.overlay ];
           allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
           permittedInsecurePackages = [
             "zotero-6.0.26"

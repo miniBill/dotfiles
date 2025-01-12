@@ -1,4 +1,10 @@
-{ pkgs, lib, config, username, ... }:
+{ pkgs
+, lib
+, config
+, username
+, nix-index-database
+, ...
+}:
 let
   inherit (pkgs) stdenv;
 
@@ -15,7 +21,7 @@ let
     bfs
     zip
     unzip
-    comma
+    # comma
   ] ++ lib.optionals stdenv.isLinux [
     inotify-tools
     smem
@@ -49,7 +55,10 @@ let
   homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 in
 {
-  imports = [ ../../programs/zsh.nix ];
+  imports = [
+    ../../programs/zsh.nix
+    nix-index-database.hmModules.nix-index
+  ];
 
   home = {
     packages =
@@ -146,6 +155,8 @@ in
     };
 
     home-manager.enable = true;
+
+    nix-index-database.comma.enable = true;
 
     htop = {
       enable = true;

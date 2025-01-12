@@ -95,7 +95,7 @@
     pinned-unstable-papermc.legacyPackages.${system}.papermc
 
     # VIRT/OP
-    nix-index
+    # nix-index
     virtualbox
     qemu
   ];
