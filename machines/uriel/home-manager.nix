@@ -1,5 +1,4 @@
 { pkgs
-, pinned-unstable-devenv
 , pinned-unstable-papermc
   # , roc
 , ...
@@ -72,7 +71,7 @@
     # zig sqlitebrowser binutils nasm
     dbeaver-bin
     # roc.packages.${system}.default
-    pinned-unstable-devenv.legacyPackages.${system}.devenv
+    devenv
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })

@@ -52,7 +52,6 @@
     systems.url = "github:nix-systems/default";
 
     pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6";
-    pinned-unstable-devenv.url = "github:NixOS/nixpkgs?rev=4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6";
   };
 
   outputs = inputs:
