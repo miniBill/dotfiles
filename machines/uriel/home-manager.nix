@@ -72,6 +72,7 @@
     dbeaver-bin
     # roc.packages.${system}.default
     devenv
+    devbox
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
