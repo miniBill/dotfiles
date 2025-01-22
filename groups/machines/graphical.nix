@@ -45,6 +45,9 @@
     ];
   };
 
+  # Spotify
+  firewall.allowedTCPPorts = [ 57621 ];
+
   # Fix themes not working for GTK apps in Wayland
   programs.dconf.enable = true;
 
