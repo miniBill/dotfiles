@@ -30,6 +30,7 @@ let
   # Dev
   packages-dev = with pkgs; [
     gnumake
+    nixfmt
   ] ++ lib.optionals stdenv.isLinux [
     tup
   ];
