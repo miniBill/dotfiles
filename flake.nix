@@ -131,6 +131,10 @@
           system = "x86_64-linux";
           module = ./machines/uriel/home-manager.nix;
         };
+        "llibinim@uriel" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/uriel/home-manager.nix;
+        };
       };
       nixosConfigurations = {
         uriel = inputs.nixpkgs.lib.nixosSystem {

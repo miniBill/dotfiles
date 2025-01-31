@@ -157,6 +157,15 @@ in
     dockerCompat = true;
   };
 
+  users.users.llibinim = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel"
+    ];
+    extraGroups = [ "wheel" ];
+  };
+
   system.stateVersion = "22.05";
 
   networking.extraHosts = "127.0.0.1 casa.taglialegne.it";
