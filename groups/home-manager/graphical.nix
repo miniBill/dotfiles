@@ -88,6 +88,8 @@ let
     audacity
     calf
     ffmpeg
+    libwebp
+    libavif
     inkscape
     jackmix
     pavucontrol

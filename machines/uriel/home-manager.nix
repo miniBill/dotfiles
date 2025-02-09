@@ -66,7 +66,6 @@
     haskellPackages.stack
     # Misc
     ninja
-    libwebp
     # cachix
     # zig sqlitebrowser binutils nasm
     dbeaver-bin
