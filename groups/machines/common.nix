@@ -2,12 +2,14 @@
 , pkgs
   # , nixpkgs-small
 , agenix
+, lix-module
 , ...
 }:
 
 {
   imports = [
     agenix.nixosModules.default
+    lix-module.nixosModules.default
   ];
 
   age.secrets.tailscale = {
