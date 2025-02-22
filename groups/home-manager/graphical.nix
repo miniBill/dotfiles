@@ -1,128 +1,155 @@
-{ pkgs
-, lib
+{
+  pkgs,
+  lib,
   # , lamdera
   # , pinned-unstable-vscode
-, ...
+  ...
 }:
 
 let
   inherit (pkgs) stdenv;
 
   # Base - laptops and desktops
-  packages-base = with pkgs; [
-    neofetch
-    nix-bundle
-    nixpkgs-fmt
-  ] ++ lib.optionals stdenv.isLinux [
-    usbutils
-    (callPackage ../../programs/wally-cli.nix { })
-    (aspellWithDicts (d: [ d.en d.it ]))
-    hunspell
-    hunspellDicts.en-us
-    hunspellDicts.en-gb-ise
-    hunspellDicts.it-it
-    hunspellDicts.tok
-  ];
+  packages-base =
+    with pkgs;
+    [
+      neofetch
+      nix-bundle
+      nixpkgs-fmt
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      usbutils
+      (callPackage ../../programs/wally-cli.nix { })
+      (aspellWithDicts (d: [
+        d.en
+        d.it
+      ]))
+      hunspell
+      hunspellDicts.en-us
+      hunspellDicts.en-gb-ise
+      hunspellDicts.it-it
+      hunspellDicts.tok
+    ];
 
   # Dev
-  packages-dev-base = with pkgs; [
-    hyperfine
-    black
-  ] ++ lib.optionals stdenv.isLinux [
-    gitAndTools.qgit
+  packages-dev-base =
+    with pkgs;
+    [
+      hyperfine
+      black
+      typst
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      gitAndTools.qgit
 
-    (python3.withPackages (ps: [ ps.pillow ps.pyserial ]))
+      (python3.withPackages (ps: [
+        ps.pillow
+        ps.pyserial
+      ]))
 
-    watchexec
-  ];
+      watchexec
+    ];
 
-  packages-dev-c = with pkgs; lib.optionals stdenv.isLinux [
-    gcc
-    gdb
-  ];
+  packages-dev-c =
+    with pkgs;
+    lib.optionals stdenv.isLinux [
+      gcc
+      gdb
+    ];
 
-  package-dev-elm = with pkgs; [
-    elmPackages.elm-format
-    elmPackages.elm-json
-    # elmPackages.elm-test
-    # lamdera.packages.${system}.lamdera-next
-    nodejs_22
-    optipng
-    jpegoptim
-    yarn
-  ] ++ lib.optionals stdenv.isLinux [
-    # elmPackages.elm
-  ];
+  package-dev-elm =
+    with pkgs;
+    [
+      elmPackages.elm-format
+      elmPackages.elm-json
+      # elmPackages.elm-test
+      # lamdera.packages.${system}.lamdera-next
+      nodejs_22
+      optipng
+      jpegoptim
+      yarn
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      # elmPackages.elm
+    ];
 
   package-dev = packages-dev-base ++ packages-dev-c ++ package-dev-elm;
 
   # GUI
-  packages-gui-kde = with pkgs; lib.optionals stdenv.isLinux [
-    ark
-    gwenview
-    kcalc
-    kcharselect
-    kolourpaint
-    okular
-    plasma-browser-integration
-    plasma5Packages.plasma-thunderbolt
-    spectacle
-    xdg-desktop-portal-kde
-    yakuake
-  ];
+  packages-gui-kde =
+    with pkgs;
+    lib.optionals stdenv.isLinux [
+      ark
+      gwenview
+      kcalc
+      kcharselect
+      kolourpaint
+      okular
+      plasma-browser-integration
+      plasma5Packages.plasma-thunderbolt
+      spectacle
+      xdg-desktop-portal-kde
+      yakuake
+    ];
 
-  packages-gui-misc = with pkgs; lib.optionals stdenv.isLinux [
-    gparted
-    libreoffice
-    calibre
-    virt-manager
-    glxinfo
-  ] ++ lib.optionals stdenv.isLinux [
-    solaar
-  ];
+  packages-gui-misc =
+    with pkgs;
+    lib.optionals stdenv.isLinux [
+      gparted
+      libreoffice
+      calibre
+      virt-manager
+      glxinfo
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      solaar
+    ];
 
-  packages-gui-multimedia = with pkgs; [
-    imagemagick
-    gimp
-  ] ++ lib.optionals stdenv.isLinux [
-    audacity
-    calf
-    ffmpeg
-    libwebp
-    libavif
-    inkscape
-    jackmix
-    pavucontrol
-    pulseaudio
-    qjackctl
-    scribus
-    vlc
-    (callPackage ../../programs/headset-control.nix { })
-  ];
+  packages-gui-multimedia =
+    with pkgs;
+    [
+      imagemagick
+      gimp
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      audacity
+      calf
+      ffmpeg
+      libwebp
+      libavif
+      inkscape
+      jackmix
+      pavucontrol
+      pulseaudio
+      qjackctl
+      scribus
+      vlc
+      (callPackage ../../programs/headset-control.nix { })
+    ];
 
   packages-gui-platform-specific =
-    with pkgs; lib.optionals stdenv.isx86_64 [
+    with pkgs;
+    lib.optionals stdenv.isx86_64 [
       # etcher
       spotify
       zoom-us
     ];
 
   packages-gui =
-    packages-gui-kde
-    ++ packages-gui-misc
-    ++ packages-gui-multimedia
-    ++ packages-gui-platform-specific;
+    packages-gui-kde ++ packages-gui-misc ++ packages-gui-multimedia ++ packages-gui-platform-specific;
 
   # Network
-  packages-net-misc = with pkgs; lib.optionals stdenv.isLinux [
-    filezilla
-    remmina
-    thunderbird
+  packages-net-misc =
+    with pkgs;
+    lib.optionals stdenv.isLinux [
+      filezilla
+      remmina
+      thunderbird
 
-    tdesktop
-    discord
-    signal-desktop
-  ];
+      tdesktop
+      discord
+      signal-desktop
+    ];
 
   packages-net = packages-net-misc;
 in
@@ -130,12 +157,7 @@ in
   imports = [ ./base.nix ];
 
   home = {
-    packages =
-      packages-base
-      ++ package-dev
-      ++ packages-gui
-      ++ packages-net
-    ;
+    packages = packages-base ++ package-dev ++ packages-gui ++ packages-net;
 
     file = {
       # Always allow moving output devices in pavucontrol
