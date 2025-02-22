@@ -1,49 +1,59 @@
-{ pkgs
-, lib
-, config
-, username
-, nix-index-database
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  nix-index-database,
+  ...
 }:
 let
   inherit (pkgs) stdenv;
 
   # Base
-  packages-base = with pkgs; [
-    bc
-    file
-    moreutils
-    openssh
-    patchelf
-    pigz
-    ripgrep
-    fd
-    bfs
-    zip
-    unzip
-    # comma
-  ] ++ lib.optionals stdenv.isLinux [
-    inotify-tools
-    smem
-  ];
+  packages-base =
+    with pkgs;
+    [
+      bc
+      file
+      moreutils
+      openssh
+      patchelf
+      pigz
+      ripgrep
+      fd
+      bfs
+      zip
+      unzip
+      # comma
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      inotify-tools
+      smem
+    ];
 
   # Dev
-  packages-dev = with pkgs; [
-    gnumake
-    nixfmt-rfc-style
-  ] ++ lib.optionals stdenv.isLinux [
-    tup
-  ];
+  packages-dev =
+    with pkgs;
+    [
+      gnumake
+      nixfmt-rfc-style
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      tup
+    ];
 
   # Net
-  packages-net-analysis = with pkgs; [
-    mtr
-    nmap
-  ] ++ lib.optionals stdenv.isLinux [
-    bmon
-    dnsutils
-    whois
-  ];
+  packages-net-analysis =
+    with pkgs;
+    [
+      mtr
+      nmap
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      bmon
+      dnsutils
+      whois
+    ];
 
   packages-net-misc = with pkgs; [
     aria
@@ -62,21 +72,16 @@ in
   ];
 
   home = {
-    packages =
-      packages-base ++ packages-dev ++ packages-net;
+    packages = packages-base ++ packages-dev ++ packages-net;
 
     file = {
       # ".zsh/p10k.zsh".source = ../../files/zsh/p10k.zsh;
       ".cargo/config.toml".source = ../../files/cargo/config.toml;
       ".elm".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/elm";
       ".config/nix/nix.conf".source = ../../files/nix.conf;
-      ".config/Code/Dictionaries".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
-    } // (
-      if stdenv.isDarwin then
-        { }
-      else
-        { "bin/lamdera-wrapped".source = ../../files/lamdera; }
-    );
+      ".config/Code/Dictionaries".source =
+        config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
+    } // (if stdenv.isDarwin then { } else { "bin/lamdera-wrapped".source = ../../files/lamdera; });
 
     sessionPath = [
       "$HOME/bin"
@@ -188,6 +193,9 @@ in
         "ambue-enterprise.lamdera.com" = {
           identityFile = "~/.ssh/id_ed25519_ci_ambue";
           identitiesOnly = true;
+        };
+        "git.aljordan.dev" = {
+          port = 2233;
         };
       };
     };
