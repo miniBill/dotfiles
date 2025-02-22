@@ -64,7 +64,7 @@ let
       elmPackages.elm-json
       # elmPackages.elm-test
       # lamdera.packages.${system}.lamdera-next
-      nodejs_22
+      nodejs_23
       optipng
       jpegoptim
       yarn
