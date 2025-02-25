@@ -130,32 +130,62 @@ in
       delta.enable = true;
       userName = "Leonardo Taglialegne";
       userEmail = lib.mkDefault "cmt.miniBill@gmail.com";
+
       extraConfig = {
-        advice.detachedHead = "false";
-        branch.sort = "-committerdate";
+        # Misc
         core.editor = "vim";
-        diff.algorithm = "histogram";
-        fetch.prune = true;
-        fetch.parallel = 0;
         gpg.format = "ssh";
         help.autocorrect = 10;
         init.defaultBranch = "main";
-        merge.conflictstyle = "zdiff3";
-        pull.rebase = "true";
-        push.autoSetupRemote = "true";
-        rerere.enabled = true;
+        pull.rebase = true;
+        push.autoSetupRemote = true;
+        advice.detachedHead = "false";
+
         url."git@github.com:".insteadOf = "gh:";
 
-        rebase.autosquash = true;
-        rebase.autostash = true;
-        rebase.updateRefs = true;
+        # UI tweaks
+        branch.sort = "-committerdate";
+        column.ui = "auto,dense";
+        tag.sort = "version:refname";
 
-        transfer.fsckobjects = true;
+        # Better diff
+        diff = {
+          algorithm = "histogram";
+          colorMoved = true;
+          renames = true;
+          mnemonicPrefix = true;
+        };
+        merge.conflictstyle = "zdiff3";
+
+        # Better fetching
+        fetch = {
+          parallel = 0;
+          prune = true;
+          pruneTags = true;
+          all = true;
+        };
+
+        # Reuse recorder resolution
+        rerere = {
+          enabled = true;
+          autoupdate = true;
+        };
+
+        # Better rebase
+        rebase = {
+          autosquash = true;
+          autostash = true;
+          updateRefs = true;
+        };
+
+        # Fsck more often
         fetch.fsckobjects = true;
         receive.fsckObjects = true;
+        transfer.fsckobjects = true;
 
-        status.submoduleSummary = true;
+        # Submodules
         diff.submodule = "log";
+        status.submoduleSummary = true;
         submodule.recurse = true;
       };
     };
