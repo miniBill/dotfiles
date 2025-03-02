@@ -16,10 +16,12 @@ in
     enable = true;
     efiSupport = true;
     device = "nodev";
-    mirroredBoots = [{
-      devices = [ "nodev" ];
-      path = "/boot-fallback";
-    }];
+    mirroredBoots = [
+      {
+        devices = [ "nodev" ];
+        path = "/boot-fallback";
+      }
+    ];
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = false;
@@ -34,14 +36,18 @@ in
   };
   networking = {
     usePredictableInterfaceNames = false;
-    interfaces.eth0.ipv4.addresses = [{
-      address = ip;
-      prefixLength = 27;
-    }];
-    interfaces.eth0.ipv6.addresses = [{
-      address = "2a01:4f8:190:738b::";
-      prefixLength = 64;
-    }];
+    interfaces.eth0.ipv4.addresses = [
+      {
+        address = ip;
+        prefixLength = 27;
+      }
+    ];
+    interfaces.eth0.ipv6.addresses = [
+      {
+        address = "2a01:4f8:190:738b::";
+        prefixLength = 64;
+      }
+    ];
     defaultGateway = "144.76.3.161";
     defaultGateway6 = {
       address = "fe80::1";
@@ -59,12 +65,11 @@ in
       30033 # ?
       10011 # ?
       4144 # ?
-      25565 # ?
+      14300 # Minecraft
     ];
     firewall.allowedUDPPorts = [
       54345 # ?
       9987 # ?
-      25565 # ?
     ];
   };
   users.mutableUsers = false;
