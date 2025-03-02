@@ -1,12 +1,28 @@
-{ config, pkgs, musnix, lib, ... }:
+{
+  config,
+  pkgs,
+  musnix,
+  lib,
+  ...
+}:
 
 let
   # openrgb-rules = builtins.fetchurl {
   #   url =
   #     "https://gitlab.com/CalcProgrammer1/OpenRGB/-/raw/master/60-openrgb.rules";
   # };
-  killingFloorTCPPorts = [ 28852 8075 20560 ];
-  kilingFloorUDPPorts = [ 28852 20560 7707 7708 7717 ];
+  killingFloorTCPPorts = [
+    28852
+    8075
+    20560
+  ];
+  kilingFloorUDPPorts = [
+    28852
+    20560
+    7707
+    7708
+    7717
+  ];
 in
 {
   imports = [
@@ -29,10 +45,12 @@ in
     efiSupport = true;
     device = "nodev";
     useOSProber = true;
-    mirroredBoots = [{
-      devices = [ "nodev" ];
-      path = "/boot-fallback";
-    }];
+    mirroredBoots = [
+      {
+        devices = [ "nodev" ];
+        path = "/boot-fallback";
+      }
+    ];
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = false;
@@ -110,8 +128,8 @@ in
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="0a87", GROUP="audio"
   ''
-    # + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ]
-    #   (builtins.readFile openrgb-rules)
+  # + builtins.replaceStrings [ "/bin/chmod" ] [ "${pkgs.coreutils}/bin/chmod" ]
+  #   (builtins.readFile openrgb-rules)
   ;
 
   # List packages installed in system profile. To search, run:
@@ -131,14 +149,13 @@ in
     8000
     1234
     # Minecraft
-    25565
+    14300
   ];
   networking.firewall.allowedUDPPorts = [ ];
-  networking.firewall.interfaces.tun0 =
-    {
-      allowedTCPPorts = killingFloorTCPPorts;
-      allowedUDPPorts = kilingFloorUDPPorts;
-    };
+  networking.firewall.interfaces.tun0 = {
+    allowedTCPPorts = killingFloorTCPPorts;
+    allowedUDPPorts = kilingFloorUDPPorts;
+  };
 
   age.secrets.snizzovpn = {
     file = ../../secrets/snizzovpn.age;
@@ -146,7 +163,9 @@ in
     group = "root";
   };
   services.openvpn.servers = {
-    snizzoVPN = { config = ''config ${config.age.secrets.snizzovpn.path}''; };
+    snizzoVPN = {
+      config = ''config ${config.age.secrets.snizzovpn.path}'';
+    };
   };
 
   programs.adb.enable = true;
