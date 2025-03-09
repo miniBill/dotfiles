@@ -76,7 +76,7 @@ in
 
     file = {
       # ".zsh/p10k.zsh".source = ../../files/zsh/p10k.zsh;
-      ".cargo/config.toml".source = ../../files/cargo/config.toml;
+      "${config.xdg.dataHome}/cargo".source = ../../files/cargo/config.toml;
       ".elm".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/elm";
       ".config/nix/nix.conf".source = ../../files/nix.conf;
       ".config/Code/Dictionaries".source =

@@ -1,5 +1,6 @@
-{ pkgs
-, ...
+{
+  pkgs,
+  ...
 }:
 
 {
@@ -7,12 +8,8 @@
 
   home.packages = with pkgs; [
     nh
-    # Rust
     lld
-    cargo
-    rust-analyzer
-    rustc
-    rustfmt
+    rustup
     pkg-config
   ];
 }

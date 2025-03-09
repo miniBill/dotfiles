@@ -1,7 +1,8 @@
-{ pkgs
-, pinned-unstable-papermc
+{
+  pkgs,
+  pinned-unstable-papermc,
   # , roc
-, ...
+  ...
 }:
 
 {
@@ -10,7 +11,19 @@
   home.packages = with pkgs; [
     # BASE
     openrgb
-    (texlive.combined.scheme-basic.withPackages (ps: with ps; [ academicons arydshln fontawesome5 footmisc moderncv multirow relsize scheme-medium textpos ]))
+    (texlive.combined.scheme-basic.withPackages (
+      ps: with ps; [
+        academicons
+        arydshln
+        fontawesome5
+        footmisc
+        moderncv
+        multirow
+        relsize
+        scheme-medium
+        textpos
+      ]
+    ))
     piper
 
     # GUI
@@ -51,10 +64,7 @@
     glslang
     # Rust
     lld
-    cargo
-    rust-analyzer
-    rustc
-    rustfmt
+    rustup
     pkg-config
     # Haskell
     # shake
