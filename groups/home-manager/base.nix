@@ -222,7 +222,7 @@ in
           identitiesOnly = true;
         };
         "ambue-enterprise.lamdera.com" = {
-          identityFile = "~/.ssh/id_ed25519_ci_ambue";
+          identityFile = "~/.ssh/lamdera-ambue-1";
           identitiesOnly = true;
         };
         "git.aljordan.dev" = {
