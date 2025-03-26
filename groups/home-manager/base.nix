@@ -1,10 +1,9 @@
-{
-  pkgs,
-  lib,
-  config,
-  username,
-  nix-index-database,
-  ...
+{ pkgs
+, lib
+, config
+, username
+, nix-index-database
+, ...
 }:
 let
   inherit (pkgs) stdenv;
@@ -25,6 +24,8 @@ let
       zip
       unzip
       # comma
+
+      nix-output-monitor
     ]
     ++ lib.optionals stdenv.isLinux [
       inotify-tools
