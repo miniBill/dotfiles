@@ -114,6 +114,7 @@ let
     ++ lib.optionals stdenv.isLinux [
       audacity
       calf
+      easyeffects
       ffmpeg
       libwebp
       libavif
