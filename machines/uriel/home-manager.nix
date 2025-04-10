@@ -91,7 +91,6 @@
     zotero
     slack
     # Im
-    skypeforlinux
     signal-desktop
     x11vnc
 

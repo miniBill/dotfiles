@@ -75,7 +75,6 @@
         "google-chrome"
         # "lamdera"
         "minecraft-launcher"
-        "skypeforlinux"
         "slack"
         "spotify"
         "vscode"

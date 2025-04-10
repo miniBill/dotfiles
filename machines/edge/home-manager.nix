@@ -23,7 +23,6 @@
     cheese
 
     # NET
-    skypeforlinux
     bind
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
     zotero
