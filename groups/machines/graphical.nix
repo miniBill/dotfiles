@@ -20,11 +20,9 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     gparted
-    kwin
     pavucontrol
     yakuake
     konsole
-    qt6.qtwayland
   ];
 
   # Set your time zone.
