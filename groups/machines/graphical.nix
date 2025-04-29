@@ -95,7 +95,8 @@
       };
     };
     enableDefaultPackages = false;
-    packages = with pkgs;
+    packages =
+      with pkgs;
       # Defaults:
       [
         dejavu_fonts
@@ -106,17 +107,22 @@
         noto-fonts-color-emoji
       ]
       ++
-      # Mine:
-      [
-        inter
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        fira-code-symbols # fira code ligatures for compatibility reasons
-        stix-two
-        (callPackage ../../fonts/linja-pona.nix { })
+        # Mine:
+        [
+          inter
+          noto-fonts-cjk-sans
+          noto-fonts-cjk-serif
+          fira-code-symbols # fira code ligatures for compatibility reasons
+          stix-two
+          (callPackage ../../fonts/linja-pona.nix { })
 
-        (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-      ];
+          (nerdfonts.override {
+            fonts = [
+              "FiraCode"
+              "DroidSansMono"
+            ];
+          })
+        ];
   };
 
   # MCH2022 badge
