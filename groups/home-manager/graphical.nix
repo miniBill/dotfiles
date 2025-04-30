@@ -77,7 +77,7 @@ let
 
   # GUI
   packages-gui-kde =
-    with pkgs;
+    with pkgs.kdePackages;
     lib.optionals stdenv.isLinux [
       ark
       gwenview
@@ -86,7 +86,7 @@ let
       kolourpaint
       okular
       plasma-browser-integration
-      plasma5Packages.plasma-thunderbolt
+      plasma-thunderbolt
       spectacle
       xdg-desktop-portal-kde
       yakuake

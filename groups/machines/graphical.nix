@@ -21,8 +21,8 @@
   environment.systemPackages = with pkgs; [
     gparted
     pavucontrol
-    yakuake
-    konsole
+    kdePackages.yakuake
+    kdePackages.konsole
   ];
 
   # Set your time zone.
