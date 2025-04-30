@@ -100,8 +100,7 @@ let
       calibre
       virt-manager
       glxinfo
-    ]
-    ++ lib.optionals stdenv.isLinux [
+      graphviz-nox
       solaar
     ];
 
