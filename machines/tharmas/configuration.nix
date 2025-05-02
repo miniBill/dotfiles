@@ -89,14 +89,10 @@ in
     emilywelbers = {
       isNormalUser = true;
       group = "emilywelbers";
-      openssh.authorizedKeys = {
-        keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel"
-        ];
-        keyFiles = [
-          ../../files/wouter.key
-        ];
-      };
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel"
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC47L5U+uP74A6ZPr05Emp7eNx1Qge9WkyBe7Er7NPb1LhVYCH7nJJtR4AFCvXRI9ekll8Bz7IZUs1OOqCBffXVpHcxM686OMMttCW10OMwOnNE6s85nQUtAMSLSPq/KBh4hlov0BcX5FDvJ5n7QvmmjWOQIfsfc/Ipgx1QFDHoqwQKgIZSKDJH9rPKD2mpXm/L+4f7pDlD0ULLqa/I/p5eroE0tHo5fGtkK1vJSdONACGEDW+aeafGi1bXWnU5XM2qMQ7AW6KzpdBtXleeSS4NCcrJ2lgJXGYWDHDkc2wNVCEngbC4uOED6Gj6a65HXE6UyyZFRQk1a7vY2tMO+aip wouter"
+      ];
     };
     root = {
       hashedPassword = "$6$fWJ47Jp5U7LytfoV$Z1XqNGZIA0m9MUtNgmmjIGqsKkyoqT0PhQ0F7OyMrElwtjHeRrDUu5PzISxuUXgcxIauyA/8R/IH7r7cWq4Fu/";
