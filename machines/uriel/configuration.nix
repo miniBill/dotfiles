@@ -78,6 +78,7 @@ in
     "intel_iommu=on"
     "pci=assign-busses,hpbussize=0x33,realloc,hpmemsize=128M,hpmemprefsize=1G"
 
+    # Attempts are GPU virtualization
     # "i915.enable_guc=0"
 
     # Disable deepest sleep state on SSD to fix disk disappearing
