@@ -31,6 +31,7 @@ in
     ../../groups/machines/common.nix
     ../../groups/machines/graphical.nix
     ../../groups/machines/steam.nix
+    ../../groups/machines/plymouth.nix
     ./web.nix
     # ./ups.nix
   ];
