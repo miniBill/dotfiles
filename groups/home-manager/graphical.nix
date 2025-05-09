@@ -16,6 +16,7 @@ let
       neofetch
       nix-bundle
       nixpkgs-fmt
+      scrcpy
     ]
     ++ lib.optionals stdenv.isLinux [
       usbutils
