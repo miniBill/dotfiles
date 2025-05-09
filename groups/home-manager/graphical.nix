@@ -67,7 +67,7 @@ let
       nodejs_23
       optipng
       jpegoptim
-      yarn
+      corepack_23
     ]
     ++ lib.optionals stdenv.isLinux [
       # elmPackages.elm
