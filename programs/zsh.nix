@@ -26,95 +26,8 @@ in
     #   shell_integration = true;
     #   enable_cursor_positioning = true;
     # };
-    # useTheme = "chips";
-    # useTheme = "kushal";
-    # useTheme = "nightowl";
-    # useTheme = "paradox";
     useTheme = "powerlevel10k_rainbow";
-    # useTheme = "unicorn";
-    # useTheme = "robbyrussel";
   };
-  # programs.starship = {
-  #   enable = true;
-  #   settings = {
-  #     add_newline = false;
-  #     format = lib.concatStrings [
-  #       "$directory"
-  #       "$vcsh"
-  #       "$fossil_branch"
-  #       "$fossil_metrics"
-  #       "$git_branch"
-  #       "$git_commit"
-  #       "$git_state"
-  #       "$git_status"
-  #       "$hg_branch"
-  #       "$pijul_channel"
-  #       "$direnv"
-  #       "$shlvl"
-  #       "$character"
-  #     ];
-  #     cmd_duration = {
-  #       format = "[$duration]($style) ";
-  #       style = "dimmed yellow";
-  #     };
-  #     directory = {
-  #       truncate_to_repo = false;
-  #       fish_style_pwd_dir_length = 4;
-  #       truncation_length = 4;
-  #       style = "blue";
-  #       read_only = "";
-  #     };
-  #     git_branch.format = "[$branch(:$remote_branch)](green) ";
-  #     git_status = {
-  #       format = "([$all_status$ahead_behind]($style))";
-  #       style = "dimmed yellow";
-  #       conflicted = "[=$count](bold red)";
-  #       ahead = "⇡$count ";
-  #       behind = "⇣$count ";
-  #       diverged = "⇡$ahead_count ⇣$behind_count";
-  #       untracked = "?$count ";
-  #       stashed = "\\$$count ";
-  #       modified = "!$count ";
-  #       staged = "[*$count ](green)";
-  #       renamed = "»$count ";
-  #       deleted = "[✘$count ](bold red)";
-  #     };
-  #     hostname = {
-  #       format = "[$hostname]($style)";
-  #       style = "dimmed green";
-  #     };
-  #     localip = {
-  #       disabled = false;
-  #       style = "dimmed cyan";
-  #       format = "[@](dimmed white)[$localipv4]($style) ";
-  #     };
-  #     nix_shell = {
-  #       heuristic = true;
-  #       format = "via [$symbol$state]($style) ";
-  #     };
-  #     time = {
-  #       disabled = false;
-  #       format = "[$time]($style)";
-  #       style = "dimmed white";
-  #     };
-  #     username = {
-  #       format = "[$user]($style)[@](dimmed white)";
-  #       style_root = "red";
-  #       style_user = "dimmed yellow";
-  #     };
-  #     right_format = lib.concatStrings [
-  #       "$container"
-  #       "$username"
-  #       "$hostname"
-  #       "$localip"
-  #       "$nix_shell"
-  #       "$cmd_duration"
-  #       "$jobs"
-  #       "$battery"
-  #       "$time"
-  #     ];
-  #   };
-  # };
 
   programs.zsh = {
     enable = true;
@@ -148,6 +61,8 @@ in
       TERM = "xterm-256color";
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
       SKIP_ELM_CODEGEN = "true";
+
+      ELM_WATCH_OPEN_EDITOR = "code --goto \"\$file:\$line:\$column\"";
 
       ANDROID_HOME = "${config.xdg.dataHome}/android";
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
