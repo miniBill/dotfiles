@@ -190,6 +190,4 @@ in
   };
 
   system.stateVersion = "22.05";
-
-  networking.extraHosts = "127.0.0.1 casa.taglialegne.it";
 }
