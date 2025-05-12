@@ -162,7 +162,7 @@ in
   };
   services.tailscale = {
     useRoutingFeatures = "server";
-    extraSetFlags = [ "--exit-node" ];
+    extraSetFlags = [ "--advertise-exit-node" ];
   };
 
   age.secrets.snizzovpn = {
