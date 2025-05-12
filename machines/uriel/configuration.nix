@@ -160,6 +160,10 @@ in
     allowedTCPPorts = killingFloorTCPPorts;
     allowedUDPPorts = kilingFloorUDPPorts;
   };
+  services.tailscale = {
+    useRoutingFeatures = "server";
+    extraSetFlags = [ "--exit-node" ];
+  };
 
   age.secrets.snizzovpn = {
     file = ../../secrets/snizzovpn.age;
