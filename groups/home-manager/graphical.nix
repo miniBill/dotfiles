@@ -1,7 +1,6 @@
-{
-  pkgs,
-  lib,
-  # , lamdera
+{ pkgs
+, lib
+, # , lamdera
   # , pinned-unstable-vscode
   ...
 }:
