@@ -64,10 +64,10 @@ let
       elmPackages.elm-json
       # elmPackages.elm-test
       # lamdera.packages.${system}.lamdera-next
-      nodejs_23
+      nodejs
       optipng
       jpegoptim
-      corepack_23
+      corepack
     ]
     ++ lib.optionals stdenv.isLinux [
       # elmPackages.elm

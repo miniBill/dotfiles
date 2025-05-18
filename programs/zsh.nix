@@ -42,16 +42,7 @@ in
       path = "${config.xdg.stateHome}/zsh/history";
     };
 
-    initExtraFirst = "export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"";
-
-    initExtra =
-      if stdenv.isDarwin then
-        ''
-          export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels''${NIX_PATH:+:$NIX_PATH}
-        ''
-        ++ initExtra
-      else
-        initExtra;
+    initContent = lib.mkBefore "export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"";
 
     plugins = import ./zsh/plugins.nix pkgs;
 
