@@ -126,6 +126,11 @@ in
       changeDirWidgetCommand = "bfs -type d";
     };
 
+    vim = {
+      enable = true;
+      defaultEditor = true;
+    };
+
     git = {
       enable = true;
       lfs.enable = true;

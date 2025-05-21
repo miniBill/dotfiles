@@ -47,7 +47,6 @@ in
     plugins = import ./zsh/plugins.nix pkgs;
 
     sessionVariables = {
-      EDITOR = "vim";
       TERM = "xterm-256color";
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
       SKIP_ELM_CODEGEN = "true";
