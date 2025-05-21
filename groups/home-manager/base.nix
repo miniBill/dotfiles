@@ -1,9 +1,10 @@
-{ pkgs
-, lib
-, config
-, username
-, nix-index-database
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  nix-index-database,
+  ...
 }:
 let
   inherit (pkgs) stdenv;
