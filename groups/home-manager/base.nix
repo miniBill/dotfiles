@@ -127,13 +127,22 @@ in
       changeDirWidgetCommand = "bfs -type d";
     };
 
-    vim = {
+    neovim = {
       enable = true;
       defaultEditor = true;
-      settings = {
-        number = true;
-        relativenumber = true;
-      };
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      extraConfig = ''
+        set number
+        set relativenumber
+      '';
+      extraLuaConfig = ''
+        require("hardtime").setup()
+      '';
+      plugins = with pkgs.vimPlugins; [
+        hardtime-nvim
+      ];
     };
 
     git = {
