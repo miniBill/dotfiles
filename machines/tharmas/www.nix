@@ -105,6 +105,23 @@
         ];
         root = "/var/www/emilywelbers";
       };
+      "fairyrings.emilywelbers.com" = {
+        forceSSL = true;
+        enableACME = true;
+        # serverAliases = [ ];
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = true;
+          }
+        ];
+        root = "/var/www/fairy-rings";
+      };
       # "snizzo.taglialegne.it" = {
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
       # };
