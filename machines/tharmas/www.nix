@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   security.acme = {
     acceptTerms = true;
@@ -51,8 +56,15 @@
         enableACME = true;
         serverAliases = [ ];
         listen = [
-          { addr = "0.0.0.0"; port = 80; }
-          { addr = "127.0.0.1"; port = 443; ssl = true; }
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = true;
+          }
         ];
         root = "/var/www/tharmas";
       };
@@ -64,8 +76,15 @@
           extraConfig = "proxy_set_header Host www.patreon.com;";
         };
         listen = [
-          { addr = "0.0.0.0"; port = 80; }
-          { addr = "127.0.0.1"; port = 443; ssl = true; }
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = true;
+          }
         ];
         root = "/var/www/orla-player";
       };
@@ -74,8 +93,15 @@
         enableACME = true;
         serverAliases = [ "www.emilywelbers.com" ];
         listen = [
-          { addr = "0.0.0.0"; port = 80; }
-          { addr = "127.0.0.1"; port = 443; ssl = true; }
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+          {
+            addr = "127.0.0.1";
+            port = 443;
+            ssl = true;
+          }
         ];
         root = "/var/www/emilywelbers";
       };
