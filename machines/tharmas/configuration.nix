@@ -28,7 +28,7 @@ in
 
   networking.hostName = "tharmas";
 
-  virtualisation.lxd.enable = true;
+  # virtualisation.lxd.enable = true;
   services.sslh = {
     enable = true;
     settings.transparent = true;
