@@ -31,13 +31,13 @@
       add_header Strict-Transport-Security $hsts_header;
 
       # Enable CSP for your services.
-      #add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
+      # add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
 
       # Minimize information leaked to other domains
       add_header 'Referrer-Policy' 'origin-when-cross-origin';
 
       # Disable embedding as a frame
-      add_header X-Frame-Options DENY;
+      # add_header X-Frame-Options DENY;
 
       # Prevent injection of code in other mime types (XSS Attacks)
       add_header X-Content-Type-Options nosniff;
@@ -121,9 +121,9 @@
           }
         ];
         root = "/var/www/fairy-rings";
-        extraConfig = ''
-          add_header X-Frame-Options SAMEORIGIN;
-        '';
+        # extraConfig = ''
+        #   add_header X-Frame-Options SAMEORIGIN;
+        # '';
       };
       # "snizzo.taglialegne.it" = {
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
