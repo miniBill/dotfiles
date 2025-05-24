@@ -4,6 +4,19 @@
   lib,
   ...
 }:
+let
+  standardListen = [
+    {
+      addr = "0.0.0.0";
+      port = 80;
+    }
+    {
+      addr = "127.0.0.1";
+      port = 443;
+      ssl = true;
+    }
+  ];
+in
 {
   security.acme = {
     acceptTerms = true;
@@ -55,17 +68,7 @@
         forceSSL = true;
         enableACME = true;
         serverAliases = [ ];
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 80;
-          }
-          {
-            addr = "127.0.0.1";
-            port = 443;
-            ssl = true;
-          }
-        ];
+        listen = standardListen;
         root = "/var/www/tharmas";
       };
       "orla-player.taglialegne.it" = {
@@ -75,51 +78,21 @@
           proxyPass = "https://www.patreon.com/rss/orlagartland";
           extraConfig = "proxy_set_header Host www.patreon.com;";
         };
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 80;
-          }
-          {
-            addr = "127.0.0.1";
-            port = 443;
-            ssl = true;
-          }
-        ];
+        listen = standardListen;
         root = "/var/www/orla-player";
       };
       "emilywelbers.com" = {
         forceSSL = true;
         enableACME = true;
         serverAliases = [ "www.emilywelbers.com" ];
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 80;
-          }
-          {
-            addr = "127.0.0.1";
-            port = 443;
-            ssl = true;
-          }
-        ];
+        listen = standardListen;
         root = "/var/www/emilywelbers";
       };
       "fairyrings.emilywelbers.com" = {
         forceSSL = true;
         enableACME = true;
         # serverAliases = [ ];
-        listen = [
-          {
-            addr = "0.0.0.0";
-            port = 80;
-          }
-          {
-            addr = "127.0.0.1";
-            port = 443;
-            ssl = true;
-          }
-        ];
+        listen = standardListen;
         root = "/var/www/fairy-rings";
         # extraConfig = ''
         #   add_header X-Frame-Options SAMEORIGIN;
