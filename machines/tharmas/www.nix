@@ -121,6 +121,9 @@
           }
         ];
         root = "/var/www/fairy-rings";
+        extraConfig = ''
+          add_header X-Frame-Options SAMEORIGIN;
+        '';
       };
       # "snizzo.taglialegne.it" = {
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
