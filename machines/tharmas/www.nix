@@ -98,6 +98,13 @@ in
         #   add_header X-Frame-Options SAMEORIGIN;
         # '';
       };
+      "video.emilywelbers.com" = {
+        forceSSL = true;
+        enableACME = true;
+        # serverAliases = [ ];
+        listen = standardListen;
+        root = "/var/www/video";
+      };
       # "snizzo.taglialegne.it" = {
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
       # };
