@@ -107,7 +107,7 @@
     in
     {
       homeConfigurations = {
-        "minibill@gadiriel.local" = withConfig {
+        "minibill@gadiriel" = withConfig {
           system = "aarch64-darwin";
           module = ./machines/gadiriel/home-manager.nix;
         };
