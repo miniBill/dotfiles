@@ -32,9 +32,9 @@
   i18n = {
     defaultLocale = "en_GB.UTF-8";
     extraLocales = [
-      "en_GB.UTF-8"
-      "it_IT.UTF-8"
-      "en_US.UTF-8"
+      "en_GB.UTF-8/UTF-8"
+      "it_IT.UTF-8/UTF-8"
+      "en_US.UTF-8/UTF-8"
     ];
     # Use Italian for time and money
     extraLocaleSettings = {
