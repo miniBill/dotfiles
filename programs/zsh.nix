@@ -10,11 +10,15 @@ let
 
   homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
-  initExtra = ''
-    autopair-init
-    # source ~/.zsh/p10k.zsh
-    bindkey '^[[1;5C' emacs-forward-word
-    bindkey '^[[1;5D' emacs-backward-word
+  beforeInit = ''
+    export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"
+  '';
+
+  afterInit = ''
+    bindkey "^[[1;5C" forward-word
+    bindkey "^[[1;5D" backward-word
+    bindkey "^[OH" beginning-of-line
+    bindkey "^[OF" end-of-line
   '';
 in
 
@@ -44,12 +48,14 @@ in
       path = "${config.xdg.stateHome}/zsh/history";
     };
 
-    initContent = lib.mkBefore "export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"";
+    initContent = lib.mkMerge [
+      (lib.mkBefore beforeInit)
+      (lib.mkAfter afterInit)
+    ];
 
     plugins = import ./zsh/plugins.nix pkgs;
 
     sessionVariables = {
-      TERM = "xterm-256color";
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
       SKIP_ELM_CODEGEN = "true";
 
