@@ -1,8 +1,9 @@
-{ pkgs
-, lib
-, config
-, username
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  ...
 }:
 let
   inherit (pkgs) stdenv;
