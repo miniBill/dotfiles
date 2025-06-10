@@ -251,7 +251,7 @@ in
       enable = true;
       newSession = true;
       extraConfig = "set-option -g mouse on";
-      terminal = "xterm-256color";
+      terminal = "screen-256color";
     };
 
     yt-dlp.enable = true;
