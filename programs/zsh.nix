@@ -36,6 +36,7 @@ in
     autosuggestion.enable = true;
     enableCompletion = true;
     enableVteIntegration = !stdenv.isDarwin;
+    defaultKeymap = "emacs";
 
     history = {
       expireDuplicatesFirst = true;
