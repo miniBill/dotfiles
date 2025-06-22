@@ -1,6 +1,5 @@
-{
-  pkgs,
-  ...
+{ pkgs
+, ...
 }:
 
 {
@@ -8,9 +7,10 @@
 
   home.packages = with pkgs; [
     agda
-    nh
+    gdu
     lld
-    rustup
+    nh
     pkg-config
+    rustup
   ];
 }

@@ -60,7 +60,6 @@ let
   package-dev-elm =
     with pkgs;
     [
-      elmPackages.elm-format
       elmPackages.elm-json
       # elmPackages.elm-test
       # lamdera.packages.${system}.lamdera-next
@@ -70,6 +69,7 @@ let
       corepack
     ]
     ++ lib.optionals stdenv.isLinux [
+      elmPackages.elm-format
       # elmPackages.elm
     ];
 
