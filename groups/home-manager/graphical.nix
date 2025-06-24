@@ -1,6 +1,7 @@
-{ pkgs
-, lib
-, # , lamdera
+{
+  pkgs,
+  lib,
+  # , lamdera
   # , pinned-unstable-vscode
   ...
 }:
@@ -19,6 +20,7 @@ let
     ]
     ++ lib.optionals stdenv.isLinux [
       usbutils
+      pcsc-tools
       (callPackage ../../programs/wally-cli.nix { })
       (aspellWithDicts (d: [
         d.en
