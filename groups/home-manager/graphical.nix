@@ -43,6 +43,8 @@ let
       typst
     ]
     ++ lib.optionals stdenv.isLinux [
+      mold
+
       gitAndTools.qgit
 
       (python3.withPackages (ps: [
