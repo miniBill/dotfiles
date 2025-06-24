@@ -21,6 +21,7 @@ let
     ++ lib.optionals stdenv.isLinux [
       usbutils
       pcsc-tools
+      cie-middleware-linux
       (callPackage ../../programs/wally-cli.nix { })
       (aspellWithDicts (d: [
         d.en
