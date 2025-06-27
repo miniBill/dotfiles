@@ -15,7 +15,7 @@
     pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6";
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
@@ -67,7 +67,8 @@
     # };
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     let
       allowedUnfree = [
         "code"
@@ -81,21 +82,24 @@
         "zoom"
       ];
 
-      pkgs = system: import inputs.nixpkgs {
-        inherit system;
-        config = {
-          # overlays = [ inputs.comma.overlay ];
-          allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
-          permittedInsecurePackages = [
-            "zotero-6.0.26"
-          ];
+      pkgs =
+        system:
+        import inputs.nixpkgs {
+          inherit system;
+          config = {
+            # overlays = [ inputs.comma.overlay ];
+            allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
+            permittedInsecurePackages = [
+              "zotero-6.0.26"
+            ];
+          };
         };
-      };
 
       withConfig =
-        { system
-        , username ? "minibill"
-        , module
+        {
+          system,
+          username ? "minibill",
+          module,
         }:
         inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs system;
