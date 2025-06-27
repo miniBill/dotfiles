@@ -94,6 +94,9 @@ in
     DefaultTimeoutStopSec=5s
   '';
 
+  # Allow uriel to be used as a builder by aarch64 systems
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   hardware.cpu.intel.updateMicrocode = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
