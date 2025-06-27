@@ -159,7 +159,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "repl-flake"
+        # "repl-flake"
       ];
 
       # extra-substituters = "https://devenv.cachix.org";
