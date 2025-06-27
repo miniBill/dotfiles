@@ -6,9 +6,14 @@
     ./hardware-configuration.nix
     ./pi-myhole.nix
     ../../groups/machines/common.nix
+    ../../groups/machines/build-on-uriel.nix
   ];
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "discard"
+  ];
 
   networking.hostName = "ithaca";
   networking.interfaces.wlan0.useDHCP = false;
