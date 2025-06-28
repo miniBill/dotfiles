@@ -40,6 +40,7 @@ let
       gnumake
       nixfmt-rfc-style
       alejandra
+      uv
     ]
     ++ lib.optionals stdenv.isLinux [
       tup
