@@ -151,6 +151,10 @@
           system = "x86_64-linux";
           module = ./machines/uriel/home-manager.nix;
         };
+        "minibill@nathanda" = withConfig {
+          system = "x86_64-linux";
+          module = ./machines/nathanda/home-manager.nix;
+        };
       };
       nixosConfigurations = {
         uriel = inputs.nixpkgs.lib.nixosSystem {
@@ -187,6 +191,11 @@
           system = "x86_64-linux";
           specialArgs = inputs;
           modules = [ ./machines/milky/configuration.nix ];
+        };
+        nathanda = inputs.nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = inputs;
+          modules = [ ./machines/nathanda/configuration.nix ];
         };
       };
     };
