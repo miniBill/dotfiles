@@ -1,4 +1,5 @@
 {
+  nixos-hardware,
   config,
   pkgs,
   musnix,
@@ -8,6 +9,7 @@
 
 {
   imports = [
+    nixos-hardware.nixosModules.framework-amd-ai-300-series
     ./hardware-configuration.nix
     musnix.nixosModules.musnix
     ../../groups/machines/common.nix
