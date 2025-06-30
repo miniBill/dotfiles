@@ -60,6 +60,9 @@
     ethtool
     socat
     smartmontools
+    pciutils
+    usbutils
+    parted
 
     # Network
     nmap

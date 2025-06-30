@@ -143,9 +143,6 @@ in
     dmidecode
     i2c-tools
     # openrgb
-    parted
-    pciutils
-    usbutils
   ];
 
   # Open ports in the firewall.
