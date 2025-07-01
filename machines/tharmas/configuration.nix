@@ -106,6 +106,12 @@ in
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKH24XAIEHU0qkEd4Mj0wQVqLR9Zu5hxGHtyWVaQ2b0t root@HalStrider"
       ];
     };
+    martin = {
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ7MIVmOTCjW8CUjx1me8pCaholxqKZlnmSTXXbXAd5v martinsstewart@gmail.com"
+      ];
+    };
   };
   users.groups = {
     emilywelbers = { };
