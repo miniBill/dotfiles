@@ -33,7 +33,7 @@ in
     ../../groups/machines/steam.nix
     ../../groups/machines/plymouth.nix
     ./web.nix
-    # ./ups.nix
+    ./ups.nix
   ];
 
   # ZFS
