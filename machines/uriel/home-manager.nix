@@ -80,7 +80,7 @@
     # zig sqlitebrowser binutils nasm
     dbeaver-bin
     # roc.packages.${system}.default
-    devenv
+    # devenv
     devbox
 
     # NET
@@ -105,7 +105,6 @@
     # VIRT/OP
     # nix-index
     virtualbox
-    spice-gtk
     qemu
   ];
 
