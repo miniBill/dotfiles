@@ -105,6 +105,7 @@
     # VIRT/OP
     # nix-index
     virtualbox
+    spice-gtk
     qemu
   ];
 
