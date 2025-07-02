@@ -64,6 +64,7 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # More hardware info
   services.udev.extraRules = ''
