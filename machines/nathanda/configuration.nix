@@ -1,10 +1,9 @@
-{
-  nixos-hardware,
-  config,
-  pkgs,
-  musnix,
-  lib,
-  ...
+{ nixos-hardware
+, config
+, pkgs
+, musnix
+, lib
+, ...
 }:
 
 {
@@ -18,20 +17,9 @@
     ../../groups/machines/plymouth.nix
   ];
 
-  # boot.loader.grub = {
-  #   enable = true;
-  #   efiSupport = true;
-  #   device = "nodev";
-  #   useOSProber = true;
-  #   mirroredBoots = [
-  #     {
-  #       devices = [ "nodev" ];
-  #       path = "/boot-fallback";
-  #     }
-  #   ];
-  # };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
 
   networking.hostName = "nathanda";
   networking.interfaces.wlo1.useDHCP = false;
