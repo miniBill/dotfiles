@@ -10,6 +10,7 @@
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
   security.pam.services.kwallet.enableKwallet = true;
+  programs.kdeconnect.enable = true;
 
   # Used by vscode, parcel and friends
   boot.kernel.sysctl = {
