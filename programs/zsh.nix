@@ -47,8 +47,8 @@ in
       expireDuplicatesFirst = true;
       ignoreSpace = true;
       path = "${config.xdg.stateHome}/zsh/history";
-      save = 10000000;
-      size = 10000000;
+      save = 100000;
+      size = 100000;
     };
 
     initContent = lib.mkMerge [
