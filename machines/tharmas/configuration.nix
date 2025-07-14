@@ -6,7 +6,7 @@ in
   imports = [
     ./hardware-configuration.nix
 
-    ./cjdns.nix
+    # ./cjdns.nix
     ./www.nix
     ../../groups/machines/common.nix
     ../../groups/machines/server.nix
