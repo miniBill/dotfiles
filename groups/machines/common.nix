@@ -146,6 +146,7 @@
     openFirewall = true;
     authKeyFile = config.age.secrets.tailscale.path;
   };
+  systemd.services.tailscaled-autoconnect.wantedBy = lib.mkForce [ ];
 
   services.fwupd.enable = true;
 
