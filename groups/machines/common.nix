@@ -1,10 +1,9 @@
-{
-  config,
-  pkgs,
-  # , nixpkgs-small
-  agenix,
-  lix-module,
-  ...
+{ config
+, pkgs
+, # , nixpkgs-small
+  agenix
+, lix-module
+, ...
 }:
 
 {
