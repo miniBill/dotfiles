@@ -85,7 +85,7 @@
       pkgs =
         system:
         import inputs.nixpkgs {
-          inherit system;
+          system = system;
           config = {
             # overlays = [ inputs.comma.overlay ];
             allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
@@ -105,7 +105,7 @@
           pkgs = pkgs system;
           modules = [ module ];
           extraSpecialArgs = inputs // {
-            inherit username;
+            username = username;
           };
         };
     in
@@ -137,6 +137,7 @@
         };
         "francesca@edge" = withConfig {
           system = "x86_64-linux";
+          username = "francesca";
           module = ./machines/edge/home-manager.nix;
         };
         "minibill@milky" = withConfig {
