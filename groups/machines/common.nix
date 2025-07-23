@@ -1,5 +1,6 @@
 { config
 , pkgs
+, lib
 , # , nixpkgs-small
   agenix
 , lix-module
