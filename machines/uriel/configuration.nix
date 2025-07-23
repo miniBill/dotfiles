@@ -37,8 +37,8 @@ in
   ];
 
   # ZFS
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
+  # boot.supportedFilesystems = [ "zfs" ];
+  # boot.zfs.forceImportRoot = false;
   networking.hostId = "5581d319";
 
   boot.loader.grub = {
