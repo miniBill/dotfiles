@@ -319,11 +319,11 @@
       },
       "locked": {
         "dir": "server",
-        "lastModified": 1753384857,
-        "narHash": "sha256-wLBE5ZtNQd/MgvC2q7T+TosJ4WZvK+JFNr1GtljtG3w=",
+        "lastModified": 1753387497,
+        "narHash": "sha256-uqaUZUylbL/ZwH2xsahBaz9kGvVPEbqX7lUXP88h/v8=",
         "owner": "miniBill",
         "repo": "secretdemoclub",
-        "rev": "00a1ecc93469731d305ba28eff7179c76e7b3c20",
+        "rev": "0b5035a5650ccdb26f2eff70122afa192ecd3d37",
         "type": "github"
       },
       "original": {

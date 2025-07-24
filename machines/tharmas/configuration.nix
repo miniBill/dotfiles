@@ -10,6 +10,7 @@ in
     ./www.nix
     ../../groups/machines/common.nix
     ../../groups/machines/server.nix
+    ./secretdemoclub.nix
   ];
 
   boot.loader.grub = {

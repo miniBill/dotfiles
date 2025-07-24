@@ -1,13 +1,15 @@
-{ lib, ... }:
+{ secretdemoclub, pkgs, ... }:
 
+let
+  daemon = secretdemoclub.packages.${pkgs.stdenv.hostPlatform.system}.default;
+in
 {
   systemd.services.secretdemoclub = {
     enable = true;
-    name = "SDC HQ OMG BBQ";
     after = [ "network.target" ];
     wantedBy = [ "default.target" ];
-    serviceConfig = { 
-      ExecStart = "${daemon}/bin/secretdemoclub"
+    serviceConfig = {
+      ExecStart = "${daemon}/bin/secretdemoclub-server";
     };
   };
 }
