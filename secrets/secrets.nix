@@ -29,4 +29,5 @@ in
 
   "tailscale.age".publicKeys = home ++ servers;
   "cjdroute.conf.age".publicKeys = home ++ servers;
+  "secretdemoclub.toml.age".publicKeys = home ++ servers;
 }
