@@ -64,12 +64,26 @@ in
     '';
 
     virtualHosts = {
+      "taglialegne.it" = {
+        forceSSL = true;
+        enableACME = true;
+        serverAliases = [ ];
+        listen = standardListen;
+        root = "/var/www/tharmas";
+      };
       "tharmas.taglialegne.it" = {
         forceSSL = true;
         enableACME = true;
         serverAliases = [ ];
         listen = standardListen;
         root = "/var/www/tharmas";
+      };
+      "secretdemoclub.com" = {
+        forceSSL = true;
+        enableACME = true;
+        serverAliases = [ "www.secretdemoclub.com" ];
+        listen = standardListen;
+        locations."/".proxyPass = "http://127.0.0.1:3000/";
       };
       "orla-player.taglialegne.it" = {
         forceSSL = true;
