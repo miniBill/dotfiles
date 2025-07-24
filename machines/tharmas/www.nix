@@ -83,7 +83,7 @@ in
         enableACME = true;
         serverAliases = [ "www.secretdemoclub.com" ];
         listen = standardListen;
-        locations."/".proxyPass = "http://127.0.0.1:3000/";
+        locations."/".proxyPass = "http://localhost:3000/";
       };
       "orla-player.taglialegne.it" = {
         forceSSL = true;
