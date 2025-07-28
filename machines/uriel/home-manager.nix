@@ -112,15 +112,18 @@
     obs-studio.enable = true;
 
     firefox.profiles = {
-      bridgeverse = {
-        isDefault = false;
-        id = 1;
+      # bridgeverse = {
+      #   isDefault = false;
+      #   id = 1;
 
-        settings = {
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        };
+      #   settings = {
+      #     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      #   };
 
-        userChrome = builtins.readFile ../../files/userChrome.css;
+      #   userChrome = builtins.readFile ../../files/userChrome.css;
+      # };
+      empty = {
+        id = 2;
       };
     };
   };
