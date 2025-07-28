@@ -172,7 +172,7 @@ in
       "bin/elm-make-readable".source = ../../programs/elm-make-readable;
 
       ".npmrc".source = ../../files/npmrc;
-      ".yarnrc".source = ../../files/yarnrc;
+      # ".yarnrc".source = ../../files/yarnrc;
 
       ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
 
