@@ -123,7 +123,7 @@
       #   userChrome = builtins.readFile ../../files/userChrome.css;
       # };
       empty = {
-        id = 2;
+        id = 1;
       };
     };
   };
