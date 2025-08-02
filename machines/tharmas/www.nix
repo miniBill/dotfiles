@@ -115,6 +115,7 @@ in
       "hedgedoc.taglialegne.it" = {
         forceSSL = true;
         enableACME = true;
+        listen = standardListen;
         locations."/".proxyPass = "http://localhost:3333";
         locations."/socket.io/" = {
           proxyPass = "http://localhost:3333";
