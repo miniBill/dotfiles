@@ -43,6 +43,7 @@ in
         dialect = "sqlite";
         storage = "/var/lib/hedgedoc/db.hedgedoc.sqlite";
       };
+      uploadPath = "/var/lib/hedgedoc/uploads";
       domain = "hedgedoc.taglialegne.it";
       port = 3333;
       useSSL = false;
