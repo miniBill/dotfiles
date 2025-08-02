@@ -48,6 +48,16 @@ in
       port = 3333;
       useSSL = false;
       protocolUseSSL = true;
+
+      allowFreeURL = true;
+      requireFreeURLAuthentication = true;
+
+      csp = {
+        allowFraming = false;
+        allowPDFEmbed = true;
+      };
+
+      allowEmailRegister = false;
     };
   };
 
