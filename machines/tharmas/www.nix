@@ -112,6 +112,15 @@ in
         #   add_header X-Frame-Options SAMEORIGIN;
         # '';
       };
+      "hedgedoc.taglialegne.it" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/".proxyPass = "http://localhost:3333";
+        locations."/socket.io/" = {
+          proxyPass = "http://localhost:3333";
+          proxyWebsockets = true;
+        };
+      };
       "video.emilywelbers.com" = {
         forceSSL = true;
         enableACME = true;

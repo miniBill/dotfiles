@@ -35,6 +35,21 @@ in
     settings.transparent = true;
     listenAddresses = [ ip ];
   };
+
+  hedgedoc = {
+    enable = true;
+    settings = {
+      db = {
+        dialect = "sqlite";
+        storage = "/var/lib/hedgedoc/db.hedgedoc.sqlite";
+      };
+      domain = "hedgedoc.taglialegne.it";
+      port = 3333;
+      useSSL = false;
+      protocolUseSSL = true;
+    };
+  };
+
   networking = {
     usePredictableInterfaceNames = false;
     interfaces.eth0.ipv4.addresses = [
