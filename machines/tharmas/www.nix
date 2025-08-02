@@ -128,6 +128,12 @@ in
         listen = standardListen;
         root = "/var/www/video";
       };
+      "x.taglialegne.it" = {
+        forceSSL = true;
+        enableACME = true;
+        listen = standardListen;
+        root = "/var/www/x";
+      };
       # "snizzo.taglialegne.it" = {
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
       # };
