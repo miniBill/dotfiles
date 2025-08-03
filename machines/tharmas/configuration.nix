@@ -39,6 +39,7 @@ in
   services.outline = {
     enable = true;
     publicUrl = "http://localhost:3333";
+    port = 3333;
     forceHttps = false;
     storage.storageType = "local";
   };
