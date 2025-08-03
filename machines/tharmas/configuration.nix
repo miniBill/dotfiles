@@ -55,8 +55,11 @@ in
     smtp = {
       fromEmail = "outline@taglialegne.it";
       host = "mail.taglialegne.it";
-      port = 25;
+      port = 465;
+      username = "outline@taglialegne.it";
       passwordFile = config.age.secrets.outline-email.path;
+      replyEmail = "leonardo@taglialegne.it";
+      secure = true;
     };
   };
   nixpkgs.config.allowUnfreePredicate =
