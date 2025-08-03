@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   ip = "144.76.3.185";
 in
@@ -36,6 +41,11 @@ in
     listenAddresses = [ ip ];
   };
 
+  age.secrets.outline-email = {
+    file = ../../secrets/outline-email.age;
+    owner = config.services.outline.user;
+    group = config.services.outline.group;
+  };
   services.outline = {
     enable = true;
     publicUrl = "https://outline.taglialegne.it";
