@@ -5,17 +5,24 @@
   ...
 }:
 let
-  standardListen = [
+  standardListen =
+    cfg:
     {
-      addr = "0.0.0.0";
-      port = 80;
+      forceSSL = true;
+      enableACME = true;
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+        {
+          addr = "127.0.0.1";
+          port = 443;
+          ssl = true;
+        }
+      ];
     }
-    {
-      addr = "127.0.0.1";
-      port = 443;
-      ssl = true;
-    }
-  ];
+    // cfg;
 in
 {
   security.acme = {
@@ -64,78 +71,43 @@ in
     '';
 
     virtualHosts = {
-      "taglialegne.it" = {
-        forceSSL = true;
-        enableACME = true;
-        serverAliases = [ ];
-        listen = standardListen;
+      "taglialegne.it" = standardListen {
         root = "/var/www/tharmas";
       };
-      "tharmas.taglialegne.it" = {
-        forceSSL = true;
-        enableACME = true;
-        serverAliases = [ ];
-        listen = standardListen;
+      "tharmas.taglialegne.it" = standardListen {
         root = "/var/www/tharmas";
       };
-      "secretdemoclub.com" = {
-        forceSSL = true;
-        enableACME = true;
+      "secretdemoclub.com" = standardListen {
         serverAliases = [ "www.secretdemoclub.com" ];
-        listen = standardListen;
         locations."/".proxyPass = "http://localhost:3000/";
       };
-      "orla-player.taglialegne.it" = {
-        forceSSL = true;
-        enableACME = true;
+      "orla-player.taglialegne.it" = standardListen {
         locations."/rss/orlagartland" = {
           proxyPass = "https://www.patreon.com/rss/orlagartland";
           extraConfig = "proxy_set_header Host www.patreon.com;";
         };
-        listen = standardListen;
         root = "/var/www/orla-player";
       };
-      "emilywelbers.com" = {
-        forceSSL = true;
-        enableACME = true;
+      "emilywelbers.com" = standardListen {
         serverAliases = [ "www.emilywelbers.com" ];
-        listen = standardListen;
         root = "/var/www/emilywelbers";
       };
-      "fairyrings.emilywelbers.com" = {
-        forceSSL = true;
-        enableACME = true;
-        # serverAliases = [ ];
-        listen = standardListen;
+      "fairyrings.emilywelbers.com" = standardListen {
         root = "/var/www/fairy-rings";
         # extraConfig = ''
         #   add_header X-Frame-Options SAMEORIGIN;
         # '';
       };
-      "hedgedoc.taglialegne.it" = {
-        forceSSL = true;
-        enableACME = true;
-        listen = standardListen;
-        locations."/".proxyPass = "http://localhost:3333";
-        locations."/socket.io/" = {
-          proxyPass = "http://localhost:3333";
-          proxyWebsockets = true;
-        };
+      "outline.taglialegne.it" = standardListen {
+        locations."/".proxyPass = "${config.services.outline.publicUrl}";
       };
-      "video.emilywelbers.com" = {
-        forceSSL = true;
-        enableACME = true;
-        # serverAliases = [ ];
-        listen = standardListen;
+      "video.emilywelbers.com" = standardListen {
         root = "/var/www/video";
       };
-      "x.taglialegne.it" = {
-        forceSSL = true;
-        enableACME = true;
-        listen = standardListen;
+      "x.taglialegne.it" = standardListen {
         root = "/var/www/x";
       };
-      # "snizzo.taglialegne.it" = {
+      # "snizzo.taglialegne.it" = standardListen {
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
       # };
     };
