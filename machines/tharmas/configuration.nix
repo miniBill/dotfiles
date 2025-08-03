@@ -36,30 +36,11 @@ in
     listenAddresses = [ ip ];
   };
 
-  services.hedgedoc = {
+  services.outline = {
     enable = true;
-    settings = {
-      db = {
-        dialect = "sqlite";
-        storage = "/var/lib/hedgedoc/db.hedgedoc.sqlite";
-      };
-      uploadPath = "/var/lib/hedgedoc/uploads";
-      domain = "hedgedoc.taglialegne.it";
-      port = 3333;
-      useSSL = false;
-      protocolUseSSL = true;
-
-      allowFreeURL = true;
-      requireFreeURLAuthentication = true;
-
-      csp = {
-        allowFraming = false;
-        allowPDFEmbed = true;
-      };
-
-      allowEmailRegister = true;
-      allowAnonymous = false;
-    };
+    publicUrl = "http://localhost:3000";
+    forceHttps = false;
+    storage.storageType = "local";
   };
 
   networking = {
