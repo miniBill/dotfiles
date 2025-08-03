@@ -42,6 +42,11 @@ in
     port = 3333;
     forceHttps = false;
     storage.storageType = "local";
+    smtp = {
+      fromEmail = "outline@taglialegne.it";
+      host = "mail.taglialegne.it";
+      passwordFile = config.age.secrets.outline-email.path;
+    };
   };
   nixpkgs.config.allowUnfreePredicate =
     pkg:
