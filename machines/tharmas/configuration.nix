@@ -57,7 +57,8 @@ in
         allowPDFEmbed = true;
       };
 
-      allowEmailRegister = false;
+      allowEmailRegister = true;
+      allowAnonymous = false;
     };
   };
 
