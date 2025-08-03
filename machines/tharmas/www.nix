@@ -99,7 +99,7 @@ in
         # '';
       };
       "outline.taglialegne.it" = standardListen {
-        locations."/".proxyPass = "${config.services.outline.publicUrl}";
+        locations."/".proxyPass = "http://localhost:3333";
       };
       "video.emilywelbers.com" = standardListen {
         root = "/var/www/video";

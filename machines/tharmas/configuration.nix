@@ -38,7 +38,7 @@ in
 
   services.outline = {
     enable = true;
-    publicUrl = "http://localhost:3333";
+    publicUrl = "https://outline.taglialegne.it";
     port = 3333;
     forceHttps = false;
     storage.storageType = "local";
