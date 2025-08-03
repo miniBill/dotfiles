@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   ip = "144.76.3.185";
 in
@@ -42,6 +42,11 @@ in
     forceHttps = false;
     storage.storageType = "local";
   };
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "outline"
+    ];
 
   networking = {
     usePredictableInterfaceNames = false;
