@@ -55,6 +55,7 @@ in
     smtp = {
       fromEmail = "outline@taglialegne.it";
       host = "mail.taglialegne.it";
+      port = 25;
       passwordFile = config.age.secrets.outline-email.path;
     };
   };
