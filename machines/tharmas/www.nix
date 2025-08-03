@@ -99,7 +99,10 @@ in
         # '';
       };
       "outline.taglialegne.it" = standardListen {
-        locations."/".proxyPass = "http://localhost:3333";
+        locations."/" = {
+          proxyPass = "http://localhost:3333";
+          proxyWebsockets = true;
+        };
       };
       "video.emilywelbers.com" = standardListen {
         root = "/var/www/video";
