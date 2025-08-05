@@ -22,6 +22,8 @@ in
     serviceConfig = {
       ExecStart = "${daemon}/bin/secretdemoclub-server --config ${config.age.secrets.sdcConf.path}";
     };
+    user = "sdc";
+    group = "sdc";
   };
 
   users = {
