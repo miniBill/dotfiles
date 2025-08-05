@@ -21,9 +21,9 @@ in
     wantedBy = [ "default.target" ];
     serviceConfig = {
       ExecStart = "${daemon}/bin/secretdemoclub-server --config ${config.age.secrets.sdcConf.path}";
+      User = "sdc";
+      Group = "sdc";
     };
-    user = "sdc";
-    group = "sdc";
   };
 
   users = {
