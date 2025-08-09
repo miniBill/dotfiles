@@ -19,6 +19,15 @@ let
     bindkey "^[[1;5D" backward-word
     bindkey "^[OH" beginning-of-line
     bindkey "^[OF" end-of-line
+
+    clone() {
+      cd ~/src
+      mkdir -p $1
+      cd $1
+      git clone gh:$1/$2
+      cd $2
+      git remote rename origin $1
+    }
   '';
 in
 
