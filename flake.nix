@@ -102,10 +102,10 @@
         };
 
       withConfig =
-        {
-          system,
-          username ? "minibill",
-          module,
+        { system
+        , username ? "minibill"
+        , module
+        ,
         }:
         inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs system;
@@ -156,6 +156,7 @@
         };
         "llibinim@uriel" = withConfig {
           system = "x86_64-linux";
+          username = "llibinim";
           module = ./machines/uriel/home-manager.nix;
         };
         "minibill@nathanda" = withConfig {
