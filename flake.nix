@@ -102,13 +102,14 @@
         };
 
       withConfig =
-        { system
+        { arch ? "x86_64"
         , username ? "minibill"
+        , os ? "linux"
         , module
         ,
         }:
         inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs system;
+          pkgs = pkgs (arch + "-" + os);
           modules = [ module ];
           extraSpecialArgs = inputs // {
             username = username;
@@ -118,93 +119,85 @@
     {
       homeConfigurations = {
         "minibill@gadiriel" = withConfig {
-          system = "aarch64-darwin";
+          arch = "aarch64";
+          os = "darwin";
           module = ./machines/gadiriel/home-manager.nix;
         };
         "minibill@ithaca" = withConfig {
-          system = "aarch64-linux";
+          arch = "aarch64";
           module = ./machines/ithaca/home-manager.nix;
         };
         "minibill@sohu" = withConfig {
-          system = "aarch64-linux";
+          arch = "aarch64";
           module = ./machines/sohu/home-manager.nix;
         };
         "minibill@thamiel" = withConfig {
-          system = "x86_64-linux";
           module = ./machines/thamiel/home-manager.nix;
         };
         "minibill@tharmas" = withConfig {
-          system = "x86_64-linux";
           module = ./machines/tharmas/home-manager.nix;
         };
         "minibill@edge" = withConfig {
-          system = "x86_64-linux";
           module = ./machines/edge/home-manager.nix;
         };
         "francesca@edge" = withConfig {
-          system = "x86_64-linux";
           username = "francesca";
           module = ./machines/edge/home-manager.nix;
         };
         "minibill@milky" = withConfig {
-          system = "x86_64-linux";
           module = ./machines/milky/home-manager.nix;
         };
         "minibill@uriel" = withConfig {
-          system = "x86_64-linux";
           module = ./machines/uriel/home-manager.nix;
         };
         "llibinim@uriel" = withConfig {
-          system = "x86_64-linux";
           username = "llibinim";
           module = ./machines/uriel/home-manager.nix;
         };
         "minibill@nathanda" = withConfig {
-          system = "x86_64-linux";
           module = ./machines/nathanda/home-manager.nix;
         };
       };
-      nixosConfigurations = {
-        uriel = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/uriel/configuration.nix ];
+      nixosConfigurations =
+        let
+          nixosSystem =
+            { arch ? "x86_64"
+            , module
+            ,
+            }:
+            inputs.nixpkgs.lib.nixosSystem {
+              system = arch + "-linux";
+              specialArgs = inputs;
+              modules = [ module ];
+            };
+        in
+        {
+          uriel = nixosSystem {
+            module = ./machines/uriel/configuration.nix;
+          };
+          sohu = nixosSystem {
+            arch = "aarch64";
+            module = ./machines/sohu/configuration.nix;
+          };
+          tharmas = nixosSystem {
+            module = ./machines/tharmas/configuration.nix;
+          };
+          edge = nixosSystem {
+            module = ./machines/edge/configuration.nix;
+          };
+          thamiel = nixosSystem {
+            module = ./machines/thamiel/configuration.nix;
+          };
+          ithaca = nixosSystem {
+            arch = "aarch64";
+            module = ./machines/ithaca/configuration.nix;
+          };
+          milky = nixosSystem {
+            module = ./machines/milky/configuration.nix;
+          };
+          nathanda = nixosSystem {
+            module = ./machines/nathanda/configuration.nix;
+          };
         };
-        sohu = inputs.nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/sohu/configuration.nix ];
-        };
-        tharmas = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/tharmas/configuration.nix ];
-        };
-        edge = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/edge/configuration.nix ];
-        };
-        thamiel = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/thamiel/configuration.nix ];
-        };
-        ithaca = inputs.nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/ithaca/configuration.nix ];
-        };
-        milky = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/milky/configuration.nix ];
-        };
-        nathanda = inputs.nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = inputs;
-          modules = [ ./machines/nathanda/configuration.nix ];
-        };
-      };
     };
 }
