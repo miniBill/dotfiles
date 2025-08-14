@@ -246,7 +246,7 @@ in
         };
         "roiter" = {
           hostname = "10.0.255.254";
-          user = "root";
+          user = "admin";
           proxyJump = "uriel";
 
           extraOptions = {
