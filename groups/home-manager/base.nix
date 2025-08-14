@@ -1,10 +1,9 @@
-{
-  pkgs,
-  lib,
-  config,
-  username,
-  nix-index-database,
-  ...
+{ pkgs
+, lib
+, config
+, username
+, nix-index-database
+, ...
 }:
 let
   inherit (pkgs) stdenv;
@@ -244,6 +243,16 @@ in
         };
         "git.aljordan.dev" = {
           port = 2233;
+        };
+        "roiter" = {
+          hostname = "10.0.255.254";
+          user = "root";
+          proxyJump = "uriel";
+
+          extraOptions = {
+            hostKeyAlgorithms = "+ecdsa-sha2-nistp521";
+            MACs = "+hmac-sha2-256";
+          };
         };
       };
     };
