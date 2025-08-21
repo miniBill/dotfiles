@@ -72,6 +72,7 @@ let
       optipng
       jpegoptim
       corepack
+      bun
     ]
     ++ lib.optionals stdenv.isLinux [
       elmPackages.elm-format
