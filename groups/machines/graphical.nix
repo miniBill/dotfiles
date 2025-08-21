@@ -108,14 +108,15 @@
       ++
         # Mine:
         [
+          (callPackage ../../fonts/linja-pona.nix { })
+          fira-code-symbols # fira code ligatures for compatibility reasons
           inter
+          nerd-fonts.droid-sans-mono
           noto-fonts-cjk-sans
           noto-fonts-cjk-serif
-          fira-code-symbols # fira code ligatures for compatibility reasons
-          stix-two
-          (callPackage ../../fonts/linja-pona.nix { })
-          nerd-fonts.droid-sans-mono
+          ocr-a
           nerd-fonts.fira-code
+          stix-two
         ];
   };
 
