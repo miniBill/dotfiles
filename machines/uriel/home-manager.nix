@@ -82,6 +82,7 @@
     # roc.packages.${system}.default
     # devenv
     devbox
+    zed-editor
 
     # NET
     (keepass.override { plugins = [ keepass-keepassrpc ]; })
