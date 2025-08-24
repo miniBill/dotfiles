@@ -1,9 +1,10 @@
-{ pkgs
-, lib
-, config
-, username
-, nix-index-database
-, ...
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  nix-index-database,
+  ...
 }:
 let
   inherit (pkgs) stdenv;
@@ -84,7 +85,8 @@ in
       ".config/nix/nix.conf".source = ../../files/nix.conf;
       ".config/Code/Dictionaries".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
-    } // (if stdenv.isDarwin then { } else { "bin/lamdera-wrapped".source = ../../files/lamdera; });
+    }
+    // (if stdenv.isDarwin then { } else { "bin/lamdera-wrapped".source = ../../files/lamdera; });
 
     sessionPath = [
       "$HOME/bin"
@@ -182,7 +184,6 @@ in
         fetch = {
           parallel = 0;
           prune = true;
-          pruneTags = true;
           all = true;
         };
 
