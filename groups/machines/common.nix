@@ -1,16 +1,15 @@
-{ config
-, pkgs
-, lib
-, # , nixpkgs-small
-  agenix
-, lix-module
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  # , nixpkgs-small
+  agenix,
+  ...
 }:
 
 {
   imports = [
     agenix.nixosModules.default
-    lix-module.nixosModules.default
   ];
 
   age.secrets.tailscale = {
@@ -153,11 +152,6 @@
 
   # Nix
   nix = {
-    # gc = {
-    #   automatic = true;
-    #   dates = "weekly";
-    #   options = "--delete-older-than 30d";
-    # };
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -169,7 +163,21 @@
       # extra-substituters = "https://devenv.cachix.org";
       # extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
     };
+
+    package = pkgs.lixPackageSets.stable.lix;
   };
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit (final.lixPackageSets.stable)
+        nixpkgs-review
+        nix-direnv
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
 
   # Users
   users.users.minibill = {

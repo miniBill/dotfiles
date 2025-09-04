@@ -20,12 +20,6 @@
 
     pinned-unstable-papermc.url = "github:NixOS/nixpkgs?rev=4cba8b53da471aea2ab2b0c1f30a81e7c451f4b6";
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
     musnix = {
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,11 +96,11 @@
         };
 
       withConfig =
-        { arch ? "x86_64"
-        , username ? "minibill"
-        , os ? "linux"
-        , module
-        ,
+        {
+          arch ? "x86_64",
+          username ? "minibill",
+          os ? "linux",
+          module,
         }:
         inputs.home-manager.lib.homeManagerConfiguration {
           pkgs = pkgs (arch + "-" + os);
@@ -161,9 +155,9 @@
       nixosConfigurations =
         let
           nixosSystem =
-            { arch ? "x86_64"
-            , module
-            ,
+            {
+              arch ? "x86_64",
+              module,
             }:
             inputs.nixpkgs.lib.nixosSystem {
               system = arch + "-linux";
