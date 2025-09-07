@@ -1,6 +1,5 @@
 {
   pkgs,
-  pinned-unstable-papermc,
   # , roc
   ...
 }:
@@ -101,7 +100,6 @@
     lutris-free
     mgba
     prismlauncher
-    pinned-unstable-papermc.legacyPackages.${system}.papermc
 
     # VIRT/OP
     # nix-index
