@@ -87,6 +87,7 @@
           config = {
             # overlays = [ inputs.comma.overlay ];
             allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
+
             permittedInsecurePackages = [
               "zotero-6.0.26"
             ];
