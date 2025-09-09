@@ -109,66 +109,15 @@ in
       "shop.emilywelbers.com" = standardListen {
         root = "/var/www/shop.emilywelbers.com";
 
-        locations."/" = {
-          tryFiles = "$uri $uri/ /index.php$is_args$args";
-        };
-
-        locations."/admin/" = {
-          tryFiles = "$uri $uri/ /admin/index.php$is_args$args";
-        };
-
-        # .htaccess, .DS_Store, .htpasswd, etc.
-        locations."~ /\.(?!well-known)" = {
-          extraConfig = "deny all;";
-        };
-
-        # Source code directories.
-        locations."~ ^/(app|bin|cache|classes|config|controllers|docs|localization|override|src|tests|tools|translations|var|vendor)/" =
-          {
-            extraConfig = "deny all;";
-          };
-
-        # vendor in modules directory.
-        locations."~ ^/modules/.*/vendor/" = {
-          extraConfig = "deny all;";
-        };
-
-        # Prevent exposing other sensitive files.
-        locations."~ \.(log|tpl|twig|sass|yml)$" = {
-          extraConfig = "deny all;";
-        };
-
-        # Prevent injection of PHP files.
-        locations."/img" = {
-          extraConfig = ''location ~ \.php$ { deny all; }'';
-        };
-
-        locations."/upload" = {
-          extraConfig = ''location ~ \.php$ { deny all; }'';
-        };
-
-        locations."~ [^/]\.php(/|$)" = {
-          extraConfig = ''
-            fastcgi_split_path_info ^(.+\.php)(/.+)$;
-
-            try_files $fastcgi_script_name =404;
-
-            fastcgi_pass unix:${config.services.phpfpm.pools."shop.emilywelbers.com".socket};
-            fastcgi_index index.php;
-
-            include ${pkgs.nginx}/conf/fastcgi.conf;
-            include ${pkgs.nginx}/conf/fastcgi_params;
-          '';
-        };
-
         extraConfig = ''
           index index.php;
 
+          # This should match the `post_max_size` and/or `upload_max_filesize` settings
+          # in your php.ini.
+          client_max_body_size 16M;
+
           # Redirect 404 errors to PrestaShop.
           error_page 404 /index.php?controller=404;
-
-          # Watch out: if you encounter issues with a quick view or shopping cart, you might want to use a different rule:
-          # rewrite '^/((?!js|qq)[a-z]{2})/(.*)' /index.php?isolang=$1&$args last;
 
           # Images.
           rewrite ^/(\d)(-[\w-]+)?/.+\.jpg$ /img/p/$1/$1$2.jpg last;
@@ -189,6 +138,71 @@ in
 
           # Installation sandbox.
           rewrite ^(/install(?:-dev)?/sandbox)/.* /$1/test.php last;
+
+          location / {
+            try_files $uri $uri/ /index.php$is_args$args;
+          }
+
+          location /admin/ {
+            try_files $uri $uri/ /admin/index.php$is_args$args;
+          }
+
+
+          # .htaccess, .DS_Store, .htpasswd, etc.
+          location ~ /\.(?!well-known) {
+            deny all;
+          }
+
+          # Source code directories.
+          location ~ ^/(app|bin|cache|classes|config|controllers|docs|localization|override|src|tests|tools|translations|var|vendor)/ {
+            deny all;
+          }
+
+          # vendor in modules directory.
+          location ~ ^/modules/.*/vendor/ {
+            deny all;
+          }
+
+          # Prevent exposing other sensitive files.
+          location ~ \.(log|tpl|twig|sass|yml)$ {
+            deny all;
+          }
+
+          # Prevent injection of PHP files.
+          location /img {
+            location ~ \.php$ { deny all; }
+          }
+
+          location /upload {
+            location ~ \.php$ { deny all; }
+          }
+
+          location ~ [^/]\.php(/|$) {
+            # Split $uri to $fastcgi_script_name and $fastcgi_path_info.
+            fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+
+            # Ensure that the requested PHP script exists before passing it
+            # to the PHP-FPM.
+            try_files $fastcgi_script_name =404;
+
+            # Environment variables for PHP.
+            include ${pkgs.nginx}/conf/fastcgi_params;
+            include ${pkgs.nginx}/conf/fastcgi.conf;
+            fastcgi_param SCRIPT_FILENAME $request_filename;
+
+            fastcgi_index index.php;
+
+            fastcgi_keep_conn on;
+            fastcgi_read_timeout 30s;
+            fastcgi_send_timeout 30s;
+
+            # Uncomment these in case of long loading or 502/504 errors.
+            # fastcgi_buffer_size 256k;
+            # fastcgi_buffers 256 16k;
+            # fastcgi_busy_buffers_size 256k;
+
+            fastcgi_pass unix:${config.services.phpfpm.pools."shop.emilywelbers.com".socket};
+          }
         '';
       };
 
