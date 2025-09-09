@@ -223,7 +223,8 @@ in
     phpOptions = ''
       upload_max_filesize = 400M
       post_max_size = 400M
-      max_execution_time = 400;
+      max_execution_time = 400
+      memory_limit = 1024M
     '';
     settings = {
       "listen.owner" = config.services.nginx.user;
