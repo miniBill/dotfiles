@@ -72,10 +72,8 @@ in
 
     virtualHosts = {
       "taglialegne.it" = standardListen {
-        root = "/var/www/tharmas";
-      };
-      "tharmas.taglialegne.it" = standardListen {
-        root = "/var/www/tharmas";
+        serverAliases = [ "tharmas.taglialegne.it" ];
+        root = "/var/www/taglialegne.it";
       };
       "secretdemoclub.com" = standardListen {
         serverAliases = [ "www.secretdemoclub.com" ];
@@ -90,10 +88,10 @@ in
       };
       "emilywelbers.com" = standardListen {
         serverAliases = [ "www.emilywelbers.com" ];
-        root = "/var/www/emilywelbers";
+        root = "/var/www/emilywelbers.com";
       };
       "fairyrings.emilywelbers.com" = standardListen {
-        root = "/var/www/fairy-rings";
+        root = "/var/www/fairyrings.emilywelbers.com";
         # extraConfig = ''
         #   add_header X-Frame-Options SAMEORIGIN;
         # '';
@@ -105,7 +103,7 @@ in
         };
       };
       "video.emilywelbers.com" = standardListen {
-        root = "/var/www/video";
+        root = "/var/www/video.emilywelbers.com";
       };
       "x.taglialegne.it" = standardListen {
         root = "/var/www/x";
