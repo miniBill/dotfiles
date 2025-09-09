@@ -193,8 +193,8 @@ in
             fastcgi_index index.php;
 
             fastcgi_keep_conn on;
-            fastcgi_read_timeout 30s;
-            fastcgi_send_timeout 30s;
+            fastcgi_read_timeout 300s;
+            fastcgi_send_timeout 300s;
 
             # Uncomment these in case of long loading or 502/504 errors.
             # fastcgi_buffer_size 256k;
@@ -223,6 +223,7 @@ in
     phpOptions = ''
       upload_max_filesize = 400M
       post_max_size = 400M
+      max_execution_time = 400;
     '';
     settings = {
       "listen.owner" = config.services.nginx.user;
