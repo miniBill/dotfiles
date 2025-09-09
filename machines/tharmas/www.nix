@@ -119,6 +119,11 @@ in
           # Redirect 404 errors to PrestaShop.
           error_page 404 /index.php?controller=404;
 
+          rewrite ^/nl$ /nl/ redirect;
+          rewrite ^/nl/(.*) /$1;
+          rewrite ^/en$ /en/ redirect;
+          rewrite ^/en/(.*) /$1;
+
           # Images.
           rewrite ^/(\d)(-[\w-]+)?/.+\.jpg$ /img/p/$1/$1$2.jpg last;
           rewrite ^/(\d)(\d)(-[\w-]+)?/.+\.jpg$ /img/p/$1/$2/$1$2$3.jpg last;
