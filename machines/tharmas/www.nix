@@ -88,6 +88,10 @@ in
         };
         root = "/var/www/orla-player";
       };
+      "witch-awakening.taglialegne.it" = standardListen {
+        serverAliases = [ "witchawakening.taglialegne.it" ];
+        root = "/var/www/witch-awakening.taglialegne.it";
+      };
       "x.taglialegne.it" = standardListen {
         root = "/var/www/x";
       };
