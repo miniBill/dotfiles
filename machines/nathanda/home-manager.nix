@@ -55,7 +55,6 @@
     clang-tools
     cmake
     cppcheck
-    hotspot
     linuxPackages.perf
     # GLSL
     glslang

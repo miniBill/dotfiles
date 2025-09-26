@@ -14,7 +14,6 @@
     # Elm
     glslang
     linuxPackages.perf
-    hotspot
 
     # MULTIMEDIA
     blender
