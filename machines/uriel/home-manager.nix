@@ -35,7 +35,6 @@
     ardour
     carla
     clementine
-    frescobaldi
     cheese
     jamulus
     mediainfo
