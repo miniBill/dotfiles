@@ -22,7 +22,7 @@
   boot.kernelPackages = pkgs.linuxPackages_6_15;
 
   networking.hostName = "nathanda";
-  networking.interfaces.wlo1.useDHCP = false;
+  networking.interfaces.wlp192s0.useDHCP = false;
 
   # boot.kernelParams = [ ];
   # boot.extraModprobeConfig = "";
@@ -82,6 +82,12 @@
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
+  };
+
+  users.users.gabriel = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    extraGroups = [ "networkmanager" ];
   };
 
   system.stateVersion = "25.05";
