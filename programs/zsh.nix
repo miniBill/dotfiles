@@ -83,7 +83,8 @@ in
       RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
       SQLITE_HISTORY = "${config.xdg.cacheHome}/sqlite_history";
       WINEPREFIX = "${config.xdg.dataHome}/wine";
-    } // (if stdenv.isDarwin then { VOLTA_HOME = "${homeDirectory}/.volta"; } else { });
+    }
+    // (if stdenv.isDarwin then { VOLTA_HOME = "${homeDirectory}/.volta"; } else { });
 
     shellAliases = {
       open = "xdg-open";
