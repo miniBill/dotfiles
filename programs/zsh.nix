@@ -28,6 +28,8 @@ let
       cd $2
       git remote rename origin $1
     }
+
+    export ELM_WATCH_OPEN_EDITOR='code --goto "$file:$line:$column"'
   '';
 in
 
@@ -70,8 +72,6 @@ in
     sessionVariables = {
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
       SKIP_ELM_CODEGEN = "true";
-
-      ELM_WATCH_OPEN_EDITOR = "code --goto \"\$file:\$line:\$column\"";
 
       ANDROID_HOME = "${config.xdg.dataHome}/android";
       CARGO_HOME = "${config.xdg.dataHome}/cargo";
