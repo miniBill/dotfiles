@@ -9,7 +9,7 @@
 
   home.packages = with pkgs; [
     # BASE
-    openrgb
+    # openrgb
     (texlive.combined.scheme-basic.withPackages (
       ps: with ps; [
         academicons
