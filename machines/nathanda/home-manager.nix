@@ -93,7 +93,7 @@
     # GAMES
     heroic
     mupen64plus
-    lutris-free
+    lutris-unwrapped
     mgba
     prismlauncher
 
