@@ -33,7 +33,7 @@
     # Multimedia
     ardour
     carla
-    clementine
+    # clementine
     cheese
     jamulus
     mediainfo
