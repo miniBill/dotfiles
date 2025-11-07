@@ -98,6 +98,7 @@
     # lutris-free
     mgba
     prismlauncher
+    r2modman
 
     # VIRT/OP
     # nix-index
