@@ -152,7 +152,7 @@ in
       lfs.enable = true;
       delta.enable = true;
       userName = "Leonardo Taglialegne";
-      userEmail = lib.mkDefault "cmt.miniBill@gmail.com";
+      userEmail = lib.mkDefault "leonardo@taglialegne.it";
 
       extraConfig = {
         # Misc
