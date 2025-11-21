@@ -19,7 +19,7 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_16;
+  boot.kernelPackages = pkgs.linuxPackages_6_17;
 
   networking.hostName = "nathanda";
   networking.interfaces.wlp192s0.useDHCP = false;
