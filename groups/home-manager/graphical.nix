@@ -1,7 +1,6 @@
-{
-  pkgs,
-  lib,
-  # , lamdera
+{ pkgs
+, lib
+, # , lamdera
   # , pinned-unstable-vscode
   ...
 }:
@@ -179,6 +178,8 @@ in
 
       ".config/yakuakerc".source = ../../files/yakuakerc;
     };
+
+    language.base = "en_US.UTF-8";
   };
 
   programs = {
