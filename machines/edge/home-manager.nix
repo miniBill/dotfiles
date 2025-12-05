@@ -17,7 +17,7 @@
 
     # MULTIMEDIA
     blender
-    glxinfo
+    mesa-demos
     mediainfo
     cheese
 

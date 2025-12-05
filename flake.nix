@@ -2,9 +2,9 @@
   description = "Home Manager and NixOS configurations";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
-    # nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-25.05-small";
+    # nixpkgs-small.url = "github:NixOS/nixpkgs/nixos-25.11-small";
 
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
@@ -31,7 +31,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

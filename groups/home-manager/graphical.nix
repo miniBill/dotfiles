@@ -1,6 +1,7 @@
-{ pkgs
-, lib
-, # , lamdera
+{
+  pkgs,
+  lib,
+  # , lamdera
   # , pinned-unstable-vscode
   ...
 }:
@@ -44,7 +45,7 @@ let
     ++ lib.optionals stdenv.isLinux [
       mold
 
-      gitAndTools.qgit
+      qgit
 
       (python3.withPackages (ps: [
         ps.pillow
@@ -104,7 +105,7 @@ let
       libreoffice
       calibre
       virt-manager
-      glxinfo
+      mesa-demos
       graphviz-nox
       solaar
     ];
@@ -151,7 +152,7 @@ let
       remmina
       thunderbird
 
-      tdesktop
+      telegram-desktop
       discord
       signal-desktop
     ];

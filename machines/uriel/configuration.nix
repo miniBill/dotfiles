@@ -90,9 +90,9 @@ in
   # virtualisation.kvmgt.vgpus = {
   #   "i915-GVTg_V5_4" = { uuid = [ "a297db4a-f4c2-11e6-90f6-d3b88d6c9525" ]; };
   # };
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=5s
-  '';
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "5s";
+  };
 
   # Allow uriel to be used as a builder by aarch64 systems
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];

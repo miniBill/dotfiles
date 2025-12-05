@@ -60,7 +60,7 @@ let
     ];
 
   packages-net-misc = with pkgs; [
-    aria
+    aria2
     jq
     openssl
   ];
@@ -147,14 +147,18 @@ in
       ];
     };
 
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+
     git = {
       enable = true;
       lfs.enable = true;
-      delta.enable = true;
-      userName = "Leonardo Taglialegne";
-      userEmail = lib.mkDefault "leonardo@taglialegne.it";
+      settings = {
+        user.name = "Leonardo Taglialegne";
+        user.email = lib.mkDefault "leonardo@taglialegne.it";
 
-      extraConfig = {
         # Misc
         core.editor = "vim";
         gpg.format = "ssh";
@@ -223,11 +227,14 @@ in
 
     ssh = {
       enable = true;
-      controlMaster = "auto";
-      controlPath = "~/.ssh/control/%r@%h:%p";
-      controlPersist = "10m";
+      enableDefaultConfig = false;
 
       matchBlocks = {
+        "*" = {
+          controlMaster = "auto";
+          controlPath = "~/.ssh/control/%r@%h:%p";
+          controlPersist = "10m";
+        };
         "tharmas" = {
           hostname = "tharmas.taglialegne.it";
         };

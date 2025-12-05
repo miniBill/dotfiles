@@ -1,9 +1,10 @@
-{ nixos-hardware
-, config
-, pkgs
-, musnix
-, lib
-, ...
+{
+  nixos-hardware,
+  config,
+  pkgs,
+  musnix,
+  lib,
+  ...
 }:
 
 {
@@ -26,9 +27,9 @@
 
   # boot.kernelParams = [ ];
   # boot.extraModprobeConfig = "";
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=5s
-  '';
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "5s";
+  };
 
   hardware.cpu.amd.updateMicrocode = true;
 
