@@ -13,7 +13,7 @@
     # (with dotnetCorePackages; combinePackages [ sdk_3_1 ])
     # Elm
     glslang
-    linuxPackages.perf
+    perf
 
     # MULTIMEDIA
     blender

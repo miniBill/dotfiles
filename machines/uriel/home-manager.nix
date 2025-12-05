@@ -56,7 +56,7 @@
     clang-tools
     cmake
     cppcheck
-    linuxPackages.perf
+    perf
     # GLSL
     glslang
     # Rust
