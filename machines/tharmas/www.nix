@@ -233,7 +233,7 @@ in
       upload_max_filesize = 400M
       post_max_size = 400M
       max_execution_time = 400
-      memory_limit = 1024M
+      memory_limit = 1G
     '';
     settings = {
       "listen.owner" = config.services.nginx.user;
@@ -250,6 +250,10 @@ in
     };
     phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
   };
+
+  environment.systemPackages = [
+    (pkgs.php.buildEnv { extraConfig = "memory_limit = 1G"; })
+  ];
 
   services.mysql = {
     enable = true;
