@@ -1,6 +1,10 @@
 let
-  # minibill = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel";
-  # users = [ minibill ];
+  # minibill-uriel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINGAVCUqG9wVONKAUB449Zn+B/6nbKPFOlCcyCC55u3K minibill@uriel";
+  # minibill-nathanda = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM0hJaKfM66FAJ3rb9RZ96Bra3t3P98RG7NQvpgrJ3rs minibill@nathanda";
+  # users = [
+  #   minibill-uriel
+  #   minibill-nathanda
+  # ];
 
   edge = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMT/em7DhFIVRdXQ+zRWneD5t3T9pk3OXFVQ7NAP+bjB root@edge";
   ithaca = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+WUwSkJFEgHsHazSafR5czJiZN62oCm/ox8X2ViQ47 root@ithaca";
@@ -11,7 +15,7 @@ let
   tharmas = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF8UP9vkY+7OROsHeqZCnBlOwwPZW5fdoyENlxfpIGPl root@tharmas";
   uriel = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMMRil53Dkrw2+/QwfK/amfnPKGa6ZRmXBYrs3KB+aSY root@uriel";
 
-  home = [
+  graphical = [
     edge
     nathanda
     sohu
@@ -25,10 +29,10 @@ let
   ];
 in
 {
-  "snizzovpn.age".publicKeys = home;
+  "snizzovpn.age".publicKeys = graphical;
 
-  "tailscale.age".publicKeys = home ++ servers;
-  "cjdroute.conf.age".publicKeys = home ++ servers;
+  "tailscale.age".publicKeys = graphical ++ servers;
+  "cjdroute.conf.age".publicKeys = graphical ++ servers;
 
   "secretdemoclub.toml.age".publicKeys = [ uriel ] ++ servers;
   "outline-email.age".publicKeys = [ uriel ] ++ servers;

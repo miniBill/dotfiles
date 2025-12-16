@@ -1,8 +1,10 @@
 {
   pkgs,
   lib,
-  # , lamdera
-  # , pinned-unstable-vscode
+  config,
+  # agenix,
+  # lamdera,
+  # pinned-unstable-vscode,
   ...
 }:
 
@@ -160,7 +162,10 @@ let
   packages-net = packages-net-misc;
 in
 {
-  imports = [ ./base.nix ];
+  imports = [
+    ./base.nix
+    # agenix.homeManagerModules.default
+  ];
 
   home = {
     packages = packages-base ++ package-dev ++ packages-gui ++ packages-net;
@@ -212,5 +217,27 @@ in
   services.gpg-agent = {
     enable = !stdenv.isDarwin;
     enableSshSupport = !stdenv.isDarwin;
+  };
+
+  services.syncthing = {
+    enable = true;
+    settings = {
+      devices = {
+        "uriel" = {
+          addresses = [ "tcp://10.0.0.1:22000" ];
+          id = "QPKB44L-E7E7WID-TSB6EWI-6J7IUEX-BGRVH3A-ZVTXZ7B-WQZ2SJE-TGDAXAR";
+        };
+      };
+
+      folders = {
+        # "Sync" = {
+        #   id = "sync";
+        #   devices = [ "uriel" ];
+        #   path  = "~/Sync";
+        # };
+      };
+    };
+
+    tray.enable = true;
   };
 }
