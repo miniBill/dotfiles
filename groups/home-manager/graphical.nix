@@ -1,7 +1,8 @@
-{ pkgs
-, lib
-, config
-, # agenix,
+{
+  pkgs,
+  lib,
+  config,
+  # agenix,
   # lamdera,
   # pinned-unstable-vscode,
   ...
@@ -228,11 +229,35 @@ in
       };
 
       folders = {
-        # "Sync" = {
-        #   id = "sync";
-        #   devices = [ "uriel" ];
-        #   path  = "~/Sync";
-        # };
+        "Global" = {
+          devices = [
+            "uriel"
+            "malia"
+            "nathanda"
+          ];
+          path = "~/Sync/Global";
+          versioning = {
+            type = "staggered";
+            # params = {
+            #   cleanInterval = "3600";
+            #   maxAge = "31536000";
+            # };
+          };
+        };
+        "Graphical" = {
+          devices = [
+            "uriel"
+            "nathanda"
+          ];
+          path = "~/Sync/Graphical";
+          versioning = {
+            type = "staggered";
+            # params = {
+            #   cleanInterval = "3600";
+            #   maxAge = "31536000";
+            # };
+          };
+        };
       };
     };
 
