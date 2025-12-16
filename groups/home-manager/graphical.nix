@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  # agenix,
+{ pkgs
+, lib
+, config
+, # agenix,
   # lamdera,
   # pinned-unstable-vscode,
   ...
@@ -224,7 +223,7 @@ in
     settings = {
       devices = {
         "malia".id = "TFSZUCL-6NK3K6Q-V6VAWRB-IHFFTOE-SCDL3ZJ-DGF37N5-6MLVIUG-PX2BWAF";
-        # "nathanda".id = "";
+        "nathanda".id = "JOM45EK-UVQ7OMB-EFCTKCN-5SMMNE7-YO22NCM-4PSQ3CK-QBLPVOW-EDVV4QK";
         "uriel".id = "QPKB44L-E7E7WID-TSB6EWI-6J7IUEX-BGRVH3A-ZVTXZ7B-WQZ2SJE-TGDAXAR";
       };
 
