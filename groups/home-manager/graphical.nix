@@ -238,10 +238,10 @@ in
           path = "~/Sync/Global";
           versioning = {
             type = "staggered";
-            # params = {
-            #   cleanInterval = "3600";
-            #   maxAge = "31536000";
-            # };
+            params = {
+              cleanInterval = "3600";
+              maxAge = "31536000";
+            };
           };
         };
         "Graphical" = {
@@ -252,10 +252,10 @@ in
           path = "~/Sync/Graphical";
           versioning = {
             type = "staggered";
-            # params = {
-            #   cleanInterval = "3600";
-            #   maxAge = "31536000";
-            # };
+            params = {
+              cleanInterval = "3600";
+              maxAge = "31536000";
+            };
           };
         };
       };
