@@ -223,10 +223,9 @@ in
     enable = true;
     settings = {
       devices = {
-        "uriel" = {
-          addresses = [ "tcp://10.0.0.1:22000" ];
-          id = "QPKB44L-E7E7WID-TSB6EWI-6J7IUEX-BGRVH3A-ZVTXZ7B-WQZ2SJE-TGDAXAR";
-        };
+        "malia".id = "TFSZUCL-6NK3K6Q-V6VAWRB-IHFFTOE-SCDL3ZJ-DGF37N5-6MLVIUG-PX2BWAF";
+        # "nathanda".id = "";
+        "uriel".id = "QPKB44L-E7E7WID-TSB6EWI-6J7IUEX-BGRVH3A-ZVTXZ7B-WQZ2SJE-TGDAXAR";
       };
 
       folders = {
