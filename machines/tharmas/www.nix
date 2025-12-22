@@ -156,8 +156,8 @@ in
             try_files $uri $uri/ /index.php$is_args$args;
           }
 
-          location /admin/ {
-            try_files $uri $uri/ /admin/index.php$is_args$args;
+          location /(admin[a-z0-9]*)/ {
+            try_files $uri $uri/ /$1/index.php$is_args$args;
           }
 
 
