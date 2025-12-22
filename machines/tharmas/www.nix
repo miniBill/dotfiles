@@ -23,6 +23,10 @@ let
       ];
     }
     // cfg;
+
+  php = pkgs.php.buildEnv {
+    extraConfig = "memory_limit = 1G";
+  };
 in
 {
   security.acme = {
@@ -248,11 +252,11 @@ in
       "php_admin_flag[log_errors]" = true;
       "catch_workers_output" = true;
     };
-    phpEnv."PATH" = lib.makeBinPath [ pkgs.php ];
+    phpEnv."PATH" = lib.makeBinPath [ php ];
   };
 
   environment.systemPackages = [
-    (pkgs.php.buildEnv { extraConfig = "memory_limit = 1G"; })
+    php
   ];
 
   services.mysql = {
