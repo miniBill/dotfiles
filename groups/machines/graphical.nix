@@ -52,6 +52,7 @@
 
   # Hardware
   hardware.keyboard.zsa.enable = true;
+  hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
   # Enable CUPS to print documents.
@@ -106,18 +107,18 @@
         noto-fonts-color-emoji
       ]
       ++
-        # Mine:
-        [
-          (callPackage ../../fonts/linja-pona.nix { })
-          fira-code-symbols # fira code ligatures for compatibility reasons
-          inter
-          nerd-fonts.droid-sans-mono
-          noto-fonts-cjk-sans
-          noto-fonts-cjk-serif
-          ocr-a
-          nerd-fonts.fira-code
-          stix-two
-        ];
+      # Mine:
+      [
+        (callPackage ../../fonts/linja-pona.nix { })
+        fira-code-symbols # fira code ligatures for compatibility reasons
+        inter
+        nerd-fonts.droid-sans-mono
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+        ocr-a
+        nerd-fonts.fira-code
+        stix-two
+      ];
   };
 
   # MCH2022 badge
