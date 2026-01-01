@@ -1,10 +1,9 @@
-{
-  nixos-hardware,
-  config,
-  pkgs,
-  musnix,
-  lib,
-  ...
+{ nixos-hardware
+, config
+, pkgs
+, musnix
+, lib
+, ...
 }:
 
 {
@@ -20,7 +19,7 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_17;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   networking.hostName = "nathanda";
   networking.interfaces.wlp192s0.useDHCP = false;
