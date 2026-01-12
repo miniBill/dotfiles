@@ -92,6 +92,10 @@ in
         };
         root = "/var/www/orla-player";
       };
+      "pathfinder-weather.taglialegne.it" = standardListen {
+        serverAliases = [ "pathfinderweather.taglialegne.it" ];
+        root = "/var/www/pathfinder-weather.taglialegne.it";
+      };
       "witch-awakening.taglialegne.it" = standardListen {
         serverAliases = [ "witchawakening.taglialegne.it" ];
         root = "/var/www/witch-awakening.taglialegne.it";
