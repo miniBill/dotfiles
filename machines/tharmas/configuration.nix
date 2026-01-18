@@ -110,6 +110,7 @@ in
   users.users = {
     minibill = {
       isNormalUser = true;
+      linger = true;
       hashedPassword = "$6$dPi0t.m3Rat601ku$zULH0TmfZQPZzxnQEchMGKLEUxnEFYkT47zWnNTfm3yopOEo5CdD6Ymhr1yIakq5zwtIaXDCAoaJWNYm5My0W0";
     };
     silvia = {
@@ -136,6 +137,7 @@ in
     };
     timerune = {
       isNormalUser = true;
+      linger = true;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKH24XAIEHU0qkEd4Mj0wQVqLR9Zu5hxGHtyWVaQ2b0t root@HalStrider"
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdmEelMKhbHSrkiW8QSNQGAXHlV9BXUnaOSHnLY8pmc podso@HalStrider"
