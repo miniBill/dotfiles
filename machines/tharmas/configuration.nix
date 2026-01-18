@@ -138,6 +138,7 @@ in
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKH24XAIEHU0qkEd4Mj0wQVqLR9Zu5hxGHtyWVaQ2b0t root@HalStrider"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdmEelMKhbHSrkiW8QSNQGAXHlV9BXUnaOSHnLY8pmc podso@HalStrider"
       ];
     };
     martin = {
