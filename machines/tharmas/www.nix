@@ -79,6 +79,12 @@ in
         serverAliases = [ "tharmas.taglialegne.it" ];
         root = "/var/www/taglialegne.it";
       };
+      "cardlog.taglialegne.it" = standardListen {
+        locations."/" = {
+          proxyPass = "http://localhost:1025";
+          proxyWebsockets = true;
+        };
+      };
       "outline.taglialegne.it" = standardListen {
         locations."/" = {
           proxyPass = "http://localhost:3333";
