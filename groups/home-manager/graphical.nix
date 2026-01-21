@@ -214,10 +214,7 @@ in
     };
   };
 
-  services.gpg-agent = {
-    enable = !stdenv.isDarwin;
-    enableSshSupport = !stdenv.isDarwin;
-  };
+  services.ssh-agent.enable = true;
 
   services.syncthing = {
     enable = true;
