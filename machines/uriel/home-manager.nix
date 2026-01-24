@@ -1,6 +1,5 @@
-{
-  pkgs,
-  # , roc
+{ pkgs
+, # , roc
   ...
 }:
 
@@ -76,7 +75,7 @@
     # cachix
     # zig sqlitebrowser binutils nasm
     dbeaver-bin
-    # roc.packages.${system}.default
+    # roc.packages.${stdenv.hostPlatform.system}.default
     # devenv
     devbox
     zed-editor

@@ -1,10 +1,9 @@
-{
-  config,
-  pkgs,
-  lib,
-  # , nixpkgs-small
-  agenix,
-  ...
+{ config
+, pkgs
+, lib
+, # , nixpkgs-small
+  agenix
+, ...
 }:
 
 {
@@ -47,7 +46,7 @@
     vim
 
     # Sysadmining
-    agenix.packages."${system}".default
+    agenix.packages."${stdenv.hostPlatform.system}".default
     gdu
     htop
     btop
@@ -122,7 +121,7 @@
       "rsa-sha2-512"
       "rsa-sha2-256"
     ];
-    # package = nixpkgs-small.legacyPackages."${pkgs.system}".openssh;
+    # package = nixpkgs-small.legacyPackages."${pkgs.stdenv.hostPlatform.system}".openssh;
   };
 
   programs.zsh = {
