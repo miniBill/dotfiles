@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  username,
   # agenix,
   # lamdera,
   # pinned-unstable-vscode,
@@ -170,20 +171,34 @@ in
   home = {
     packages = packages-base ++ package-dev ++ packages-gui ++ packages-net;
 
-    file = {
-      # Always allow moving output devices in pavucontrol
-      ".alsoftrc".source = ../../files/alsoftrc;
+    file =
+      let
+        homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
-      "bin/elm-format-hack".source = ../../programs/elm-format-hack;
-      "bin/elm-make-readable".source = ../../programs/elm-make-readable;
+        syncLink = p: {
+          "Documents/${p}".source =
+            config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/Sync/Graphical/${p}";
+        };
+      in
+      (
+        {
+          # Always allow moving output devices in pavucontrol
+          ".alsoftrc".source = ../../files/alsoftrc;
 
-      ".npmrc".source = ../../files/npmrc;
-      # ".yarnrc".source = ../../files/yarnrc;
+          "bin/elm-format-hack".source = ../../programs/elm-format-hack;
+          "bin/elm-make-readable".source = ../../programs/elm-make-readable;
 
-      ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
+          ".npmrc".source = ../../files/npmrc;
+          # ".yarnrc".source = ../../files/yarnrc;
 
-      ".config/yakuakerc".source = ../../files/yakuakerc;
-    };
+          ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
+
+          ".config/yakuakerc".source = ../../files/yakuakerc;
+
+        }
+        // syncLink "Work"
+        // syncLink "Pathfinder"
+      );
 
     language.base = "en_US.UTF-8";
   };
