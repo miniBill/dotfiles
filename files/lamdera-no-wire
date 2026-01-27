@@ -1,2 +1,6 @@
 #!/bin/sh
-exec ~/bin/lamdera $@ --no-wire
+if [[ $1 == "install" ]]; then
+    exec ~/bin/lamdera $@
+else
+    exec ~/bin/lamdera $@ --no-wire
+fi
