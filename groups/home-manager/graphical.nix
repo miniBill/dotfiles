@@ -175,9 +175,8 @@ in
       let
         homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
-        syncLink = p: {
-          "Documents/${p}".source =
-            config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/Sync/Graphical/${p}";
+        syncLink = from: p: {
+          "${from}/${p}".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/Sync/Graphical/${p}";
         };
       in
       (
@@ -196,8 +195,9 @@ in
           ".config/yakuakerc".source = ../../files/yakuakerc;
 
         }
-        // syncLink "Work"
-        // syncLink "Pathfinder"
+        // syncLink "Documents" "Work"
+        // syncLink "Documents" "Pathfinder"
+        // syncLink "Music" "Danza"
       );
 
     language.base = "en_US.UTF-8";
