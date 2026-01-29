@@ -46,6 +46,8 @@ let
       typst
     ]
     ++ lib.optionals stdenv.isLinux [
+      kdiff3
+
       mold
 
       qgit
