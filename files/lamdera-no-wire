@@ -1,5 +1,5 @@
 #!/bin/sh
-if [[ $1 == "install" ]]; then
+if [[ $1 == "install" ]] || [[ $1 == "repl" ]]; then
     exec ~/bin/lamdera $@
 else
     exec ~/bin/lamdera $@ --no-wire
