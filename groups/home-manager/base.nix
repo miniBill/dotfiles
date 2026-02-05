@@ -25,6 +25,7 @@ let
       zip
       unzip
       # comma
+      b3sum
 
       nix-output-monitor
     ]
