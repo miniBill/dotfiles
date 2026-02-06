@@ -120,6 +120,7 @@ let
     [
       imagemagick
       gimp
+      exiftool
     ]
     ++ lib.optionals stdenv.isLinux [
       audacity
