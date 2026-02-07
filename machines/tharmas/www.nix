@@ -76,7 +76,10 @@ in
 
     virtualHosts = {
       "taglialegne.it" = standardListen {
-        serverAliases = [ "tharmas.taglialegne.it" ];
+        serverAliases = [
+          "tharmas.taglialegne.it"
+          "www.taglialegne.it"
+        ];
         root = "/var/www/taglialegne.it";
       };
       "cardlog.taglialegne.it" = standardListen {
