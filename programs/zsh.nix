@@ -90,6 +90,8 @@ in
       open = "xdg-open";
       elm = "lamdera-no-wire";
       c = "code .";
+      qgit = "qgit & disown";
+      dolphin = "dolphin & disown";
     };
   };
 }
