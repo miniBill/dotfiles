@@ -278,6 +278,8 @@ in
 
     yt-dlp.enable = true;
 
+    zellij.enable = true;
+
     zoxide.enable = true;
   };
 }
