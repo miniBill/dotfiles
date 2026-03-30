@@ -10,7 +10,6 @@ let
   '';
 in
 
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -24,10 +23,12 @@ in
     enable = true;
     efiSupport = true;
     device = "nodev";
-    mirroredBoots = [{
-      devices = [ "nodev" ];
-      path = "/boot-fallback";
-    }];
+    mirroredBoots = [
+      {
+        devices = [ "nodev" ];
+        path = "/boot-fallback";
+      }
+    ];
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = false;
@@ -49,7 +50,11 @@ in
     nvidia-offload
   ];
 
-  networking.firewall.allowedTCPPorts = [ 80 8000 1234 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    8000
+    1234
+  ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -69,14 +74,16 @@ in
 
   services.libinput.enable = true;
 
-  programs.adb.enable = true;
-
   virtualisation.docker.enable = true;
 
   users.users.rstor = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "docker" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "docker"
+    ];
   };
   users.users.francesca = {
     isNormalUser = true;

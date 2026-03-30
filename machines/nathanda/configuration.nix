@@ -1,9 +1,10 @@
-{ nixos-hardware
-, config
-, pkgs
-, musnix
-, lib
-, ...
+{
+  nixos-hardware,
+  config,
+  pkgs,
+  musnix,
+  lib,
+  ...
 }:
 
 {
@@ -75,8 +76,6 @@
   #     config = ''config ${config.age.secrets.snizzovpn.path}'';
   #   };
   # };
-
-  programs.adb.enable = true;
 
   # Podman
   virtualisation.podman = {

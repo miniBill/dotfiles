@@ -171,11 +171,9 @@ in
   };
   services.openvpn.servers = {
     snizzoVPN = {
-      config = ''config ${config.age.secrets.snizzovpn.path}'';
+      config = "config ${config.age.secrets.snizzovpn.path}";
     };
   };
-
-  programs.adb.enable = true;
 
   # Podman
   virtualisation.podman = {

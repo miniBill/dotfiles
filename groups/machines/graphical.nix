@@ -73,6 +73,8 @@
 
   programs.nix-ld.enable = true;
 
+  programs.adb.enable = true;
+
   # Users
   users.users.minibill.extraGroups = [
     "wheel"
@@ -107,18 +109,18 @@
         noto-fonts-color-emoji
       ]
       ++
-      # Mine:
-      [
-        (callPackage ../../fonts/linja-pona.nix { })
-        fira-code-symbols # fira code ligatures for compatibility reasons
-        inter
-        nerd-fonts.droid-sans-mono
-        noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
-        ocr-a
-        nerd-fonts.fira-code
-        stix-two
-      ];
+        # Mine:
+        [
+          (callPackage ../../fonts/linja-pona.nix { })
+          fira-code-symbols # fira code ligatures for compatibility reasons
+          inter
+          nerd-fonts.droid-sans-mono
+          noto-fonts-cjk-sans
+          noto-fonts-cjk-serif
+          ocr-a
+          nerd-fonts.fira-code
+          stix-two
+        ];
   };
 
   # MCH2022 badge
