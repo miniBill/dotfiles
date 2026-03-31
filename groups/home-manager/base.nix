@@ -151,9 +151,11 @@ in
       ];
     };
 
-    delta = {
+    delta.enable = true;
+
+    difftastic = {
       enable = true;
-      enableGitIntegration = true;
+      git.enable = true;
     };
 
     git = {
