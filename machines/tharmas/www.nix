@@ -109,6 +109,10 @@ in
         serverAliases = [ "witchawakening.taglialegne.it" ];
         root = "/var/www/witch-awakening.taglialegne.it";
       };
+      "witch-awakening-v3.5.taglialegne.it" = standardListen {
+        serverAliases = [ "witchawakening-v3.5.taglialegne.it" ];
+        root = "/var/www/witch-awakening-v3.5.taglialegne.it";
+      };
       "x.taglialegne.it" = standardListen {
         root = "/var/www/x";
       };
