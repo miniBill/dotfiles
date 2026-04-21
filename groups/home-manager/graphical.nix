@@ -70,7 +70,8 @@ let
   package-dev-elm =
     with pkgs;
     [
-      elmPackages.elm-json
+      # elmPackages.elm-json
+      (callPackage ../../programs/elm-json { })
       # elmPackages.elm-test
       # lamdera.packages.${system}.lamdera-next
       nodejs
