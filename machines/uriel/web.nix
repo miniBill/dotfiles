@@ -68,7 +68,17 @@ in
           port = 4000;
         }
       ];
-      locations."/".proxyPass = "https://work.ambue.com";
+      locations."/" = {
+        proxyPass = "https://localhost:4123";
+        extraConfig = ''
+          proxy_set_header Host work.ambue.com;
+        '';
+        recommendedProxySettings = true;
+      };
+
+      extraConfig = ''
+        error_log /var/log/nginx/error-debug.log debug;
+      '';
     };
 
     virtualHosts."uriel.taglialegne.it" = {
