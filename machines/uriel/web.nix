@@ -68,7 +68,7 @@ in
           port = 4000;
         }
       ];
-      locations."/".proxyPass = "https://work.ambue.com/";
+      locations."/".proxyPass = "https://work.ambue.com";
     };
 
     virtualHosts."uriel.taglialegne.it" = {
