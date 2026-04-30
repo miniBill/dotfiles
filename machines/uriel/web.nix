@@ -59,10 +59,9 @@ in
       proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
     '';
 
-    virtualHosts."localhost" = orla-player;
+    # virtualHosts."localhost" = orla-player;
 
-    virtualHosts."proxy" = {
-      serverName = "localhost";
+    virtualHosts."localhost" = {
       listen = [
         {
           addr = "127.0.0.1";
