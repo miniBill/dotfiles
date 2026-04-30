@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   orla-player = {
     locations."/rss/orlagartland" = {
@@ -56,6 +61,17 @@ in
 
     virtualHosts."localhost" = orla-player;
 
+    virtualHosts."proxy" = {
+      serverName = "localhost";
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = 4000;
+        }
+      ];
+      locations."/".proxyPass = "https://work.ambue.com/";
+    };
+
     virtualHosts."uriel.taglialegne.it" = {
       forceSSL = true;
       enableACME = true;
@@ -70,6 +86,7 @@ in
           ssl = true;
         }
       ];
-    } // orla-player;
+    }
+    // orla-player;
   };
 }
