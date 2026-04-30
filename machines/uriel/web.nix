@@ -20,7 +20,7 @@ in
   };
 
   services.nginx = {
-    enable = false;
+    enable = true;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
