@@ -74,7 +74,7 @@ let
       (callPackage ../../programs/elm-json { })
       # elmPackages.elm-test
       # lamdera.packages.${system}.lamdera-next
-      nodejs
+      nodejs_24
       optipng
       jpegoptim
       corepack
