@@ -142,15 +142,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1752689277,
-        "narHash": "sha256-uldUBFkZe/E7qbvxa3mH1ItrWZyT6w1dBKJQF/3ZSsc=",
+        "lastModified": 1779912356,
+        "narHash": "sha256-yj5O6vmAj+OfhTQMiUwhmQRP0HAII3BxEI6zuY6h/5k=",
         "owner": "nix-community",
         "repo": "naersk",
-        "rev": "0e72363d0938b0208d6c646d10649164c43f4d64",
+        "rev": "33eaf5c72a67db15073322d26cd342c443556214",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
+        "ref": "pull/391/head",
         "repo": "naersk",
         "type": "github"
       }
@@ -249,11 +250,11 @@
       },
       "locked": {
         "dir": "server",
-        "lastModified": 1779974115,
-        "narHash": "sha256-2W4D5Mr5oqNFLtcxSWky+a6dG8C7zH4/oYtN8+c2hIg=",
+        "lastModified": 1779974471,
+        "narHash": "sha256-v14HCCc+QznAL7mso379xJERXGKF1iMeT3vCMdsYPIA=",
         "owner": "miniBill",
         "repo": "secretdemoclub",
-        "rev": "ce8150ed2f82e214335af6fdb5131ef7b74b0f7e",
+        "rev": "1ef70e2ce7ee67102371c05889b643e7c939af18",
         "type": "github"
       },
       "original": {
