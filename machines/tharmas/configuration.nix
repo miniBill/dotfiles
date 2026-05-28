@@ -67,6 +67,11 @@ in
     builtins.elem (lib.getName pkg) [
       "outline"
     ];
+  services.rustdesk-server = {
+    enable = true;
+    openFirewall = true;
+    signal.relayHosts = [ "tharmas.taglialegne.it" ];
+  };
 
   networking = {
     usePredictableInterfaceNames = false;
