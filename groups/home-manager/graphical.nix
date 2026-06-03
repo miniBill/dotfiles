@@ -3,6 +3,7 @@
   lib,
   config,
   username,
+  elm-wrap,
   # agenix,
   # lamdera,
   # pinned-unstable-vscode,
@@ -73,12 +74,13 @@ let
       # elmPackages.elm-json
       (callPackage ../../programs/elm-json { })
       # elmPackages.elm-test
-      # lamdera.packages.${system}.lamdera-next
+      # lamdera.packages.${stdenv.hostPlatform.system}.lamdera-next
       nodejs_24
       optipng
       jpegoptim
       corepack
       bun
+      elm-wrap.packages.${stdenv.hostPlatform.system}.default
     ]
     ++ lib.optionals stdenv.isLinux [
       elmPackages.elm-format

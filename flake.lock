@@ -49,6 +49,26 @@
         "type": "github"
       }
     },
+    "elm-wrap": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780494952,
+        "narHash": "sha256-3Qm01G6iadEm0KFNaHJA27KnLHud1mabgjhgF+naieM=",
+        "owner": "dsimunic",
+        "repo": "elm-wrap",
+        "rev": "a373ad17b08619ffd3adef9386a6b44ccb02d8ae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dsimunic",
+        "repo": "elm-wrap",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -211,6 +231,7 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "elm-wrap": "elm-wrap",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "musnix": "musnix",

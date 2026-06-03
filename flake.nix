@@ -40,6 +40,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    elm-wrap = {
+      url = "github:dsimunic/elm-wrap";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # lamdera = {
     #   url = "github:miniBill/lamdera-flake";
     #   inputs.flake-utils.follows = "flake-utils";
