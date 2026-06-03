@@ -75,6 +75,15 @@
 
   programs.adb.enable = true;
 
+  nix.settings = {
+    # Easier diagnose of non-determinism
+    diff-hook = pkgs.writeShellScript "nix-diff-hook" ''
+      echo "Checking derivation $3"
+      ${pkgs.lib.getExe pkgs.diffoscope} "$1" "$2" || true
+    '';
+    run-diff-hook = true;
+  };
+
   # Users
   users.users.minibill.extraGroups = [
     "wheel"
