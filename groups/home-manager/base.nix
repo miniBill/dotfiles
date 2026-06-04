@@ -39,7 +39,7 @@ let
     with pkgs;
     [
       gnumake
-      nixfmt-rfc-style
+      nixfmt
       alejandra
       uv
     ]
@@ -139,11 +139,13 @@ in
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      withPython3 = false;
+      withRuby = false;
       extraConfig = ''
         set number
         set relativenumber
       '';
-      extraLuaConfig = ''
+      initLua = ''
         require("hardtime").setup()
       '';
       plugins = with pkgs.vimPlugins; [

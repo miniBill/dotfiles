@@ -1,5 +1,6 @@
-{ pkgs
-, ...
+{
+  pkgs,
+  ...
 }:
 
 {
@@ -28,7 +29,7 @@
     x11vnc
     # Wine
     winetricks
-    wineWowPackages.stable
+    wine
     # Multimedia
     ardour
     carla

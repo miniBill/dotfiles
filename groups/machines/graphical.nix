@@ -73,8 +73,6 @@
 
   programs.nix-ld.enable = true;
 
-  programs.adb.enable = true;
-
   nix.settings = {
     # Easier diagnose of non-determinism
     diff-hook = pkgs.writeShellScript "nix-diff-hook" ''

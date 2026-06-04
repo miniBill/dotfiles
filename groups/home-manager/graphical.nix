@@ -17,7 +17,7 @@ let
   packages-base =
     with pkgs;
     [
-      neofetch
+      fastfetch
       nix-bundle
       nixpkgs-fmt
       scrcpy
@@ -42,6 +42,7 @@ let
   packages-dev-base =
     with pkgs;
     [
+      android-tools
       hyperfine
       black
       typst
@@ -78,7 +79,7 @@ let
       nodejs_24
       optipng
       jpegoptim
-      corepack
+      # corepack
       bun
       elm-wrap.packages.${stdenv.hostPlatform.system}.default
     ]
