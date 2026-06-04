@@ -110,7 +110,7 @@ let
     with pkgs;
     lib.optionals stdenv.isLinux [
       gparted
-      libreoffice
+      libreoffice-qt
       calibre
       virt-manager
       mesa-demos
