@@ -8,7 +8,7 @@
 let
   inherit (pkgs) stdenv;
 
-  homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+  # homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
 
   beforeInit = ''
     export ZSH_COMPDUMP=\"${config.xdg.cacheHome}/zsh/zcompdump-\$HOST\"
@@ -84,7 +84,8 @@ in
       SQLITE_HISTORY = "${config.xdg.cacheHome}/sqlite_history";
       WINEPREFIX = "${config.xdg.dataHome}/wine";
     }
-    // (if stdenv.isDarwin then { VOLTA_HOME = "${homeDirectory}/.volta"; } else { });
+    # // (if stdenv.isDarwin then { VOLTA_HOME = "${homeDirectory}/.volta"; } else { })
+    ;
 
     shellAliases = {
       open = "xdg-open";
