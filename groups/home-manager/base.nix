@@ -258,6 +258,10 @@ in
         "git.aljordan.dev" = {
           port = 2233;
         };
+        "wrap" = {
+          user = "miniBill";
+          hostname = "51.159.120.131";
+        };
         "roiter" = {
           hostname = "10.0.255.254";
           user = "admin";
