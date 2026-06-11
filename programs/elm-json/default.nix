@@ -14,8 +14,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "CharlonTank";
     repo = "elm-json";
-    rev = "4845078694f5dd8932d54db1406c80ec5d553ccb";
-    hash = "sha256-pSt4ugP8r7s0ABT3Y9ZbWAG/ShsARtame2lTxXiCuws=";
+    rev = "3c61cffe1d49593a65af2079945f6cc033f6bf18";
+    hash = "sha256-IVfVDWacCXTaw/8mA+YH8vbfF1Os4/OlOlyYVjlD+Vw=";
   };
 
   cargoPatches = [ ./use-system-ssl.patch ];
@@ -27,7 +27,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     openssl
   ];
 
-  cargoHash = "sha256-BnL//AHaSnsugtMEnSTynpMyeNt5N7L6PG2wdWDw1y4=";
+  cargoHash = "sha256-4Cw2LfmgAXUmJxf784Ot6w3/N7sWCK6w6YXpyJWAitg=";
 
   # Tests perform networking and therefore can't work in sandbox
   doCheck = false;
