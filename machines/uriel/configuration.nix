@@ -78,6 +78,8 @@ in
     # Fixes for Thunderbolt
     "intel_iommu=on"
     "pci=assign-busses,hpbussize=0x33,realloc,hpmemsize=128M,hpmemprefsize=1G"
+    # New kernel parameter names
+    # "pci=assign-busses,hpbussize=0x33,realloc,hpmmiosize=128M,hpmmioprefsize=1G"
 
     # Attempts are GPU virtualization
     # "i915.enable_guc=0"
@@ -110,6 +112,7 @@ in
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   musnix.enable = true;
   security.pam.loginLimits = [
