@@ -237,42 +237,39 @@ in
       enable = true;
       enableDefaultConfig = false;
 
-      matchBlocks = {
+      settings = {
         "*" = {
-          controlMaster = "auto";
-          controlPath = "~/.ssh/control/%r@%h:%p";
-          controlPersist = "10m";
+          ControlMaster = "auto";
+          ControlPath = "~/.ssh/control/%r@%h:%p";
+          ControlPersist = "10m";
         };
         "tharmas" = {
-          hostname = "tharmas.taglialegne.it";
+          HostName = "tharmas.taglialegne.it";
         };
         "uriel" = {
-          hostname = "100.69.168.4";
+          HostName = "100.69.168.4";
         };
         "edge" = {
-          hostname = "100.108.17.9";
+          HostName = "100.108.17.9";
         };
         "lamdera-ambue" = {
-          hostname = "ambue-enterprise.lamdera.com";
-          identityFile = "~/.ssh/id_ed25519_ci_ambue";
-          identitiesOnly = true;
+          HostName = "ambue-enterprise.lamdera.com";
+          IdentityFile = "~/.ssh/id_ed25519_ci_ambue";
+          IdentitiesOnly = true;
         };
         "git.aljordan.dev" = {
-          port = 2233;
+          Port = 2233;
         };
         "wrap" = {
-          user = "miniBill";
-          hostname = "51.159.120.131";
+          User = "miniBill";
+          HostName = "51.159.120.131";
         };
         "roiter" = {
-          hostname = "10.0.255.254";
-          user = "admin";
-          proxyJump = "uriel";
-
-          extraOptions = {
-            hostKeyAlgorithms = "+ecdsa-sha2-nistp521";
-            MACs = "+hmac-sha2-256";
-          };
+          HostName = "10.0.255.254";
+          User = "admin";
+          ProxyJump = "uriel";
+          HostKeyAlgorithms = "+ecdsa-sha2-nistp521";
+          MACs = "+hmac-sha2-256";
         };
       };
     };
