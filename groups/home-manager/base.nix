@@ -42,6 +42,7 @@ let
       nixfmt
       alejandra
       uv
+      jujutsu
     ]
     ++ lib.optionals stdenv.isLinux [
       tup
@@ -221,6 +222,16 @@ in
         diff.submodule = "log";
         status.submoduleSummary = true;
         submodule.recurse = true;
+      };
+    };
+
+    jujutsu = {
+      enable = false;
+      settings = {
+        user = {
+          email = "leonardo@taglialegne.it";
+          name = "Leonardo Taglialegne";
+        };
       };
     };
 
