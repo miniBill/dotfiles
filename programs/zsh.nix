@@ -92,6 +92,8 @@ in
       elm = "lamdera-no-wire";
       c = "code .";
       qgit = "qgit & disown";
+      ffmpeg = "ffmpeg -hide_banner";
+      ffprobe = "ffprobe -hide_banner";
       dolphin = "dolphin & disown";
     };
   };
