@@ -90,6 +90,11 @@ in
       };
       "flowerbound.taglialegne.it" = standardListen {
         root = "/var/www/flowerbound.taglialegne.it";
+        locations."/" = {
+          extraConfig = ''
+            try_files $uri $uri/ /index.html;
+          '';
+        };
       };
       # "outline.taglialegne.it" = standardListen {
       #   locations."/" = {
