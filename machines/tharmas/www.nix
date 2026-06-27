@@ -88,6 +88,9 @@ in
           proxyWebsockets = true;
         };
       };
+      "flowerbound.taglialegne.it" = standardListen {
+        root = "/var/www/flowerbound.taglialegne.it";
+      };
       "outline.taglialegne.it" = standardListen {
         locations."/" = {
           proxyPass = "http://localhost:3333";
