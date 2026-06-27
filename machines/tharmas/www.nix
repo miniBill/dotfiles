@@ -91,12 +91,12 @@ in
       "flowerbound.taglialegne.it" = standardListen {
         root = "/var/www/flowerbound.taglialegne.it";
       };
-      "outline.taglialegne.it" = standardListen {
-        locations."/" = {
-          proxyPass = "http://localhost:3333";
-          proxyWebsockets = true;
-        };
-      };
+      # "outline.taglialegne.it" = standardListen {
+      #   locations."/" = {
+      #     proxyPass = "http://localhost:3333";
+      #     proxyWebsockets = true;
+      #   };
+      # };
       "orla-player.taglialegne.it" = standardListen {
         locations."/rss/orlagartland" = {
           proxyPass = "https://www.patreon.com/rss/orlagartland";

@@ -35,5 +35,5 @@ in
   "cjdroute.conf.age".publicKeys = graphical ++ servers;
 
   "secretdemoclub.toml.age".publicKeys = [ uriel ] ++ servers;
-  "outline-email.age".publicKeys = [ uriel ] ++ servers;
+  # "outline-email.age".publicKeys = [ uriel ] ++ servers;
 }

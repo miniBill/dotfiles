@@ -41,32 +41,32 @@ in
     listenAddresses = [ ip ];
   };
 
-  age.secrets.outline-email = {
-    file = ../../secrets/outline-email.age;
-    owner = config.services.outline.user;
-    group = config.services.outline.group;
-  };
-  services.outline = {
-    enable = true;
-    publicUrl = "https://outline.taglialegne.it";
-    port = 3333;
-    forceHttps = false;
-    storage.storageType = "local";
-    smtp = {
-      fromEmail = "outline@taglialegne.it";
-      host = "mail.taglialegne.it";
-      port = 465;
-      username = "outline@taglialegne.it";
-      passwordFile = config.age.secrets.outline-email.path;
-      replyEmail = "leonardo@taglialegne.it";
-      secure = true;
-    };
-  };
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "outline"
-    ];
+  # age.secrets.outline-email = {
+  #   file = ../../secrets/outline-email.age;
+  #   owner = config.services.outline.user;
+  #   group = config.services.outline.group;
+  # };
+  # services.outline = {
+  #   enable = true;
+  #   publicUrl = "https://outline.taglialegne.it";
+  #   port = 3333;
+  #   forceHttps = false;
+  #   storage.storageType = "local";
+  #   smtp = {
+  #     fromEmail = "outline@taglialegne.it";
+  #     host = "mail.taglialegne.it";
+  #     port = 465;
+  #     username = "outline@taglialegne.it";
+  #     passwordFile = config.age.secrets.outline-email.path;
+  #     replyEmail = "leonardo@taglialegne.it";
+  #     secure = true;
+  #   };
+  # };
+  # nixpkgs.config.allowUnfreePredicate =
+  #   pkg:
+  #   builtins.elem (lib.getName pkg) [
+  #     "outline"
+  #   ];
   services.rustdesk-server = {
     enable = true;
     openFirewall = true;
