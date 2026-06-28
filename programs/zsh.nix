@@ -89,7 +89,7 @@ in
 
     shellAliases = {
       open = "xdg-open";
-      elm = "lamdera-no-wire";
+      # elm = "lamdera-no-wire";
       c = "code .";
       qgit = "qgit & disown";
       ffmpeg = "ffmpeg -hide_banner";
