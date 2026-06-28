@@ -218,6 +218,7 @@ in
 
     firefox = {
       enable = !stdenv.isDarwin;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
 
       profiles = {
         main = {
