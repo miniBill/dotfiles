@@ -1,6 +1,6 @@
 #!/bin/sh
 if [[ $1 == "install" ]] || [[ $1 == "repl" ]] || [[ $1 == "--version" ]] || [[ $1 == "live" ]] || [[ $1 == "" ]]; then
-    exec ~/bin/lamdera $@
+    exec lamdera $@
 else
-    exec ~/bin/lamdera $@ --no-wire
+    exec lamdera $@ --no-wire
 fi
