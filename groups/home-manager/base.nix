@@ -94,6 +94,7 @@ in
     );
 
     sessionPath = [
+      "$HOME/.bun/bin"
       "$HOME/bin"
     ];
 
