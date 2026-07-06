@@ -112,11 +112,6 @@
     in
     {
       homeConfigurations = {
-        "minibill@gadiriel" = withConfig {
-          arch = "aarch64";
-          os = "darwin";
-          module = ./machines/gadiriel/home-manager.nix;
-        };
         "minibill@ithaca" = withConfig {
           arch = "aarch64";
           module = ./machines/ithaca/home-manager.nix;
