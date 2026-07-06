@@ -210,7 +210,7 @@ in
         // syncLink "Music" "Danza"
       );
 
-    language.base = "en_US.UTF-8";
+    language.base = "en_IE.UTF-8";
   };
 
   programs = {

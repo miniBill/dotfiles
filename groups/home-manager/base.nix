@@ -98,7 +98,7 @@ in
       "$HOME/bin"
     ];
 
-    language.base = "en_US.UTF-8";
+    language.base = lib.mkDefault "en_US.UTF-8";
 
     inherit username homeDirectory;
 
