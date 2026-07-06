@@ -74,6 +74,7 @@ let
     [
       # elmPackages.elm-json
       (callPackage ../../programs/elm-json { })
+      (callPackage ../../programs/elm-test-rs.nix { })
       # elmPackages.elm-test
       # lamdera.packages.${stdenv.hostPlatform.system}.lamdera-next
       nodejs_24
