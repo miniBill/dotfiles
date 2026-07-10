@@ -118,6 +118,7 @@ let
       mesa-demos
       graphviz-nox
       solaar
+      super-productivity
     ];
 
   packages-gui-multimedia =
