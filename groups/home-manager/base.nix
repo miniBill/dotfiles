@@ -81,7 +81,6 @@ in
     packages = packages-base ++ packages-dev ++ packages-net;
 
     file = {
-      # ".zsh/p10k.zsh".source = ../../files/zsh/p10k.zsh;
       "${config.xdg.dataHome}/cargo/config.toml".source = ../../files/cargo/config.toml;
       ".config/nix/nix.conf".source = ../../files/nix.conf;
       ".config/Code/Dictionaries".source =
