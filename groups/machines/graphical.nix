@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  niri,
+  ...
+}:
 
 {
+  imports = [ niri.nixosModules.niri ];
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
   # services.openssh.settings.X11Forwarding = true;
@@ -8,9 +14,41 @@
   # Enable the KDE Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.displayManager.sddm.wayland.enable = true;
+
   services.desktopManager.plasma6.enable = true;
   security.pam.services.kwallet.enableKwallet = true;
   programs.kdeconnect.enable = true;
+
+  # Enable niri
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri; # Use stable niri
+    # useNautilus = false;
+  };
+  # services.gnome.gnome-keyring.enable = false; # We're using the KDE one
+  xdg.portal = {
+    # enable = true; # Implied by programs.niri.enable = true
+    xdgOpenUsePortal = true;
+
+    # config.niri = {
+    #   default = lib.mkForce [
+    #     "kde"
+    #     "gtk"
+    #     "gnome"
+    #   ];
+    #   "org.freedesktop.impl.portal.Access" = lib.mkForce "kde";
+    #   "org.freedesktop.impl.portal.FileChooser" = lib.mkForce "kde";
+    #   "org.freedesktop.impl.portal.Notification" = lib.mkForce "kde";
+    #   "org.freedesktop.impl.portal.Secret" = lib.mkForce "kwallet";
+    # };
+
+    # extraPortals = with pkgs; [
+    #   kdePackages.xdg-desktop-portal-kde
+    #   xdg-desktop-portal-gtk
+    #   xdg-desktop-portal-gnome
+    # ];
+  };
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Used by vscode, parcel and friends
   boot.kernel.sysctl = {

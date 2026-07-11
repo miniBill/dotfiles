@@ -1,9 +1,10 @@
-{ config
-, pkgs
-, lib
-, # , nixpkgs-small
-  agenix
-, ...
+{
+  config,
+  pkgs,
+  lib,
+  # , nixpkgs-small
+  agenix,
+  ...
 }:
 
 {
@@ -88,7 +89,7 @@
   };
 
   programs.ssh = {
-    startAgent = true;
+    startAgent = !config.programs.niri.enable;
 
     ciphers = [
       "chacha20-poly1305@openssh.com"

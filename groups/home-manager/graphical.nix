@@ -104,7 +104,6 @@ let
       plasma-browser-integration
       plasma-thunderbolt
       spectacle
-      xdg-desktop-portal-kde
       yakuake
     ];
 
@@ -175,6 +174,7 @@ in
   imports = [
     ./base.nix
     ./syncthing.nix
+    ./niri.nix
     # agenix.homeManagerModules.default
   ];
 

@@ -68,6 +68,12 @@
     #   url = "github:edolstra/flake-compat";
     #   flake = false;
     # };
+
+    # niri wm
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
