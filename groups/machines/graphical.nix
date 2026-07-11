@@ -2,8 +2,8 @@
 
 {
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.openssh.settings.X11Forwarding = true;
+  # services.xserver.enable = true;
+  # services.openssh.settings.X11Forwarding = true;
 
   # Enable the KDE Desktop Environment.
   services.displayManager.sddm.enable = true;
