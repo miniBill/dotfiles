@@ -294,6 +294,4 @@
     swaybg # wallpaper
     xwayland-satellite # xwayland support
   ];
-  # xdg.portal.config.common.default = [ "kde" ];
-  xdg.portal.config.common.default = [ "gnome" ];
 }

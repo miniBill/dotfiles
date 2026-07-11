@@ -29,24 +29,26 @@
   xdg.portal = {
     # enable = true; # Implied by programs.niri.enable = true
     xdgOpenUsePortal = true;
+    wlr.enable = true;
 
-    # config.niri = {
-    #   default = lib.mkForce [
-    #     "kde"
-    #     "gtk"
-    #     "gnome"
-    #   ];
-    #   "org.freedesktop.impl.portal.Access" = lib.mkForce "kde";
-    #   "org.freedesktop.impl.portal.FileChooser" = lib.mkForce "kde";
-    #   "org.freedesktop.impl.portal.Notification" = lib.mkForce "kde";
-    #   "org.freedesktop.impl.portal.Secret" = lib.mkForce "kwallet";
-    # };
+    config.niri = {
+      default = lib.mkForce [
+        # "kde"
+        "wlr"
+        "gtk"
+        "gnome"
+      ];
+      # "org.freedesktop.impl.portal.Access" = lib.mkForce "kde";
+      # "org.freedesktop.impl.portal.FileChooser" = lib.mkForce "kde";
+      # "org.freedesktop.impl.portal.Notification" = lib.mkForce "kde";
+      # "org.freedesktop.impl.portal.Secret" = lib.mkForce "kwallet";
+    };
 
-    # extraPortals = with pkgs; [
-    #   kdePackages.xdg-desktop-portal-kde
-    #   xdg-desktop-portal-gtk
-    #   xdg-desktop-portal-gnome
-    # ];
+    extraPortals = with pkgs; [
+      # kdePackages.xdg-desktop-portal-kde
+      # xdg-desktop-portal-gtk
+      # xdg-desktop-portal-gnome
+    ];
   };
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
