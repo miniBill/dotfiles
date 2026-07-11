@@ -83,11 +83,12 @@ in
     file = {
       # ".zsh/p10k.zsh".source = ../../files/zsh/p10k.zsh;
       "${config.xdg.dataHome}/cargo/config.toml".source = ../../files/cargo/config.toml;
-      ".elm".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/elm";
       ".config/nix/nix.conf".source = ../../files/nix.conf;
       ".config/Code/Dictionaries".source =
         config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
-      "bin/lamdera-no-wire".source = ../../files/lamdera-no-wire;
+      "bin/lamdera-1.3.2-no-wire".source = ../../files/lamdera-no-wire;
+      "bin/lamdera-1.4.0-no-wire".source = ../../files/lamdera-no-wire;
+      "bin/lamdera-next-no-wire".source = ../../files/lamdera-no-wire;
     }
     // (
       if stdenv.isDarwin then { } else { "bin/lamdera-wrapped".source = ../../files/lamdera-wrapped; }

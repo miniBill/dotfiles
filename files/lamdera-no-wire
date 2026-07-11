@@ -1,6 +1,6 @@
 #!/bin/sh
 if [[ $1 == "install" ]] || [[ $1 == "repl" ]] || [[ $1 == "--version" ]] || [[ $1 == "live" ]] || [[ $1 == "" ]]; then
-    exec lamdera $@
+    exec $(echo $0 | sed 's/-no-wire//') $@
 else
-    exec lamdera $@ --no-wire
+    exec $(echo $0 | sed 's/-no-wire//') $@ --no-wire
 fi
