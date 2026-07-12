@@ -282,7 +282,7 @@ spawn-at-startup "niriusd"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -356,7 +356,7 @@ window-rule {
 window-rule {
     match app-id="floating-terminal"
     open-floating true
-    opacity 0.75
+    opacity 0.8
     default-column-width { proportion 0.75; }
     default-window-height { proportion 0.75; }
 }
