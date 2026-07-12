@@ -77,14 +77,17 @@ in
     nix-index-database.homeModules.nix-index
   ];
 
+  xdg.configFile = {
+    "nix/nix.conf".source = ../../files/nix.conf;
+    "Code/Dictionaries".source =
+      config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
+  };
+
   home = {
     packages = packages-base ++ packages-dev ++ packages-net;
 
     file = {
       "${config.xdg.dataHome}/cargo/config.toml".source = ../../files/cargo/config.toml;
-      "${config.xdg.configHome}/nix/nix.conf".source = ../../files/nix.conf;
-      "${config.xdg.configHome}/Code/Dictionaries".source =
-        config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
       "bin/lamdera-1.3.2-no-wire".source = ../../files/lamdera-no-wire;
       "bin/lamdera-1.4.0-no-wire".source = ../../files/lamdera-no-wire;
       "bin/lamdera-next-no-wire".source = ../../files/lamdera-no-wire;

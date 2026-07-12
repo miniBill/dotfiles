@@ -183,6 +183,11 @@ in
 
   services.syncthing.tray.enable = true;
 
+  xdg.configFile = {
+    "pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
+    "yakuakerc".source = ../../files/yakuakerc;
+  };
+
   home = {
     packages = packages-base ++ package-dev ++ packages-gui ++ packages-net;
 
@@ -204,12 +209,6 @@ in
 
           ".npmrc".source = ../../files/npmrc;
           # ".yarnrc".source = ../../files/yarnrc;
-
-          "${config.xdg.configHome}/pipewire/jack.conf.d/merge-monitor.conf".source =
-            ../../files/jack-merge-monitor.conf;
-
-          "${config.xdg.configHome}/yakuakerc".source = ../../files/yakuakerc;
-
         }
         // syncLink "Documents" "Work"
         // syncLink "Documents" "Pathfinder"
