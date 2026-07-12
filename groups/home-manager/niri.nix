@@ -19,7 +19,7 @@
           # "position": "bottom", # Waybar position (top|bottom|left|right)
           # "height" = 30; # Waybar height (to be removed for auto height)
           # "width"= 1280; # Waybar width
-          "spacing" = 4; # Gaps between modules (4px)
+          # "spacing" = 4; # Gaps between modules (4px)
           # Choose the order of the modules
           "modules-left" = [
             "sway/workspaces"
