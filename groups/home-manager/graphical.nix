@@ -177,7 +177,7 @@ in
   imports = [
     ./base.nix
     ./syncthing.nix
-    ./niri.nix
+    ./niri
     # agenix.homeManagerModules.default
   ];
 

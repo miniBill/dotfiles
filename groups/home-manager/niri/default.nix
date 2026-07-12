@@ -6,7 +6,9 @@
   ...
 }:
 {
-  xdg.configFile."niri/config.kdl".source = ../../files/niri-config.kdl;
+  xdg.configFile."niri/config.kdl".source = ./config.kdl;
+  xdg.configFile."waybar/media_player.py".source = ./media_player.py;
+  xdg.configFile."waybar/power_menu.xml".source = ./power_menu.xml;
   programs = {
     alacritty.enable = true; # Super+T in the default setting (terminal)
     fuzzel.enable = true; # Super+D in the default setting (app launcher)
@@ -266,8 +268,8 @@
               "default" = "🎜";
             };
             "escape" = true;
-            # "exec" = "${config.xdg.configHome}/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
-            "exec" = "${config.xdg.configHome}/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
+            # "exec" = "${config.xdg.configHome}/waybar/media_player.py 2> /dev/null"; # Script in resources folder
+            "exec" = "${config.xdg.configHome}/waybar/media_player.py --player spotify 2> /dev/null"; # Filter player based on name
           };
           "custom/power" = {
             "format" = " ⏻ ";
