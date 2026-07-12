@@ -3,21 +3,18 @@
 {
   programs.waybar.enable = true; # launch on startup in the default setting (bar)
   programs.waybar.settings.mainBar = {
-    # "layer": "top", # Waybar at top layer
-    # "position": "bottom", # Waybar position (top|bottom|left|right)
-    "height" = 30; # Waybar height (to be removed for auto height)
-    # "width"= 1280; # Waybar width
+    # "layer" = "top"; # Waybar at top layer
+    "position" = "left"; # Waybar position (top|bottom|left|right)
+    # "height" = 30; # Waybar height (to be removed for auto height)
+    # "width" = 30; # Waybar width
     # "spacing" = 4; # Gaps between modules (4px)
     # Choose the order of the modules
     "modules-left" = [
       "niri/workspaces"
-      # "sway/mode"
-      # "sway/scratchpad"
       "custom/media"
     ];
     "modules-center" = [
-      # "sway/window"
-      "niri/window"
+      # "niri/window"
     ];
     "modules-right" = [
       "mpd"
@@ -30,29 +27,11 @@
       "temperature"
       "backlight"
       # "keyboard-state"
-      # "sway/language"
       "battery"
       "clock"
       "tray"
       "custom/power"
     ];
-    # Modules configuration
-    # "sway/workspaces"= {
-    #     "disable-scroll"= true,
-    #     "all-outputs"= true,
-    #     "warp-on-scroll"= false,
-    #     "format"= "{name}: {icon}",
-    #     "format-icons"= {
-    #         "1"= "",
-    #         "2"= "",
-    #         "3"= "",
-    #         "4"= "",
-    #         "5"= "",
-    #         "urgent"= "",
-    #         "focused"= "",
-    #         "default"= ""
-    #     }
-    # },
     "niri/workspaces" = {
       # "format" = "{icon} {windows}";
       # "format-window-separator" = " ";
@@ -77,28 +56,6 @@
     "niri/window" = {
       "icon" = true;
       "separate-outputs" = true;
-    };
-    # "keyboard-state" = {
-    #   "numlock" = true;
-    #   "capslock" = true;
-    #   "format" = "{name} {icon}";
-    #   "format-icons" = {
-    #     "locked" = "";
-    #     "unlocked" = "";
-    #   };
-    # };
-    "sway/mode" = {
-      "format" = "<span style=\"italic\">{}</span>";
-    };
-    "sway/scratchpad" = {
-      "format" = "{icon} {count}";
-      "show-empty" = false;
-      "format-icons" = [
-        ""
-        ""
-      ];
-      "tooltip" = true;
-      "tooltip-format" = "{app}: {title}";
     };
     "mpd" = {
       "format" =
@@ -216,7 +173,8 @@
     };
     "network" = {
       # "interface"= "wlp2*"; # (Optional) To force the use of this interface
-      "format-wifi" = "{essid} ({signalStrength}%) ";
+      # "format-wifi" = "{essid} ({signalStrength}%) ";
+      # "format-wifi" = "({signalStrength}%) ";
       "format-ethernet" = "{ipaddr}/{cidr} 󰊗";
       "tooltip-format" = "{ifname} via {gwaddr} 󰊗";
       "format-linked" = "{ifname} (No IP) 󰊗";
@@ -225,7 +183,7 @@
     };
     "pulseaudio" = {
       # "scroll-step"= 1; # %; can be a float
-      "format" = "{volume}% {icon} {format_source}";
+      "format" = "{volume}% {icon}\n{format_source}";
       "format-bluetooth" = "{volume}% {icon} {format_source}";
       "format-bluetooth-muted" = "󰅶 {icon} {format_source}";
       "format-muted" = "󰅶 {format_source}";
@@ -233,8 +191,8 @@
       "format-source-muted" = "";
       "format-icons" = {
         "headphone" = "";
-        "hands-free" = "󰂑";
-        "headset" = "󰂑";
+        "hands-free" = "";
+        "headset" = "";
         "phone" = "";
         "portable" = "";
         "car" = "";
