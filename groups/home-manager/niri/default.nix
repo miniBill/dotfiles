@@ -5,10 +5,21 @@
   username,
   ...
 }:
+let
+  validated-niri-config =
+    pkgs.runCommand "niri-config-checked"
+      {
+        nativeBuildInputs = [ pkgs.niri ];
+      }
+      ''
+        niri validate --config ${./config.kdl}
+        cp ${./config.kdl} $out
+      '';
+in
 {
   imports = [ ./waybar.nix ];
 
-  xdg.configFile."niri/config.kdl".source = ./config.kdl;
+  xdg.configFile."niri/config.kdl".source = validated-niri-config;
   xdg.configFile."waybar/media_player.py".source = ./media_player.py;
   xdg.configFile."waybar/power_menu.xml".source = ./power_menu.xml;
   programs = {
