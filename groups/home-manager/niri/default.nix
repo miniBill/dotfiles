@@ -22,6 +22,7 @@
     polkit-gnome.enable = true; # polkit
   };
   home.packages = with pkgs; [
+    nirius # focus-or-spawn
     swaybg # wallpaper
     xwayland-satellite # xwayland support
   ];

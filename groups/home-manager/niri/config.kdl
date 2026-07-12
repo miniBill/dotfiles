@@ -275,6 +275,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
+spawn-at-startup "niriusd"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -353,8 +354,11 @@ window-rule {
 }
 
 window-rule {
-    match app-id="float"
+    match app-id="floating-terminal"
     open-floating true
+    opacity 0.75
+    default-column-width { proportion 0.75; }
+    default-window-height { proportion 0.75; }
 }
 
 binds {
@@ -374,7 +378,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    F12 { spawn "alacritty" "--app-id" "float"; }
+    F12 { focus-or-spawn "--app-id" "floating-terminal" "alacritty" "--class" "floating-terminal" "-e" "tmux" "new-session" "-A" "-s" "floating-session"; }
 
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
