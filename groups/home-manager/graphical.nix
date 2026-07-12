@@ -205,9 +205,10 @@ in
           ".npmrc".source = ../../files/npmrc;
           # ".yarnrc".source = ../../files/yarnrc;
 
-          ".config/pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
+          "${config.xdg.configHome}/pipewire/jack.conf.d/merge-monitor.conf".source =
+            ../../files/jack-merge-monitor.conf;
 
-          ".config/yakuakerc".source = ../../files/yakuakerc;
+          "${config.xdg.configHome}/yakuakerc".source = ../../files/yakuakerc;
 
         }
         // syncLink "Documents" "Work"

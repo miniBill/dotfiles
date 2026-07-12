@@ -147,7 +147,7 @@
             "spacing" = 10;
             # "icons"= {
             #   "blueman"= "bluetooth";
-            #   "TelegramDesktop"= "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png";
+            #   "TelegramDesktop"= "${config.xdg.dataHome}/icons/hicolor/16x16/apps/telegram.png";
             # };
           };
           "clock" = {
@@ -266,14 +266,14 @@
               "default" = "🎜";
             };
             "escape" = true;
-            "exec" = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
-            # "exec"= "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
+            # "exec" = "${config.xdg.configHome}/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
+            "exec" = "${config.xdg.configHome}/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
           };
           "custom/power" = {
-            "format" = "⏻ ";
+            "format" = " ⏻ ";
             "tooltip" = false;
             "menu" = "on-click";
-            "menu-file" = "$HOME/.config/waybar/power_menu.xml"; # Menu file in resources folder
+            "menu-file" = "${config.xdg.configHome}/waybar/power_menu.xml"; # Menu file in resources folder
             "menu-actions" = {
               "shutdown" = "shutdown";
               "reboot" = "reboot";
