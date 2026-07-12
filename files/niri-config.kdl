@@ -414,8 +414,8 @@ binds {
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
     Mod+J     { focus-window-or-workspace-down; }
@@ -423,8 +423,8 @@ binds {
     Mod+L     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+H     { move-column-left; }
     Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
@@ -520,15 +520,24 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
+    Mod+1   { focus-workspace 1; }
+    Ctrl+F1 { focus-workspace 1; }
+    Mod+2   { focus-workspace 2; }
+    Ctrl+F2 { focus-workspace 2; }
+    Mod+3   { focus-workspace 3; }
+    Ctrl+F3 { focus-workspace 3; }
+    Mod+4   { focus-workspace 4; }
+    Ctrl+F4 { focus-workspace 4; }
+    Mod+5   { focus-workspace 5; }
+    Ctrl+F5 { focus-workspace 5; }
+    Mod+6   { focus-workspace 6; }
+    Ctrl+F6 { focus-workspace 6; }
+    Mod+7   { focus-workspace 7; }
+    Ctrl+F7 { focus-workspace 7; }
+    Mod+8   { focus-workspace 8; }
+    Ctrl+F8 { focus-workspace 8; }
+    Mod+9   { focus-workspace 9; }
+    Ctrl+F9 { focus-workspace 9; }
     Mod+Ctrl+1 { move-column-to-workspace 1; }
     Mod+Ctrl+2 { move-column-to-workspace 2; }
     Mod+Ctrl+3 { move-column-to-workspace 3; }
