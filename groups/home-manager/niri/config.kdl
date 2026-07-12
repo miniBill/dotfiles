@@ -378,7 +378,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    F12 { focus-or-spawn "--app-id" "floating-terminal" "alacritty" "--class" "floating-terminal" "-e" "tmux" "new-session" "-A" "-s" "floating-session"; }
+    F12 { spawn-sh "pkill -f 'alacritty --class floating-terminal' || exec alacritty --class floating-terminal -e tmux new-session -A -s floating-session"; }
 
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
