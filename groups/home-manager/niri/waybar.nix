@@ -4,7 +4,7 @@
   programs.waybar.enable = true; # launch on startup in the default setting (bar)
   programs.waybar.settings.mainBar = {
     # "layer" = "top"; # Waybar at top layer
-    "position" = "left"; # Waybar position (top|bottom|left|right)
+    # "position" = "left"; # Waybar position (top|bottom|left|right)
     # "height" = 30; # Waybar height (to be removed for auto height)
     # "width" = 30; # Waybar width
     # "spacing" = 4; # Gaps between modules (4px)
@@ -183,7 +183,7 @@
     };
     "pulseaudio" = {
       # "scroll-step"= 1; # %; can be a float
-      "format" = "{volume}% {icon}\n{format_source}";
+      "format" = "{volume}% {icon} {format_source}";
       "format-bluetooth" = "{volume}% {icon} {format_source}";
       "format-bluetooth-muted" = "󰅶 {icon} {format_source}";
       "format-muted" = "󰅶 {format_source}";
