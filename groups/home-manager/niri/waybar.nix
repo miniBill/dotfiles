@@ -5,7 +5,7 @@
   programs.waybar.settings.mainBar = {
     # "layer": "top", # Waybar at top layer
     # "position": "bottom", # Waybar position (top|bottom|left|right)
-    # "height" = 30; # Waybar height (to be removed for auto height)
+    "height" = 30; # Waybar height (to be removed for auto height)
     # "width"= 1280; # Waybar width
     # "spacing" = 4; # Gaps between modules (4px)
     # Choose the order of the modules
@@ -17,6 +17,7 @@
     ];
     "modules-center" = [
       # "sway/window"
+      "niri/window"
     ];
     "modules-right" = [
       "mpd"
@@ -53,26 +54,29 @@
     #     }
     # },
     "niri/workspaces" = {
-      "all-outputs" = false;
-      "format" = "{icon} {windows}";
-      "format-window-separator" = " ";
-      "window-rewrite-default" = "";
-      "window-rewrite" = {
-        "app_id<firefox>" = "";
-        "app_id<dolphin>" = "";
-        "app_id<org.gnome.Nautilus>" = "";
-        "app_id<thunar>" = "";
-        "app_id<foot>" = "";
-      };
-      "format-icons" = {
-        "1" = "1";
-        "2" = "2";
-        "3" = "3";
-        "4" = "4";
-        "5" = "5";
-        "active" = "";
-        "default" = "";
-      };
+      # "format" = "{icon} {windows}";
+      # "format-window-separator" = " ";
+      # "window-rewrite-default" = "";
+      # "window-rewrite" = {
+      #   "app_id<firefox>" = "";
+      #   "app_id<dolphin>" = "";
+      #   "app_id<org.gnome.Nautilus>" = "";
+      #   "app_id<thunar>" = "";
+      #   "app_id<foot>" = "";
+      # };
+      # "format-icons" = {
+      #   "1" = "1";
+      #   # "2" = "2";
+      #   "3" = "3";
+      #   "4" = "4";
+      #   "5" = "5";
+      #   "active" = "";
+      #   "default" = "";
+      # };
+    };
+    "niri/window" = {
+      "icon" = true;
+      "separate-outputs" = true;
     };
     # "keyboard-state" = {
     #   "numlock" = true;
