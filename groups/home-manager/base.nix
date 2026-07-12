@@ -82,12 +82,12 @@ in
     "Code/Dictionaries".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
   };
+  xdg.dataFile."cargo/config.toml".source = ../../files/cargo/config.toml;
 
   home = {
     packages = packages-base ++ packages-dev ++ packages-net;
 
     file = {
-      "${config.xdg.dataHome}/cargo/config.toml".source = ../../files/cargo/config.toml;
       "bin/lamdera-1.3.2-no-wire".source = ../../files/lamdera-no-wire;
       "bin/lamdera-1.4.0-no-wire".source = ../../files/lamdera-no-wire;
       "bin/lamdera-next-no-wire".source = ../../files/lamdera-no-wire;
