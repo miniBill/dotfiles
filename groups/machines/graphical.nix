@@ -40,17 +40,23 @@
       ];
       # "org.freedesktop.impl.portal.Access" = lib.mkForce "kde";
       # "org.freedesktop.impl.portal.FileChooser" = lib.mkForce "kde";
+      # "org.freedesktop.impl.portal.Desktop" = lib.mkForce "kde";
       # "org.freedesktop.impl.portal.Notification" = lib.mkForce "kde";
       # "org.freedesktop.impl.portal.Secret" = lib.mkForce "kwallet";
     };
 
     extraPortals = with pkgs; [
-      # kdePackages.xdg-desktop-portal-kde
-      # xdg-desktop-portal-gtk
-      # xdg-desktop-portal-gnome
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
     ];
   };
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORMTHEME = "kde";
+    QT_QPA_PLATFORMTHEME_QT6 = "kde";
+    XDG_MENU_PREFIX = "plasma-";
+  };
 
   # Used by vscode, parcel and friends
   boot.kernel.sysctl = {
