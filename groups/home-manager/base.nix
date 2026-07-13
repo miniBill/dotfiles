@@ -73,28 +73,31 @@ let
 in
 {
   imports = [
-    ../../programs/zsh.nix
+    ./zsh
     nix-index-database.homeModules.nix-index
   ];
 
   xdg.configFile = {
-    "nix/nix.conf".source = ../../files/nix.conf;
+    "nix/nix.conf".source = ./files/nix.conf;
     "Code/Dictionaries".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
   };
-  xdg.dataFile."cargo/config.toml".source = ../../files/cargo/config.toml;
+  xdg.dataFile."cargo/config.toml".source = ./files/cargo/config.toml;
 
   home = {
     packages = packages-base ++ packages-dev ++ packages-net;
 
     file = {
-      "bin/lamdera-1.3.2-no-wire".source = ../../files/lamdera-no-wire;
-      "bin/lamdera-1.4.0-no-wire".source = ../../files/lamdera-no-wire;
-      "bin/lamdera-next-no-wire".source = ../../files/lamdera-no-wire;
-    }
-    // (
-      if stdenv.isDarwin then { } else { "bin/lamdera-wrapped".source = ../../files/lamdera-wrapped; }
-    );
+      "bin/lamdera-1.3.2-no-wire".source = ./files/lamdera-no-wire;
+      "bin/lamdera-1.4.0-no-wire".source = ./files/lamdera-no-wire;
+      "bin/lamdera-next-no-wire".source = ./files/lamdera-no-wire;
+      "bin/elm-format-hack".source = ./files/elm-format-hack;
+      "bin/elm-make-readable".source = ./files/elm-make-readable;
+      "bin/lamdera-wrapped" = lib.mkIf stdenv.isDarwin { source = ./files/lamdera-wrapped; };
+
+      ".npmrc".source = ./files/npmrc;
+      # ".yarnrc".source = ./files/yarnrc;
+    };
 
     sessionPath = [
       "$HOME/.bun/bin"

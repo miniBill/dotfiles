@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  imports = [ ../../groups/home-manager/graphical.nix ];
+  imports = [ ../../groups/home-manager/graphical ];
 
   home.packages = with pkgs; [
     # DEV

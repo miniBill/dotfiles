@@ -1,6 +1,21 @@
-{ ... }:
-
 {
+  pkgs,
+  config,
+  username,
+  ...
+}:
+
+let
+  homeDirectory = if pkgs.stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
+
+  syncLink = from: p: {
+    "${from}/${p}".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/Sync/Graphical/${p}";
+  };
+in
+{
+  home.file =
+    syncLink "Documents" "Work" // syncLink "Documents" "Pathfinder" // syncLink "Music" "Danza";
+
   services.syncthing = {
     enable = true;
     settings = {

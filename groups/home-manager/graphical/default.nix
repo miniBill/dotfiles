@@ -26,7 +26,7 @@ let
       usbutils
       pcsc-tools
       cie-middleware-linux
-      (callPackage ../../programs/wally-cli.nix { })
+      (callPackage ./wally-cli.nix { })
       (aspellWithDicts (d: [
         d.en
         d.it
@@ -73,8 +73,8 @@ let
     with pkgs;
     [
       # elmPackages.elm-json
-      (callPackage ../../programs/elm-json { })
-      (callPackage ../../programs/elm-test-rs.nix { })
+      (callPackage ./elm-json { })
+      (callPackage ./elm-test-rs.nix { })
       # elmPackages.elm-test
       # lamdera.packages.${stdenv.hostPlatform.system}.lamdera-next
       nodejs_24
@@ -141,7 +141,7 @@ let
       qjackctl
       scribus
       vlc
-      (callPackage ../../programs/headset-control.nix { })
+      (callPackage ./headset-control.nix { })
     ];
 
   packages-gui-platform-specific =
@@ -175,54 +175,36 @@ let
 in
 {
   imports = [
-    ./base.nix
-    ./syncthing.nix
+    ../base.nix
+    ../syncthing.nix
     ./niri
+    ./dconf.nix
     # agenix.homeManagerModules.default
   ];
 
   services.syncthing.tray.enable = true;
 
   xdg.configFile = {
-    "pipewire/jack.conf.d/merge-monitor.conf".source = ../../files/jack-merge-monitor.conf;
-    "yakuakerc".source = ../../files/yakuakerc;
+    "pipewire/jack.conf.d/merge-monitor.conf".source = ./files/jack-merge-monitor.conf;
+    "yakuakerc".source = ./files/yakuakerc;
   };
 
   home = {
     packages = packages-base ++ package-dev ++ packages-gui ++ packages-net;
 
-    file =
-      let
-        homeDirectory = if stdenv.isDarwin then "/Users/${username}" else "/home/${username}";
-
-        syncLink = from: p: {
-          "${from}/${p}".source = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/Sync/Graphical/${p}";
-        };
-      in
-      (
-        {
-          # Always allow moving output devices in pavucontrol
-          ".alsoftrc".source = ../../files/alsoftrc;
-
-          "bin/elm-format-hack".source = ../../programs/elm-format-hack;
-          "bin/elm-make-readable".source = ../../programs/elm-make-readable;
-
-          ".npmrc".source = ../../files/npmrc;
-          # ".yarnrc".source = ../../files/yarnrc;
-        }
-        // syncLink "Documents" "Work"
-        // syncLink "Documents" "Pathfinder"
-        // syncLink "Music" "Danza"
-      );
+    file = {
+      # Always allow moving output devices in pavucontrol
+      ".alsoftrc".source = ./files/alsoftrc;
+    };
 
     language.base = "en_IE.UTF-8";
   };
 
   programs = {
-    chromium.enable = !stdenv.isDarwin;
+    chromium.enable = !pkgs.stdenv.isDarwin;
 
     firefox = {
-      enable = !stdenv.isDarwin;
+      enable = !pkgs.stdenv.isDarwin;
       configPath = "${config.xdg.configHome}/mozilla/firefox";
 
       profiles = {
@@ -232,9 +214,10 @@ in
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
             "dom.private-attribution.submission.enabled" = false;
+            "widget.use-xdg-desktop-portal.file-picker" = 1;
           };
 
-          userChrome = builtins.readFile ../../files/userChrome.css;
+          userChrome = builtins.readFile ./files/userChrome.css;
         };
       };
     };

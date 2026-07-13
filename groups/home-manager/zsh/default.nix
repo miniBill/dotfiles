@@ -67,7 +67,7 @@ in
       (lib.mkAfter afterInit)
     ];
 
-    plugins = import ./zsh/plugins.nix pkgs;
+    plugins = import ./plugins.nix pkgs;
 
     sessionVariables = {
       DOTNET_CLI_TELEMETRY_OPTOUT = "1";
