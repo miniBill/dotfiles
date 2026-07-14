@@ -19,6 +19,7 @@ rustPlatform.buildRustPackage rec {
 
   buildInputs = lib.optionals (!stdenv.hostPlatform.isDarwin) [ openssl ];
 
+  useFetchCargoVendor = true;
   cargoHash = "sha256-BrWN4rXTFHXj5aDvdn55ThSAF+NqMbUg7LnQcrapI0U=";
 
   # Tests perform networking and therefore can't work in sandbox
@@ -32,6 +33,7 @@ rustPlatform.buildRustPackage rec {
     maintainers = with lib.maintainers; [
       jpagex
       zupo
+      turbomack
     ];
   };
 }
