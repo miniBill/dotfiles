@@ -52,6 +52,7 @@
     # Java
     # adoptopenjdk-jre-openj9-bin-8 # JRE
     # adoptopenjdk-bin # JDK
+    jre
     # C/C++
     clang-tools
     cmake
