@@ -1,27 +1,13 @@
-// This config is in the KDL format: https://kdl.dev
-// "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://niri-wm.github.io/niri/Configuration:-Input
 input {
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
             layout "eu" // EurKEY
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             options "compose:caps"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
         }
 
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
 
@@ -264,11 +250,20 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "niriusd"
 
+spawn-at-startup "telegram-desktop"
+window-rule {
+    // match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    // default-column-width {}
+}
+
+spawn-at-startup "signal-desktop --password-store=kwallet6"
+spawn-at-startup "easyeffects"
+spawn-at-startup "super-productivity"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
 hotkey-overlay {
-    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
 }
 
@@ -368,6 +363,7 @@ binds {
     F12 { spawn-sh "pkill -A -f 'alacritty --class floating-terminal' || exec alacritty --class floating-terminal -e tmux new-session -A -s floating-session"; }
 
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Space hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
