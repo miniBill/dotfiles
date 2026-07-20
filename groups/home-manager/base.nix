@@ -244,6 +244,7 @@ in
 
     home-manager.enable = true;
 
+    nix-index.enable = true;
     nix-index-database.comma.enable = true;
 
     htop = {
