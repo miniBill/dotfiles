@@ -22,6 +22,7 @@ in
   xdg.configFile."niri/config.kdl".source = validated-niri-config;
   xdg.configFile."waybar/media_player.py".source = ./media_player.py;
   xdg.configFile."waybar/power_menu.xml".source = ./power_menu.xml;
+  xdg.configFile."wpaperd/config.toml".source = ./wpaperd-config.toml;
   programs = {
     alacritty.enable = true; # Super+T in the default setting (terminal)
     fuzzel.enable = true; # Super+D in the default setting (app launcher)

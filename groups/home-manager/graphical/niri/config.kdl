@@ -96,6 +96,8 @@ output "DP-2" {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
+    background-color "transparent"
+
     gaps 2
     struts {
         left -2
@@ -256,7 +258,7 @@ workspace "chat" {
 spawn-at-startup "waybar"
 spawn-at-startup "niriusd"
 
-spawn-sh-at-startup "exec easyeffects -w" // -w hides the window
+spawn-at-startup "easyeffects" "-w" // -w hides the window
 
 spawn-at-startup "discord"
 window-rule {
@@ -288,12 +290,20 @@ window-rule {
     default-column-width { proportion 0.3; }
 }
 
-spawn-sh-at-startup "exec signal-desktop --password-store=kwallet6"
+spawn-at-startup "signal-desktop" "--password-store=kwallet6"
 window-rule {
     match app-id="signal"
     // open-on-output "DP-3"
     open-on-workspace "chat"
     default-column-width { proportion 0.3; }
+}
+
+spawn-at-startup "wpaperd" "-d"
+
+// Put swaybg inside the overview backdrop.
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
