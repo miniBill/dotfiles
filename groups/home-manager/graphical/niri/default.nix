@@ -35,7 +35,7 @@ in
   };
   home.packages = with pkgs; [
     nirius # focus-or-spawn
-    swaybg # wallpaper
+    wpaperd # wallpaper
     xwayland-satellite # xwayland support
   ];
 }
