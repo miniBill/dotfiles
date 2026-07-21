@@ -1,4 +1,5 @@
 {
+  nixpkgs,
   pkgs,
   lib,
   config,
@@ -77,8 +78,11 @@ in
     nix-index-database.homeModules.nix-index
   ];
 
+  nix.package = pkgs.lixPackageSets.stable.lix;
+  nix.settings.experimental-features = "nix-command flakes";
+  nix.registry.nixpkgs.flake = nixpkgs;
+
   xdg.configFile = {
-    "nix/nix.conf".source = ./files/nix.conf;
     "Code/Dictionaries".source =
       config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/.nix-profile/share/hunspell";
   };
