@@ -300,9 +300,9 @@ window-rule {
 
 spawn-at-startup "wpaperd" "-d"
 
-// Put swaybg inside the overview backdrop.
+// Put wpaperd inside the overview backdrop.
 layer-rule {
-    match namespace="^wallpaper$"
+    match namespace="^wpaperd"
     place-within-backdrop true
 }
 
