@@ -103,5 +103,6 @@ in
     nirius # focus-or-spawn
     wpaperd # wallpaper
     xwayland-satellite # xwayland support
+    brightnessctl # Screen brightness
   ];
 }
