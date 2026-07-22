@@ -1,6 +1,9 @@
 { config, ... }:
 
 {
+  xdg.configFile."waybar/media_player.py".source = ./media_player.py;
+  xdg.configFile."waybar/power_menu.xml".source = ./power_menu.xml;
+
   programs.waybar.enable = true; # launch on startup in the default setting (bar)
   programs.waybar.settings.mainBar = {
     # "layer" = "top"; # Waybar at top layer
@@ -14,7 +17,7 @@
       "custom/media"
     ];
     "modules-center" = [
-      # "niri/window"
+      "niri/window"
     ];
     "modules-right" = [
       "mpd"
