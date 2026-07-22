@@ -23,10 +23,9 @@ in
   xdg.configFile."waybar/media_player.py".source = ./media_player.py;
   xdg.configFile."waybar/power_menu.xml".source = ./power_menu.xml;
   xdg.configFile."wpaperd/config.toml".source = ./wpaperd-config.toml;
-  programs = {
-    alacritty.enable = true; # Super+T in the default setting (terminal)
-    fuzzel.enable = true; # Super+D in the default setting (app launcher)
-  };
+
+  programs.alacritty.enable = true; # Super+T in the default setting (terminal)
+  programs.fuzzel.enable = true; # Super+D in the default setting (app launcher)
 
   programs.hyprlock.enable = true;
   programs.hyprlock.settings = {
@@ -42,7 +41,7 @@ in
     input-field = {
       size = "20%, 5%";
       outline_thickness = "3";
-      inner_color = "rgba(0, 0, 0, 0.0) # no fill";
+      inner_color = "rgba(0, 0, 0, 0.0)"; # no fill
 
       outer_color = "rgba(33ccffee) rgba(00ff99ee) 45deg";
       check_color = "rgba(00ff99ee) rgba(ff6633ee) 120deg";
@@ -94,11 +93,14 @@ in
     ];
   };
 
-  services = {
-    mako.enable = true; # notification daemon
-    swayidle.enable = true; # idle management daemon
-    polkit-gnome.enable = true; # polkit
+  services.swayidle = {
+    enable = true;
+    events.before-sleep = "hyprlock";
   };
+
+  services.mako.enable = true; # notification daemon
+  services.polkit-gnome.enable = true; # polkit
+
   home.packages = with pkgs; [
     nirius # focus-or-spawn
     wpaperd # wallpaper

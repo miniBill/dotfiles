@@ -4,7 +4,10 @@
 }:
 
 {
-  imports = [ ../../groups/home-manager/graphical ];
+  imports = [
+    ../../groups/home-manager/graphical
+    ../../groups/home-manager/laptop.nix
+  ];
 
   home.packages = with pkgs; [
     # BASE
