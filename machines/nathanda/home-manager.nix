@@ -104,4 +104,14 @@
     # VIRT/OP
     qemu
   ];
+
+  xdg.configFile."niri/per-machine.kdl".source =
+    pkgs.runCommand "niri-config-checked"
+      {
+        nativeBuildInputs = [ pkgs.niri ];
+      }
+      ''
+        niri validate --config ${./niri-config.kdl}
+        cp ${./niri-config.kdl} $out
+      '';
 }
