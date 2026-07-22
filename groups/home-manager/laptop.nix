@@ -1,8 +1,10 @@
+{ pkgs, ... }:
+
 {
   services.swayidle.timeouts = [
     {
       timeout = 180;
-      command = "hyprlock";
+      command = pkgs.lib.getExe pkgs.hyprlock;
     }
     {
       timeout = 300;

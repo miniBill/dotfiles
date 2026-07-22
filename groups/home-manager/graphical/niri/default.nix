@@ -93,7 +93,7 @@ in
 
   services.swayidle = {
     enable = true;
-    events.before-sleep = "hyprlock";
+    events.before-sleep = pkgs.lib.getExe pkgs.hyprlock;
   };
 
   services.mako.enable = true; # notification daemon
