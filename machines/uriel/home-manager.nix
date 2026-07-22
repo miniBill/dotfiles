@@ -107,23 +107,31 @@
     qemu
   ];
 
-  programs = {
-    obs-studio.enable = true;
+  programs.obs-studio.enable = true;
 
-    firefox.profiles = {
-      # bridgeverse = {
-      #   isDefault = false;
-      #   id = 1;
+  programs.firefox.profiles = {
+    # bridgeverse = {
+    #   isDefault = false;
+    #   id = 1;
 
-      #   settings = {
-      #     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-      #   };
+    #   settings = {
+    #     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+    #   };
 
-      #   userChrome = builtins.readFile ../../files/userChrome.css;
-      # };
-      empty = {
-        id = 1;
-      };
+    #   userChrome = builtins.readFile ../../files/userChrome.css;
+    # };
+    empty = {
+      id = 1;
     };
   };
+
+  xdg.configFile."niri/per-machine.kdl".source =
+    pkgs.runCommand "niri-config-checked"
+      {
+        nativeBuildInputs = [ pkgs.niri ];
+      }
+      ''
+        niri validate --config ${./niri-config.kdl}
+        cp ${./niri-config.kdl} $out
+      '';
 }

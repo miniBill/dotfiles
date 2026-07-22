@@ -1,0 +1,55 @@
+output "DP-2" {
+    // Resolution and, optionally, refresh rate of the output.
+    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
+    // If the refresh rate is omitted, niri will pick the highest refresh rate
+    // for the resolution.
+    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+    mode "2560x1440"
+}
+
+workspace "secondary" {
+    open-on-output "DP-3"
+}
+
+workspace "chat" {
+    open-on-output "DP-3"
+}
+
+spawn-at-startup "discord"
+window-rule {
+    match app-id="discord"
+    open-on-workspace "secondary"
+    default-column-width { proportion 0.3; }
+}
+
+spawn-at-startup "spotify"
+window-rule {
+    match app-id="spotify"
+    open-on-workspace "secondary"
+    default-column-width { proportion 0.3; }
+}
+
+spawn-at-startup "super-productivity"
+window-rule {
+    match app-id="superproductivity"
+    // open-on-output "DP-3"
+    open-on-workspace "chat"
+    default-column-width { proportion 0.3; }
+}
+
+spawn-at-startup "Telegram"
+window-rule {
+    match app-id="org.telegram.desktop"
+    // open-on-output "DP-3"
+    open-on-workspace "chat"
+    default-column-width { proportion 0.3; }
+}
+
+spawn-at-startup "signal-desktop" "--password-store=kwallet6"
+window-rule {
+    match app-id="signal"
+    // open-on-output "DP-3"
+    open-on-workspace "chat"
+    default-column-width { proportion 0.3; }
+}
