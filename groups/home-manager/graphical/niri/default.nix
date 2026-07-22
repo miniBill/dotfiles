@@ -104,5 +104,6 @@ in
     wpaperd # wallpaper
     xwayland-satellite # xwayland support
     brightnessctl # Screen brightness
+    networkmanagerapplet # WiFi
   ];
 }

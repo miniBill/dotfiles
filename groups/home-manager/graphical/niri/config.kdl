@@ -213,6 +213,7 @@ layout {
 
 spawn-at-startup "waybar"
 spawn-at-startup "niriusd"
+spawn-at-startup "nmapplet"
 
 spawn-at-startup "easyeffects" "-w" // -w hides the window
 
