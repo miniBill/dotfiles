@@ -7,6 +7,7 @@
   # agenix,
   # lamdera,
   # pinned-unstable-vscode,
+  pinned-super-productivity,
   ...
 }:
 
@@ -117,7 +118,8 @@ let
       mesa-demos
       graphviz-nox
       solaar
-      super-productivity
+      # super-productivity
+      pinned-super-productivity.legacyPackages.${stdenv.hostPlatform.system}.super-productivity
     ];
 
   packages-gui-multimedia =

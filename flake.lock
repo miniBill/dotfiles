@@ -318,6 +318,21 @@
         "type": "github"
       }
     },
+    "pinned-super-productivity": {
+      "locked": {
+        "lastModified": 1784429353,
+        "narHash": "sha256-XxgT0juJkAHBj4DgPl8BxQA0RGhRLx8HdSU/Y3rlyl0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "83f439aa801e67aa59b0627ac51468f0e69880cf",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "rev": "83f439aa801e67aa59b0627ac51468f0e69880cf",
+        "type": "indirect"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -329,6 +344,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
+        "pinned-super-productivity": "pinned-super-productivity",
         "secretdemoclub": "secretdemoclub",
         "systems": "systems"
       }

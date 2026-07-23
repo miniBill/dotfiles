@@ -8,6 +8,8 @@
 
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
+    pinned-super-productivity.url = "nixpkgs/83f439aa801e67aa59b0627ac51468f0e69880cf";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     systems.url = "github:nix-systems/default";
@@ -96,7 +98,12 @@
         import inputs.nixpkgs {
           system = system;
           config = {
-            # overlays = [ inputs.comma.overlay ];
+            overlays = [
+              (final: prev: {
+                super-productivity =
+                  inputs.pinned-super-productivity.legacyPackages.${prev.system}.super-productivity;
+              })
+            ];
             allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
           };
         };
