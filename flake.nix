@@ -98,12 +98,7 @@
         import inputs.nixpkgs {
           system = system;
           config = {
-            overlays = [
-              (final: prev: {
-                super-productivity =
-                  inputs.pinned-super-productivity.legacyPackages.${prev.system}.super-productivity;
-              })
-            ];
+            overlays = [ ];
             allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) allowedUnfree;
           };
         };
