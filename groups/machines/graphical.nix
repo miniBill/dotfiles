@@ -116,6 +116,7 @@
     jack.enable = true;
   };
   users.groups.audio = { };
+  users.groups.plugdev = { };
 
   programs.nix-ld.enable = true;
 
