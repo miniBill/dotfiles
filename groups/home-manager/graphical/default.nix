@@ -8,6 +8,7 @@
   # lamdera,
   # pinned-unstable-vscode,
   pinned-super-productivity,
+  telegram-desktop-patches,
   ...
 }:
 
@@ -168,7 +169,7 @@ let
       remmina
       thunderbird
 
-      telegram-desktop
+      telegram-desktop-patches.outputs.packages.${stdenv.hostPlatform.system}.telegram-desktop
       discord
       signal-desktop
     ];
