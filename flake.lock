@@ -353,16 +353,16 @@
     },
     "pinned-super-productivity": {
       "locked": {
-        "lastModified": 1784429353,
-        "narHash": "sha256-XxgT0juJkAHBj4DgPl8BxQA0RGhRLx8HdSU/Y3rlyl0=",
+        "lastModified": 1784438855,
+        "narHash": "sha256-cltBr/S0641ekoTSiOBT+mMDI+9VWA5guidPqGLWoik=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "83f439aa801e67aa59b0627ac51468f0e69880cf",
+        "rev": "7267c55255cdc13cfda3174fc4cc3a84ec37b3f8",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "rev": "83f439aa801e67aa59b0627ac51468f0e69880cf",
+        "rev": "7267c55255cdc13cfda3174fc4cc3a84ec37b3f8",
         "type": "indirect"
       }
     },

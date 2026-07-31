@@ -8,7 +8,7 @@
 
     # nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
-    pinned-super-productivity.url = "nixpkgs/83f439aa801e67aa59b0627ac51468f0e69880cf";
+    pinned-super-productivity.url = "nixpkgs/7267c55255cdc13cfda3174fc4cc3a84ec37b3f8";
     telegram-desktop-patches = {
       url = "github:miniBill/telegram-desktop-patches";
       inputs.nixpkgs.follows = "nixpkgs";
