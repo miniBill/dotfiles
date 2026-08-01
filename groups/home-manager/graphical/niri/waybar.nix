@@ -12,14 +12,14 @@
     # "width" = 30; # Waybar width
     # "spacing" = 4; # Gaps between modules (4px)
     # Choose the order of the modules
-    "modules-left" = [
+    modules-left = [
       "niri/workspaces"
       "custom/media"
     ];
-    "modules-center" = [
+    modules-center = [
       "niri/window"
     ];
-    "modules-right" = [
+    modules-right = [
       "mpd"
       "idle_inhibitor"
       "pulseaudio"
@@ -57,79 +57,79 @@
       # };
     };
     "niri/window" = {
-      "icon" = true;
-      "separate-outputs" = true;
+      icon = true;
+      separate-outputs = true;
+      icon-size = 20;
     };
-    "mpd" = {
-      "format" =
-        "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-      "format-disconnected" = "Disconnected ";
-      "format-stopped" = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-      "unknown-tag" = "N/A";
-      "interval" = 5;
-      "consume-icons" = {
-        "on" = " ";
+    mpd = {
+      format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
+      format-disconnected = "Disconnected ";
+      format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+      unknown-tag = "N/A";
+      interval = 5;
+      consume-icons = {
+        on = " ";
       };
-      "random-icons" = {
-        "off" = "<span color=\"#f53c3c\"></span> ";
-        "on" = " ";
+      random-icons = {
+        off = "<span color=\"#f53c3c\"></span> ";
+        on = " ";
       };
-      "repeat-icons" = {
-        "on" = " ";
+      repeat-icons = {
+        on = " ";
       };
-      "single-icons" = {
-        "on" = "1 ";
+      single-icons = {
+        on = "1 ";
       };
-      "state-icons" = {
-        "paused" = "";
-        "playing" = "";
+      state-icons = {
+        paused = "";
+        playing = "";
       };
-      "tooltip-format" = "MPD (connected)";
-      "tooltip-format-disconnected" = "MPD (disconnected)";
+      tooltip-format = "MPD (connected)";
+      tooltip-format-disconnected = "MPD (disconnected)";
     };
-    "idle_inhibitor" = {
-      "format" = "{icon}";
-      "format-icons" = {
-        "activated" = "";
-        "deactivated" = "";
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        activated = "";
+        deactivated = "";
       };
     };
-    "tray" = {
+    tray = {
       # "icon-size"= 21;
-      "spacing" = 10;
+      spacing = 10;
       # "icons"= {
       #   "blueman"= "bluetooth";
       #   "TelegramDesktop"= "${config.xdg.dataHome}/icons/hicolor/16x16/apps/telegram.png";
       # };
     };
-    "clock" = {
+    clock = {
       # "timezone"= "America/New_York";
-      "tooltip-format" = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      "format-alt" = "{:%Y-%m-%d}";
+      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+      format-alt = "{:%Y-%m-%d}";
     };
-    "cpu" = {
-      "format" = "{usage}% ";
-      "tooltip" = false;
+    cpu = {
+      format = "{usage}% ";
+      tooltip = false;
     };
-    "memory" = {
-      "format" = "{}% ";
+    memory = {
+      format = "{}% ";
     };
-    "temperature" = {
+    temperature = {
       # "thermal-zone"= 2;
       # "hwmon-path"= "/sys/class/hwmon/hwmon2/temp1_input";
-      "critical-threshold" = 80;
+      critical-threshold = 80;
       # "format-critical"= "{temperatureC}°C {icon}";
-      "format" = "{temperatureC}°C {icon}";
-      "format-icons" = [
+      format = "{temperatureC}°C {icon}";
+      format-icons = [
         "󰉬"
         ""
         "󰉪"
       ];
     };
-    "backlight" = {
+    backlight = {
       # "device"= "acpi_video1";
-      "format" = "{percent}% {icon}";
-      "format-icons" = [
+      format = "{percent}% {icon}";
+      format-icons = [
         ""
         ""
         ""
@@ -141,20 +141,20 @@
         ""
       ];
     };
-    "battery" = {
-      "states" = {
+    battery = {
+      states = {
         # "good"= 95;
-        "warning" = 30;
-        "critical" = 15;
+        warning = 30;
+        critical = 15;
       };
-      "format" = "{capacity}% {icon}";
-      "format-full" = "{capacity}% {icon}";
-      "format-charging" = "{capacity}% 󰃨";
-      "format-plugged" = "{capacity}% ";
-      "format-alt" = "{time} {icon}";
+      format = "{capacity}% {icon}";
+      format-full = "{capacity}% {icon}";
+      format-charging = "{capacity}% 󰃨";
+      format-plugged = "{capacity}% ";
+      format-alt = "{time} {icon}";
       # "format-good"= ""; # An empty format will hide the module
       # "format-full"= "";
-      "format-icons" = [
+      format-icons = [
         ""
         ""
         ""
@@ -162,73 +162,72 @@
         ""
       ];
     };
-    "power-profiles-daemon" = {
-      "format" = "{icon}";
-      "tooltip-format" =
-        "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}";
-      "tooltip" = true;
-      "format-icons" = {
-        "default" = "";
-        "performance" = "";
-        "balanced" = "";
-        "power-saver" = "";
+    power-profiles-daemon = {
+      format = "{icon}";
+      tooltip-format = "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}";
+      tooltip = true;
+      format-icons = {
+        default = "";
+        performance = "";
+        balanced = "";
+        power-saver = "";
       };
     };
-    "network" = {
-      # "interface"= "wlp2*"; # (Optional) To force the use of this interface
-      # "format-wifi" = "{essid} ({signalStrength}%) ";
-      # "format-wifi" = "({signalStrength}%) ";
-      "format-ethernet" = "{ipaddr}/{cidr} 󰊗";
-      "tooltip-format" = "{ifname} via {gwaddr} 󰊗";
-      "format-linked" = "{ifname} (No IP) 󰊗";
-      "format-disconnected" = "Disconnected ⚠";
-      "format-alt" = "{ifname}: {ipaddr}/{cidr}";
+    network = {
+      # interface = "wlp2*"; # (Optional) To force the use of this interface
+      # format-wifi = "{essid} ({signalStrength}%) ";
+      # format-wifi = "({signalStrength}%) ";
+      format-ethernet = "{ipaddr}/{cidr} 󰊗";
+      tooltip-format = "{ifname} via {gwaddr} 󰊗";
+      format-linked = "{ifname} (No IP) 󰊗";
+      format-disconnected = "Disconnected ⚠";
+      format-alt = "{ifname}: {ipaddr}/{cidr}";
     };
-    "pulseaudio" = {
+    pulseaudio = {
       # "scroll-step"= 1; # %; can be a float
-      "format" = "{volume}% {icon} {format_source}";
-      "format-bluetooth" = "{volume}% {icon} {format_source}";
-      "format-bluetooth-muted" = "󰅶 {icon} {format_source}";
-      "format-muted" = "󰅶 {format_source}";
-      "format-source" = "{volume}% ";
-      "format-source-muted" = "";
-      "format-icons" = {
-        "headphone" = "";
-        "hands-free" = "";
-        "headset" = "";
-        "phone" = "";
-        "portable" = "";
-        "car" = "";
-        "default" = [
+      format = "{volume}% {icon} {format_source}";
+      format-bluetooth = "{volume}% {icon} {format_source}";
+      format-bluetooth-muted = "󰅶 {icon} {format_source}";
+      format-muted = "󰅶 {format_source}";
+      format-source = "{volume}% ";
+      format-source-muted = "";
+      format-icons = {
+        headphone = "";
+        hands-free = "";
+        headset = "";
+        phone = "";
+        portable = "";
+        car = "";
+        default = [
           ""
           ""
           ""
         ];
       };
-      "on-click" = "pavucontrol";
+      on-click = "pavucontrol";
     };
     "custom/media" = {
-      "format" = "{icon} {text}";
-      "return-type" = "json";
-      "max-length" = 40;
-      "format-icons" = {
-        "spotify" = "";
-        "default" = "🎜";
+      format = "{icon} {text}";
+      return-type = "json";
+      max-length = 40;
+      format-icons = {
+        spotify = "";
+        default = "🎜";
       };
-      "escape" = true;
-      # "exec" = "${config.xdg.configHome}/waybar/media_player.py 2> /dev/null"; # Script in resources folder
-      "exec" = "${config.xdg.configHome}/waybar/media_player.py --player spotify 2> /dev/null"; # Filter player based on name
+      escape = true;
+      # exec = "${config.xdg.configHome}/waybar/media_player.py 2> /dev/null"; # Script in resources folder
+      exec = "${config.xdg.configHome}/waybar/media_player.py --player spotify 2> /dev/null"; # Filter player based on name
     };
     "custom/power" = {
-      "format" = " ⏻ ";
-      "tooltip" = false;
-      "menu" = "on-click";
-      "menu-file" = "${config.xdg.configHome}/waybar/power_menu.xml"; # Menu file in resources folder
-      "menu-actions" = {
-        "shutdown" = "shutdown";
-        "reboot" = "reboot";
-        "suspend" = "systemctl suspend";
-        "hibernate" = "systemctl hibernate";
+      format = " ⏻ ";
+      tooltip = false;
+      menu = "on-click";
+      menu-file = "${config.xdg.configHome}/waybar/power_menu.xml"; # Menu file in resources folder
+      menu-actions = {
+        shutdown = "shutdown";
+        reboot = "reboot";
+        suspend = "systemctl suspend";
+        hibernate = "systemctl hibernate";
       };
     };
   };
