@@ -1,19 +1,21 @@
-output "DP-2" {
-    // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
-    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+output "Unknown Unknown Unknown" {
+    // unrecognized primary
     mode "2560x1440"
+    position x=0 y=0
+}
+
+output "ASUSTek COMPUTER INC ASUS PB278QV 0x0000FA11" {
+    // secondary
+    mode "1920x1080"
+    position x=2560 y=0
 }
 
 workspace "secondary" {
-    open-on-output "DP-3"
+    open-on-output "ASUSTek COMPUTER INC ASUS PB278QV 0x0000FA11"
 }
 
 workspace "chat" {
-    open-on-output "DP-3"
+    open-on-output "ASUSTek COMPUTER INC ASUS PB278QV 0x0000FA11"
 }
 
 spawn-at-startup "discord"
@@ -33,7 +35,6 @@ window-rule {
 spawn-at-startup "super-productivity"
 window-rule {
     match app-id="superproductivity"
-    // open-on-output "DP-3"
     open-on-workspace "chat"
     default-column-width { proportion 0.3; }
 }
@@ -41,7 +42,6 @@ window-rule {
 spawn-at-startup "Telegram"
 window-rule {
     match app-id="org.telegram.desktop"
-    // open-on-output "DP-3"
     open-on-workspace "chat"
     default-column-width { proportion 0.3; }
 }
@@ -49,7 +49,6 @@ window-rule {
 spawn-at-startup "signal-desktop" "--password-store=kwallet6"
 window-rule {
     match app-id="signal"
-    // open-on-output "DP-3"
     open-on-workspace "chat"
     default-column-width { proportion 0.3; }
 }
