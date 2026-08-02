@@ -5,17 +5,23 @@ output "Unknown Unknown Unknown" {
 }
 
 output "ASUSTek COMPUTER INC ASUS PB278QV 0x0000FA11" {
+    // recognized primary
+    mode "2560x1440"
+    position x=0 y=0
+}
+
+output "Ancor Communications Inc ASUS VP239 G8LMTJ021373" {
     // secondary
     mode "1920x1080"
     position x=2560 y=0
 }
 
 workspace "secondary" {
-    open-on-output "ASUSTek COMPUTER INC ASUS PB278QV 0x0000FA11"
+    open-on-output "Ancor Communications Inc ASUS VP239 G8LMTJ021373"
 }
 
 workspace "chat" {
-    open-on-output "ASUSTek COMPUTER INC ASUS PB278QV 0x0000FA11"
+    open-on-output "Ancor Communications Inc ASUS VP239 G8LMTJ021373"
 }
 
 spawn-at-startup "discord"
