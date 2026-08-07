@@ -29,7 +29,7 @@
     # BASE-GUI
     libgnomekbd
     winetricks
-    wine
+    wineWow64Packages.stable
 
     # GAMES
     mupen64plus

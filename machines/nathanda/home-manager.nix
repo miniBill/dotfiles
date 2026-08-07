@@ -32,7 +32,7 @@
     x11vnc
     # Wine
     winetricks
-    wine
+    wineWow64Packages.stable
     # Multimedia
     ardour
     carla
