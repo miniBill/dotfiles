@@ -40,7 +40,6 @@
     mediainfo
     timidity
     vmpk
-    # (callPackage ../../programs/jack_mixer.nix { })
 
     # DEV
     arduino
