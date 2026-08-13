@@ -136,7 +136,7 @@ in
       "emilywelbers.com" = standardListen {
         serverAliases = [ "www.emilywelbers.com" ];
         root = "/var/www/emilywelbers.com";
-        locations."/shop".return = "301 https://shop.emilywelbers.com";
+        locations."/shop$".return = "301 https://shop.emilywelbers.com";
       };
 
       "shop.emilywelbers.com" = standardListen {
