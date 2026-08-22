@@ -128,6 +128,10 @@ in
       #   locations."/".proxyPass = "http://127.0.0.1:8080/";
       # };
 
+      "quattrosi.taglialegne.it" = standardListen {
+        locations."/".proxyPass = "http://localhost:3001/";
+      };
+
       "secretdemoclub.com" = standardListen {
         serverAliases = [ "www.secretdemoclub.com" ];
         locations."/".proxyPass = "http://localhost:3000/";
