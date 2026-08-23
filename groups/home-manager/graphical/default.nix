@@ -198,6 +198,7 @@ in
     file = {
       # Always allow moving output devices in pavucontrol
       ".alsoftrc".source = ./files/alsoftrc;
+      ".XCompose".source = ./files/XCompose;
     };
 
     language.base = "en_IE.UTF-8";
