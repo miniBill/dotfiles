@@ -5,18 +5,6 @@
 }:
 
 {
-  systemd.services.quattrosi = {
-    enable = true;
-    after = [ "network.target" ];
-    wantedBy = [ "default.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.nodejs}/bin/node dist-server/server.mjs";
-      WorkingDirectory = "/home/quattrosi/quattrosi";
-      User = "quattrosi";
-      Group = "quattrosi";
-    };
-  };
-
   services.nginx.virtualHosts."quattrosi.taglialegne.it" = {
     forceSSL = true;
     enableACME = true;
@@ -37,6 +25,7 @@
   users = {
     users.quattrosi = {
       isNormalUser = true;
+      linger = true;
       shell = pkgs.zsh;
       group = "quattrosi";
       createHome = true;

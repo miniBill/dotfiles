@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  home-manager,
   ...
 }:
 let
@@ -17,6 +18,14 @@ in
     ../../groups/machines/server.nix
     ./secretdemoclub.nix
     ./quattrosi.nix
+
+    home-manager.nixosModules.home-manager
+    {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      # home-manager.extraSpecialArgs = { inherit inputs; };
+      home-manager.users.quattrosi = ./quattrosi-home.nix;
+    }
   ];
 
   boot.loader.grub = {
