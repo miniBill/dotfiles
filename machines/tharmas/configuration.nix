@@ -16,6 +16,7 @@ in
     ../../groups/machines/common.nix
     ../../groups/machines/server.nix
     ./secretdemoclub.nix
+    ./quattrosi.nix
   ];
 
   boot.loader.grub = {
