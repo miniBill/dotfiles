@@ -105,5 +105,10 @@ in
     xwayland-satellite # xwayland support
     brightnessctl # Screen brightness
     networkmanagerapplet # WiFi
+
+    # Persistent clipboard
+    wl-clipboard
+    cliphist
+    wl-clip-persist
   ];
 }

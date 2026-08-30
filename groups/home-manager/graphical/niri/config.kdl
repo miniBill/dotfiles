@@ -219,6 +219,10 @@ spawn-at-startup "easyeffects" "-w" // -w hides the window
 
 spawn-at-startup "wpaperd" "-d"
 
+spawn-at-startup "wl-clip-persist" "--clipboard" "both"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
 // Put wpaperd inside the overview backdrop.
 layer-rule {
     match namespace="^wpaperd"
