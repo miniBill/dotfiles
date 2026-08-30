@@ -36,4 +36,6 @@ in
 
   "secretdemoclub.toml.age".publicKeys = [ uriel ] ++ servers;
   # "outline-email.age".publicKeys = [ uriel ] ++ servers;
+
+  "nut-password.age".publicKeys = [ uriel ];
 }
